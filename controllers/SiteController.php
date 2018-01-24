@@ -77,8 +77,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex($monto=0)
-    {
+    public function actionIndex($monto=0){
 
         if($monto<0){
          $monto = $monto * -1;   
