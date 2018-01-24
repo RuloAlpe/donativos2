@@ -1,0 +1,13 @@
+body{
+    background-color: #f1f4f5;
+}
+
+.ajax-container{
+    min-height: 15px;
+}
+
+.row-detail{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+}
