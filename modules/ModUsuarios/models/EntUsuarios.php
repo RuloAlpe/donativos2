@@ -81,7 +81,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 						'required',
 						'on' => 'registerInput' 
 				],
-				[ 
+				/*[ 
 						[ 
 								'password'
 						],
@@ -94,7 +94,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 						'special'=>2,
 						'hasUser'=>false,
 						
-				],
+				],*/
 				[ 
 						[ 
 								'password',
