@@ -22,7 +22,7 @@ $this->registerJsFile(
               <span class="currency">$</span>
               <span class="cantidad">100</span>
               <span class="moneda">mxn</span></div>
-            <a  class="btn btn-default btn-donativo js-select-amount"  data-value="100">Realizar Donativo</a>
+            <a href="<?= Url::base()?>/sign-up?monto=100" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="100">Realizar Donativo</a>
           </div>
           <div class="tarjeta">
             <div class="header">Donar</div>
@@ -30,7 +30,7 @@ $this->registerJsFile(
               <span class="currency">$</span>
               <span class="cantidad">200</span>
               <span class="moneda">mxn</span></div>
-            <a href="<?= Url::base()?>/login?monto=200" class="btn btn-default btn-donativo js-select-amount"  data-value="200">Realizar Donativo</a>
+            <a href="<?= Url::base()?>/sign-up?monto=200" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="200">Realizar Donativo</a>
           </div>
           <div class="tarjeta">
             <div class="header">Donar</div>
@@ -38,7 +38,7 @@ $this->registerJsFile(
               <span class="currency">$</span>
               <span class="cantidad">500</span>
               <span class="moneda">mxn</span></div>
-            <a   class="btn btn-default btn-donativo js-select-amount"  data-value="500">Realizar Donativo</a>
+            <a href="<?= Url::base()?>/sign-up?monto=500"  class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="500">Realizar Donativo</a>
           </div>
           <div class="tarjeta">
             <div class="header">Donar</div>
@@ -46,7 +46,7 @@ $this->registerJsFile(
               <span class="currency">$</span>
               <span class="cantidad">900</span>
               <span class="moneda">mxn</span></div>
-            <a   class="btn btn-default btn-donativo js-select-amount"  data-value="900">Realizar Donativo</a>
+            <a href="<?= Url::base()?>/sign-up?monto=900" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="900">Realizar Donativo</a>
           </div>
         </div>
         <div class="custom-amount-wrapper">
@@ -55,14 +55,10 @@ $this->registerJsFile(
             <div class="header">Donar</div>
             <div class="monto">
               <span class="currency">$</span>
-              <?php $form = ActiveForm::begin(); ?>
-
-                <input class="js-add" type="text" placeholder="100.00">
-
-                
+              <input class="js-add ingreso_monto" type="text" placeholder="100.00">
               <span class="moneda">mxn</span>
             </div>
-            <a href="" class="btn btn-default btn-donativo submit-btn">Realizar Donativo</a>
+            <a class="btn btn-default btn_nuevo_monto">Realizar Donativo</a>
           </div>
 
         </div>

@@ -18,14 +18,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'txt_apellido_materno')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'txt_email')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true]) ?>
     
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
     
     <?= $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

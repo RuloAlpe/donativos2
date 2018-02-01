@@ -98,7 +98,7 @@ class SiteController extends Controller
             return $this->redirect(['forma-pago', 'token'=>$ordenCompra->txt_order_number]);
         }*/    
 
-    return $this->render('index'/*, ['ordenCompra'=>$ordenCompra]*/);
+        return $this->render('index'/*, ['ordenCompra'=>$ordenCompra]*/);
     }
 
     public function actionMisBoletos(){

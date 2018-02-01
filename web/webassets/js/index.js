@@ -4,27 +4,27 @@ var amount = null;
 var botonEnviar = null;
 
 $(document).ready(function(){
-    botonesAmount = $(".js-select-amount");
+    //botonesAmount = $(".js-select-amount");
     otraCantidad = $(".js-add");
-    amount = $("#entordenescompras-num_total");
-    botonEnviar = $(".submit-btn");
+    //amount = $("#entordenescompras-num_total");
+    botonEnviar = $(".btn_nuevo_monto");
 
     botonEnviar.on("click", function(e){
-        e.preventDefault();
-        $("form").submit();
+        monto = $(".ingreso_monto").val();
+        window.location.href = baseUrl+"sign-up?monto="+monto;
     })
 
-    otraCantidad.on("change", function(e){
+    /*otraCantidad.on("change", function(e){
         removerActivar();
         amount.val(otraCantidad.val());
-    });
+    });*/
 
     // Al campo de texto número validara solo numeros
 	otraCantidad.keydown(function (e) {
 		validarSoloNumeros(e);
 	})
 
-    botonesAmount.on("click", function(e){
+    /*botonesAmount.on("click", function(e){
         e.preventDefault();
         var elemento = $(this);
         removerActivar()
@@ -32,7 +32,7 @@ $(document).ready(function(){
         var cantidad = $(this).data("value");
         amount.val(cantidad);
         $("form").submit();
-    });
+    });*/
 
 
 });
