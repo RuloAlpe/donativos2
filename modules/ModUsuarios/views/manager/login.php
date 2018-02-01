@@ -131,4 +131,6 @@ window.fbAsyncInit = function() {
 				onClick="logInWithFacebook()" scope="<?= Yii::$app->params['modUsuarios']['facebook']['permisos'] ?>">
 		<i class="ion ion-social-facebook"></i><span>Iniciar Sesión con facebook</span>
 	</a>
+    
+	<div class="empresas-participantes"></div>
 </div>			
