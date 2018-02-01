@@ -69,5 +69,5 @@ $this->registerJsFile(
         </div>
       </div>
     </div>
-    <footer class="not-absolute"><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo donado por 2 Geeks one Monkey</a></footer>
+    <footer class="not-absolute"><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo por 2 Geeks one Monkey</a></footer>
   </section> 

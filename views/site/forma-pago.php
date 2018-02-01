@@ -25,7 +25,7 @@ $this->registerJsFile(
 ?>
 
 <section class="donativos-wrapper">
-<a href="<?=Url::base()?>/site/mis-boletos" class="btn btn-success btn-boletos">Mis Boletos</a>
+<a href="<?=Url::base()?>/site/mis-boletos" class="btn btn-success btn-boletos">Mis donaciones</a>
   <div class="container container-column container-full">
     <div class="tipos-de-pago-content">
       <h3>Selecciona un tipo de pago</h3>
