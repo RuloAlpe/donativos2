@@ -32,22 +32,26 @@ class ManagerController extends Controller {
 		$model->password = $utils->generateBoleto();
 		$model->repeatPassword = $model->password;
 		
-		if ($model->load ( Yii::$app->request->post () )) {
-			
+		if ($model->load ( Yii::$app->request->post () )){ 
+			$pass = $_POST["EntUsuarios"]["password"];
 			if($user = $model->signup()){
 
 				if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
 					
 					// Parametros para el email
-					$parametrosEmail ['url'] = Yii::$app->urlManager->createAbsoluteUrl ( [ 
-							'site/ingresar?token=' . $user->txt_token 
+					$parametrosEmail ['url'] = Yii::$app->urlManager->createAbsoluteUrl([ 
+							'/site/ingresar?token=' . $user->txt_token 
 					] );
 					$parametrosEmail ['user'] = $user->getNombreCompleto ();
 					$parametrosEmail ['email'] = $user->txt_email;
-					$parametrosEmail ['password'] = $model->password;
+					$parametrosEmail ['password'] = $pass;
 					
 					// Envio de correo electronico
-					$utils->sendEmailDatosCuenta ( $user->txt_email,$parametrosEmail );
+					$utils->sendEmailIngresar ( $user->txt_email,$parametrosEmail );
+					/*$this->redirect ( [ 
+							'login' 
+					] );*/
+				}/*else {
 					
 				}
 				if(Yii::$app->getUser()->login($user)){
