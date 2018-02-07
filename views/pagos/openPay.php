@@ -23,7 +23,9 @@ $date = date("Y-m-d",$date);
     <div class="barcode">
       <h3>Para completar tu pago presenta este código de barras en cualquier establecimiento participante</h3>
       <!--<h4>Este ticket será vigente hasta el:</h4>
-      <span class="fecha">15/Oct/17</span>-->
+
+      <span class="fecha">31/Dic/18</span>-->
+
       <img src="<?=$charger->payment_method->barcode_url?>" alt="Codigo de Barras">
       <div class="num-ref"><?=$charger->payment_method->reference?></div>
       <span class="caption">En caso de que el escáner no sea capaz de leer el código de barras, escribir la referencia tal como se muestra.</span>
