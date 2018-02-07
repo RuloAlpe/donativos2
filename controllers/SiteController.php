@@ -38,10 +38,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'index', 'mis-boletos', 'forma-pago'],
+                'only' => ['logout', 'mis-boletos', 'forma-pago'],
                 'rules' => [
                     [
-                        'actions' => ['logout', 'index', 'mis-boletos', 'forma-pago'],
+                        'actions' => ['logout', 'mis-boletos', 'forma-pago'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -83,7 +83,7 @@ class SiteController extends Controller
          $monto = $monto * -1;   
         }
 
-        $idUsuario = Yii::$app->user->identity->id_usuario;
+        /*$idUsuario = Yii::$app->user->identity->id_usuario;
         $ordenCompra = new EntOrdenesCompras();
         $ordenCompra->num_total = $monto;
         $ordenCompra->txt_order_number = Utils::generateToken("oc_");
@@ -96,11 +96,9 @@ class SiteController extends Controller
             
 
             return $this->redirect(['forma-pago', 'token'=>$ordenCompra->txt_order_number]);
-        }    
+        }*/    
 
-        
-
-        return $this->render('index', ['ordenCompra'=>$ordenCompra]);
+        return $this->render('index'/*, ['ordenCompra'=>$ordenCompra]*/);
     }
 
     public function actionMisBoletos(){

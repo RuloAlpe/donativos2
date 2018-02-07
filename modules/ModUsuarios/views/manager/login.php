@@ -124,8 +124,6 @@ window.fbAsyncInit = function() {
 
 </script>
 
-<?php 
-} ?>
 <div class="login-content">
 	<a type="button" class="btn btn-fb"
 				onClick="logInWithFacebook()" scope="<?= Yii::$app->params['modUsuarios']['facebook']['permisos'] ?>">
@@ -133,4 +131,12 @@ window.fbAsyncInit = function() {
 	</a>
     
 	<div class="empresas-participantes"></div>
-</div>			
+</div>
+
+<?php 
+} ?>
+
+<div class="login-content">	
+	
+	<div class="empresas-participantes"></div>
+</div>

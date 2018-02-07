@@ -10,7 +10,14 @@ $(document).ready(function(){
         enviarInformacion(token, tokenOc, tipo);
     });
 
-    
+    $(".js-btn-pago-tarjeta").on("click", function(){
+        var token = $(this).data("token");
+        var tokenOc = $(this).data("tokenoc");
+        var tipo = $(this).data("value");
+        // abrirModal();
+        // colocarProgressBar();
+        enviarInformacionTarjeta(token, tokenOc, tipo);
+    });
 
 });
 
