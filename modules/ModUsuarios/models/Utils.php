@@ -38,6 +38,18 @@ class Utils {
 	
 		return $date;
 	}
+
+	/**
+	 * Envia el correo electronico para la activiación de la cuenta
+	 *
+	 * @param array $parametrosEmail
+	 * @return boolean        	
+	 */
+	public function sendEmailDatosCuenta($email,$parametrosEmail) {
+		
+		// Envia el correo electronico
+		return $this->sendEmail ( '@app/modules/ModUsuarios/email/datosCuenta', '@app/modules/ModUsuarios/email/layouts/text', Yii::$app->params ['modUsuarios'] ['email'] ['emailActivacion'],$email, "Datos del usuario", $parametrosEmail );
+	}
 	
 	/**
 	 * Envia el correo electronico para la activiación de la cuenta

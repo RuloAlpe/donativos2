@@ -38,10 +38,6 @@ class ManagerController extends Controller {
 
 				if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
 					
-					$activacion = new EntUsuariosActivacion ();
-					$activacion->saveUsuarioActivacion ( $user->id_usuario );
-					
-					
 					// Parametros para el email
 					$parametrosEmail ['url'] = Yii::$app->urlManager->createAbsoluteUrl([ 
 							'/site/ingresar?token=' . $user->txt_token 
@@ -57,10 +53,7 @@ class ManagerController extends Controller {
 					] );*/
 				}/*else {
 					
-					if (Yii::$app->getUser ()->login ( $user )) {
-						return $this->goHome ();
-					}
-				}*/
+				}
 				if(Yii::$app->getUser()->login($user)){
 					$idUsuario = $user->id_usuario;
 					$ordenCompra = new EntOrdenesCompras();
