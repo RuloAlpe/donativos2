@@ -33,7 +33,7 @@ class ManagerController extends Controller {
 		$model->repeatPassword = $model->password;
 		
 		if ($model->load ( Yii::$app->request->post () )){
-			$pass = $_POST["EntUsuarios"]["password"];
+			
 			if($user = $model->signup()){
 
 				if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
@@ -44,7 +44,7 @@ class ManagerController extends Controller {
 					] );
 					$parametrosEmail ['user'] = $user->getNombreCompleto ();
 					$parametrosEmail ['email'] = $user->txt_email;
-					$parametrosEmail ['password'] = $pass;
+					$parametrosEmail ['password'] = $model->repeatPassword;
 					
 					// Envio de correo electronico
 					$utils->sendEmailIngresar ( $user->txt_email,$parametrosEmail );
