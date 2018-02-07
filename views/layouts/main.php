@@ -27,9 +27,11 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
+<section class="donativos-wrapper">
+<a href="<?=Url::base()?>/site/mis-boletos" class="btn btn-success btn-boletos">Mis donaciones</a>
         <?= $content ?>
-    
+        <footer class="not-absolute"><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo por 2 Geeks one Monkey</a></footer>
+  </section> 
 
 <?php $this->endBody() ?>
 </body>
