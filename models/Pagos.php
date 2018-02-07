@@ -112,6 +112,10 @@ class Pagos {
 	}
 
 	public static function generarPlan(){
+		$this->alias = Yii::getAlias ( '@app' ) . '/vendor/openpay';
+		
+		require ($this->alias . DIRECTORY_SEPARATOR . 'Openpay.php');
+		
 		$openpay = \Openpay::getInstance ( self::API_OPEN_PAY, self::API_OPEN_PAY_SECRET );
 
 		$planDataRequest = [
