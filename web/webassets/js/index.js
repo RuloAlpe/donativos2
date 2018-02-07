@@ -11,7 +11,12 @@ $(document).ready(function(){
 
     botonEnviar.on("click", function(e){
         monto = $(".ingreso_monto").val();
-        window.location.href = baseUrl+"sign-up?monto="+monto;
+        log = $(".ingreso_monto").data("log");
+        if(log == "0"){
+            window.location.href = baseUrl+"sign-up?monto="+monto;
+        }else{
+            window.location.href = baseUrl+"site/guardar-orden?monto="+monto;            
+        }
     })
 
     /*otraCantidad.on("change", function(e){

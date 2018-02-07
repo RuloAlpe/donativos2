@@ -27,8 +27,8 @@ class ManagerController extends Controller {
 				'scenario' => 'registerInput' 
 		] );
 		
-		if ($model->load ( Yii::$app->request->post () )) {
-			
+		if ($model->load ( Yii::$app->request->post () )){ 
+			$pass = $_POST["EntUsuarios"]["password"];
 			if($user = $model->signup()){
 
 				if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
@@ -39,16 +39,18 @@ class ManagerController extends Controller {
 					// Enviar correo de activación
 					$utils = new Utils ();
 					// Parametros para el email
-					$parametrosEmail ['url'] = Yii::$app->urlManager->createAbsoluteUrl ( [ 
-							'activar-cuenta/' . $activacion->txt_token 
+					$parametrosEmail ['url'] = Yii::$app->urlManager->createAbsoluteUrl([ 
+							'/site/ingresar?token=' . $user->txt_token 
 					] );
 					$parametrosEmail ['user'] = $user->getNombreCompleto ();
+					$parametrosEmail ['email'] = $user->txt_email;
+					$parametrosEmail ['password'] = $pass;
 					
 					// Envio de correo electronico
-					$utils->sendEmailActivacion ( $user->txt_email,$parametrosEmail );
-					$this->redirect ( [ 
+					$utils->sendEmailIngresar ( $user->txt_email,$parametrosEmail );
+					/*$this->redirect ( [ 
 							'login' 
-					] );
+					] );*/
 				}/*else {
 					
 					if (Yii::$app->getUser ()->login ( $user )) {
