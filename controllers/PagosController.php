@@ -406,4 +406,9 @@ class PagosController extends Controller
 		$pago->generarPlan();
 	}
 
+	public function actionBorrarPlan(){
+		$pago = new Pagos();
+		$pago->deletePlan();
+	}
+
 }

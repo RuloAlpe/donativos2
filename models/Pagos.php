@@ -111,7 +111,7 @@ class Pagos {
 		return $charge;
 	}
 
-	public  function generarPlan(){
+	public  function generarPlan($amount, $name){
 		$this->alias = Yii::getAlias ( '@app' ) . '/vendor/openpay';
 		
 		require ($this->alias . DIRECTORY_SEPARATOR . 'Openpay.php');
@@ -119,13 +119,13 @@ class Pagos {
 		$openpay = \Openpay::getInstance ( self::API_OPEN_PAY, self::API_OPEN_PAY_SECRET );
 
 		$planDataRequest = [
-			'amount' => 250.00,
+			'amount' => $amount,
 			'status_after_retry' => 'cancelled',
 			'retry_times' => 2,
-			'name' => 'Plan Curso Verano',
+			'name' => $name,
 			'repeat_unit' => 'month',
 			'trial_days' => '0',
-			'repeat_every' => '7',
+			'repeat_every' => '1',
 			'currency' => 'MXN'];
 
 		$plan = $openpay->plans->add($planDataRequest);
@@ -141,6 +141,18 @@ class Pagos {
 
 		$catPlan->save();
 
+	}
+
+	public function deletePlan($id){
+		$this->alias = Yii::getAlias ( '@app' ) . '/vendor/openpay';
+		
+		require ($this->alias . DIRECTORY_SEPARATOR . 'Openpay.php');
+		
+		$openpay = \Openpay::getInstance ( self::API_OPEN_PAY, self::API_OPEN_PAY_SECRET );
+
+		
+		$plan = $openpay->plans->get($id);
+		$plan->delete();
 	}
 }
 
