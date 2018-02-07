@@ -40,7 +40,7 @@ class ManagerController extends Controller {
 					
 					// Parametros para el email
 					$parametrosEmail ['url'] = Yii::$app->urlManager->createAbsoluteUrl ( [ 
-							'site/ingresar?token' . $user->txt_token 
+							'site/ingresar?token=' . $user->txt_token 
 					] );
 					$parametrosEmail ['user'] = $user->getNombreCompleto ();
 					$parametrosEmail ['email'] = $user->txt_email;
