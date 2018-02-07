@@ -10,8 +10,7 @@ $this->registerJsFile(
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 ?>
-<section class="donativos-wrapper">
-<a href="<?=Url::base()?>/site/mis-boletos" class="btn btn-success btn-boletos">Mis donaciones</a>
+
     <div class="container container-full">
       <div class="donativos-content">
         <h3 class="title">Elige el monto con el cual desees colaborar</h3>
@@ -64,5 +63,4 @@ $this->registerJsFile(
         </div>
       </div>
     </div>
-    <footer class="not-absolute"><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo por 2 Geeks one Monkey</a></footer>
-  </section> 
+    

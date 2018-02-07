@@ -26,6 +26,11 @@ class ManagerController extends Controller {
 		$model = new EntUsuarios ( [ 
 				'scenario' => 'registerInput' 
 		] );
+		// Enviar correo de activación
+		$utils = new Utils ();
+
+		$model->password = $utils->generateBoleto();
+		$model->repeatPassword = $model->password;
 		
 		if ($model->load ( Yii::$app->request->post () )) {
 			
@@ -36,19 +41,18 @@ class ManagerController extends Controller {
 					$activacion = new EntUsuariosActivacion ();
 					$activacion->saveUsuarioActivacion ( $user->id_usuario );
 					
-					// Enviar correo de activación
-					$utils = new Utils ();
+					
 					// Parametros para el email
 					$parametrosEmail ['url'] = Yii::$app->urlManager->createAbsoluteUrl ( [ 
 							'activar-cuenta/' . $activacion->txt_token 
 					] );
 					$parametrosEmail ['user'] = $user->getNombreCompleto ();
+					$parametrosEmail ['email'] = $user->txt_email;
+					$parametrosEmail ['password'] = $model->password;
 					
 					// Envio de correo electronico
 					$utils->sendEmailActivacion ( $user->txt_email,$parametrosEmail );
-					$this->redirect ( [ 
-							'login' 
-					] );
+					
 				}/*else {
 					
 					if (Yii::$app->getUser ()->login ( $user )) {
