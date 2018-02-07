@@ -32,7 +32,7 @@ class ManagerController extends Controller {
 		$model->password = $utils->generateBoleto();
 		$model->repeatPassword = $model->password;
 		
-		if ($model->load ( Yii::$app->request->post () )){ 
+		if ($model->load ( Yii::$app->request->post () )){
 			$pass = $_POST["EntUsuarios"]["password"];
 			if($user = $model->signup()){
 
@@ -53,7 +53,7 @@ class ManagerController extends Controller {
 					] );*/
 				}/*else {
 					
-				}
+				}*/
 				if(Yii::$app->getUser()->login($user)){
 					$idUsuario = $user->id_usuario;
 					$ordenCompra = new EntOrdenesCompras();
