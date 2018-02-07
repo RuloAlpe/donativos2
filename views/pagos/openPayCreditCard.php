@@ -1,5 +1,6 @@
 <?php 
 use yii\helpers\Url;
+use app\models\Pagos;
 ?>
 <html>
 
@@ -15,11 +16,11 @@ use yii\helpers\Url;
 
         	// credenciales para desarrollo
 
-            OpenPay.setId('mgvepau0yawr74pc5p5x');
+            OpenPay.setId('<?=Pagos::API_OPEN_PAY?>');
 
-            OpenPay.setApiKey('pk_a4208044e7e4429090c369eae2f2efb3');
+            OpenPay.setApiKey('<?=Pagos::API_OPEN_PAY_PUBLIC?>');
 
-			OpenPay.setSandboxMode(true);
+			OpenPay.setSandboxMode(<?=Pagos::API_SANDBOX?>);
 
             //Se genera el id de dispositivo
 
