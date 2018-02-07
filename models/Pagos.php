@@ -111,7 +111,7 @@ class Pagos {
 		return $charge;
 	}
 
-	public static function generarPlan(){
+	public  function generarPlan(){
 		$this->alias = Yii::getAlias ( '@app' ) . '/vendor/openpay';
 		
 		require ($this->alias . DIRECTORY_SEPARATOR . 'Openpay.php');

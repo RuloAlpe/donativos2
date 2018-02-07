@@ -402,7 +402,8 @@ class PagosController extends Controller
     }
 	
 	public function actionCrearPlanes(){
-		Pagos::generarPlan();
+		$pago = new Pagos();
+		$pago->generarPlan();
 	}
 
 }
