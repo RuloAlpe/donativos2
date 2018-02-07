@@ -4,45 +4,14 @@ $(document).ready(function(){
     $(".js-btn-pago").on("click", function(){
         var token = $(this).data("token");
         var tokenOc = $(this).data("tokenoc");
-        var tipo = $(this).data("value");
+		var tipo = $(this).data("value");
+		var tarjeta = $(this).data("tarjeta");
         // abrirModal();
         // colocarProgressBar();
-        enviarInformacion(token, tokenOc, tipo);
+        enviarInformacion(token, tokenOc, tipo, tarjeta);
     });
 
-    $(".js-btn-pago-tarjeta").on("click", function(){
-		
-		var l = Ladda.create(this);
-	 	l.start();
-		
-		var form = $("#tipo-pago");
-		var data = form.serialize();
-		var url = '/global-judging/mexico/community/payments/updateOrdenCompra/t/oc_731a06432268b056c17cb7e6980529fb5a7b262369df1/idToken/con_0d3e5f203a8a868ca2138b890e43899758ab7b2b46494/creditCard/1';
-		$.ajax({
-			url: url,
-			data:data,
-			type:"POST",
-			dataType:"html",
-			success:function(response){
-				// cerrarMensajeConfirmacion();
-				$('.dgom-ui-opayFormTarjeta-wrapper').html(response);
-				l.stop();
-			},
-			error:function(xhr, textStatus, error){
-				//alert("Error");
-			},
-			statusCode: {
-			    404: function() {
-			      //alert( "page not found" );
-			    },
-			    500:function(){
-				    //alert("Ocurrio un problema al intentar guardar");
-				}
-			 }
-		});
-		
-		
-	});
+    
 
 });
 
@@ -58,9 +27,9 @@ function colocarRespuesta(res){
     contenedorAjax.html(res);
 }
 
-function enviarInformacion(token , tokenOc, tipo){
+function enviarInformacion(token , tokenOc, tipo, tarjeta){
     $.ajax({
-        url: baseUrl+"/pagos/generar-orden-compra?token="+tokenOc,
+        url: baseUrl+"/pagos/generar-orden-compra?token="+tokenOc+"&tc="+tarjeta,
         type: "POST",
         data:{
             formaPago: token

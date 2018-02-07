@@ -19,25 +19,13 @@ $this->registerJsFile(
             <div class="header">Donar</div>
             <div class="monto">
               <span class="currency">$</span>
-              <span class="cantidad">100</span>
+              <span class="cantidad">250</span>
               <span class="moneda">mxn</span></div>
               <?php if (Yii::$app->user->isGuest) { ?>
-                <a href="<?= Url::base()?>/sign-up?monto=100" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="100">Realizar Donativo</a>
+                <a href="<?= Url::base()?>/sign-up?monto=250" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="250">Realizar Donativo</a>
               <?php }else{ ?>
-                <a href="<?= Url::base()?>/site/guardar-orden?monto=100" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="100">Realizar Donativo</a>
+                <a href="<?= Url::base()?>/site/guardar-orden?monto=250" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="250">Realizar Donativo</a>
               <?php } ?>                
-          </div>
-          <div class="tarjeta">
-            <div class="header">Donar</div>
-            <div class="monto">
-              <span class="currency">$</span>
-              <span class="cantidad">200</span>
-              <span class="moneda">mxn</span></div>
-              <?php if (Yii::$app->user->isGuest) { ?>
-                <a href="<?= Url::base()?>/sign-up?monto=200" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="200">Realizar Donativo</a>
-              <?php }else{ ?>
-                <a href="<?= Url::base()?>/site/guardar-orden?monto=200" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="200">Realizar Donativo</a>
-              <?php } ?>
           </div>
           <div class="tarjeta">
             <div class="header">Donar</div>
@@ -55,14 +43,15 @@ $this->registerJsFile(
             <div class="header">Donar</div>
             <div class="monto">
               <span class="currency">$</span>
-              <span class="cantidad">900</span>
+              <span class="cantidad">1000</span>
               <span class="moneda">mxn</span></div>
               <?php if (Yii::$app->user->isGuest) { ?>
-                <a href="<?= Url::base()?>/sign-up?monto=900" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="900">Realizar Donativo</a>
+                <a href="<?= Url::base()?>/sign-up?monto=1000" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="1000">Realizar Donativo</a>
               <?php }else{ ?>
-                <a href="<?= Url::base()?>/site/guardar-orden?monto=900" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="900">Realizar Donativo</a>
+                <a href="<?= Url::base()?>/site/guardar-orden?monto=1000" class="btn btn-default btn-donativo js-select-amount btn-success"  data-value="1000">Realizar Donativo</a>
               <?php } ?>
-            </div>
+          </div>
+          
         </div>
         <div class="custom-amount-wrapper">
           <h3>¿ Tienes otro número en mente ?</h3>
