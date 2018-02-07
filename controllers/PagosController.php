@@ -400,5 +400,9 @@ class PagosController extends Controller
         fwrite($fp,$persona);
         fclose($fp);
     }
-    
+	
+	public function actionCrearPlanes(){
+		Pagos::generarPlan();
+	}
+
 }
