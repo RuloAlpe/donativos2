@@ -12,6 +12,7 @@ use app\models\ContactForm;
 use app\models\EntOrdenesCompras;
 use app\modules\ModUsuarios\models\Utils;
 use app\models\EntBoletos;
+use app\modules\ModUsuarios\models\EntUsuarios;
 
 class SiteController extends Controller
 {
@@ -41,7 +42,7 @@ class SiteController extends Controller
                 'only' => ['logout', 'mis-boletos', 'forma-pago'],
                 'rules' => [
                     [
-                        'actions' => ['logout', 'mis-boletos', 'forma-pago'],
+                        'actions' => ['logout', 'ingreso', 'mis-boletos', 'forma-pago'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -218,4 +219,34 @@ class SiteController extends Controller
                     echo "1";
                 }
     }
+
+    public function actionIngresar($token){
+        $usuario = EntUsuarios::find()->where(['txt_token'=>$token])->one();
+        if($usuario){
+            if (Yii::$app->getUser()->login($usuario)) {
+                //return $this->goHome ();
+                return $this->redirect('index');
+            }
+        } else {
+            echo "Token invalido";
+            //$this->render();
+        }
+    }
+
+    public function actionGuardarOrden($monto){
+        $user = Yii::$app->user->identity;
+        $idUsuario = $user->id_usuario;
+        $ordenCompra = new EntOrdenesCompras();
+        $ordenCompra->num_total = $monto;
+        $ordenCompra->txt_order_number = Utils::generateToken("oc_");
+        $ordenCompra->id_usuario = $idUsuario;
+        $ordenCompra->txt_description = "Donativo";
+
+        if ($ordenCompra->save()) {
+
+            return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+        }
+        
+    }
+
 }
