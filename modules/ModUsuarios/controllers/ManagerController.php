@@ -49,11 +49,23 @@ class ManagerController extends Controller {
 		
 		if ($model->load ( Yii::$app->request->post () )){
 
-			$usuarioExiste = EntUsuarios::find()->where(['txt_email'=>$model->txt_email])->one();
+			$usuarioExiste = EntUsuarios::find()->where(['txt_email'=>$model->email])->one();
+			
 			if($usuarioExiste){
+				
 				if (Yii::$app->getUser()->login($usuarioExiste)) {
-					//return $this->goHome ();
-					return $this->redirect(['//siteindex']);
+					$ordenCompra = new EntOrdenesCompras();
+					$ordenCompra->num_total = $monto;
+					$ordenCompra->txt_order_number = Utils::generateToken("oc_");
+					$ordenCompra->id_usuario = $usuarioExiste->id_usuario;
+					$ordenCompra->txt_description = "Donativo";
+					$ordenCompra->id_plan = $idPlan;
+					$ordenCompra->b_subscripcion = $isSubscripcion;
+
+					if ($ordenCompra->save()) {
+
+						return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+					}
 				}
 			}
 			
@@ -196,6 +208,8 @@ class ManagerController extends Controller {
 	 * Loguea al usuario
 	 */
 	public function actionLogin() {
+
+		return $this->goHome ();
 		$this->layout = "@app/views/layouts/mainNoHeader";
 		
 		if (! Yii::$app->user->isGuest && $monto != 0) {
