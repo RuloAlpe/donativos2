@@ -11,6 +11,8 @@ use app\modules\ModUsuarios\models\Utils;
 use app\modules\ModUsuarios\models\EntUsuariosActivacion;
 use app\modules\ModUsuarios\models\EntUsuariosCambioPass;
 use app\modules\ModUsuarios\models\EntUsuariosFacebook;
+use app\models\EntOrdenesCompras;
+use yii\helpers\Url;
 
 /**
  * Default controller for the `musuarios` module
@@ -20,44 +22,54 @@ class ManagerController extends Controller {
 	/**
 	 * Registrar usuario en la base de datos
 	 */
-	public function actionSignUp() {
-		
+	public function actionSignUp($monto = 0) {
 		$model = new EntUsuarios ( [ 
 				'scenario' => 'registerInput' 
 		] );
+		// Enviar correo de activación
+		$utils = new Utils ();
+
+		$model->password = $utils->generateBoleto();
+		$model->repeatPassword = $model->password;
 		
-		if ($model->load ( Yii::$app->request->post () )) {
+		if ($model->load ( Yii::$app->request->post () )){
 			
-			if ($user = $model->signup ()) {
-				
+			if($user = $model->signup()){
+
 				if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
 					
-					$activacion = new EntUsuariosActivacion ();
-					$activacion->saveUsuarioActivacion ( $user->id_usuario );
-					
-					// Enviar correo de activación
-					$utils = new Utils ();
 					// Parametros para el email
-					$parametrosEmail ['url'] = Yii::$app->urlManager->createAbsoluteUrl ( [ 
-							'activar-cuenta/' . $activacion->txt_token 
+					$parametrosEmail ['url'] = Yii::$app->urlManager->createAbsoluteUrl([ 
+							'/site/ingresar?token=' . $user->txt_token 
 					] );
 					$parametrosEmail ['user'] = $user->getNombreCompleto ();
+					$parametrosEmail ['email'] = $user->txt_email;
+					$parametrosEmail ['password'] = $model->repeatPassword;
 					
 					// Envio de correo electronico
-					$utils->sendEmailActivacion ( $user->txt_email,$parametrosEmail );
-					$this->redirect ( [ 
+					$utils->sendEmailIngresar ( $user->txt_email,$parametrosEmail );
+					/*$this->redirect ( [ 
 							'login' 
-					] );
-				} else {
+					] );*/
+				}/*else {
 					
-					if (Yii::$app->getUser ()->login ( $user )) {
-						return $this->goHome ();
+				}*/
+				if(Yii::$app->getUser()->login($user)){
+					$idUsuario = $user->id_usuario;
+					$ordenCompra = new EntOrdenesCompras();
+					$ordenCompra->num_total = $monto;
+					$ordenCompra->txt_order_number = Utils::generateToken("oc_");
+					$ordenCompra->id_usuario = $idUsuario;
+					$ordenCompra->txt_description = "Donativo";
+
+					if ($ordenCompra->save()) {
+
+						return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
 					}
 				}
 			}
-			
-			// return $this->redirect(['view', 'id' => $model->id_usuario]);
 		}
+
 		return $this->render ( 'signUp', [ 
 				'model' => $model 
 		] );
@@ -157,8 +169,19 @@ class ManagerController extends Controller {
 	 */
 	public function actionLogin() {
 		$this->layout = "@app/views/layouts/mainNoHeader";
-		if (! Yii::$app->user->isGuest) {
-			return $this->goHome ();
+		
+		if (! Yii::$app->user->isGuest && $monto != 0) {
+			$idUsuario = Yii::$app->user->identity->id_usuario;
+        	$ordenCompra = new EntOrdenesCompras();
+			$ordenCompra->num_total = $monto;
+			$ordenCompra->txt_order_number = Utils::generateToken("oc_");
+			$ordenCompra->id_usuario = $idUsuario;
+			$ordenCompra->txt_description = "Donativo";
+
+			if ($ordenCompra->save()) {
+
+				return $this->redirect(['site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+			}
 		}
 		
 		$model = new LoginForm ();
@@ -167,6 +190,7 @@ class ManagerController extends Controller {
 			
 			return $this->goBack ();
 		}
+
 		return $this->render ( 'login', [ 
 				'model' => $model 
 		] );

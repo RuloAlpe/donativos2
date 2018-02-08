@@ -71,7 +71,7 @@ class PagosController extends Controller
     /**
      * Genera la orden de compra
      */
-    public function actionGenerarOrdenCompra($token=null){
+    public function actionGenerarOrdenCompra($token=null, $tc=false){
 
         if(isset($_POST['formaPago'])  ){
            
@@ -79,7 +79,7 @@ class PagosController extends Controller
             $formaPago = $this->getFormaPagoByToken($_POST['formaPago']);
             $ordenCompra->id_tipo_pago = $formaPago->id_tipo_pago;
             $ordenCompra->save();
-            return $this->vistaPago($ordenCompra);
+            return $this->vistaPago($ordenCompra, $tc);
 
         }
 
@@ -111,17 +111,26 @@ class PagosController extends Controller
 		$payPal->payPalIPN ();
 	}
 
-    private function vistaPago($ordenCompra){
+    private function vistaPago($ordenCompra, $tc=false){
         
         switch ($ordenCompra->id_tipo_pago){
 			case 1:
                 return $this->renderAjax('formPayPal', ['ordenCompra'=>$ordenCompra]);
             break;
 			case 2:
-				$ordenCompra1 = $this->crearOrdenCompra($ordenCompra);
-				//$ordenCompra2 = $this->crearOrdenCompra($ordenCompra);
+			$ordenCompra = $this->crearOrdenCompra($ordenCompra);
+				if($tc){
+					$ordenCompraTarjetaCredito = $this->crearOrdenCompra($ordenCompra);
+					return $this->renderAjax('openPayCreditCard', [
+						"description" =>  $ordenCompraTarjetaCredito->txt_description,
+						"orderId" => $ordenCompraTarjetaCredito->txt_order_number,
+						"amount" => $ordenCompraTarjetaCredito->num_total,]);
+				}else{
+					$charger =  $this->generarOrdenCompraOpenPay($ordenCompra->txt_description, $ordenCompra->txt_order_number, $ordenCompra->num_total);
+				}
+				
 
-                $charger =  $this->generarOrdenCompraOpenPay($ordenCompra1->txt_description, $ordenCompra1->txt_order_number, $ordenCompra1->num_total);
+                
                 return $this->renderAjax('openPay', ['charger'=>$charger, 'ordenCompra'=>$ordenCompra]);
             break;
 
@@ -391,5 +400,15 @@ class PagosController extends Controller
         fwrite($fp,$persona);
         fclose($fp);
     }
-    
+	
+	public function actionCrearPlanes(){
+		$pago = new Pagos();
+		$pago->generarPlan();
+	}
+
+	public function actionBorrarPlan(){
+		$pago = new Pagos();
+		$pago->deletePlan("pf6ryoaner0pz9zp7kxq");
+	}
+
 }

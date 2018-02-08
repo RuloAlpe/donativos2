@@ -5,6 +5,7 @@ use Yii;
 use app\modules\ModUsuarios\models\Utils;
 use app\models\EntOrdenesCompras;
 use app\models\EntPagosRecibidos;
+use app\models\EntBoletos;
 use app\modules\ModUsuarios\models\EntUsuarios;
 
 
