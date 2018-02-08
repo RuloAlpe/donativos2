@@ -441,24 +441,24 @@ class PagosController extends Controller
 		$pago->generarPlan();
 	}
 
-	public function actionBorrarPlan(){
+	public function actionBorrarPlan($id=null){
 		$pago = new Pagos();
-		$pago->deletePlan("pk1lju4deyzgpsbo6bef");
+		$pago->deletePlan($id);
 	}
 
-	public function actionBorrarCliente(){
+	public function actionBorrarCliente($id=null){
 		$pago = new Pagos();
-		$pago->borrarCliente("acfsghojlfgwvlnfwwnw");
+		$pago->borrarCliente($id);
 	}
 
-	public function actionBorrarTarjetaCliente(){
+	public function actionBorrarTarjetaCliente($id=null, $idt){
 		$pago = new Pagos();
-		$pago->borrarTarjeta("acfsghojlfgwvlnfwwnw", "kwl1qht4g91uydza9mim" );
+		$pago->borrarTarjeta($id, $idt );
 	}
 
-	public function actionBorrarSubscripcionCliente(){
+	public function actionBorrarSubscripcionCliente($id=null, $ids=null){
 		$pago = new Pagos();
-		$pago->borrarSubscripcion("acfsghojlfgwvlnfwwnw", "sgvyt3vimfznfd96yzhb");
+		$pago->borrarSubscripcion($id, $ids);
 	}
 
 }
