@@ -24,8 +24,6 @@ $this->registerJsFile(
 );
 ?>
 
-<section class="donativos-wrapper">
-<a href="<?=Url::base()?>/site/mis-boletos" class="btn btn-success btn-boletos">Mis Boletos</a>
   <div class="container container-column container-full">
     <div class="tipos-de-pago-content">
       <div class="open-pay">
@@ -54,8 +52,7 @@ $this->registerJsFile(
       </div>
     </div>
   </div>
-  <footer><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo donado por 2 Geeks one Monkey</a></footer>
-</section>
+  
 
 
 <div style="display:none" class="ajax-container">
