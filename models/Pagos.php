@@ -156,6 +156,7 @@ class Pagos
 		$s = new EntSubscripciones();
 		$s->id_usuario = $usuario->id_usuario;
 		$s->txt_subscipcion_open_pay = $subscription->id;
+		$s->save();
 		return $subscription;
 	}
 
