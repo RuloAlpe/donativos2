@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Url;
 ?>
-<section class="donativos-wrapper">
+
 <a href="<?=Url::base()?>" class="btn btn-success btn-boletos">Inicio</a>
     <div class="container container-column container-full">
       <div class="boletos-content">
@@ -19,8 +19,7 @@ use yii\helpers\Url;
         ?>
       </div>
     </div>
-    <footer class="not-absolute"><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo por 2 Geeks one Monkey</a></footer>
-</section>
+    
 
 
 
