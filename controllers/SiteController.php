@@ -13,8 +13,12 @@ use app\models\EntOrdenesCompras;
 use app\modules\ModUsuarios\models\Utils;
 use app\models\EntBoletos;
 use app\modules\ModUsuarios\models\EntUsuarios;
+
 use app\models\CatPlanes;
 use app\models\Pagos;
+
+use app\models\EntPagosRecibidos;
+
 
 class SiteController extends Controller
 {
@@ -41,10 +45,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'mis-boletos', 'forma-pago'],
+                'only' => ['logout', 'mis-donaciones', 'forma-pago'],
                 'rules' => [
                     [
-                        'actions' => ['logout', 'ingreso', 'mis-boletos', 'forma-pago'],
+                        'actions' => ['logout', 'ingreso', 'mis-donaciones', 'forma-pago'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -99,11 +103,11 @@ class SiteController extends Controller
         return $this->render('index' , ['planes'=>$planes]);
     }
 
-    public function actionMisBoletos(){
+    public function actionMisDonaciones(){
         $idUsuario = Yii::$app->user->identity->id_usuario;
-        $boletosUsuario = EntBoletos::find()->where(['id_usuario'=>$idUsuario])->all();
+        $boletosUsuario = EntPagosRecibidos::find()->where(['id_usuario'=>$idUsuario])->all();
         
-        return $this->render("mis-boletos", ['boletos'=>$boletosUsuario]);
+        return $this->render("mis-boletos", ['boletos'=>$boletosUsuario]);   
     }
 
     /**
