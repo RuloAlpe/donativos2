@@ -40,10 +40,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'mis-boletos', 'forma-pago'],
+                'only' => ['logout', 'mis-donaciones', 'forma-pago'],
                 'rules' => [
                     [
-                        'actions' => ['logout', 'ingreso', 'mis-boletos', 'forma-pago'],
+                        'actions' => ['logout', 'ingreso', 'mis-donaciones', 'forma-pago'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -107,7 +107,7 @@ class SiteController extends Controller
         $idUsuario = Yii::$app->user->identity->id_usuario;
         $boletosUsuario = EntPagosRecibidos::find()->where(['id_usuario'=>$idUsuario])->all();
         
-        return $this->render("mis-boletos", ['boletos'=>$boletosUsuario]);
+        return $this->render("mis-boletos", ['boletos'=>$boletosUsuario]);   
     }
 
     /**
