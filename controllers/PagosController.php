@@ -118,14 +118,16 @@ class PagosController extends Controller
                 return $this->renderAjax('formPayPal', ['ordenCompra'=>$ordenCompra]);
             break;
 			case 2:
-			$ordenCompra = $this->crearOrdenCompra($ordenCompra);
+			
 				if($tc){
 					$ordenCompraTarjetaCredito = $this->crearOrdenCompra($ordenCompra);
 					return $this->renderAjax('openPayCreditCard', [
+						"ordenCompra"=>$ordenCompraTarjetaCredito,
 						"description" =>  $ordenCompraTarjetaCredito->txt_description,
 						"orderId" => $ordenCompraTarjetaCredito->txt_order_number,
 						"amount" => $ordenCompraTarjetaCredito->num_total,]);
 				}else{
+					$ordenCompra = $this->crearOrdenCompra($ordenCompra);
 					$charger =  $this->generarOrdenCompraOpenPay($ordenCompra->txt_description, $ordenCompra->txt_order_number, $ordenCompra->num_total);
 				}
 				
@@ -150,7 +152,9 @@ class PagosController extends Controller
            $ordenCompra->fch_creacion = Utils::getFechaActual();
            $ordenCompra->b_pagado = 0;
            $ordenCompra->num_total = $ordenCompraGuardada->num_total;
-           $ordenCompra->b_habilitado = 1;
+		   $ordenCompra->b_habilitado = 1;
+		   $ordenCompra->id_plan = $ordenCompraGuardada->id_plan;
+		   $ordenCompra->b_subscripcion = $ordenCompraGuardada->b_subscripcion;
            $ordenCompra->save();
           return  $ordenCompra;
    }
@@ -219,7 +223,38 @@ class PagosController extends Controller
 			exit;
 			
 		}
-    }
+	}
+	
+	public function actionCrearSubscripcion(){
+
+		$pago = new Pagos();
+
+		if (isset ( $_POST ["token_id"] ) && $_POST ["orderId"] && $_POST['deviceIdHiddenFieldName']) {
+		
+		$ordenCompra = EntOrdenesCompras::find()->where(['txt_order_number'=>$_POST['orderId']])->one();
+		$plan = $ordenCompra->idPlan;
+
+		if (empty ( $ordenCompra )) {
+			throw new BadRequestHttpException ( 400, 'Datos requeridos.' );
+		}
+		
+		try {
+			$charge = $pago
+				->addTarjetaCliente ( $ordenCompra->txt_description, $ordenCompra->txt_order_number, $ordenCompra->num_total, $_POST ["token_id"], $_POST['deviceIdHiddenFieldName'], $plan->txt_plan_open_pay);
+			
+			echo "success";
+		} catch ( Exception $e ) {
+			
+
+			echo $e->getMessage ();
+			
+		}
+		
+		
+		exit;
+		
+	}
+}
 
     /**
 	 * Open pay hara el registro del pago en este action
@@ -408,7 +443,22 @@ class PagosController extends Controller
 
 	public function actionBorrarPlan(){
 		$pago = new Pagos();
-		$pago->deletePlan("pf6ryoaner0pz9zp7kxq");
+		$pago->deletePlan("pk1lju4deyzgpsbo6bef");
+	}
+
+	public function actionBorrarCliente(){
+		$pago = new Pagos();
+		$pago->borrarCliente("acfsghojlfgwvlnfwwnw");
+	}
+
+	public function actionBorrarTarjetaCliente(){
+		$pago = new Pagos();
+		$pago->borrarTarjeta("acfsghojlfgwvlnfwwnw", "kwl1qht4g91uydza9mim" );
+	}
+
+	public function actionBorrarSubscripcionCliente(){
+		$pago = new Pagos();
+		$pago->borrarSubscripcion("acfsghojlfgwvlnfwwnw", "sgvyt3vimfznfd96yzhb");
 	}
 
 }

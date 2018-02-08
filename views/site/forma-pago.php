@@ -33,6 +33,10 @@ $this->registerJsFile(
       <h3>Selecciona una forma de pago</h3>
       <div class="tipos-de-pago">
         <div class="pagocard">
+
+          <?php 
+          if(!$ordenCompra->b_subscripcion){
+          ?> 
           <div>
             <a data-value="2" data-tarjeta="0" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
               <img src="<?=Url::base()?>/webassets/images/shop.png" alt="Pago en establecimiento">
@@ -41,6 +45,10 @@ $this->registerJsFile(
               Pago en establecimiento
             </span>
           </div>
+          <?php
+          }
+          ?>
+
           <div>  
             <a data-value="2" data-tarjeta="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
               <img src="<?=Url::base()?>/webassets/images/creditCard.png" alt="Pago con tarjeta">

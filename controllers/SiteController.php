@@ -14,6 +14,7 @@ use app\modules\ModUsuarios\models\Utils;
 use app\models\EntBoletos;
 use app\modules\ModUsuarios\models\EntUsuarios;
 use app\models\CatPlanes;
+use app\models\Pagos;
 
 class SiteController extends Controller
 {
@@ -86,9 +87,16 @@ class SiteController extends Controller
         }
 
         $planes = CatPlanes::find()->all();
+
+        if(!$planes){
+            $p = new Pagos();
+            $p->generarPlan();
+            
+            $planes = CatPlanes::find()->all();
+        }
           
 
-        return $this->render('index'/*, ['ordenCompra'=>$ordenCompra]*/);
+        return $this->render('index' , ['planes'=>$planes]);
     }
 
     public function actionMisBoletos(){
@@ -108,7 +116,7 @@ class SiteController extends Controller
         }
 
 
-        return $this->render("forma-pago", ["tokenOc"=>$token]);
+        return $this->render("forma-pago", ["tokenOc"=>$token, 'ordenCompra'=>$existeOrdenCompra]);
 
     }
 
@@ -224,12 +232,25 @@ class SiteController extends Controller
 
     public function actionGuardarOrden($monto){
         $user = Yii::$app->user->identity;
+
+        $idPlan = null;
+		$isSubscripcion = 0;
+		//$monto = 0;
+		if(isset($_POST["plan"]) && isset($_POST["monto"])){
+			$idPlan = $_POST["plan"];
+			$isSubscripcion = isset($_POST["susbcripcion"]);
+			$monto = $_POST["monto"];
+			
+		}
+
         $idUsuario = $user->id_usuario;
         $ordenCompra = new EntOrdenesCompras();
         $ordenCompra->num_total = $monto;
         $ordenCompra->txt_order_number = Utils::generateToken("oc_");
         $ordenCompra->id_usuario = $idUsuario;
         $ordenCompra->txt_description = "Donativo";
+        $ordenCompra->id_plan = $idPlan;
+		$ordenCompra->b_subscripcion = $isSubscripcion;
 
         if ($ordenCompra->save()) {
 
