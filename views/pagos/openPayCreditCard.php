@@ -665,7 +665,7 @@ width: 100%;
 	font-weight: 400;
 
 	margin: 0;
-
+    color: black;
 	height: 80px;
 
 }
@@ -794,7 +794,7 @@ width: 100%;
 
 								style="float: right; visibility: visible !important;"
 
-								id="pay-button">Pagar</button>
+								id="pay-button">Donar</button>
 
 						</div>
 
