@@ -13,6 +13,7 @@ use app\models\EntOrdenesCompras;
 use app\modules\ModUsuarios\models\Utils;
 use app\models\EntBoletos;
 use app\modules\ModUsuarios\models\EntUsuarios;
+use app\models\CatPlanes;
 
 class SiteController extends Controller
 {
@@ -84,20 +85,8 @@ class SiteController extends Controller
          $monto = $monto * -1;   
         }
 
-        /*$idUsuario = Yii::$app->user->identity->id_usuario;
-        $ordenCompra = new EntOrdenesCompras();
-        $ordenCompra->num_total = $monto;
-        $ordenCompra->txt_order_number = Utils::generateToken("oc_");
-        $ordenCompra->id_usuario = $idUsuario;
-        $ordenCompra->txt_description = "Donativo";
-
-
-        if ($ordenCompra->load(Yii::$app->request->post()) && $ordenCompra->save()) {
-
-            
-
-            return $this->redirect(['forma-pago', 'token'=>$ordenCompra->txt_order_number]);
-        }*/    
+        $planes = CatPlanes::find()->all();
+          
 
         return $this->render('index'/*, ['ordenCompra'=>$ordenCompra]*/);
     }

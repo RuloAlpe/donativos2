@@ -9,16 +9,16 @@ class Pagos {
 	const OPEN_PAY =12;
 
 	// llaves 2gom
-	//  const API_OPEN_PAY = "mgvepau0yawr74pc5p5x";
-	//  const API_OPEN_PAY_SECRET = "sk_b1885d10781b4a05838869f02c211d48";
-	//  const API_OPEN_PAY_PUBLIC = "pk_a4208044e7e4429090c369eae2f2efb3";
-	//  const API_SANDBOX = true;
+	  const API_OPEN_PAY = "mgvepau0yawr74pc5p5x";
+	  const API_OPEN_PAY_SECRET = "sk_b1885d10781b4a05838869f02c211d48";
+	  const API_OPEN_PAY_PUBLIC = "pk_a4208044e7e4429090c369eae2f2efb3";
+	  const API_SANDBOX = true;
 
 	// LLaves cliente
-	 const API_OPEN_PAY = "mdkj2jyrw5kagur64bfk";
-	 const API_OPEN_PAY_SECRET = "sk_10fb9b0e51a54412a4df34704b626eb5";
-	 const API_OPEN_PAY_PUBLIC = "pk_be60c6e82b4842dd9103c9e2630537d4";
-	 const API_SANDBOX = true;
+	//  const API_OPEN_PAY = "mdkj2jyrw5kagur64bfk";
+	//  const API_OPEN_PAY_SECRET = "sk_10fb9b0e51a54412a4df34704b626eb5";
+	//  const API_OPEN_PAY_PUBLIC = "pk_be60c6e82b4842dd9103c9e2630537d4";
+	//  const API_SANDBOX = true;
 	
 	/**
 	 * Generar codigo para poder pagar en las tiendas
