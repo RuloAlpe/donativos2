@@ -38,6 +38,9 @@ AppAsset::register($this);
     
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <script>
+        var baseUrl = "<?=Yii::$app->urlManager->createAbsoluteUrl ( [''] )?>";
+    </script>
     <?php $this->head() ?>
 </head>
 <body>

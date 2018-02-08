@@ -66,13 +66,13 @@ use app\models\Pagos;
 
 					if(response=="success"){
 
-						alert(":)");
+						window.location.replace(baseUrl+'site/gracias');
 
 						
 
 					}else{
 
-						alert(":(");
+						alert("Hubo un problema con el pago");
 
 						$("#pay-button").prop( "disabled", false);
 
@@ -807,7 +807,8 @@ width: 100%;
 		</div>
 
 	</div>
-
+	<a class="close-modal"><i class="ion ion-close"></i></a>
 </body>
 
 </html>
+

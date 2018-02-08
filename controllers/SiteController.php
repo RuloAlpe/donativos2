@@ -249,4 +249,9 @@ class SiteController extends Controller
         
     }
 
+    public function actionGracias(){
+
+        return $this->render("gracias");
+    }
+
 }

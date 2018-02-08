@@ -12,3 +12,98 @@ body{
     border-bottom: 1px solid #dddddd;
 }
 
+.registro-container{
+    padding: 55px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.registro-container input{
+    padding-left: 10px;
+    text-align: left;
+}
+
+.registro-container input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #cac6c6;
+     /* Firefox */
+}
+
+.registro-container input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #cac6c6;
+}
+
+.registro-container input::-ms-input-placeholder { /* Microsoft Edge */
+    color:#cac6c6;
+}
+
+.help-block{
+    color:white;
+}
+
+.form-group{
+    margin-top:20px;
+}
+
+.boletos-content{
+    padding: 55px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 150px;
+}
+
+@media screen and (min-width: 480px){
+    .donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard {
+        /* width: 400px; */
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
+.pagocard div:first-child{
+    margin-right: 20px;
+} 
+
+.pagocard div{
+    cursor: pointer;
+} 
+
+
+.open-pay img{
+    width: 200px;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+}   
+
+
+.modal-ticket-op-tc {
+    position: absolute;
+    top: 2%;
+    /* left: 50%; */
+    display: block;
+    height: auto;
+    width: 800px;
+    margin-left: 0;
+    background-color: #FFF;
+    z-index: 10;
+    border-radius: 3px;
+    box-shadow: 0 16px 4px rgba(0,0,0,0.5);
+    text-align: center;
+    /* overflow: hidden; */
+    margin-bottom: 50px;
+}
+
+.modal-ticket-op-hide {
+    display: none;
+}
+
+.modal-ticket-op-tc .close-modal {
+    color: #FFF;
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    cursor: pointer;
+}

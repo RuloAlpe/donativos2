@@ -15,6 +15,20 @@ $(document).ready(function(){
 
 });
 
+
+$(document).on({
+    'click': function(){	window.print();$(".modal-ticket-op").addClass("modal-ticket-op-hide");
+    }
+}, ".print-btn");
+
+$(document).on({
+  'click': function(){
+    $(".modal-ticket-op").addClass("modal-ticket-op-hide");
+    $(".modal-ticket-op-tc").addClass("modal-ticket-op-hide");
+  }
+}, ".close-modal");
+
+
 function abrirModal(){
     
 }
@@ -40,9 +54,15 @@ function enviarInformacion(token , tokenOc, tipo, tarjeta){
                 colocarRespuesta(res);
                 $("#form-pay-pal").submit();    
             }else{
-                $(".modal-ticket-op").html(res);
+                if(!tarjeta){
+                    $(".modal-ticket-op").html(res);
+                    $(".modal-ticket-op").removeClass("modal-ticket-op-hide");
+                }else{
+                    $(".modal-ticket-op-tc").html(res);
+                    $(".modal-ticket-op-tc").removeClass("modal-ticket-op-hide");
+                }    
 
-                $(".modal-ticket-op").removeClass("modal-ticket-op-hide");
+                
                 //abrirModal();
             }
         }
