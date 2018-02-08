@@ -48,6 +48,14 @@ class ManagerController extends Controller {
 		$model->repeatPassword = $model->password;
 		
 		if ($model->load ( Yii::$app->request->post () )){
+
+			$usuarioExiste = EntUsuarios::find()->where(['txt_email'=>$model->txt_email])->one();
+			if($usuarioExiste){
+				if (Yii::$app->getUser()->login($usuarioExiste)) {
+					//return $this->goHome ();
+					return $this->redirect(['//siteindex']);
+				}
+			}
 			
 			if($user = $model->signup()){
 

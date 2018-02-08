@@ -174,7 +174,7 @@ class Pagos
 			'retry_times' => 2,
 			'name' => "Donativo 250",
 			'repeat_unit' => 'month',
-			'trial_days' => '0',
+			'trial_days' => '2018-02-08',
 			'repeat_every' => '1',
 			'currency' => 'MXN'
 		];
@@ -185,7 +185,7 @@ class Pagos
 			'retry_times' => 2,
 			'name' => "Donativo 500",
 			'repeat_unit' => 'month',
-			'trial_days' => '0',
+			'trial_days' => '2018-02-08',
 			'repeat_every' => '1',
 			'currency' => 'MXN'
 		];
@@ -196,7 +196,7 @@ class Pagos
 			'retry_times' => 2,
 			'name' => "Donativo 1000",
 			'repeat_unit' => 'month',
-			'trial_days' => '0',
+			'trial_days' => '2018-02-08',
 			'repeat_every' => '1',
 			'currency' => 'MXN'
 		];
