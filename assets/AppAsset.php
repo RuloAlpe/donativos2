@@ -20,6 +20,7 @@ class AppAsset extends AssetBundle
     public $css = [
         
         'webassets/css/styles.css',
+        'webassets/css/donativos-site.css',
         
     ];
     public $js = [

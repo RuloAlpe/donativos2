@@ -207,7 +207,8 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 				'txt_email' => 'Email',
 				'fch_creacion' => 'Fch Creacion',
 				'fch_actualizacion' => 'Fch Actualizacion',
-				'id_status' => 'Id Status' 
+				'id_status' => 'Id Status' ,
+				'repeatEmail'=>"Repetir email"
 		];
 	}
 	
