@@ -156,7 +156,8 @@ class Pagos
 
 		$subscriptionDataRequest = [
 			'plan_id' => $idPlanOpenPay,
-			'card_id' => $card->id];
+			'card_id' => $card->id,
+			'order_id'=>$orderId];
 		
 		
 		$subscription = $customer->subscriptions->add($subscriptionDataRequest);
