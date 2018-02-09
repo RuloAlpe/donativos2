@@ -134,6 +134,13 @@ class Pagos
 		
 		
 		$usuario = Yii::$app->user->identity;
+
+		if(!$usuario->txt_txt_usuario_open_pay){
+			$p = new Pagos();
+			$respuesta = $p->guardarCliente($ususuarioer->nombreCompleto, $usuario->txt_email);
+			$usuario->txt_usuario_open_pay = $respuesta->id;
+			$usuario->save();
+		}
 	
 		$customer = $openpay->customers->get($usuario->txt_usuario_open_pay);
 
