@@ -235,14 +235,15 @@ class SiteController extends Controller
     }
 
     public function actionGuardarOrden($monto){
+
         $user = Yii::$app->user->identity;
 
         $idPlan = null;
 		$isSubscripcion = 0;
 		//$monto = 0;
-		if(isset($_POST["plan"]) && isset($_POST["monto"])){
+		if(isset($_POST["plan"]) && isset($_POST["monto"]) && isset($_POST["susbcripcion"])){
 			$idPlan = $_POST["plan"];
-			$isSubscripcion = isset($_POST["susbcripcion"]);
+			$isSubscripcion = $_POST["susbcripcion"];
 			$monto = $_POST["monto"];
 			
 		}
