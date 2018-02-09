@@ -19,25 +19,6 @@ $this->params['btns'] = '<a href="'.Url::base().'" class="btn btn-success btn-bo
         <p class="donaciones-fecha">Fecha del pago</p>  
       </div>
 
-      <div class="donaciones-row">
-        <p class="donaciones-monto">$250.00</p>
-        <p class="donaciones-transaccion">jdfdf dsf ds f sd fds f sd fsdfds</p>
-        <p class="donaciones-fecha">22 de abril - 2018</p>  
-      </div>
-
-      <div class="donaciones-row">
-        <p class="donaciones-monto">$500.00</p>
-        <p class="donaciones-transaccion">jdfdf dsf ds f sd fds f sd fsdfds</p>
-        <p class="donaciones-fecha">22 de abril - 2018</p>  
-      </div>
-
-      <div class="donaciones-row">
-        <p class="donaciones-monto">$1,000.00</p>
-        <p class="donaciones-transaccion">jdfdf dsf ds f sd fds f sd fsdfds</p>
-        <p class="donaciones-fecha">22 de abril - 2018</p>  
-
-      </div>
-
       <?php
       foreach($boletos as $boleto){
       ?>
