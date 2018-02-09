@@ -13,7 +13,9 @@ $date = date("Y-m-d",$date);
 
 ?>
 
-<div class="cargo-total">
+  <div class="modal-ticket-op-cont">
+
+    <div class="cargo-total">
       <h5>Total a Pagar</h5>
       <span class="monto-total">$  <?=number_format($charger->amount)?></span>
       <span class="moneda">mxn</span>
@@ -52,5 +54,5 @@ $date = date("Y-m-d",$date);
     <a class="close-modal"><i class="ion ion-close"></i></a>
     <a href="" class="btn btn-primary print-btn">Imprimir este ticket</a>
 
-                                    
+  </div>                               
                                                                 

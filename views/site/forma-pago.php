@@ -25,11 +25,10 @@ $this->registerJsFile(
 ?>
 
 
-  <div class="container container-column container-full">
+  <div class="container container-full">
+    <!-- container-column -->
     <div class="tipos-de-pago-content">
-      <div class="open-pay">
-        <img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
-      </div>
+      
       <h3>Selecciona una forma de pago</h3>
       <div class="tipos-de-pago">
         <div class="pagocard">
@@ -59,6 +58,11 @@ $this->registerJsFile(
           </div>  
         </div>
       </div>
+
+      <div class="open-pay">
+        <img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
+      </div>
+
     </div>
   </div>
   
