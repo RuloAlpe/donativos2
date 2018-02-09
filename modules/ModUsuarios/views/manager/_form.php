@@ -29,9 +29,14 @@ use yii\widgets\ActiveForm;
                 <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true, "placeholder" => "Repetir Email"]) -> label(false) ?>
             </div>
 
+            <input type="hidden" value="<?=$idPlan?>" name="plan" />
+            <input type="hidden" name="susbcripcion" value="<?=$subscripcion?>"/>
+            <input type="hidden" value="<?=$monto?>" name="monto"/>
+
             <div class="form-group">
                 <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
             </div>
+
 
         <?php ActiveForm::end(); ?>
 

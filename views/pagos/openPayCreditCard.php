@@ -790,9 +790,18 @@ a.button.disabled {
 		<div class="pymnts">
 
 			<form
-
+				<?php
+				if($ordenCompra->b_subscripcion){
+				?>
+				action="<?=Url::base()?>/pagos/crear-subscripcion"
+				<?php
+				}else{
+				?>
 				action="<?=Url::base()?>/pagos/pagar-tarjeta-open-pay"
-
+				
+				<?php
+				}
+				?>
 				method="POST" id="payment-form">
 
 				<input type="hidden" name="token_id" id="token_id">

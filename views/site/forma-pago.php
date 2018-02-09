@@ -24,8 +24,7 @@ $this->registerJsFile(
 );
 ?>
 
-<section class="donativos-wrapper">
-<a href="<?=Url::base()?>/site/mis-boletos" class="btn btn-success btn-boletos">Mis Boletos</a>
+
   <div class="container container-column container-full">
     <div class="tipos-de-pago-content">
       <div class="open-pay">
@@ -34,6 +33,10 @@ $this->registerJsFile(
       <h3>Selecciona una forma de pago</h3>
       <div class="tipos-de-pago">
         <div class="pagocard">
+
+          <?php 
+          if(!$ordenCompra->b_subscripcion){
+          ?> 
           <div>
             <a data-value="2" data-tarjeta="0" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
               <img src="<?=Url::base()?>/webassets/images/shop.png" alt="Pago en establecimiento">
@@ -42,6 +45,10 @@ $this->registerJsFile(
               Pago en establecimiento
             </span>
           </div>
+          <?php
+          }
+          ?>
+
           <div>  
             <a data-value="2" data-tarjeta="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
               <img src="<?=Url::base()?>/webassets/images/creditCard.png" alt="Pago con tarjeta">
@@ -54,8 +61,7 @@ $this->registerJsFile(
       </div>
     </div>
   </div>
-  <footer><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo donado por 2 Geeks one Monkey</a></footer>
-</section>
+  
 
 
 <div style="display:none" class="ajax-container">
