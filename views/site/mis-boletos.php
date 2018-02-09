@@ -1,6 +1,9 @@
 <?php
 use yii\helpers\Url;
+
+$this->params['btns'] = '<a href="'.Url::base().'" class="btn btn-success btn-boletos">Inicio</a>';
 ?>
+
 
 <a href="<?=Url::base()?>" class="btn btn-success btn-boletos btn-inicio">Inicio</a>
     
@@ -32,6 +35,7 @@ use yii\helpers\Url;
         <p class="donaciones-monto">$1,000.00</p>
         <p class="donaciones-transaccion">jdfdf dsf ds f sd fds f sd fsdfds</p>
         <p class="donaciones-fecha">22 de abril - 2018</p>  
+
       </div>
 
       <?php
@@ -47,6 +51,7 @@ use yii\helpers\Url;
       ?>
 
     </div>
+
   </div>
 </div>
     
