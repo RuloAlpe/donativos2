@@ -434,6 +434,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 			$p = new Pagos();
 			$respuesta = $p->guardarCliente($user->nombreCompleto, $user->txt_email);
 			$user->txt_usuario_open_pay = $respuesta->id;
+			$user->save();
 			return $user;
 		}else{
 			return null;

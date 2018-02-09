@@ -24,18 +24,14 @@ class ManagerController extends Controller {
 	 */
 	public function actionSignUp($monto = 0) {
 
-		if($monto<=0){
-			return $this->goHome();
-		}
-
 		$idPlan = null;
 		$isSubscripcion = 0;
 		//$monto = 0;
 		if(isset($_POST["plan"]) && isset($_POST["monto"])){
 			$idPlan = $_POST["plan"];
-			$isSubscripcion = isset($_POST["susbcripcion"]);
+			$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
 			$monto = $_POST["monto"];
-			
+
 		}
 
 		$model = new EntUsuarios ( [ 

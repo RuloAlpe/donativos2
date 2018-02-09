@@ -18,6 +18,7 @@ use app\models\EntPagosRecibidos;
 use app\models\IPNPayPal;
 use app\modules\ModUsuarios\models\EntUsuarios;
 use app\models\EntBoletos;
+use app\models\EntTarjetas;
 
 class PagosController extends Controller
 {
@@ -305,14 +306,36 @@ class PagosController extends Controller
 		$ordenCompra = EntOrdenesCompras::find()->where(['txt_order_number'=>$order_id,'b_pagado'=>0])->one();
 		
 		if(empty($ordenCompra)){
-			$this->crearLog ('OpenPayError', "El order ID no existe o ya esta marcado como completo :" . $order_id );
-			return;
-		}
+
 			
-		// Carga la orden
+			if(!$transaction['order_id'] && ($transaction['method'] == "card")){
+
+				$tarjeta = EntTarjetas::find()->where(["txt_tarjeta"=>$transaction['card']["id"]])->one();
+
+				$pagoRecibido = new EntPagosRecibidos ();
+				$pagoRecibido->id_usuario = $tarjeta->id_usuario;
+				$pagoRecibido->id_tipo_pago = 2;
+				$pagoRecibido->txt_transaccion_local = 'Local';
+				$pagoRecibido->txt_notas = 'Notas';
+				$pagoRecibido->txt_estatus = $payment_status;
+				$pagoRecibido->txt_transaccion = $txn_id;
+				$pagoRecibido->txt_cadena_comprador = $data;
+				$pagoRecibido->txt_monto_pago = $mc_gross;
+				$pagoRecibido->id_orden_compra = null;
+				$pagoRecibido->save();
+
+				
+			}else{
+
+				$this->crearLog ('OpenPayError', "El order ID no existe o ya esta marcado como completo :" . $order_id );
+				return;
+			}
+		}
+			// Carga la orden
 		$item_number = $ordenCompra->txt_order_number;
 		$custom = $ordenCompra->id_usuario;
 		$item_name = $ordenCompra->txt_description;
+		
 		
 		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------- PAGO RECIBIDO de transacción :$txn_id -----------\n\r" );
 		
@@ -371,24 +394,6 @@ class PagosController extends Controller
 				$ordenCompra->b_pagado = 1;
 				if($ordenCompra->save()){
 					
-					$usuario = EntUsuarios::find()->where(['id_usuario'=>$ordenCompra->id_usuario])->one();
-
-					$numBoletos = intval($ordenCompra->num_total/100);
-					
-					for($i=0; $i<$numBoletos; $i++){
-						$boleto = new EntBoletos();
-						$boleto->id_orden_compra = $ordenCompra->id_orden_compra;
-						$boleto->id_pago_recibido = $pagoRecibido->id_pago_recibido;
-						$boleto->id_usuario = $ordenCompra->id_usuario;
-						$boleto->txt_codigo = Utils::generateBoleto($ordenCompra->id_orden_compra);
-						$boleto->fch_creacion = Utils::getFechaActual(); 
-						
-						if($boleto->save()){
-
-						}else{
-							$this->crearLog('PayPal'.$custom, "Error al guardar boleto " . json_encode($boleto->errors));
-						}
-					}	
 
 
 					$utils = new \app\modules\ModUsuarios\models\Utils();
