@@ -118,8 +118,6 @@ use app\models\Pagos;
 
 @import "https://fonts.googleapis.com/css?family=Lato:300,400,700";
 
-
-
 a.button {
 
 	border-radius: 5px 5px 5px 5px;
@@ -390,6 +388,8 @@ a.button.disabled {
 
 	margin: 0 0 3px;
 
+	padding: 20px 30px;
+
 	width: 100%;
 
 }
@@ -448,65 +448,46 @@ a.button.disabled {
 
 
 
-.pymnt-cntnt div.sctn-row {
-
-	margin: 20px 30px 0;
-
-	width: 740px;
-
+.pymnt-cntnt div.sctn-row,
+.pymnt-cntnt div.sctn-rows {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 0;
+	width: 100%;
+}
+.pymnt-cntnt div.sctn-row div.sctn-col,
+.pymnt-cntnt div.sctn-row div.sctn-col.l{
+	width: 98%;
+}
+.pymnt-cntnt div.sctn-row div.sctn-col.l{
+	margin-right: 4%;
 }
 
-
-
-.pymnt-cntnt div.sctn-row div.sctn-col {
-
-	width: 345px;
-
+.pymnt-cntnt div.sctn-rows div.sctn-col,
+.pymnt-cntnt div.sctn-rows div.sctn-col.l
+.pymnt-cntnt div.sctn-rows div.sctn-col.cvv{
+	width: 48%;
 }
-
-
-
-.pymnt-cntnt div.sctn-row div.sctn-col.l {
-
-	width: 395px;
-
+.pymnt-cntnt div.sctn-rows div.sctn-col.l{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
-
-
-
-.pymnt-cntnt div.sctn-row div.sctn-col input {
-
-	width: 303px;
-
+.pymnt-cntnt div.sctn-rows div.sctn-col:first-child{
+	margin-right: 4%;
 }
-
-
-
-.pymnt-cntnt div.sctn-row div.sctn-col.half {
-
-	width: 155px;
-
+.pymnt-cntnt div.sctn-rows div.sctn-col.l label{
+	width: 100%;
 }
-
-
-
-.pymnt-cntnt div.sctn-row div.sctn-col.half.l {
-
-	float: left;
-
-	width: 190px;
-
+.pymnt-cntnt div.sctn-rows div.sctn-col.l .sctn-col{
+	width: 48%;
 }
-
-
-
-.pymnt-cntnt div.sctn-row div.sctn-col.half input {
-
-	width: 113px;
-
+.pymnt-cntnt div.sctn-rows div.sctn-col.cvv{
+	width: 48%;
 }
-
-
+.pymnt-cntnt div.sctn-rows div.sctn-col.cvv .sctn-col{
+	width: 100%;
+}
 
 .pymnt-cntnt div.sctn-row div.sctn-col.cvv {
 
@@ -522,152 +503,280 @@ a.button.disabled {
 
 }
 
-
-
-.pymnt-cntnt div.sctn-row div.sctn-col.cvv div.sctn-col.half input {
-
-	width: 110px;
-
-}
-
-
-
 .openpay {
-
-	float: left;
-
-	height: 60px;
-
-	margin: 10px 30px 0 20px;
-
-	width: 435px;
-
+	align-items: center;
+	display: flex;
+	justify-content: flex-start;
+	width: calc(100% - 160px);
 }
-
-
-
-.openpay div.logo {
-
-	background-image:
-
-		url("<?=Url::base()?>/webassets/images/openpay/openpay.png");
-
-	background-position: left bottom;
-
-	background-repeat: no-repeat;
-
-	border-right: 1px solid #ccc;
-
-	font-size: 12px;
-
-	font-weight: 400;
-
-	height: 60px;
-
-	padding: 15px 20px 0 0;
-
+.openpay .logo,
+.openpay .shield{
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
 }
-
-
-
-.openpay div.shield {
-
-	background-image:
-
-		url("<?=Url::base()?>/webassets/images/openpay/security.png");
-
-	background-position: left bottom;
-
-	background-repeat: no-repeat;
-
-	font-size: 12px;
-
-	font-weight: 400;
-
+.openpay .shield{
+	align-items: center;
+}
+.openpay .logo span{
+	text-align: left;
+}
+.openpay .shield span{
 	margin-left: 20px;
-
-	padding: 20px 0 0 40px;
-
-	width: 200px;
-
+	max-width: 330px;
+}
+.openpay .logo img,
+.openpay .shield img{
+	margin-top: 10px;
+	max-width: 100%;
+}
+.sctn-rowz{
+	display: flex;
+	float: right;
+	justify-content: center;
+	margin-right: 60px;
+	margin-top: 24px;
+	width: 100px;
 }
 
-
+.sctn-rowz .btn-donar{
+	color: #555;
+}
+.sctn-rowz .btn-donar:hover{
+	background-color: #1AC91C;
+	color: white;
+}
 
 .card-expl {
-
-	float: left;
-
-	height: 80px;
-
-	margin: 20px 0;
-
-width: 100%;
-
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
 }
 
 
-
-.card-expl div {
-
-	background-position: left 45px;
-
-	background-repeat: no-repeat;
-
-	height: 70px;
-
-	padding-top: 10px;
-
+.card-expl .debit img,
+.card-expl .credit img{
+	display: block;
+	margin-top: 20px;
 }
 
-
-
-.card-expl div.debit {
-
-	background-image:
-
-		url("<?=Url::base()?>/webassets/images/openpay/cards2.png");
-
-	background-position: bottom;
-
-	margin-left: 20px;
-
-	width: 540px;
-
-	height: 100px;
-
+.card-expl .credit img{
+	max-width: 100%;
 }
 
-
-
-.card-expl div.credit {
-
-	background-image:
-
-		url("<?=Url::base()?>/webassets/images/openpay/cards1.png");
-
-	border-right: 1px solid #ccc;
-
-	background-position: bottom;
-
-	margin-left: 30px;
-
-	width: 209px;
-
-	height: 100px;
-
+.pagocard div{
+	cursor: pointer;
 }
 
 
 
 .card-expl h4 {
-
+	color: #555;
+	display: block;
+	font-size: 1.35rem;
 	font-weight: 400;
-
 	margin: 0;
+	/* height: 80px; */
+}
 
-	height: 80px;
 
+.sctn-col label{
+	font-size: 1.05rem;
+	text-align: left;
+}
+.sctn-col input[type="text"]{
+	font-size: 1.1rem;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 400;
+    padding: 4px 12px;
+    text-align: left;
+    width: 100%;
+}
+.sctn-col input[type="text"]::placeholder {
+    color: #cac6c6;
+    opacity: 1;
+}
+
+.sctn-col input[type="text"]:-ms-input-placeholder {
+    color: #cac6c6;
+}
+
+.sctn-col input[type="text"]::-ms-input-placeholder {
+    color: #cac6c6;
+}
+@media only screen and (max-width: 992px){
+	.sctn-col input[type="text"],
+	.pymnt-cntnt div.sctn-row div.sctn-col input{
+		font-size: 1.1rem;
+	    width: 100%;
+	}
+
+	.openpay{
+		width: calc(100% - 120px);
+	}
+	.openpay .shield span{
+		max-width: 200px;
+	}
+	.sctn-rowz{
+		margin-right: 20px;
+		width: 100px;
+	}
+
+}
+@media only screen and (max-width: 768px){
+	.card-expl{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.card-expl .debit,
+	.card-expl .credit{
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.card-expl .debit img,
+	.card-expl .credit img{
+		margin-top: 0;
+		margin: 0 0 20px;
+		max-width: 100%;
+	}
+
+	.sctn-col input[type="text"],
+	.pymnt-cntnt div.sctn-row div.sctn-col input{
+		font-size: 1rem;
+	    width: 100%;
+	}
+	.pymnt-cntnt div.sctn-row div.sctn-col.l{
+		margin-bottom: 10px;
+	}
+
+	.pymnt-cntnt div.sctn-row,
+	.pymnt-cntnt div.sctn-rows{
+		margin: 10px 0 0;
+	}
+	.pymnt-cntnt div.sctn-rows div.sctn-col.cvv{
+		margin: 10px 0 10px;
+	}
+
+	.sctn-col label{
+		margin-bottom: 4px;
+	}
+
+	.sctn-col input[type="text"]::placeholder {
+	    font-size: .98rem;
+	}
+
+	.sctn-col input[type="text"]:-ms-input-placeholder {
+	    font-size: .98rem;
+	}
+
+	.sctn-col input[type="text"]::-ms-input-placeholder {
+	    font-size: .98rem;
+	}
+
+	.openpay{
+		justify-content: center;
+		width: 100%;
+	}
+	.openpay .logo{
+		align-items: center;
+		border-right: none;
+	}
+	.openpay .logo span{
+		text-align: center;
+	}
+
+	.sctn-rowz{
+		float: none;
+		width: 100%;
+	}
+	.sctn-rowz .btn-donar{
+		margin-top: 30px;
+	}
+}
+@media only screen and (max-width: 480px){
+	.sctn-col input[type="text"],
+	.pymnt-cntnt div.sctn-row div.sctn-col input{
+		font-size: 1rem;
+	    width: 100%;
+	}
+	.pymnt-cntnt div.sctn-row,
+	.pymnt-cntnt div.sctn-rows{
+	    flex-wrap: wrap;
+	}
+	.pymnt-cntnt div.sctn-row .sctn-col,
+	.pymnt-cntnt div.sctn-row .sctn-col{
+	    width: 100%;
+	}
+
+	.sctn-col input[type="text"]::placeholder {
+	    font-size: .9rem;
+	}
+
+	.sctn-col input[type="text"]:-ms-input-placeholder {
+	    font-size: .9rem;
+	}
+
+	.sctn-col input[type="text"]::-ms-input-placeholder {
+	    font-size: .9rem;
+	}
+
+	.pymnt-cntnt div.sctn-row div.sctn-col.l,
+	.pymnt-cntnt div.sctn-rows div.sctn-col.l:first-child{
+		margin-right: 0;
+	}
+
+	.pymnt-cntnt div.sctn-rows{}
+	.pymnt-cntnt div.sctn-rows div.sctn-col.l{
+		width: 100%;
+	}
+	.pymnt-cntnt div.sctn-rows div.sctn-col.cvv{
+		width: 100%;
+	}
+
+	.pymnt-itm.active div.pymnt-cntnt{
+		padding: 0;
+	}
+
+	.openpay .logo{
+		border-right: none;
+	}
+}
+
+
+/* modal */
+.modal-ticket-op-tc{
+	background-color: rgba(0,0,0,0.7);
+	bottom: 0;
+	height: 100vh;
+	left: 0;
+	margin: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+}
+.modal-ticket-op-tc .bkng-tb-cntnt{
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+.modal-ticket-op-tc .bkng-tb-cntnt .pymnts{
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+}
+
+.modal-ticket-op-tc .bkng-tb-cntnt .pymnts form{
+	background-color: #f7f7f7;
+	max-height: 96vh;
+	max-width: 1024px;
+	overflow-x: auto;
+	width: 80%;
 }
 
 </style>
@@ -694,15 +803,19 @@ width: 100%;
 
 						<div class="card-expl">
 
+							<div class="debit">
+
+								<h4>Tarjetas de débito</h4>
+
+								<img src="<?=Url::base()?>/webassets/images/openpay/cards1.png" alt="">
+
+							</div>
+
 							<div class="credit">
 
 								<h4>Tarjetas de crédito</h4>
 
-							</div>
-
-							<div class="debit">
-
-								<h4>Tarjetas de débito</h4>
+								<img src="<?=Url::base()?>/webassets/images/openpay/cards2.png" alt="">
 
 							</div>
 
@@ -734,7 +847,7 @@ width: 100%;
 
 						</div>
 
-						<div class="sctn-row">
+						<div class="sctn-rows">
 
 							<div class="sctn-col l">
 
@@ -776,25 +889,29 @@ width: 100%;
 
 						<div class="openpay">
 
-							<div class="logo">Transacciones realizadas vía:</div>
+							<div class="logo">
+								<span>
+									Transacciones realizadas vía:
+								</span>
+								<img src="<?=Url::base()?>/webassets/images/openpay/openpay.png") alt="">
+							</div>
 
-							<div class="shield">Tus pagos se realizan de forma segura con
-
-								encriptación de 256 bits</div>
+							<div class="shield">
+								<span>
+									Tus pagos se realizan de forma segura con encriptación de 256 bits
+								</span>
+								<img src="<?=Url::base()?>/webassets/images/openpay/security.png" alt="">
+							</div>
 
 						</div>
 
-						<div class="sctn-row"
+						<div class="sctn-rowz">
 
-							style="margin: 0 auto;
-
-	/* background: black; */ width: auto; margin-right: 100px; right: 0; float: right; margin-top: 30px;">
-
-							<button class="btn btn-green btn-small"
+							<button class="btn btn-green btn-small btn-donar"
 
 								style="float: right; visibility: visible !important;"
 
-								id="pay-button">Pagar</button>
+								id="pay-button">Donar</button>
 
 						</div>
 
