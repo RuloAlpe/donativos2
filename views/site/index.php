@@ -37,7 +37,17 @@ $this->registerJsFile(
               <?= Html::beginForm([$url], 'post') ?>
               
                 <input type="hidden" value="<?=$plan->id_plan?>" name="plan" />
-                <input type="checkbox" name="susbcripcion" value="1"/>
+                
+                <div class="check">
+                  <div class="check__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
+                      Pago recurrente
+                    </label>
+                  </div>
+                </div>
+                  
+
                 <input type="hidden" value="<?=$plan->num_cantidad?>" name="monto"/>
                 <button type="submit" class="btn btn-default btn-donativo js-select-amount btn-success" data-value="500">Realizar Donativo</a>
                 <?= Html::endForm() ?>
@@ -46,6 +56,7 @@ $this->registerJsFile(
         <?php
         }
         ?>
+
           
         </div>
         <div class="custom-amount-wrapper">
