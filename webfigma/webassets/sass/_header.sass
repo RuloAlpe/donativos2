@@ -70,7 +70,7 @@ header
 		h2
 			color: $white
 			font-size: 2.4rem
-			font-weight: 400
+			font-weight: $bold
 			line-height: 1.3
 			text-transform: uppercase
 			+respond-to(md)
@@ -87,7 +87,7 @@ header
 			span
 				display: block
 				font-size: 4.45rem
-				letter-spacing: 1
+				letter-spacing: 1px
 				+respond-to(md)
 					font-size: 4.1rem
 				+respond-to(tl)
@@ -103,7 +103,7 @@ header
 			+border-radius(30px)
 			color: $white
 			display: inline-block
-			font-weight: 300
+			font-weight: $bold
 			padding: 12px 58px
 			text-align: center
 
@@ -349,7 +349,6 @@ header
 
 .dona
 	align-items: center
-	background-color: $secondary
 	background-image: url(../images/mask-dona.png)
 	background-position: 50%
 	background-repeat: no-repeat
@@ -364,6 +363,7 @@ header
 		color: $white
 		display: flex
 		font-size: 1.25rem
+		font-weight: $bold
 		letter-spacing: 2px
 		padding: 6px 60px
 		text-align: center
@@ -410,8 +410,9 @@ footer
 				margin-right: 0
 				width: 100%
 			h3
+				color: $font-color
 				font-size: 1.5rem
-				font-weight: 400
+				font-weight: $bold
 				margin-bottom: 20px
 				+respond-to(tl)
 					margin-bottom: 10px
@@ -431,7 +432,7 @@ footer
 				justify-content: flex-start
 				i
 					font-size: 1.7rem
-					margin-right: 14px
+					margin-right: 20px
 					&:last-child
 						margin-right: 0
 
@@ -440,7 +441,7 @@ footer
 			width: 100%
 			h3
 				font-size: .9rem
-				font-weight: 400
+				font-weight: 500
 				margin-bottom: 10px
 			p
 				font-size: .9rem

@@ -3012,7 +3012,7 @@
   padding: 0; }
 
 body {
-  background-color: #F1E8C9;
+  background-color: #FFF;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   font-weight: 300;
@@ -3288,7 +3288,7 @@ header {
     .banner .banner-texts h2 {
       color: #FFF;
       font-size: 2.4rem;
-      font-weight: 400;
+      font-weight: 700;
       line-height: 1.3;
       text-transform: uppercase; }
       @media (min-width: 801px) and (max-width: 1023px) {
@@ -3310,7 +3310,7 @@ header {
       .banner .banner-texts h2 span {
         display: block;
         font-size: 4.45rem;
-        letter-spacing: 1; }
+        letter-spacing: 1px; }
         @media (min-width: 801px) and (max-width: 1023px) {
           .banner .banner-texts h2 span {
             font-size: 4.1rem; } }
@@ -3334,7 +3334,7 @@ header {
       border-radius: 30px;
       color: #FFF;
       display: inline-block;
-      font-weight: 300;
+      font-weight: 700;
       padding: 12px 58px;
       text-align: center; }
 
@@ -3598,7 +3598,6 @@ header {
 
 .dona {
   align-items: center;
-  background-color: #F1E8C9;
   background-image: url(../images/mask-dona.png);
   background-position: 50%;
   background-repeat: no-repeat;
@@ -3616,6 +3615,7 @@ header {
     color: #FFF;
     display: flex;
     font-size: 1.25rem;
+    font-weight: 700;
     letter-spacing: 2px;
     padding: 6px 60px;
     text-align: center;
@@ -3670,8 +3670,9 @@ footer {
           margin-right: 0;
           width: 100%; } }
       footer .container-1024 .footer-col h3 {
+        color: #451518;
         font-size: 1.5rem;
-        font-weight: 400;
+        font-weight: 700;
         margin-bottom: 20px; }
         @media (min-width: 601px) and (max-width: 800px) {
           footer .container-1024 .footer-col h3 {
@@ -3695,7 +3696,7 @@ footer {
         justify-content: flex-start; }
         footer .container-1024 .footer-col .footer-social i {
           font-size: 1.7rem;
-          margin-right: 14px; }
+          margin-right: 20px; }
           footer .container-1024 .footer-col .footer-social i:last-child {
             margin-right: 0; }
     footer .container-1024 .footer-aviso-privacidad {
@@ -3703,7 +3704,7 @@ footer {
       width: 100%; }
       footer .container-1024 .footer-aviso-privacidad h3 {
         font-size: .9rem;
-        font-weight: 400;
+        font-weight: 500;
         margin-bottom: 10px; }
       footer .container-1024 .footer-aviso-privacidad p {
         font-size: .9rem;
