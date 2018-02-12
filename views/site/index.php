@@ -19,7 +19,15 @@ $this->registerJsFile(
         <?php
         foreach($planes as $plan){
         ?>
-
+          <?php
+          if (Yii::$app->user->isGuest) { 
+            $url = "//sign-up?monto=".$plan->num_cantidad;
+          }else{
+            $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
+          } 
+          ?>
+          <?= Html::beginForm([$url], 'post') ?>
+          
           <div class="tarjeta">
 
             <div class="tarjeta-int">
@@ -30,21 +38,11 @@ $this->registerJsFile(
                 <span class="cantidad"><?=$plan->num_cantidad?></span>
                 <span class="moneda">mxn</span></div>
 
-              <?php
-              if (Yii::$app->user->isGuest) { 
-                $url = "//sign-up?monto=".$plan->num_cantidad;
-              }else{
-                $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
-              } 
-              ?>
-              <?= Html::beginForm([$url], 'post') ?>
-              
                 <input type="hidden" value="<?=$plan->id_plan?>" name="plan" />
                 
                 <input type="hidden" value="<?=$plan->num_cantidad?>" name="monto"/>
                 <button type="submit" class="btn btn-default btn-donativo js-select-amount btn-success" data-value="500">Realizar Donativo</button>
-                <?= Html::endForm() ?>
-
+                
             </div>
 
             <div class="check">
@@ -57,6 +55,7 @@ $this->registerJsFile(
             </div>
 
           </div>
+          <?= Html::endForm() ?>
 
         <?php
         }
