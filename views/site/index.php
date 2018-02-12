@@ -21,11 +21,14 @@ $this->registerJsFile(
         ?>
 
           <div class="tarjeta">
-            <div class="header">Donar</div>
-            <div class="monto">
-              <span class="currency">$</span>
-              <span class="cantidad"><?=$plan->num_cantidad?></span>
-              <span class="moneda">mxn</span></div>
+
+            <div class="tarjeta-int">
+              
+              <div class="header">Donar</div>
+              <div class="monto">
+                <span class="currency">$</span>
+                <span class="cantidad"><?=$plan->num_cantidad?></span>
+                <span class="moneda">mxn</span></div>
 
               <?php
               if (Yii::$app->user->isGuest) { 
@@ -38,21 +41,23 @@ $this->registerJsFile(
               
                 <input type="hidden" value="<?=$plan->id_plan?>" name="plan" />
                 
-                <div class="check">
-                  <div class="check__item">
-                    <label class="label--checkbox">
-                      <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
-                      Pago recurrente
-                    </label>
-                  </div>
-                </div>
-                  
-
                 <input type="hidden" value="<?=$plan->num_cantidad?>" name="monto"/>
-                <button type="submit" class="btn btn-default btn-donativo js-select-amount btn-success" data-value="500">Realizar Donativo</a>
+                <button type="submit" class="btn btn-default btn-donativo js-select-amount btn-success" data-value="500">Realizar Donativo</button>
                 <?= Html::endForm() ?>
-              
+
+            </div>
+
+            <div class="check">
+              <div class="check__item">
+                <label class="label--checkbox">
+                  <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
+                  Pago recurrente
+                </label>
+              </div>
+            </div>
+
           </div>
+
         <?php
         }
         ?>

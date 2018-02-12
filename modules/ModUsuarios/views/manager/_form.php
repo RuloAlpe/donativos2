@@ -34,7 +34,7 @@ use yii\widgets\ActiveForm;
             <input type="hidden" value="<?=$monto?>" name="monto"/>
 
             <div class="form-group">
-                <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                <?= Html::submitButton($model->isNewRecord ? 'Continuar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
             </div>
 
 

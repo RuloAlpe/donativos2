@@ -4,7 +4,7 @@ use yii\helpers\Url;
 
 <a href="<?=Url::base()?>" class="btn btn-success btn-boletos btn-inicio">Inicio</a>
     
-<div class="container container-full">
+<!-- <div class="container container-full"> -->
   <div class="mis-donaciones-content">
     <h3>Mis donaciones</h3>
 
@@ -48,7 +48,7 @@ use yii\helpers\Url;
 
     </div>
   </div>
-</div>
+<!-- </div> -->
     
 
 

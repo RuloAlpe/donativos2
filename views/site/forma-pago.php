@@ -60,6 +60,7 @@ $this->registerJsFile(
       </div>
 
       <div class="open-pay">
+        <span>Transacción protegida por</span>
         <img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
       </div>
 
