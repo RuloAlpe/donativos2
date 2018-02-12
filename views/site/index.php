@@ -26,9 +26,11 @@ $this->registerJsFile(
             $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
           } 
           ?>
-          <?= Html::beginForm([$url], 'post') ?>
           
+
           <div class="tarjeta">
+
+            <?= Html::beginForm([$url], 'post') ?>
 
             <div class="tarjeta-int">
               
@@ -54,8 +56,10 @@ $this->registerJsFile(
               </div>
             </div>
 
+            <?= Html::endForm() ?>
+
           </div>
-          <?= Html::endForm() ?>
+          
 
         <?php
         }

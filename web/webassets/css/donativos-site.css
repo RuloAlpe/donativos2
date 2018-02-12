@@ -3,14 +3,19 @@ body{
 }
 
 .container,
-.container-full{
+.container-full,
+.container-gracias{
     background-color: rgba(217,38,44,.3);
+    background-color: transparent;
 }
 
 .container{
     /*min-height: 100%;*/
     padding-top: 90px;
     height: auto;
+}
+.container-gracias{
+    min-height: 100%;
 }
 
 .not-absolute{
@@ -29,6 +34,7 @@ body{
 
 .modal-ticket-op-tc {
     position: fixed;
+    bottom: 0;
     top: 0;
     /* left: 50%; */
     display: block;
@@ -43,7 +49,6 @@ body{
     /* overflow: hidden; */
     margin-bottom: 50px;
     left: 0;
-    bottom: 0;
     right: 0;
 }
 
@@ -242,7 +247,7 @@ body{
     margin: 80px 0 60px;
 }
 .donativos-wrapper .tipos-de-pago-content .tipos-de-pago{
-    background-color: rgba(69,21,24,.6);
+    background-color: rgba(69,21,24,.8);
     max-width: 90%;
     padding: 30px 40px;
     width: auto;
@@ -364,7 +369,7 @@ body{
 
 /* checkbox */
 .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .check {
-    /*margin: 0.5rem;*/
+    margin-top: 26px;
 }
 
 .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .check__item {
@@ -425,7 +430,7 @@ body{
 }
 
 .donativos-wrapper .donativos-content .custom-amount-wrapper{
-    background-color: rgba(69,21,24,.6);
+    background-color: rgba(69,21,24,.8);
     height: auto;
     margin-top: 80px;
     padding: 30px 0 60px;
@@ -482,7 +487,7 @@ body{
 }
 .boletos-content .boletos-int{
     align-items: center;
-    background-color: rgba(69,21,24,.6);
+    background-color: rgba(69,21,24,.8);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -512,7 +517,7 @@ body{
 .mis-donaciones-content{
     align-items: center;
     padding-bottom: 60px;
-    background-color: rgba(217,38,44,.3);
+    /* background-color: rgba(217,38,44,.3); */
     display: flex;
     flex-direction: column;
     height: 100%;
