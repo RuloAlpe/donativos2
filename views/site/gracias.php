@@ -1,5 +1,11 @@
 <?php
 use yii\helpers\Url;
+
+
+$this->registerJsFile(
+    '@web/webassets/js/geeks.js',
+    ['depends' => [\app\assets\AppAsset::className()]]
+);
 ?>
 
 <!-- <a href="<?=Url::base()?>" class="btn btn-success btn-boletos">Inicio</a> -->

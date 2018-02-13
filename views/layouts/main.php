@@ -25,7 +25,7 @@ AppAsset::register($this);
     </script>
     <?php $this->head() ?>
 </head>
-<body>
+<body >
 <?php $this->beginBody() ?>
     <section class="donativos-wrapper">
         <?php if(!Yii::$app->user->isGuest){ ?>
