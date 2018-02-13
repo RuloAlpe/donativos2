@@ -10,7 +10,7 @@ $this->title = 'Antes de realizar tu donativo necesitamos nos compartas unos dat
 $this->params['breadcrumbs'][] = ['label' => 'Ent Usuarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="registro-container">
+<div class="container container-full">
 
 	<div class="registro-int">
 

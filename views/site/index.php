@@ -13,7 +13,10 @@ $this->registerJsFile(
 
     <div class="container container-full">
       <div class="donativos-content">
-        <h3 class="title">Elige el monto con el cual desees colaborar</h3>
+        <h3 class="title">
+          <span class="title-lg">Tu puedes hacer la diferencia</span>
+          <span class="title-xs">Elige el monto con el cual deseas contribuir</span>  
+        </h3>
         <div class="tarjetas-wrapper">
 
         <?php
@@ -74,9 +77,9 @@ $this->registerJsFile(
             <div class="monto">
               <span class="currency">$</span>
               <?php if (Yii::$app->user->isGuest) { ?>
-                <input data-log="0" class="js-add ingreso_monto input-monto" type="text" placeholder="100.00">
+                <input data-log="0" class="js-add ingreso_monto input-monto" type="text" placeholder="10,000.00">
               <?php }else{ ?>
-                <input data-log="1" class="js-add ingreso_monto input-monto" type="text" placeholder="100.00">                
+                <input data-log="1" class="js-add ingreso_monto input-monto" type="text" placeholder="10,000.00">                
               <?php } ?>
               <span class="moneda">mxn</span>
             </div>

@@ -7,7 +7,7 @@ use yii\helpers\Url;
 	<div class="boletos-content">
 		
 		<div class="boletos-int">
-			<i class="ion ion-flag"></i>
+			<i class="ion ion-ios-heart"></i>
 			<h2>Gracias por tu <span>donación</span></h2>
 		</div>
 

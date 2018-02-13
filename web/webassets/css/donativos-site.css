@@ -10,7 +10,7 @@ body{
 }
 
 .container{
-    /*min-height: 100%;*/
+    min-height: 100%;
     padding-top: 90px;
     height: auto;
 }
@@ -104,19 +104,13 @@ body{
 
 .input-monto{}
 
-/* Registro de usuarios */
-.registro-container{
-    align-items: center;
-    background-color: rgba(217,38,44,.3);
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    width: 100%;
+.registro-int{
+    padding: 20px 0 60px;
 }
-.registro-container .registro-int{}
 
-.registro-container h2{
+.registro-int h2{
     font-size: 1.3rem;
+    font-weight: 600;
     text-align: center;
     margin: 0 auto 40px;
     max-width: 90%;
@@ -126,16 +120,20 @@ body{
     .ent-usuarios-create h1{
         font-size: 2.4rem;
     }
-    .registro-container h2{
+    .registro-int h2{
         font-size: 1.2rem;
         width: 80%;
     }
 }
 @media only screen and (max-width: 480px){
+    .registro-int .registro-int{
+        margin: 0 auto;
+        width: 90%;
+    }
     .ent-usuarios-create h1{
         font-size: 2rem;
     }
-    .registro-container h2{
+    .registro-int h2{
         font-size: 1.1rem;
         width: 90%;
     }
@@ -155,7 +153,8 @@ body{
 }
 @media only screen and (max-width: 480px) {
     .ent-usuarios-form {
-        padding: 40px 25px;
+        padding: 40px 10px;
+        min-width: 90%;
         width: 90%;
     }
 }
@@ -244,7 +243,9 @@ body{
 }
 
 .donativos-wrapper .tipos-de-pago-content h3{
+    font-weight: 600;
     margin: 80px 0 60px;
+    width: 400px;
 }
 .donativos-wrapper .tipos-de-pago-content .tipos-de-pago{
     background-color: rgba(69,21,24,.8);
@@ -295,6 +296,8 @@ body{
 }*/
 .donativos-wrapper .btn-boletos{
     background-color: #E26666;
+    font-size: .9rem;
+    text-transform: uppercase;
 }
 .donativos-wrapper .btn-boletos:active,
 .donativos-wrapper .btn-boletos:hover,
@@ -308,7 +311,20 @@ body{
 }
 
 .donativos-wrapper .donativos-content .title{
-    margin: 80px 0 60px;
+    margin: 90px 0 60px;
+}
+.donativos-wrapper .donativos-content .title .title-lg{
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+.donativos-wrapper .donativos-content .title .title-xs{
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 20px auto 0;
 }
 
 .donativos-wrapper .donativos-content .tarjetas-wrapper{
@@ -399,7 +415,7 @@ body{
   content: "";
   position: absolute;
   left: 0;
-  z-index: 1;
+  z-index: 4;
   width: 1rem;
   height: 1rem;
   border: 2px solid #fff;
@@ -415,7 +431,7 @@ body{
   border-color: #D9262C;
   border-top-style: none;
   border-right-style: none;
-  border-radius: 2px;
+  border-radius: 6px;
 }
 .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:after {
   content: "";
@@ -427,6 +443,7 @@ body{
   background-color: #fff;
   cursor: pointer;
   border-radius: 2px;
+  z-index: 3;
 }
 
 .donativos-wrapper .donativos-content .custom-amount-wrapper{
@@ -513,6 +530,7 @@ body{
 /* Mis donaciones */
 .donativos-wrapper .btn-inicio{
     right: 180px;
+    right: 24px;
 }
 .mis-donaciones-content{
     align-items: center;
@@ -598,6 +616,9 @@ body{
     }
 }
 @media only screen and (max-width: 768px){
+    .container{
+        padding-top: 40px;
+    }
     .donativos-wrapper .tipos-de-pago-content .open-pay img{
         max-width: 100%;
     }
@@ -651,16 +672,17 @@ body{
         width: 180px;
     }
 
-}
-/*@media only screen and (max-width: 768px){
-    .donativos-wrapper{
-        padding: 60px 0;
+    .donativos-wrapper .tipos-de-pago-content h3{
+        font-size: 1.7rem;
+        width: 70%;
     }
-}*/
+
+}
 @media only screen and (max-width: 480px){
-    /*.donativos-wrapper{
-        padding: 60px 0;
-    }*/
+    .container{
+        padding-top: 30px;
+    }
+
     .donativos-wrapper .tipos-de-pago-content .open-pay img{
         max-width: 90%;
     }
@@ -683,6 +705,10 @@ body{
     
     .boletos-content .boletos-int h2 span{
         display: block;
+    }
+
+    .donativos-wrapper .tipos-de-pago-content h3{
+        font-size: 1.4rem;
     }
     
 }

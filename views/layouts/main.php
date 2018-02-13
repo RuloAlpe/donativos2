@@ -29,7 +29,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
     <section class="donativos-wrapper">
         <?php if(!Yii::$app->user->isGuest){ ?>
-            <?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success btn-boletos">Mis donaciones</a>'?>
+            <?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success btn-boletos">Ver mis donativos</a>'?>
             
             
         <?php } ?>
