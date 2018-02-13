@@ -585,7 +585,7 @@ body{
 
 .mis-donaciones-content .donaciones-table .donaciones-head .donaciones-monto,
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-monto{
-    width: 24%
+    width: 24%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -593,7 +593,7 @@ body{
 
 .mis-donaciones-content .donaciones-table .donaciones-head .donaciones-transaccion,
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-transaccion{
-    width: 44%
+    width: 44%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
