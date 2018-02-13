@@ -542,8 +542,10 @@ a.button.disabled {
 .sctn-rowz .btn-donar{
 	color: #555;
 }
+.sctn-rowz .btn-donar:active,
+.sctn-rowz .btn-donar:focus,
 .sctn-rowz .btn-donar:hover{
-	background-color: #1AC91C;
+	background-color: #E26666;
 	color: white;
 }
 
@@ -752,7 +754,7 @@ a.button.disabled {
 	height: 100vh;
 	left: 0;
 	margin: 0;
-	position: absolute;
+	position: fixed;
 	right: 0;
 	top: 0;
 	width: 100%;

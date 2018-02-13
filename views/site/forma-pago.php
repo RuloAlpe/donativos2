@@ -29,7 +29,9 @@ $this->registerJsFile(
     <!-- container-column -->
     <div class="tipos-de-pago-content">
       
-      <h3>Selecciona una forma de pago</h3>
+      <h3>
+        Seleciona un medio para realizar tu contribución
+      </h3>
       <div class="tipos-de-pago">
         <div class="pagocard">
 
@@ -41,7 +43,7 @@ $this->registerJsFile(
               <img src="<?=Url::base()?>/webassets/images/shop.png" alt="Pago en establecimiento">
             </a>
             <span class="caption">
-              Pago en establecimiento
+              Establecimiento
             </span>
           </div>
           <?php
@@ -53,13 +55,14 @@ $this->registerJsFile(
               <img src="<?=Url::base()?>/webassets/images/creditCard.png" alt="Pago con tarjeta">
             </a>
             <span class="caption">
-              Pago con tarjeta
+              Tarjeta de Crédito
             </span>
           </div>  
         </div>
       </div>
 
       <div class="open-pay">
+        <span>Transacción protegida por</span>
         <img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
       </div>
 
