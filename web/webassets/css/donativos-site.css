@@ -535,10 +535,9 @@ body{
 .mis-donaciones-content{
     align-items: center;
     padding-bottom: 60px;
-    /* background-color: rgba(217,38,44,.3); */
     display: flex;
     flex-direction: column;
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
 }
 .mis-donaciones-content h3{
@@ -570,7 +569,6 @@ body{
 .mis-donaciones-content .donaciones-table .donaciones-row{
     background-color: #fff;
     border-bottom: 1px solid #eee;
-    min-height: 42px;
 }
 .mis-donaciones-content .donaciones-table .donaciones-row:nth-child(odd){
     background-color: #f7f7f7;

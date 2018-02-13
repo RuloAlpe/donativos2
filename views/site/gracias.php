@@ -1,5 +1,11 @@
 <?php
 use yii\helpers\Url;
+
+
+$this->registerJsFile(
+    '@web/webassets/js/geeks.js',
+    ['depends' => [\app\assets\AppAsset::className()]]
+);
 ?>
 
 <!-- <a href="<?=Url::base()?>" class="btn btn-success btn-boletos">Inicio</a> -->
@@ -9,6 +15,9 @@ use yii\helpers\Url;
 		<div class="boletos-int">
 			<i class="ion ion-ios-heart"></i>
 			<h2>Gracias por tu <span>donación</span></h2>
+			<a href="https://www.figma.org.mx/">
+				Ir al inicio
+			</a>
 		</div>
 
 	</div>
