@@ -36,7 +36,7 @@ $this->registerJsFile(
         <div class="pagocard">
 
           <?php 
-          if(!$ordenCompra->b_subscripcion){
+          if(true || !$ordenCompra->b_subscripcion){
           ?> 
           <div>
             <a data-value="2" data-tarjeta="0" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
