@@ -51,7 +51,7 @@ $this->registerJsFile(
               <div class="check__item">
                 <label class="label--checkbox">
                   <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
-                  Pago recurrente
+                  Contribuir mensualmente
                 </label>
               </div>
             </div>
