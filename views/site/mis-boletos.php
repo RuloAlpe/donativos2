@@ -4,8 +4,6 @@ use yii\helpers\Url;
 $this->params['btns'] = '<a href="'.Url::base().'" class="btn btn-success btn-boletos">Inicio</a>';
 ?>
 
-
-<a href="<?=Url::base()?>" class="btn btn-success btn-boletos btn-inicio">Inicio</a>
     
 <!-- <div class="container container-full"> -->
   <div class="mis-donaciones-content">
