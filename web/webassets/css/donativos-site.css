@@ -431,7 +431,7 @@ body{
   border-color: #D9262C;
   border-top-style: none;
   border-right-style: none;
-  border-radius: 6px;
+  /* border-radius: 6px; */
 }
 .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:after {
   content: "";
