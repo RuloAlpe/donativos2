@@ -23,7 +23,7 @@ $this->params['btns'] = '';
       foreach($boletos as $boleto){
       ?>
       <div class="donaciones-row">
-        <p class="donaciones-monto">$<?=$boleto->txt_monto_pago?>.00</p>
+        <p class="donaciones-monto">$<?=number_format((float)$boleto->txt_monto_pago, 2, '.', ''); ?></p>
         <p class="donaciones-transaccion"><?=$boleto->txt_transaccion?></p>
         <p class="donaciones-fecha"><?=$boleto->fch_pago?></p>  
         </div>
