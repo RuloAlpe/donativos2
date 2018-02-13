@@ -77,9 +77,9 @@ $this->registerJsFile(
             <div class="monto">
               <span class="currency">$</span>
               <?php if (Yii::$app->user->isGuest) { ?>
-                <input data-log="0" class="js-add ingreso_monto input-monto" type="text" placeholder="10,000.00">
+                <input data-log="0" maxlength="10" class="js-add ingreso_monto input-monto" type="text" placeholder="10,000.00">
               <?php }else{ ?>
-                <input data-log="1" class="js-add ingreso_monto input-monto" type="text" placeholder="10,000.00">                
+                <input data-log="1" maxlength="10" class="js-add ingreso_monto input-monto" type="text" placeholder="10,000.00">                
               <?php } ?>
               <span class="moneda">mxn</span>
             </div>

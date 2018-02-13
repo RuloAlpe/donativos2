@@ -143,7 +143,7 @@ body{
     background-color: #F9C6C1;
     border-radius: 8px;
     margin: 0 auto;
-    min-width: 340px;
+    width: 340px;
     padding: 40px 34px;
 }
 @media only screen and (max-width: 768px) {
@@ -431,7 +431,7 @@ body{
   border-color: #D9262C;
   border-top-style: none;
   border-right-style: none;
-  border-radius: 6px;
+  /* border-radius: 6px; */
 }
 .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:after {
   content: "";
@@ -568,7 +568,9 @@ body{
 }
 
 .mis-donaciones-content .donaciones-table .donaciones-row{
+    background-color: #fff;
     border-bottom: 1px solid #eee;
+    min-height: 42px;
 }
 .mis-donaciones-content .donaciones-table .donaciones-row:nth-child(odd){
     background-color: #f7f7f7;
@@ -585,16 +587,25 @@ body{
 
 .mis-donaciones-content .donaciones-table .donaciones-head .donaciones-monto,
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-monto{
-    width: 24%
+    width: 24%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .mis-donaciones-content .donaciones-table .donaciones-head .donaciones-transaccion,
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-transaccion{
-    width: 44%
+    width: 44%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .mis-donaciones-content .donaciones-table .donaciones-head .donaciones-fecha,
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-fecha{
     width: 32%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-monto{}
