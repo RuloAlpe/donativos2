@@ -53,7 +53,6 @@ header
 
 .banner
 	align-items: center
-	// background-color: green
 	background-image: url(../images/bkgd.jpg)
 	background-position: 50%
 	background-repeat: no-repeat
@@ -63,7 +62,6 @@ header
 	justify-content: flex-start
 	width: 100%
 	.banner-texts
-		// background-color: orange
 		margin: 0 auto
 		max-width: 90%
 		width: 1024px
@@ -86,8 +84,10 @@ header
 				font-size: 1.1rem
 			span
 				display: block
-				font-size: 4.45rem
-				letter-spacing: 1px
+				font-weight: $xbold
+				font-size: 4.55rem
+				letter-spacing: -1px
+				margin-top: -20px
 				+respond-to(md)
 					font-size: 4.1rem
 				+respond-to(tl)
@@ -96,8 +96,10 @@ header
 					font-size: 3.2rem
 				+respond-to(sl)
 					font-size: 2.6rem
+					margin-top: -14px
 				+respond-to(sp)
-					font-size: 3.25rem
+					font-size: 2.4rem
+					margin-top: -10px
 		a
 			background-color: $primary
 			+border-radius(30px)
@@ -121,13 +123,21 @@ header
 		position: relative
 		width: 668px
 		p
-			font-size: 1rem
-			// letter-spacing: 1px
-			// line-height: 1
-			margin-bottom: 12px
+			font-size: 2rem
+			margin-bottom: 40px
 			position: relative
-			text-align: left
+			text-align: center
+			width: 100%
 			z-index: 1
+			+respond-to(tl)
+				font-size: 1.8rem
+			+respond-to(tp)
+				font-size: 1.6rem
+			+respond-to(sl)
+				font-size: 1.4rem
+			+respond-to(sp)
+				font-size: 1.2rem
+
 		.secretos-video
 			align-items: center
 			display: flex
@@ -152,7 +162,7 @@ header
 				background-image: url(../images/placeholder.jpg)
 				background-position: 50%
 				background-repeat: no-repeat
-				background-size: 100%
+				background-size: cover
 				+border-radius(4px)
 				display: flex
 				height: 100%
@@ -242,28 +252,58 @@ header
 			align-items: center
 			flex-direction: column
 		.debes-saber-img
-			padding-right: 20px
-			width: 38%
+			// padding-right: 20px
+			margin-right: 20px
+			width: 49%
+			overflow: hidden
+			+border-radius(2px)
+			// height: 593px
+			+respond-to(md)
+				margin-right: 0
+				margin-bottom: 40px
+				padding-right: 0px
+				text-align: center
+				width: 100%
 			+respond-to(tl)
 				margin-bottom: 40px
 				padding-right: 0px
+				text-align: center
 				width: 100%
 			+respond-to(tp)
 				margin-bottom: 40px
 				padding-right: 0px
+				text-align: center
 				width: 100%
 			+respond-to(sl)
 				margin-bottom: 40px
 				padding-right: 0px
+				text-align: center
 				width: 100%
 			+respond-to(sp)
 				margin-bottom: 40px
 				padding-right: 0px
+				text-align: center
 				width: 100%
 			img
-				max-width: 100%
+				+respond-to(lg)
+					height: 100%
+					margin-left: -45%
+				+respond-to(md)
+					height: 100%
+					margin-left: 0
+				+respond-to(tl)
+					max-width: 100%
+				+respond-to(tp)
+					max-width: 100%
+				+respond-to(sl)
+					max-width: 100%
+				+respond-to(sp)
+					max-width: 100%
+
 		.debes-saber-txt
-			width: 62%
+			width: 50%
+			+respond-to(md)
+				width: 100%
 			+respond-to(tl)
 				width: 100%
 			+respond-to(tp)
@@ -393,6 +433,11 @@ footer
 			width: 31.31%
 			&:last-child
 				margin-right: 0
+			&:nth-child(2)
+				+respond-to(lg)
+					padding-left: 40px
+				+respond-to(md)
+					padding-left: 40px
 			+respond-to(tl)
 				margin-bottom: 30px
 				margin-right: 0
@@ -430,11 +475,14 @@ footer
 			.footer-social
 				display: flex
 				justify-content: flex-start
-				i
-					font-size: 1.7rem
-					margin-right: 20px
+				a
+					display: flex
+					margin-right: 14px
 					&:last-child
 						margin-right: 0
+					i
+						color: $black
+						font-size: 1.7rem
 
 		.footer-aviso-privacidad
 			margin-top: 100px

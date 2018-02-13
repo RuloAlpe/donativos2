@@ -38,7 +38,7 @@
 //
 =respond-to($media)
 	@if $media == lg
-		@media (min-width: $screen-lg + 1)
+		@media (min-width: $screen-md + 1)
 			@content
 	@else if $media == md
 		@media (min-width: $screen-tl) and (max-width: $screen-md - 1 )
