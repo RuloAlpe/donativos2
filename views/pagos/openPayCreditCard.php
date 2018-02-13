@@ -388,7 +388,7 @@ a.button.disabled {
 
 	margin: 0 0 3px;
 
-	padding: 20px 30px;
+	padding: 20px 30px 30px;
 
 	width: 100%;
 
@@ -440,7 +440,7 @@ a.button.disabled {
 
 	display: block;
 
-	padding: 0 0 30px;
+	padding: 0 0 40px;
 
 	width: 100%;
 
@@ -776,7 +776,7 @@ a.button.disabled {
 
 .modal-ticket-op-tc .bkng-tb-cntnt .pymnts form{
 	background-color: #f7f7f7;
-	max-height: 96vh;
+	max-height: 94vh;
 	max-width: 1024px;
 	overflow-x: auto;
 	width: 80%;
