@@ -586,15 +586,24 @@ body{
 .mis-donaciones-content .donaciones-table .donaciones-head .donaciones-monto,
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-monto{
     width: 24%
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .mis-donaciones-content .donaciones-table .donaciones-head .donaciones-transaccion,
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-transaccion{
     width: 44%
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .mis-donaciones-content .donaciones-table .donaciones-head .donaciones-fecha,
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-fecha{
     width: 32%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-monto{}
