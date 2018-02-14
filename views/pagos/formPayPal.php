@@ -64,7 +64,7 @@ use yii\helpers\Url;
                         <?php echo Html::hiddenInput("custom", $ordenCompra->id_usuario)?>
                         <?php echo Html::hiddenInput("notify_url", $ipnUrl)?>
                         <?php echo Html::hiddenInput("lc", 'MX')?>
-                        <?php echo Html::hiddenInput("business", 'beto@2gom.com.mx')?>
+                        <?php echo Html::hiddenInput("business", 'development-facilitator@2gom.com.mx')?>
                         <?php echo Html::hiddenInput("item_name", $ordenCompra->txt_description)?>
                         <?php echo Html::hiddenInput("item_number", $ordenCompra->txt_order_number)?>
                         <?php echo Html::hiddenInput("amount", $ordenCompra->num_total)?>

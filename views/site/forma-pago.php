@@ -50,7 +50,15 @@ $this->registerJsFile(
           <?php
           }
           ?>
-
+          <div>
+            <a data-value="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_80244ff4f23c1f06e8262c2b0a7462a6571112ad791dc" class="btn-tipo-de-pago js-btn-pago">
+              <img src="<?=Url::base()?>/webassets/images/logo-paypal.png" alt="">
+            </a><span class="caption">Tarjeta de Crédito o cuenta</span>
+          </div>
+        <?php 
+          #if(!$ordenCompra->b_subscripcion){
+          if(false){
+          ?> 
           <div>  
             <a data-value="2" data-tarjeta="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
               <img src="<?=Url::base()?>/webassets/images/creditCard.png" alt="Pago con tarjeta">
@@ -66,6 +74,10 @@ $this->registerJsFile(
         <span>Transacción protegida por</span>
         <img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
       </div>
+
+      <?php
+          }
+      ?>
 
     </div>
   </div>

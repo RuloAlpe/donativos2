@@ -50,14 +50,14 @@ $this->registerJsFile(
                 
             </div>
 
-            <div class="check">
+            <!-- <div class="check">
               <div class="check__item">
-                <label class="label--checkbox">
+                <label class="label- -checkbox">
                   <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
                   Contribuir mensualmente
                 </label>
               </div>
-            </div>
+            </div> -->
 
             <?= Html::endForm() ?>
 
