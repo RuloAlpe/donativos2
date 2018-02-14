@@ -23,6 +23,13 @@
 		"oAP": "\/index.html",
 		"oF": 0
 		},
+	"\/programa-trabajo.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/programa-trabajo.html",
+		"oF": 0
+		},
 	"\/webassets\/css\/styles.css": {
 		"aP": 1,
 		"bl": 0,
@@ -756,6 +763,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/webassets\/sass\/_site-styles.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/webassets\/sass\/_trabajo.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/webassets\/sass\/_trabajo.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
