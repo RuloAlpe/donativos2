@@ -213,7 +213,7 @@ class PagosController extends Controller
                     ->createChargeCreditCard ( $ordenCompra->txt_description, $ordenCompra->txt_order_number, $ordenCompra->num_total, $_POST ["token_id"], $_POST['deviceIdHiddenFieldName']);
 				
 				echo "success";
-			} catch ( Exception $e ) {
+			} catch ( \OpenpayApiTransactionError $e ) {
 				
 
 				echo $e->getMessage ();
