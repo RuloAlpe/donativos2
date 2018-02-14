@@ -185,6 +185,7 @@ body{
     font-weight: 400;
     padding: 4px 12px;
     text-align: left;
+<
     width: 100%;
 }
 @media only screen and (max-width: 480px) {
@@ -199,6 +200,7 @@ body{
     font-family: "Source Sans Pro",sans-serif;
     font-weight: 300;
     opacity: 1;
+
 }
 
 .ent-usuarios-form .form-line input[type="text"]:-ms-input-placeholder,
@@ -252,6 +254,7 @@ body{
     max-width: 90%;
     padding: 30px 40px;
     width: auto;
+
 }
 
 .donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard .btn-tipo-de-pago{
@@ -544,6 +547,7 @@ body{
     margin: 80px 0 60px;
     text-align: center;
 }
+
 
 .mis-donaciones-content .donaciones-table{
     background-color: white;

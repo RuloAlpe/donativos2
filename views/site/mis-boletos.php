@@ -5,6 +5,7 @@ $this->params['btns'] = '';
 ?>
 
 
+
 <a href="<?=Url::base()?>" class="btn btn-success btn-boletos btn-inicio">Inicio</a>
     
 <div class="container container-full">
@@ -17,6 +18,7 @@ $this->params['btns'] = '';
         <p class="donaciones-monto">Monto de donativo</p>
         <p class="donaciones-transaccion">ID de transacción</p>
         <p class="donaciones-fecha">Fecha de la donación</p>  
+
       </div>
 
       <?php
@@ -38,9 +40,11 @@ $this->params['btns'] = '';
 
     </div>
 
+
   </div>
 </div>
     
+
 
 
 

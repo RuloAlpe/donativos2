@@ -25,8 +25,10 @@ $this->registerJsFile(
 ?>
 
 
+
   <div class="container container-full">
     <!-- container-column -->
+
     <div class="tipos-de-pago-content">
       
       <h3>
