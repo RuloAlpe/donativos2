@@ -24,23 +24,54 @@ $this->registerJsFile(
 );
 ?>
 
-<section class="donativos-wrapper">
-<a href="<?=Url::base()?>/site/mis-boletos" class="btn btn-success btn-boletos">Mis Boletos</a>
-  <div class="container container-column container-full">
+
+
+  <div class="container container-full">
+    <!-- container-column -->
+
     <div class="tipos-de-pago-content">
-      <h3>Selecciona un tipo de pago</h3>
+      
+      <h3>
+        Seleciona un medio para realizar tu contribución de $<?=$ordenCompra->num_total?> MXN
+      </h3>
       <div class="tipos-de-pago">
         <div class="pagocard">
-            <a data-value="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_80244ff4f23c1f06e8262c2b0a7462a6571112ad791dc" class="btn-tipo-de-pago js-btn-pago"><img src="<?=Url::base()?>/webassets/images/logo-paypal.png" alt=""></a><span class="caption">Tarjeta de Crédito o cuenta</span>
-        </div>
-        <div class="pagocard">
-          <a data-value="2" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago"><img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt=""></a><span class="caption">Pago en establecimiento</span>
+
+          <?php 
+          #if(!$ordenCompra->b_subscripcion){
+          if(false){
+          ?> 
+          <div>
+            <a data-value="2" data-tarjeta="0" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
+              <img src="<?=Url::base()?>/webassets/images/shop.png" alt="Pago en establecimiento">
+            </a>
+            <span class="caption">
+              Establecimiento
+            </span>
+          </div>
+          <?php
+          }
+          ?>
+
+          <div>  
+            <a data-value="2" data-tarjeta="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
+              <img src="<?=Url::base()?>/webassets/images/creditCard.png" alt="Pago con tarjeta">
+            </a>
+            <span class="caption">
+              Tarjeta de Crédito
+            </span>
+          </div>  
         </div>
       </div>
+
+      <div class="open-pay">
+        <span>Transacción protegida por</span>
+        <img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
+      </div>
+
     </div>
   </div>
-  <footer><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo donado por 2 Geeks one Monkey</a></footer>
-</section>
+  
 
 
 <div style="display:none" class="ajax-container">
@@ -49,3 +80,8 @@ $this->registerJsFile(
 
 <div class="modal-ticket-op modal-ticket-op-hide">
 </div>
+
+<div class="modal-ticket-op-tc modal-ticket-op-hide">
+</div>
+
+

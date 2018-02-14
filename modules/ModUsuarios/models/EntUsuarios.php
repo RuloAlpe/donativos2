@@ -8,6 +8,7 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use app\modules\ModUsuarios\models\Utils;
 use kartik\password\StrengthValidator;
+use app\models\Pagos;
 
 /**
  * This is the model class for table "ent_usuarios".
@@ -39,6 +40,8 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 	const STATUS_BLOCKED = 3;
 	public $password;
 	public $repeatPassword;
+	public $email;
+	public $repeatEmail;
 	
 	/**
 	 * @inheritdoc
@@ -53,10 +56,16 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 	public function rules() {
 		return [ 
 				[ 
-						'password',
-						'compare',
-						'compareAttribute' => 'repeatPassword',
-						'on' => 'registerInput' 
+					'repeatPassword',
+					'compare',
+					'compareAttribute' => 'password',
+					'on' => 'registerInput' 
+				],
+				[ 
+					'repeatEmail',
+					'compare',
+					'compareAttribute' => 'email',
+					'on' => 'registerInput' 
 				],
 				[ 
 						'txt_email',
@@ -81,7 +90,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 						'required',
 						'on' => 'registerInput' 
 				],
-				[ 
+				/*[ 
 						[ 
 								'password'
 						],
@@ -94,14 +103,22 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 						'special'=>2,
 						'hasUser'=>false,
 						
+				],*/
+				[ 
+					[ 
+							'password',
+							'repeatPassword' 
+					],
+					'required',
+					'on' => 'registerInput' 
 				],
 				[ 
-						[ 
-								'password',
-								'repeatPassword' 
-						],
-						'required',
-						'on' => 'registerInput' 
+					[ 
+							'email',
+							'repeatEmail' 
+					],
+					'required',
+					'on' => 'registerInput' 
 				],
 				[ 
 						[ 
@@ -182,16 +199,17 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 		return [ 
 				'id_usuario' => 'Id Usuario',
 				'txt_token' => 'Txt Token',
-				'txt_username' => 'Txt Username',
-				'txt_apellido_paterno' => 'Txt Apellido Paterno',
-				'txt_apellido_materno' => 'Txt Apellido Materno',
+				'txt_username' => 'Nombre',
+				'txt_apellido_paterno' => 'Apellido Paterno',
+				'txt_apellido_materno' => 'Apellido Materno',
 				'txt_auth_key' => 'Txt Auth Key',
 				'txt_password_hash' => 'Txt Password Hash',
 				'txt_password_reset_token' => 'Txt Password Reset Token',
-				'txt_email' => 'Txt Email',
+				'txt_email' => 'Email',
 				'fch_creacion' => 'Fch Creacion',
 				'fch_actualizacion' => 'Fch Actualizacion',
-				'id_status' => 'Id Status' 
+				'id_status' => 'Id Status' ,
+				'repeatEmail'=>"Repetir email"
 		];
 	}
 	
@@ -390,16 +408,16 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 	 */
 	public function signup($isFacebook=false) {
 		
-		if (! $this->validate ()) {
+		/*if (! $this->validate ()) {
 			return null;
-		}
+		}*/
 		
 		$user = new EntUsuarios ();
 		$user->txt_token = Utils::generateToken ( 'usr' );
 		$user->txt_username = $this->txt_username;
 		$user->txt_apellido_paterno = $this->txt_apellido_paterno;
 		$user->txt_apellido_materno = $this->txt_apellido_materno;
-		$user->txt_email = $this->txt_email;
+		$user->txt_email = $this->email;
 		$user->setPassword ( $this->password );
 		$user->generateAuthKey ();
 		$user->fch_creacion = Utils::getFechaActual ();
@@ -407,9 +425,19 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 		
 		// Si esta activada la opcion de mandar correo de activación el usuario estara en status pendiente
 		if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion'] && !$isFacebook) {
-			$user->id_status = self::STATUS_PENDIENTED;
+			$user->id_status = self::STATUS_ACTIVED;
 		} else {
 			$user->id_status = self::STATUS_ACTIVED;
+		}
+
+		if($user->save()){
+			$p = new Pagos();
+			$respuesta = $p->guardarCliente($user->nombreCompleto, $user->txt_email);
+			$user->txt_usuario_open_pay = $respuesta->id;
+			$user->save();
+			return $user;
+		}else{
+			return null;
 		}
 		
 		return $user->save () ? $user : null;

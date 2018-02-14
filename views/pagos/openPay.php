@@ -13,7 +13,9 @@ $date = date("Y-m-d",$date);
 
 ?>
 
-<div class="cargo-total">
+  <div class="modal-ticket-op-cont">
+
+    <div class="cargo-total">
       <h5>Total a Pagar</h5>
       <span class="monto-total">$  <?=number_format($charger->amount)?></span>
       <span class="moneda">mxn</span>
@@ -22,8 +24,10 @@ $date = date("Y-m-d",$date);
 
     <div class="barcode">
       <h3>Para completar tu pago presenta este código de barras en cualquier establecimiento participante</h3>
-      <h4>Este ticket será vigente hasta el:</h4>
-      <span class="fecha">15/Oct/17</span>
+      <!--<h4>Este ticket será vigente hasta el:</h4>
+
+      <span class="fecha">31/Dic/18</span>-->
+
       <img src="<?=$charger->payment_method->barcode_url?>" alt="Codigo de Barras">
       <div class="num-ref"><?=$charger->payment_method->reference?></div>
       <span class="caption">En caso de que el escáner no sea capaz de leer el código de barras, escribir la referencia tal como se muestra.</span>
@@ -47,8 +51,10 @@ $date = date("Y-m-d",$date);
     <div class="powered">
       <span>powered by</span><img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="powered by openpay">
     </div>
-    <a class="close-modal"><i class="ion ion-close"></i></a>
+    
     <a href="" class="btn btn-primary print-btn">Imprimir este ticket</a>
 
-                                    
-                                                                
+  </div>
+
+  <a class="close-modal"><i class="ion ion-close"></i></a>
+  

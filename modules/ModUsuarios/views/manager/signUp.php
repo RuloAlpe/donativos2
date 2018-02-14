@@ -6,16 +6,23 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\EntUsuarios */
 
-$this->title = 'Create Ent Usuarios';
+$this->title = 'Antes de realizar tu donativo necesitamos nos compartas unos datos';
 $this->params['breadcrumbs'][] = ['label' => 'Ent Usuarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="ent-usuarios-create">
+<div class="container container-full">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+	<div class="registro-int">
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+	    <h2><?= Html::encode($this->title) ?></h2>
+
+	    <?= $this->render('_form', [
+	        'model' => $model,
+	        'idPlan' =>$idPlan,
+					'subscripcion'=>$subscripcion,
+					'monto'=>$monto
+	    ]) ?>
+
+    </div>
 
 </div>

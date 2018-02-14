@@ -8,26 +8,37 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="ent-usuarios-form">
+<div>
+    <div class="ent-usuarios-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'txt_username')->textInput(['maxlength' => true]) ?>
+            <div class="form-line">
+                <?= $form->field($model, 'txt_username')->textInput(['maxlength' => true, "placeholder" => "Nombre"]) -> label(false) ?>
+            </div>
 
-    <?= $form->field($model, 'txt_apellido_paterno')->textInput(['maxlength' => true]) ?>
+            <div class="form-line">
+                <?= $form->field($model, 'txt_apellido_paterno')->textInput(['maxlength' => true, "placeholder" => "Apellido Paterno"]) -> label(false) ?>
+            </div>
 
-    <?= $form->field($model, 'txt_apellido_materno')->textInput(['maxlength' => true]) ?>
+            <div class="form-line">
+                <?= $form->field($model, 'email')->textInput(['maxlength' => true, "placeholder" => "Email"]) -> label(false) ?>
+            </div>
 
-    <?= $form->field($model, 'txt_email')->textInput(['maxlength' => true]) ?>
-    
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
-    
-    <?= $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true]) ?>
+            <div class="form-line">
+                <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true, "placeholder" => "Repetir Email"]) -> label(false) ?>
+            </div>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            <input type="hidden" value="<?=$idPlan?>" name="plan" />
+            <input type="hidden" name="susbcripcion" value="<?=$subscripcion?>"/>
+            <input type="hidden" value="<?=$monto?>" name="monto"/>
+
+            <div class="form-group">
+                <?= Html::submitButton($model->isNewRecord ? 'Continuar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            </div>
+
+
+        <?php ActiveForm::end(); ?>
+
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

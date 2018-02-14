@@ -1,0 +1,217 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	2.0 - Basicos
+			# Basic
+			# Utility
+			# Extra
+
+	-----------------------------------------------------------------------------
+	*/
+
+/*  Basic
+	========================================================================== */
+*,
+*:after,
+*:before
+	box-sizing: border-box
+
+*
+	margin: 0
+	padding: 0
+
+body
+	background-color: $white
+	font:
+		family: $f-base
+		size: 16px
+		weight: $light
+	color: $font-color
+
+/* a */
+a
+	color: $link
+	font:
+		family: $f-base
+		size: 16px
+		weight: $regular
+	text-decoration: none
+	+transition(all 0.3s ease-in)
+	&:hover
+		color: $link
+		text-decoration: none
+		+transition(all 0.3s ease-out)
+
+/* img */
+img
+	+transition(all 0.5s ease-in)
+
+/* Utility
+   ========================================================================== */
+/* h1 - h6 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6
+	font:
+		family: $f-base
+		weight: $bold
+	margin: 0
+	padding: 0
+h1,
+.h1
+	font-size: 2.8em
+h2,
+.h2
+	font-size: 2.4em
+h3,
+.h3
+	font-size: 2em
+h4,
+.h4
+	font-size: 1.6em
+h5,
+.h5
+	font-size: 1.4em
+h6,
+.h6
+	font-size: 1.2em
+
+/* hr */
+hr
+	border: none
+	margin: 0
+
+/* Wrap*/
+.wrap
+	position: relative
+
+/*  Btn
+	================================================ */
+.btn
+	-moz-user-select: none
+	-ms-user-select: none
+	-webkit-user-select: none
+	border-radius: .25rem
+	border: 1px solid transparent
+	cursor: pointer
+	display: inline-block
+	font-family: $f-base
+	font-size: 1.04rem
+	font-weight: $regular
+	line-height: 1.25
+	padding: .5rem 1rem
+	text-align: center
+	user-select: none
+	vertical-align: middle
+	white-space: nowrap
+	+border-radius(4px)
+	box-shadow: 0 3px 0 rgba(0,0,0,.05)
+	min-width: 100px
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus 
+	outline: none
+	outline-offset: -2px
+
+.btn:focus,
+.btn:hover 
+	text-decoration: none
+
+.btn.focus 
+	text-decoration: none
+
+.btn.active,
+.btn:active 
+	background-image: none
+	outline: 0
+
+.btn.disabled,
+.btn:disabled 
+	cursor: not-allowed
+	opacity: .65
+
+.btn-primary 
+	color: $white
+	background-color: $primary
+	border-color: $primary
+
+.btn-secondary
+	color: $white
+	background-color: $secondary
+	border-color: $secondary
+
+.btn-primary:hover 
+	color: $white
+	background-color: $accent
+	border-color: $accent
+
+.btn-primary.focus,
+.btn-primary:focus 
+	background-color: $accent
+	border-color: $accent
+
+.btn-primary.active,
+.btn-primary:active
+	color: $white
+	background-color: $accent
+	border-color: $accent
+	background-image: none
+
+.container-960
+	max-width: 960px
+	width: 960px
+	margin: 0 auto
+	// height: calc(100vh - 80px)
+	+respond-to(sp)
+		width: 100%
+
+.container-1024
+	max-width: 1024px
+	width: 90%
+	margin: 0 auto
+	// padding: 0 40px
+	// +respond-to(sp)
+	// 	width: 100%
+	// 	overflow: hidden
+	// 	padding: 0 10px
+
+
+// Pop-up Video
+.mfp-fade.mfp-bg
+	opacity: 0
+	-webkit-transition: all 0.15s ease-out 
+	-moz-transition: all 0.15s ease-out 
+	transition: all 0.15s ease-out
+
+.mfp-fade.mfp-bg.mfp-ready
+	opacity: 0.8
+
+.mfp-fade.mfp-bg.mfp-removing
+	opacity: 0
+
+
+.mfp-fade.mfp-wrap .mfp-content
+	opacity: 0
+	-webkit-transition: all 0.15s ease-out 
+	-moz-transition: all 0.15s ease-out 
+	transition: all 0.15s ease-out
+
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content
+	opacity: 1
+
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content
+	opacity: 0
+

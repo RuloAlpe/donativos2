@@ -20,10 +20,15 @@ class AppAsset extends AssetBundle
     public $css = [
         
         'webassets/css/styles.css',
+        'webassets/css/donativos-site.css',
+        'webassets/plugins/ladda/ladda.css'
         
     ];
     public $js = [
-        'webassets/plugins/sweet-alert/sweetalert.min.js'
+        'webassets/plugins/sweet-alert/sweetalert.min.js',
+        'webassets/plugins/ladda/spin.js',
+        'webassets/plugins/ladda/ladda.js',
+        'webassets/js/geeks.js'
     ];
     public $depends = [
          'yii\web\YiiAsset',

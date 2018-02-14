@@ -25,12 +25,25 @@ AppAsset::register($this);
     </script>
     <?php $this->head() ?>
 </head>
-<body>
+<body >
 <?php $this->beginBody() ?>
-
+    <section class="donativos-wrapper">
+        <?php if(!Yii::$app->user->isGuest){ ?>
+            <?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success btn-boletos">Ver mis donativos</a>'?>
+            
+            
+        <?php }else{
+        ?>
+            <a href="<?=Url::base()?>/login" class="btn btn-success btn-boletos">Iniciar sesión</a>
+        <?php
+        } ?>
         <?= $content ?>
-    
-
+        
+        <footer>
+      <a class="sponsor" href="https://www.figma.org.mx/">Aviso de privacidad</a>
+  
+    </footer>
+    </section> 
 <?php $this->endBody() ?>
 </body>
 </html>
