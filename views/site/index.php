@@ -46,7 +46,9 @@ $this->registerJsFile(
                 <input type="hidden" value="<?=$plan->id_plan?>" name="plan" />
                 
                 <input type="hidden" value="<?=$plan->num_cantidad?>" name="monto"/>
-                <button type="submit" class="btn btn-default btn-donativo js-select-amount btn-success" data-value="500">Realizar Donativo</button>
+                <button type="submit" class="btn btn-default btn-donativo js-select-amount btn-success" data-style="zoom-in" data-value="500">
+                  <span class="ladda-label">Realizar Donativo</span>
+                </button>
                 
             </div>
 

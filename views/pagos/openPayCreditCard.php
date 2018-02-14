@@ -8,49 +8,35 @@ use app\models\Pagos;
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-
-
 <script type="text/javascript">
+	var btnLadda = $("#pay-button");
+	var l = Ladda.create(btnLadda.get(0)); 
 
         $(document).ready(function() {
 
         	// credenciales para desarrollo
-
             OpenPay.setId('<?=Pagos::API_OPEN_PAY?>');
-
             OpenPay.setApiKey('<?=Pagos::API_OPEN_PAY_PUBLIC?>');
-
 			OpenPay.setSandboxMode(<?=Pagos::API_SANDBOX?>);
 
             //Se genera el id de dispositivo
-
             var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
-
-            
 
             $('#pay-button').on('click', function(event) {
 
                 event.preventDefault();
 
-                $("#pay-button").prop( "disabled", true);
+                l.start();
 
                 OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);                
 
             });
 
-
-
             var sucess_callbak = function(response) {
-
-                console.log(response);
-
-              var token_id = response.data.id;
-
-              $('#token_id').val(token_id);
-
-              var forma = $('#payment-form');
-
-			
+            console.log(response);
+            var token_id = response.data.id;
+            $('#token_id').val(token_id);
+            var forma = $('#payment-form');
 
 			$.ajax({
 
@@ -68,13 +54,11 @@ use app\models\Pagos;
 
 						window.location.replace(baseUrl+'site/gracias');
 
-						
-
 					}else{
 
 						alert("Hubo un problema con el pago");
 
-						$("#pay-button").prop( "disabled", false);
+						l.stop();
 
 					}
 
@@ -98,7 +82,7 @@ use app\models\Pagos;
 
                 alert("ERROR [" + response.status + "] " + desc);
 
-                $("#pay-button").prop("disabled", false);
+                l.stop();
 
             };
 
@@ -160,276 +144,140 @@ a.button {
 
 }
 
-
-
 a.button i {
-
 	margin-right: 10px;
-
 }
-
-
 
 a.button.disabled {
-
 	background: none repeat scroll 0 0 #ccc;
-
 	cursor: default;
-
 }
-
-
 
 .bkng-tb-cntnt {
-
 	float: left;
-
 	width: 100%;
-
 }
-
-
 
 .bkng-tb-cntnt a.button {
-
 	color: #fff;
-
 	float: right;
-
 	font-size: 18px;
-
 	padding: 5px 20px;
-
 	width: auto;
-
 }
-
-
 
 .bkng-tb-cntnt a.button.o {
-
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-
 	color: #e51f04;
-
 	border: 1px solid #e51f04;
-
 }
-
-
 
 .bkng-tb-cntnt a.button i {
-
 	color: #fff;
-
 }
-
-
 
 .bkng-tb-cntnt a.button.o i {
-
 	color: #e51f04;
-
 }
-
-
 
 .bkng-tb-cntnt a.button.right i {
-
 	float: right;
-
 	margin: 2px 0 0 10px;
-
 }
-
-
 
 .bkng-tb-cntnt a.button.left {
-
 	float: left;
-
 }
-
-
 
 .bkng-tb-cntnt a.button.disabled.o {
-
 	border-color: #ccc;
-
 	color: #ccc;
-
 }
-
-
 
 .bkng-tb-cntnt a.button.disabled.o i {
-
 	color: #ccc;
-
 }
-
-
 
 .pymnts {
-
 	float: left;
-
 	width: 100%;
-
 }
-
-
 
 .pymnts * {
-
 	float: left;
-
 }
-
-
 
 .sctn-row {
-
 	margin-bottom: 35px;
-
 	width: 100%;
-
 }
-
-
 
 .sctn-col {
-
 	width: 375px;
-
 }
-
-
 
 .sctn-col.l {
-
 	width: 425px;
-
 }
-
-
 
 .sctn-col input {
-
 	border: 1px solid #ccc;
-
 	font-size: 18px;
-
 	line-height: 24px;
-
 	padding: 10px 12px;
-
 	width: 333px;
-
 }
-
-
 
 .sctn-col label {
-
 	font-size: 24px;
-
 	line-height: 24px;
-
 	margin-bottom: 10px;
-
 	width: 100%;
-
 }
-
-
 
 .sctn-col.x3 {
-
 	width: 300px;
-
 }
-
-
 
 .sctn-col.x3.last {
-
 	width: 200px;
-
 }
-
-
 
 .sctn-col.x3 input {
-
 	width: 210px;
-
 }
-
-
 
 .sctn-col.x3 a {
-
 	float: right;
-
 }
-
-
 
 .pymnts-sctn {
-
 	width: 100%;
-
 }
-
-
 
 .pymnt-itm {
-
 	margin: 0 0 3px;
-
 	padding: 20px 30px 30px;
-
 	width: 100%;
-
 }
-
-
 
 .pymnt-itm h2 {
-
 	background-color: #e9e9e9;
-
 	font-size: 24px;
-
 	line-height: 24px;
-
 	margin: 0;
-
 	padding: 28px 0 28px 20px;
-
 	width: 780px;
-
 }
-
-
 
 .pymnt-itm.active h2 {
-
 	background-color: #e51f04;
-
 	color: #fff;
-
 	cursor: default;
-
 }
 
-
-
 .pymnt-itm div.pymnt-cntnt {
-
 	display: none;
-
 }
 
 
@@ -919,11 +767,12 @@ a.button.disabled {
 
 						<div class="sctn-rowz">
 
-							<button class="btn btn-green btn-small btn-donar"
+							<button class="btn btn-green btn-small btn-donar ladda-button" data-style="zoom-in"
 
 								style="float: right; visibility: visible !important;"
 
-								id="pay-button">Donar</button>
+								id="pay-button">
+								<span class="ladda-label">Donar</span></button>
 
 						</div>
 
