@@ -3847,12 +3847,36 @@ footer {
   .aviso-privacidad h2 {
     color: #D9262C;
     font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
     margin: 40px 0 30px; }
+  .aviso-privacidad h3 {
+    color: #D9262C;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 2px; }
+  .aviso-privacidad ul {
+    list-style-position: outside;
+    margin-bottom: 30px;
+    padding-left: 26px; }
+    .aviso-privacidad ul li {
+      color: #D9262C;
+      letter-spacing: 1px;
+      line-height: 1.6;
+      margin-bottom: 6px; }
   .aviso-privacidad p {
     color: #D9262C;
     font-size: 1rem;
     letter-spacing: 1px;
-    line-height: 1;
+    line-height: 1.6;
+    margin-bottom: 30px;
     text-align: justify; }
+    .aviso-privacidad p.text-italic {
+      font-style: italic; }
+    .aviso-privacidad p .bold {
+      font-weight: 700; }
+    .aviso-privacidad p .up {
+      text-transform: uppercase; }
 
 /*# sourceMappingURL=styles.css.map */
