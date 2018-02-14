@@ -41,25 +41,14 @@ use app\models\Pagos;
 			$.ajax({
 
 				url: forma.attr("action"),
-
 				data:forma.serialize(),
-
 				method:"POST",
-
 				success: function(response){
-
-
-
 					if(response=="success"){
-
 						window.location.replace(baseUrl+'site/gracias');
-
 					}else{
-
 						alert("Hubo un problema con el pago");
-
 						l.stop();
-
 					}
 
 				},error:function(){
