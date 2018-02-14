@@ -3309,8 +3309,10 @@ header {
           font-size: 1.1rem; } }
       .banner .banner-texts h2 span {
         display: block;
-        font-size: 4.45rem;
-        letter-spacing: 1px; }
+        font-weight: 900;
+        font-size: 4.55rem;
+        letter-spacing: -1px;
+        margin-top: -20px; }
         @media (min-width: 801px) and (max-width: 1023px) {
           .banner .banner-texts h2 span {
             font-size: 4.1rem; } }
@@ -3322,10 +3324,12 @@ header {
             font-size: 3.2rem; } }
         @media screen and (max-width: 480px) {
           .banner .banner-texts h2 span {
-            font-size: 2.6rem; } }
+            font-size: 2.6rem;
+            margin-top: -14px; } }
         @media screen and (max-width: 320px) {
           .banner .banner-texts h2 span {
-            font-size: 3.25rem; } }
+            font-size: 2.4rem;
+            margin-top: -10px; } }
     .banner .banner-texts a {
       background-color: #D9262C;
       -webkit-border-radius: 30px;
@@ -3351,11 +3355,24 @@ header {
     position: relative;
     width: 668px; }
     .secretos .container p {
-      font-size: 1rem;
-      margin-bottom: 12px;
+      font-size: 2rem;
+      margin-bottom: 40px;
       position: relative;
-      text-align: left;
+      text-align: center;
+      width: 100%;
       z-index: 1; }
+      @media (min-width: 601px) and (max-width: 800px) {
+        .secretos .container p {
+          font-size: 1.8rem; } }
+      @media screen and (max-width: 600px) {
+        .secretos .container p {
+          font-size: 1.6rem; } }
+      @media screen and (max-width: 480px) {
+        .secretos .container p {
+          font-size: 1.4rem; } }
+      @media screen and (max-width: 320px) {
+        .secretos .container p {
+          font-size: 1.2rem; } }
     .secretos .container .secretos-video {
       align-items: center;
       display: flex;
@@ -3369,7 +3386,7 @@ header {
         background-image: url(../images/placeholder.jpg);
         background-position: 50%;
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: cover;
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
         -ms-border-radius: 4px;
@@ -3476,32 +3493,69 @@ header {
         align-items: center;
         flex-direction: column; } }
     .debes-saber .container-1024 .debes-saber-img {
-      padding-right: 20px;
-      width: 38%; }
+      margin-right: 20px;
+      width: 49%;
+      overflow: hidden;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      -ms-border-radius: 2px;
+      border-radius: 2px; }
+      @media (min-width: 801px) and (max-width: 1023px) {
+        .debes-saber .container-1024 .debes-saber-img {
+          margin-right: 0;
+          margin-bottom: 40px;
+          padding-right: 0px;
+          text-align: center;
+          width: 100%; } }
       @media (min-width: 601px) and (max-width: 800px) {
         .debes-saber .container-1024 .debes-saber-img {
           margin-bottom: 40px;
           padding-right: 0px;
+          text-align: center;
           width: 100%; } }
       @media screen and (max-width: 600px) {
         .debes-saber .container-1024 .debes-saber-img {
           margin-bottom: 40px;
           padding-right: 0px;
+          text-align: center;
           width: 100%; } }
       @media screen and (max-width: 480px) {
         .debes-saber .container-1024 .debes-saber-img {
           margin-bottom: 40px;
           padding-right: 0px;
+          text-align: center;
           width: 100%; } }
       @media screen and (max-width: 320px) {
         .debes-saber .container-1024 .debes-saber-img {
           margin-bottom: 40px;
           padding-right: 0px;
+          text-align: center;
           width: 100%; } }
-      .debes-saber .container-1024 .debes-saber-img img {
-        max-width: 100%; }
+      @media (min-width: 1025px) {
+        .debes-saber .container-1024 .debes-saber-img img {
+          height: 100%;
+          margin-left: -45%; } }
+      @media (min-width: 801px) and (max-width: 1023px) {
+        .debes-saber .container-1024 .debes-saber-img img {
+          height: 100%;
+          margin-left: 0; } }
+      @media (min-width: 601px) and (max-width: 800px) {
+        .debes-saber .container-1024 .debes-saber-img img {
+          max-width: 100%; } }
+      @media screen and (max-width: 600px) {
+        .debes-saber .container-1024 .debes-saber-img img {
+          max-width: 100%; } }
+      @media screen and (max-width: 480px) {
+        .debes-saber .container-1024 .debes-saber-img img {
+          max-width: 100%; } }
+      @media screen and (max-width: 320px) {
+        .debes-saber .container-1024 .debes-saber-img img {
+          max-width: 100%; } }
     .debes-saber .container-1024 .debes-saber-txt {
-      width: 62%; }
+      width: 50%; }
+      @media (min-width: 801px) and (max-width: 1023px) {
+        .debes-saber .container-1024 .debes-saber-txt {
+          width: 100%; } }
       @media (min-width: 601px) and (max-width: 800px) {
         .debes-saber .container-1024 .debes-saber-txt {
           width: 100%; } }
@@ -3649,6 +3703,12 @@ footer {
       width: 31.31%; }
       footer .container-1024 .footer-col:last-child {
         margin-right: 0; }
+      @media (min-width: 1025px) {
+        footer .container-1024 .footer-col:nth-child(2) {
+          padding-left: 40px; } }
+      @media (min-width: 801px) and (max-width: 1023px) {
+        footer .container-1024 .footer-col:nth-child(2) {
+          padding-left: 40px; } }
       @media (min-width: 601px) and (max-width: 800px) {
         footer .container-1024 .footer-col {
           margin-bottom: 30px;
@@ -3694,11 +3754,14 @@ footer {
       footer .container-1024 .footer-col .footer-social {
         display: flex;
         justify-content: flex-start; }
-        footer .container-1024 .footer-col .footer-social i {
-          font-size: 1.7rem;
-          margin-right: 20px; }
-          footer .container-1024 .footer-col .footer-social i:last-child {
+        footer .container-1024 .footer-col .footer-social a {
+          display: flex;
+          margin-right: 14px; }
+          footer .container-1024 .footer-col .footer-social a:last-child {
             margin-right: 0; }
+          footer .container-1024 .footer-col .footer-social a i {
+            color: #000;
+            font-size: 1.7rem; }
     footer .container-1024 .footer-aviso-privacidad {
       margin-top: 100px;
       width: 100%; }
@@ -3757,25 +3820,5 @@ footer {
             footer .container-1024 .footer-author p span {
               display: block;
               margin: 0 auto; } }
-
-/*!
-	-----------------------------------------------------------------------------
-
-	4.0 - Estilos propios del Sitio
-			# Extra
-
-	-----------------------------------------------------------------------------
-	*/
-body {
-  background-color: #FFF; }
-  @media (min-width: 801px) and (max-width: 1023px) {
-    body {
-      background-color: black; } }
-  @media screen and (max-width: 600px) {
-    body {
-      background-color: red; } }
-  @media screen and (max-width: 320px) {
-    body {
-      background-color: blue; } }
 
 /*# sourceMappingURL=styles.css.map */
