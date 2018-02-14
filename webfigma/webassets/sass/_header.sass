@@ -8,7 +8,7 @@
 	*/
 
 header
-	background-color: $secondary
+	background-color: $accent
 	display: flex
 	height: 60px
 	justify-content: flex-start
@@ -16,7 +16,7 @@ header
 	.container-1024
 		align-items: center
 		display: flex
-		justify-content: flex-start
+		justify-content: space-between
 		+respond-to(tl)
 			justify-content: center
 		+respond-to(tp)
@@ -25,30 +25,41 @@ header
 			justify-content: center
 		+respond-to(sp)
 			justify-content: center
-		img
-			height: 30px
-			margin-right: 10px
-			// width: 30px
-			+respond-to(sl)
-				margin-right: 6px
-			+respond-to(sp)
-				margin-right: 2px
-		h1
-			color: #451518
-			font-size: 1rem
-			font-weight: $light
-			+respond-to(sl)
-				font-size: .95rem
-			+respond-to(sp)
-				font-size: .9rem
-			span
-				background-image: url(../images/luna.png)
-				background-position: 50%
-				background-repeat: no-repeat
-				background-size: cover
-				display: inline-block
-				height: 12px
-				width: 11px
+		.logo
+			align-items: center
+			display: flex
+			justify-content: flex-start
+			img
+				height: 30px
+				margin-right: 10px
+				// width: 30px
+				+respond-to(sl)
+					margin-right: 6px
+				+respond-to(sp)
+					margin-right: 2px
+			h1
+				color: $primary
+				color: #8D2326
+				font-size: 1rem
+				font-weight: $light
+				+respond-to(sl)
+					font-size: .95rem
+				+respond-to(sp)
+					font-size: .9rem
+				span
+					background-image: url(../images/luna.png)
+					background-position: 50%
+					background-repeat: no-repeat
+					background-size: cover
+					display: inline-block
+					height: 12px
+					width: 11px
+		.menu
+			a
+				color: #8D2326
+				font-size: .8rem
+				text-transform: uppercase
+
 
 
 .banner
@@ -110,7 +121,7 @@ header
 			text-align: center
 
 .secretos
-	background-color: #FAF6F6
+	background-color: $accent
 	padding: 45px 0 80px
 	width: 100%
 	.container
