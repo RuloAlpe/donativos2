@@ -15,11 +15,17 @@ class Pagos
 	// const API_OPEN_PAY_PUBLIC = "pk_a4208044e7e4429090c369eae2f2efb3";
 	// const API_SANDBOX = true;
 
-	// LLaves cliente
-	 const API_OPEN_PAY = "mdkj2jyrw5kagur64bfk";
-	 const API_OPEN_PAY_SECRET = "sk_10fb9b0e51a54412a4df34704b626eb5";
-	 const API_OPEN_PAY_PUBLIC = "pk_be60c6e82b4842dd9103c9e2630537d4";
-	 const API_SANDBOX = true;
+	// LLaves cliente sandbox
+	//  const API_OPEN_PAY = "mdkj2jyrw5kagur64bfk";
+	//  const API_OPEN_PAY_SECRET = "sk_10fb9b0e51a54412a4df34704b626eb5";
+	//  const API_OPEN_PAY_PUBLIC = "pk_be60c6e82b4842dd9103c9e2630537d4";
+	//  const API_SANDBOX = true;
+
+	 // Llaves cliente producción
+	 const API_OPEN_PAY = "mql4tth4ssfl4t7kvs3l";
+	 const API_OPEN_PAY_SECRET = "sk_41a860b0e516447ea0ad32c936c0fd00";
+	 const API_OPEN_PAY_PUBLIC = "pk_394fcecbbab24298b244a608b0dfbb87";
+	 const API_SANDBOX = false;
 
 	/**
 	 * Generar codigo para poder pagar en las tiendas
