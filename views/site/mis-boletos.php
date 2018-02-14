@@ -10,6 +10,7 @@ $this->registerJsFile(
 ?>
 
 
+
 <a href="<?=Url::base()?>" class="btn btn-success btn-boletos btn-inicio">Inicio</a>
     
 <div class="container container-full">
@@ -22,6 +23,7 @@ $this->registerJsFile(
         <p class="donaciones-monto">Monto de donativo</p>
         <p class="donaciones-transaccion">ID de transacción</p>
         <p class="donaciones-fecha">Fecha de la donación</p>  
+
       </div>
 
       <?php
@@ -44,6 +46,7 @@ $this->registerJsFile(
     </div>
 
 
+  <!--
   <ul class="donaciones-accordion" id="accordion">
 
     <li class="donaciones-accordion__list">
@@ -92,6 +95,7 @@ $this->registerJsFile(
     </li>
    
   </ul>
+  -->
 
 
 

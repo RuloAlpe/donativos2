@@ -425,7 +425,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 		
 		// Si esta activada la opcion de mandar correo de activación el usuario estara en status pendiente
 		if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion'] && !$isFacebook) {
-			$user->id_status = self::STATUS_PENDIENTED;
+			$user->id_status = self::STATUS_ACTIVED;
 		} else {
 			$user->id_status = self::STATUS_ACTIVED;
 		}

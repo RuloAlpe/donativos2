@@ -70,7 +70,7 @@ $this->registerJsFile(
 
           
         </div>
-        <div class="custom-amount-wrapper">
+        <!-- <div class="custom-amount-wrapper">
           <h3>¿ Tienes otro número en mente ?</h3>
           <div class="custom-bar">
             <div class="header">Donar</div>
@@ -86,7 +86,7 @@ $this->registerJsFile(
             <a class="btn btn-default btn_nuevo_monto">Realizar Donativo</a>
           </div>
 
-        </div>
+        </div> -->
       </div>
     </div>
     
