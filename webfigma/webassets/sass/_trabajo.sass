@@ -13,17 +13,32 @@
 	========================================================================== */
 
 .programa-trabajo
-	background-color: $white
-	background-color: pink
+	padding-bottom: 60px
 
 	.programa-trabajo-head
 		align-items: center
 		display: flex
 		justify-content: space-between
 		padding: 60px 0
+		+respond-to(tl)
+			flex-direction: column
+		+respond-to(tp)
+			flex-direction: column
+		+respond-to(sl)
+			flex-direction: column
+		+respond-to(sp)
+			flex-direction: column
 		.programa-trabajo-cat
 			display: flex
 			justify-content: flex-start
+			+respond-to(tl)
+				order: 2
+			+respond-to(tp)
+				order: 2
+			+respond-to(sl)
+				order: 2
+			+respond-to(sp)
+				order: 2
 			p
 				background-color: $white
 				+border-radius(20px)
@@ -31,11 +46,29 @@
 				font-size: .8rem
 				margin-right: 8px
 				padding: 4px 30px
+				&:last-child
+					margin-right: 0
 
 		.programa-trabajo-title
 			align-items: flex-end
 			display: flex
 			flex-direction: column
+			+respond-to(tl)
+				align-items: center
+				margin-bottom: 30px
+				order: 1
+			+respond-to(tp)
+				align-items: center
+				margin-bottom: 30px
+				order: 1
+			+respond-to(sl)
+				align-items: center
+				margin-bottom: 30px
+				order: 1
+			+respond-to(sp)
+				align-items: center
+				margin-bottom: 30px
+				order: 1
 			h2
 				color: $white
 				font-size: 2rem
@@ -51,25 +84,109 @@
 	.programa-trabajo-body
 		display: flex
 		flex-wrap: wrap
-		// flex-flow: row wrap
-		justify-content: flex-start
-		
-		.programa-trabajo-text,
-		.programa-trabajo-card
-			margin-right: 3%
-			width: 31.31%
-			&:nth-child(3n + 3)
-				margin-right: 0
-		
-		.programa-trabajo-text
-			background-color: blue
-			color: $white
-			margin-bottom: 4px
-			text-align: center
+		flex-flow: row wrap
+		height: 1200px
+		overflow-x: auto
+		overflow-y: auto
+		position: relative
+		width: 100%
 
-		.programa-trabajo-card
-			background-color: $white
-			+border-radius(2px)
-			margin-bottom: 30px
-			padding: 20px
+		.programa-trabajo-body-int
+			// bottom: 0
+			display: flex
+			flex-wrap: wrap
+			flex-flow: row wrap
+			// height: 100%
+			left: 0
+			overflow-x: auto
+			overflow-y: auto
+			position: absolute
+			// right: 0
+			top: 0
+			width: 1640px
+
+			.programa-trabajo-item
+				margin-right: 1.30%
+				width: 250px
+				&:last-child
+					margin-right: 0
+
+				// +respond-to(lg)
+				// 	margin-right: 1.30%
+				// 	width: 24%
+				// 	&:nth-of-type(4n + 4)
+				// 		margin-right: 0
+				// +respond-to(md)
+				// 	margin-right: 3%
+				// 	width: 31.31%
+				// 	&:nth-of-type(3n + 3)
+				// 		margin-right: 0
+				// +respond-to(tl)
+				// 	margin-right: 2%
+				// 	width: 49%
+				// 	&:nth-of-type(2n + 2)
+				// 		margin-right: 0
+				// +respond-to(tp)
+				// 	margin-right: 2%
+				// 	width: 49%
+				// 	&:nth-of-type(2n + 2)
+				// 		margin-right: 0
+				// +respond-to(sl)
+				// 	margin-right: 0
+				// 	width: 100%
+				// +respond-to(sp)
+				// 	margin-right: 0
+				// 	width: 100%
+
+				.programa-trabajo-text,
+				.programa-trabajo-card
+					display: flex
+					flex-wrap: wrap
+			
+				.programa-trabajo-text
+					color: $white
+					font-size: .95rem
+					justify-content: center
+					margin-bottom: 4px
+					padding: 6px 0
+					text-align: center
+
+				.programa-trabajo-card
+					background-color: $white
+					+border-radius(3px)
+					display: flex
+					margin-bottom: 20px
+					padding: 20px 14px
+					.programa-trabajo-card-horario,
+					.programa-trabajo-card-datos
+						display: flex
+						flex-direction: column
+						justify-content: center
+
+					.programa-trabajo-card-horario
+						align-items: center
+						padding-right: 14px
+						width: 35%
+						p
+						font-size: .9rem
+						text-align: center
+						width: 100%
+					span
+						background-color: $pink
+						display: block
+						height: 1px
+						margin: 4px auto
+						width: 20px
+
+				.programa-trabajo-card-datos
+					align-items: flex-start
+					width: 65%
+					p
+						font-size: .9rem
+						margin: .35rem 0
+						width: 100%
+						// &:first-child
+						// 	margin-bottom: 10px
+						span
+							color: $pink
 
