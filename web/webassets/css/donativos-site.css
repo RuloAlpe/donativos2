@@ -242,7 +242,7 @@ body{
 /* Forma de pago */
 .donativos-wrapper .tipos-de-pago-content{
     height: auto;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
 }
 
 .donativos-wrapper .tipos-de-pago-content h3{
@@ -312,6 +312,7 @@ body{
 
 .donativos-wrapper .donativos-content{
     height: auto;
+    padding-bottom: 80px;
 }
 
 .donativos-wrapper .donativos-content .title{
@@ -498,7 +499,7 @@ body{
     display: flex;
     margin: 80px auto 60px;
     justify-content: center;
-    padding: 0 0 60px 0;
+    padding: 0 0 80px 0;
 }
 .boletos-content .boletos-int{
     align-items: center;
@@ -524,6 +525,15 @@ body{
     font-size: 2.45rem;
     font-weight: 700;
 }
+.boletos-content .boletos-int .boletos-int-btn{
+    background-color: #D9262C;
+    color: #FFF;
+    text-transform: uppercase;
+}
+.boletos-content .boletos-int .boletos-int-btn:hover{
+    background-color: #F1E8C9;
+    color: #E26666;
+}
 
 /* Mis donaciones */
 .donativos-wrapper .btn-inicio{
@@ -532,7 +542,7 @@ body{
 }
 .mis-donaciones-content{
     align-items: center;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
     display: flex;
     flex-direction: column;
     /* height: 100%; */
@@ -749,6 +759,12 @@ body{
     display: block;
     padding: 10px 20px;
   }
+
+/* Footer */
+footer{
+    bottom: 0;
+    position: fixed;
+}
 
   
 /* Media Queries */
