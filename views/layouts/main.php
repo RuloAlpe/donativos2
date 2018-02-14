@@ -1,5 +1,4 @@
 <?php
-
 /* @var $this \yii\web\View */
 /* @var $content string */
 
@@ -40,7 +39,7 @@ AppAsset::register($this);
         <?= $content ?>
         
         <footer>
-      <a class="sponsor" href="https://www.figma.org.mx/">Aviso de privacidad</a>
+      <a class="sponsor" href="https://www.figma.org.mx/aviso-privacidad.html">Aviso de privacidad</a>
   
     </footer>
     </section> 
