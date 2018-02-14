@@ -23,8 +23,8 @@ class Pagos
 
 	 // Llaves cliente producción
 	 const API_OPEN_PAY = "mql4tth4ssfl4t7kvs3l";
-	 const API_OPEN_PAY_SECRET = "sk_41a860b0e516447ea0ad32c936c0fd00";
-	 const API_OPEN_PAY_PUBLIC = "pk_394fcecbbab24298b244a608b0dfbb87";
+	 const API_OPEN_PAY_SECRET = "sk_cd52ec33376f46dc986d1fd2c4f9193c";
+	 const API_OPEN_PAY_PUBLIC = "pk_1103fff416c043f9845f3563639df8f8";
 	 const API_SANDBOX = false;
 
 	/**
