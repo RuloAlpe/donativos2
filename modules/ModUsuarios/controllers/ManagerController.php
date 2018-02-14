@@ -205,7 +205,7 @@ class ManagerController extends Controller {
 	 */
 	public function actionLogin() {
 
-		return $this->goHome ();
+		//return $this->goHome ();
 		$this->layout = "@app/views/layouts/mainNoHeader";
 		
 		if (! Yii::$app->user->isGuest && $monto != 0) {

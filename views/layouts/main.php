@@ -32,7 +32,11 @@ AppAsset::register($this);
             <?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success btn-boletos">Ver mis donativos</a>'?>
             
             
-        <?php } ?>
+        <?php }else{
+        ?>
+            <a href="<?=Url::base()?>/login" class="btn btn-success btn-boletos">Iniciar sesión</a>
+        <?php
+        } ?>
         <?= $content ?>
         <footer class="not-absolute"><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo por 2 Geeks one Monkey</a></footer>
     </section> 
