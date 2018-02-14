@@ -2,6 +2,26 @@ body{
     background-color: #f1f4f5;
 }
 
+.container,
+.container-full,
+.container-gracias{
+    background-color: rgba(217,38,44,.3);
+    background-color: transparent;
+}
+
+.container{
+    min-height: 100%;
+    padding-top: 90px;
+    height: auto;
+}
+.container-gracias{
+    min-height: 100%;
+}
+
+.not-absolute{
+    display: none;
+}
+
 .ajax-container{
     min-height: 15px;
 }
@@ -12,78 +32,10 @@ body{
     border-bottom: 1px solid #dddddd;
 }
 
-.registro-container{
-    padding: 55px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 5px;
-    text-align: center;
-}
-
-.registro-container input{
-    padding-left: 10px;
-    text-align: left;
-    font-size: 1em;
-}
-
-.registro-container input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #cac6c6;
-     /* Firefox */
-}
-
-.registro-container input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #cac6c6;
-}
-
-.registro-container input::-ms-input-placeholder { /* Microsoft Edge */
-    color:#cac6c6;
-}
-
-.help-block{
-    color:white;
-    font-size: 11pt;
-}
-
-.form-group{
-    margin-top:20px;
-}
-
-.boletos-content{
-    padding: 55px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 5px;
-    text-align: center;
-    margin-top: 150px;
-}
-
-@media screen and (min-width: 480px){
-    .donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard {
-        /* width: 400px; */
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-    }
-}
-
-.pagocard div:first-child{
-    margin-right: 20px;
-} 
-
-.pagocard div{
-    cursor: pointer;
-} 
-
-
-.open-pay img{
-    width: 200px;
-    background: white;
-    padding: 15px;
-    margin-bottom: 10px;
-}   
-
-
 .modal-ticket-op-tc {
-    position: absolute;
-    top: 2%;
+    position: fixed;
+    bottom: 0;
+    top: 0;
     /* left: 50%; */
     display: block;
     height: auto;
@@ -96,6 +48,8 @@ body{
     text-align: center;
     /* overflow: hidden; */
     margin-bottom: 50px;
+    left: 0;
+    right: 0;
 }
 
 .modal-ticket-op-hide {
@@ -103,22 +57,672 @@ body{
 }
 
 .modal-ticket-op-tc .close-modal {
-    color: black;
+    color: #FFF;
     position: absolute;
     top: 10px;
     right: 16px;
     cursor: pointer;
 }
 
+.modal-ticket-op{
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+    bottom: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 111;
+}
+.modal-ticket-op-hide{display: none;}
+.modal-ticket-op .modal-ticket-op-cont{
+    background-color: white;
+    height: 96%;
+    max-width: 96%;
+    overflow-x: auto;
+    position: relative;
+    width: 500px;
+}
+/*.modal-ticket-op .modal-ticket-op-cont .print-btn{
+    background-color: blue;
+}
+*/.modal-ticket-op .modal-ticket-op-cont .print-btn:active,
+.modal-ticket-op .modal-ticket-op-cont .print-btn:focus,
+.modal-ticket-op .modal-ticket-op-cont .print-btn:hover{
+    background-color: #E26666;
+    color: white;
+}
+
+/* ------------------------------------------- */
+/* Style 2gom */
+/* ------------------------------------------- */
+
+.input-monto{}
+
+.registro-int{
+    padding: 20px 0 60px;
+}
+
+.registro-int h2{
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 90%;
+    width: 440px;
+}
+@media only screen and (max-width: 768px){
+    .ent-usuarios-create h1{
+        font-size: 2.4rem;
+    }
+    .registro-int h2{
+        font-size: 1.2rem;
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 480px){
+    .registro-int .registro-int{
+        margin: 0 auto;
+        width: 90%;
+    }
+    .ent-usuarios-create h1{
+        font-size: 2rem;
+    }
+    .registro-int h2{
+        font-size: 1.1rem;
+        width: 90%;
+    }
+}
+
 .ent-usuarios-form{
-    width: 350px;
+    background-color: #F9C6C1;
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 340px;
+    padding: 40px 34px;
+}
+@media only screen and (max-width: 768px) {
+    .ent-usuarios-form {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .ent-usuarios-form {
+        padding: 40px 10px;
+        min-width: 90%;
+        width: 90%;
+    }
 }
 
-.modal-ticket-op-tc input{
+.ent-usuarios-form .form-line {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    width: 100%;
+}
+.ent-usuarios-form .form-line .form-group{
+    width: 100%;
+}
+.ent-usuarios-form .form-line .form-group .help-block{
+    color: #D9262C;
+    font-size: .9rem;
+    margin-top: 4px;
+    padding-left: 16px;
+}
+
+.ent-usuarios-form .form-line input[type="text"],
+.ent-usuarios-form .form-line input[type="email"]{
+    color: #8D2326;
+    border-color: #fff;
+    font-size: 1.1rem;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 400;
+    padding: 4px 12px;
     text-align: left;
-    padding-left: 5px;
+<
+    width: 100%;
+}
+@media only screen and (max-width: 480px) {
+    .ent-usuarios-form .form-line input[type="text"],
+    .ent-usuarios-form .form-line input[type="email"]{
+        font-size: 1rem;
+    }
+}
+.ent-usuarios-form .form-line input[type="text"]::placeholder,
+.ent-usuarios-form .form-line input[type="email"]::placeholder {
+    color: #cac6c6;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 300;
+    opacity: 1;
+
 }
 
-.modal-ticket-op-tc .btn.btn-green.btn-small:hover{
-    color:black;
+.ent-usuarios-form .form-line input[type="text"]:-ms-input-placeholder,
+.ent-usuarios-form .form-line input[type="email"]:-ms-input-placeholder {
+    color: #cac6c6;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 300;
 }
+
+.ent-usuarios-form .form-line input[type="text"]::-ms-input-placeholder,
+.ent-usuarios-form .form-line input[type="email"]::-ms-input-placeholder {
+    color: #cac6c6;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 300;
+}
+
+.ent-usuarios-form .form-group .btn-primary, 
+.ent-usuarios-form .form-group .btn-success{
+    background-color: #D9262C;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 300;
+    font-size: 1.45rem;
+    margin-top: 30px;
+    width: 100%;
+}
+.ent-usuarios-form .form-group .btn-primary:active, 
+.ent-usuarios-form .form-group .btn-success:active,
+.ent-usuarios-form .form-group .btn-primary:focus, 
+.ent-usuarios-form .form-group .btn-success:focus,
+.ent-usuarios-form .form-group .btn-primary:hover, 
+.ent-usuarios-form .form-group .btn-success:hover{
+    background-color: #F1E8C9;
+    color: #D9262C;
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Forma de pago */
+.donativos-wrapper .tipos-de-pago-content{
+    height: auto;
+    padding-bottom: 60px;
+}
+
+.donativos-wrapper .tipos-de-pago-content h3{
+    font-weight: 600;
+    margin: 80px 0 60px;
+    width: 400px;
+}
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago{
+    background-color: rgba(69,21,24,.8);
+    max-width: 90%;
+    padding: 30px 40px;
+    width: auto;
+
+}
+
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard .btn-tipo-de-pago{
+    background-color: #F1E8C9;
+}
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard .caption{
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+}
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard div:hover{
+    cursor: pointer;
+}
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard div:nth-child(2){
+    margin-left: 20px;
+}
+
+.donativos-wrapper .tipos-de-pago-content .open-pay{
+    margin-top: 80px;
+}
+.donativos-wrapper .tipos-de-pago-content .open-pay span{
+    color: #fff;
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.donativos-wrapper .tipos-de-pago-content .open-pay img{
+    width: 250px;
+}
+
+/* Index - Selección de monto */
+/*container-full*/
+/*.donativos-wrapper {
+    background-color: red;
+}*/
+.donativos-wrapper .btn-boletos{
+    background-color: #E26666;
+    font-size: .9rem;
+    text-transform: uppercase;
+}
+.donativos-wrapper .btn-boletos:active,
+.donativos-wrapper .btn-boletos:hover,
+.donativos-wrapper .btn-boletos:focus{
+    background-color: #F1E8C9;
+    color: #E26666;
+}
+
+.donativos-wrapper .donativos-content{
+    height: auto;
+}
+
+.donativos-wrapper .donativos-content .title{
+    margin: 90px 0 60px;
+}
+.donativos-wrapper .donativos-content .title .title-lg{
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+.donativos-wrapper .donativos-content .title .title-xs{
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 20px auto 0;
+}
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper{
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 auto;
+    max-width: 1024px;
+    width: 90%;
+}
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta{
+    background-color: transparent;
+    margin: 0;
+    margin-right: 3%;
+    width: 31.31%;
+}.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta:hover{
+    background-color: transparent;
+}
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .tarjeta-int{
+    background-color: #F9C6C1;
+    border-radius: 4px;
+    width: 100%;
+}
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .tarjeta-int:hover{
+    background-color: #f6f6f6;
+}
+
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta:nth-child(3n + 3){
+    margin-right: 0;
+}
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .header{
+    color: #fff;
+}
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto{
+    color: #8D2326;
+}
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta:hover .header{
+    color: #8D2326;
+}
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .currency{
+    font-size: 1.6rem;
+    margin-top: -2px;
+}
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .cantidad{
+    font-size: 5rem;
+}
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .moneda{
+    font-size: .95rem;
+}
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta form{
+    width: 100%;
+}
+
+/* checkbox */
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .check {
+    margin-top: 26px;
+}
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .check__item {
+    /*margin: 0 0 0.5rem 0;*/
+    padding: 0;
+}
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .label--checkbox {
+    color: #fff;
+    position: relative;
+    /*margin: 0.5rem;*/
+    line-height: 135%;
+    cursor: pointer;
+}
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox {
+    position: relative;
+    cursor: pointer;
+    height: auto;
+    margin-right: 12px;
+    width: 18px;
+}
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:before {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  left: 0;
+  z-index: 4;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #fff;
+  border-radius: 2px;
+}
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:checked:before {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  height: 0.57rem;
+  border-color: #D9262C;
+  border-top-style: none;
+  border-right-style: none;
+  /* border-radius: 6px; */
+}
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:after {
+  content: "";
+  position: absolute;
+  /*top: -0.125rem;*/
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 2px;
+  z-index: 3;
+}
+
+.donativos-wrapper .donativos-content .custom-amount-wrapper{
+    background-color: rgba(69,21,24,.8);
+    height: auto;
+    margin-top: 80px;
+    padding: 30px 0 60px;
+}
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar{
+    max-width: 90%;
+    padding: 10px 20px;
+    width: 740px;
+}
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .header{
+    color: #8D2326;
+}
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto{
+    margin: 0;
+    width: auto;
+}
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto .currency{
+    font-size: 1.4rem;
+    margin: 12px 8px 16px 0;
+}
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto .currency,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto .moneda{
+    color: #8D2326;
+}
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto .input-monto,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto input[type="text"]{
+    color: #8D2326;
+    border-color: #fff;
+    font-size: 1.85rem;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 400;
+    max-width: 100%;
+    padding: 4px 12px;
+    text-align: right;
+    width: 280px;
+}
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .btn-donativo,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .btn_nuevo_monto{
+    background-color: #D9262C;
+}
+
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar{
+  background-color: #F1E8C9;  
+}
+
+
+/* Gracias */
+.boletos-content{
+    display: flex;
+    margin: 80px auto 60px;
+    justify-content: center;
+    padding: 0 0 60px 0;
+}
+.boletos-content .boletos-int{
+    align-items: center;
+    background-color: rgba(69,21,24,.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 90%;
+    padding: 40px;
+    width: 510px;
+}
+.boletos-content .boletos-int i{
+    color: white;
+    font-size: 8rem;
+    margin-bottom: 20px;
+}
+.boletos-content .boletos-int h2{
+    font-size: 2.4rem;
+    font-weight: 300;
+    text-align: center;
+}
+.boletos-content .boletos-int h2 span{
+    font-size: 2.45rem;
+    font-weight: 700;
+}
+
+/* Mis donaciones */
+.donativos-wrapper .btn-inicio{
+    right: 180px;
+    right: 24px;
+}
+.mis-donaciones-content{
+    align-items: center;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; */
+    width: 100%;
+}
+.mis-donaciones-content h3{
+    margin: 80px 0 60px;
+    text-align: center;
+}
+
+
+.mis-donaciones-content .donaciones-table{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 auto;
+    max-width: 90%;
+    width: 1024px;
+}
+
+.mis-donaciones-content .donaciones-table .donaciones-head,
+.mis-donaciones-content .donaciones-table .donaciones-row{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+.mis-donaciones-content .donaciones-table .donaciones-head{
+    background-color: #D9262C;
+    color: #fff;
+}
+
+.mis-donaciones-content .donaciones-table .donaciones-row{
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+.mis-donaciones-content .donaciones-table .donaciones-row:nth-child(odd){
+    background-color: #f7f7f7;
+}
+
+.mis-donaciones-content .donaciones-table .donaciones-head p{
+    font-weight: 500;
+    /*text-align: center;*/
+}
+.mis-donaciones-content .donaciones-table .donaciones-head p,
+.mis-donaciones-content .donaciones-table .donaciones-row p{
+    padding: 10px 12px;
+}
+
+.mis-donaciones-content .donaciones-table .donaciones-head .donaciones-monto,
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-monto{
+    width: 24%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mis-donaciones-content .donaciones-table .donaciones-head .donaciones-transaccion,
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-transaccion{
+    width: 44%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.mis-donaciones-content .donaciones-table .donaciones-head .donaciones-fecha,
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-fecha{
+    width: 32%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-monto{}
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-transaccion{}
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-fecha{}
+
+/* Media Queries */
+@media only screen and (max-width: 992px){
+    .donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard{}
+
+    .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .currency{
+        font-size: 1.4rem;
+    }
+    .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .cantidad{
+        font-size: 4rem;
+    }
+    .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .moneda{
+        font-size: .85rem;
+    }
+}
+@media only screen and (max-width: 768px){
+    .container{
+        padding-top: 40px;
+    }
+    .donativos-wrapper .tipos-de-pago-content .open-pay img{
+        max-width: 100%;
+    }
+    .donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard .btn-tipo-de-pago{
+      height: 170px;
+      width: 170px;  
+    }
+    .donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard .caption{
+        margin-bottom: 0;
+    }
+    
+    .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .header{
+        font-size: 3rem;
+    }
+    .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .currency{
+        font-size: 1.2rem;
+    }
+    .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .cantidad{
+        font-size: 3.4rem;
+    }
+    .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .moneda{
+        font-size: .8rem;
+    }
+    .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta{
+        margin-bottom: 30px;
+        width: 48%;
+    }
+    .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta:nth-child(2n + 2){
+        margin-right: 0;
+    }
+
+    .donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .header{
+        margin-bottom: 4px;
+    }
+    .donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto{
+        /*flex-direction: column;*/
+        margin-bottom: 20px;
+        /*justify-content: center;*/
+        /*align-items: flex-start;*/
+    }
+    .donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .btn_nuevo_monto{
+        flex-direction: column;
+    }
+
+    .donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto .input-monto,
+    .donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto input[type="text"]{
+        width: 180px;
+    }
+
+    .donativos-wrapper .tipos-de-pago-content h3{
+        font-size: 1.7rem;
+        width: 70%;
+    }
+
+}
+@media only screen and (max-width: 480px){
+    .container{
+        padding-top: 30px;
+    }
+
+    .donativos-wrapper .tipos-de-pago-content .open-pay img{
+        max-width: 90%;
+    }
+    .donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard .btn-tipo-de-pago{
+      height: 170px;
+      width: auto;  
+    }
+    .donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard .btn-tipo-de-pago img{
+        width: 90px;
+    }
+    .donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard .caption{
+        margin-bottom: 0;
+    }
+
+    .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta{
+        margin-right: 0;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    
+    .boletos-content .boletos-int h2 span{
+        display: block;
+    }
+
+    .donativos-wrapper .tipos-de-pago-content h3{
+        font-size: 1.4rem;
+    }
+    
+}
+

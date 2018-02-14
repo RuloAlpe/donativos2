@@ -25,11 +25,13 @@ AppAsset::register($this);
     </script>
     <?php $this->head() ?>
 </head>
-<body>
+<body >
 <?php $this->beginBody() ?>
     <section class="donativos-wrapper">
         <?php if(!Yii::$app->user->isGuest){ ?>
-            <a href="<?=Url::base()?>/site/mis-donaciones" class="btn btn-success btn-boletos">Mis donaciones</a>
+            <?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success btn-boletos">Ver mis donativos</a>'?>
+            
+            
         <?php } ?>
         <?= $content ?>
         <footer class="not-absolute"><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo por 2 Geeks one Monkey</a></footer>

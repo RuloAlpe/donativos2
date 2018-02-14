@@ -8,6 +8,7 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use app\modules\ModUsuarios\models\Utils;
 use kartik\password\StrengthValidator;
+use app\models\Pagos;
 
 /**
  * This is the model class for table "ent_usuarios".
@@ -427,6 +428,16 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 			$user->id_status = self::STATUS_PENDIENTED;
 		} else {
 			$user->id_status = self::STATUS_ACTIVED;
+		}
+
+		if($user->save()){
+			$p = new Pagos();
+			$respuesta = $p->guardarCliente($user->nombreCompleto, $user->txt_email);
+			$user->txt_usuario_open_pay = $respuesta->id;
+			$user->save();
+			return $user;
+		}else{
+			return null;
 		}
 		
 		return $user->save () ? $user : null;

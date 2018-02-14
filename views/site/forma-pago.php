@@ -24,32 +24,51 @@ $this->registerJsFile(
 );
 ?>
 
-  <div class="container container-column container-full">
+
+
+  <div class="container container-full">
+    <!-- container-column -->
+
     <div class="tipos-de-pago-content">
-      <div class="open-pay">
-        <img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
-      </div>
-      <h3>Selecciona una forma de pago</h3>
+      
+      <h3>
+        Seleciona un medio para realizar tu contribución
+      </h3>
       <div class="tipos-de-pago">
         <div class="pagocard">
+
+          <?php 
+          #if(!$ordenCompra->b_subscripcion){
+          if(false){
+          ?> 
           <div>
             <a data-value="2" data-tarjeta="0" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
               <img src="<?=Url::base()?>/webassets/images/shop.png" alt="Pago en establecimiento">
             </a>
             <span class="caption">
-              Pago en establecimiento
+              Establecimiento
             </span>
           </div>
+          <?php
+          }
+          ?>
+
           <div>  
             <a data-value="2" data-tarjeta="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
               <img src="<?=Url::base()?>/webassets/images/creditCard.png" alt="Pago con tarjeta">
             </a>
             <span class="caption">
-              Pago con tarjeta
+              Tarjeta de Crédito
             </span>
           </div>  
         </div>
       </div>
+
+      <div class="open-pay">
+        <span>Transacción protegida por</span>
+        <img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
+      </div>
+
     </div>
   </div>
   

@@ -23,6 +23,17 @@ class ManagerController extends Controller {
 	 * Registrar usuario en la base de datos
 	 */
 	public function actionSignUp($monto = 0) {
+
+		$idPlan = null;
+		$isSubscripcion = 0;
+		//$monto = 0;
+		if(isset($_POST["plan"]) && isset($_POST["monto"])){
+			$idPlan = $_POST["plan"];
+			$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
+			$monto = $_POST["monto"];
+
+		}
+
 		$model = new EntUsuarios ( [ 
 				'scenario' => 'registerInput' 
 		] );
@@ -33,6 +44,26 @@ class ManagerController extends Controller {
 		$model->repeatPassword = $model->password;
 		
 		if ($model->load ( Yii::$app->request->post () )){
+
+			$usuarioExiste = EntUsuarios::find()->where(['txt_email'=>$model->email])->one();
+			
+			if($usuarioExiste){
+				
+				if (Yii::$app->getUser()->login($usuarioExiste)) {
+					$ordenCompra = new EntOrdenesCompras();
+					$ordenCompra->num_total = $monto;
+					$ordenCompra->txt_order_number = Utils::generateToken("oc_");
+					$ordenCompra->id_usuario = $usuarioExiste->id_usuario;
+					$ordenCompra->txt_description = "Donativo";
+					$ordenCompra->id_plan = $idPlan;
+					$ordenCompra->b_subscripcion = $isSubscripcion;
+
+					if ($ordenCompra->save()) {
+
+						return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+					}
+				}
+			}
 			
 			if($user = $model->signup()){
 
@@ -61,6 +92,8 @@ class ManagerController extends Controller {
 					$ordenCompra->txt_order_number = Utils::generateToken("oc_");
 					$ordenCompra->id_usuario = $idUsuario;
 					$ordenCompra->txt_description = "Donativo";
+					$ordenCompra->id_plan = $idPlan;
+					$ordenCompra->b_subscripcion = $isSubscripcion;
 
 					if ($ordenCompra->save()) {
 
@@ -71,7 +104,10 @@ class ManagerController extends Controller {
 		}
 
 		return $this->render ( 'signUp', [ 
-				'model' => $model 
+				'model' => $model,
+				'idPlan' =>$idPlan,
+				'subscripcion'=>$isSubscripcion,
+				'monto'=>$monto
 		] );
 	}
 	
@@ -168,6 +204,8 @@ class ManagerController extends Controller {
 	 * Loguea al usuario
 	 */
 	public function actionLogin() {
+
+		return $this->goHome ();
 		$this->layout = "@app/views/layouts/mainNoHeader";
 		
 		if (! Yii::$app->user->isGuest && $monto != 0) {

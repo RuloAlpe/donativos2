@@ -91,7 +91,15 @@ class EntOrdenesCompras extends \yii\db\ActiveRecord
      */
     public function getIdUsuario()
     {
-        return $this->hasOne(ModUsuariosEntUsuarios::className(), ['id_usuario' => 'id_usuario']);
+        return $this->hasOne(EntUsuarios::className(), ['id_usuario' => 'id_usuario']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdPlan()
+    {
+        return $this->hasOne(CatPlanes::className(), ['id_plan' => 'id_plan']);
     }
 
     /**

@@ -18,6 +18,7 @@ use app\models\EntPagosRecibidos;
 use app\models\IPNPayPal;
 use app\modules\ModUsuarios\models\EntUsuarios;
 use app\models\EntBoletos;
+use app\models\EntTarjetas;
 
 class PagosController extends Controller
 {
@@ -118,14 +119,16 @@ class PagosController extends Controller
                 return $this->renderAjax('formPayPal', ['ordenCompra'=>$ordenCompra]);
             break;
 			case 2:
-			$ordenCompra = $this->crearOrdenCompra($ordenCompra);
+			
 				if($tc){
 					$ordenCompraTarjetaCredito = $this->crearOrdenCompra($ordenCompra);
 					return $this->renderAjax('openPayCreditCard', [
+						"ordenCompra"=>$ordenCompraTarjetaCredito,
 						"description" =>  $ordenCompraTarjetaCredito->txt_description,
 						"orderId" => $ordenCompraTarjetaCredito->txt_order_number,
 						"amount" => $ordenCompraTarjetaCredito->num_total,]);
 				}else{
+					$ordenCompra = $this->crearOrdenCompra($ordenCompra);
 					$charger =  $this->generarOrdenCompraOpenPay($ordenCompra->txt_description, $ordenCompra->txt_order_number, $ordenCompra->num_total);
 				}
 				
@@ -150,7 +153,9 @@ class PagosController extends Controller
            $ordenCompra->fch_creacion = Utils::getFechaActual();
            $ordenCompra->b_pagado = 0;
            $ordenCompra->num_total = $ordenCompraGuardada->num_total;
-           $ordenCompra->b_habilitado = 1;
+		   $ordenCompra->b_habilitado = 1;
+		   $ordenCompra->id_plan = $ordenCompraGuardada->id_plan;
+		   $ordenCompra->b_subscripcion = $ordenCompraGuardada->b_subscripcion;
            $ordenCompra->save();
           return  $ordenCompra;
    }
@@ -219,7 +224,38 @@ class PagosController extends Controller
 			exit;
 			
 		}
-    }
+	}
+	
+	public function actionCrearSubscripcion(){
+
+		$pago = new Pagos();
+
+		if (isset ( $_POST ["token_id"] ) && $_POST ["orderId"] && $_POST['deviceIdHiddenFieldName']) {
+		
+		$ordenCompra = EntOrdenesCompras::find()->where(['txt_order_number'=>$_POST['orderId']])->one();
+		$plan = $ordenCompra->idPlan;
+
+		if (empty ( $ordenCompra )) {
+			throw new BadRequestHttpException ( 400, 'Datos requeridos.' );
+		}
+		
+		try {
+			$charge = $pago
+				->addTarjetaCliente ( $ordenCompra->txt_description, $ordenCompra->txt_order_number, $ordenCompra->num_total, $_POST ["token_id"], $_POST['deviceIdHiddenFieldName'], $plan->txt_plan_open_pay);
+			
+			echo "success";
+		} catch ( Exception $e ) {
+			
+
+			echo $e->getMessage ();
+			
+		}
+		
+		
+		exit;
+		
+	}
+}
 
     /**
 	 * Open pay hara el registro del pago en este action
@@ -270,14 +306,36 @@ class PagosController extends Controller
 		$ordenCompra = EntOrdenesCompras::find()->where(['txt_order_number'=>$order_id,'b_pagado'=>0])->one();
 		
 		if(empty($ordenCompra)){
-			$this->crearLog ('OpenPayError', "El order ID no existe o ya esta marcado como completo :" . $order_id );
-			return;
-		}
+
 			
-		// Carga la orden
+			if(!$transaction['order_id'] && ($transaction['method'] == "card")){
+
+				$tarjeta = EntTarjetas::find()->where(["txt_tarjeta"=>$transaction['card']["id"]])->one();
+
+				$pagoRecibido = new EntPagosRecibidos ();
+				$pagoRecibido->id_usuario = $tarjeta->id_usuario;
+				$pagoRecibido->id_tipo_pago = 2;
+				$pagoRecibido->txt_transaccion_local = 'Local';
+				$pagoRecibido->txt_notas = 'Notas';
+				$pagoRecibido->txt_estatus = $payment_status;
+				$pagoRecibido->txt_transaccion = $txn_id;
+				$pagoRecibido->txt_cadena_comprador = $data;
+				$pagoRecibido->txt_monto_pago = $mc_gross;
+				$pagoRecibido->id_orden_compra = null;
+				$pagoRecibido->save();
+
+				
+			}else{
+
+				$this->crearLog ('OpenPayError', "El order ID no existe o ya esta marcado como completo :" . $order_id );
+				return;
+			}
+		}
+			// Carga la orden
 		$item_number = $ordenCompra->txt_order_number;
 		$custom = $ordenCompra->id_usuario;
 		$item_name = $ordenCompra->txt_description;
+		
 		
 		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------- PAGO RECIBIDO de transacción :$txn_id -----------\n\r" );
 		
@@ -336,24 +394,6 @@ class PagosController extends Controller
 				$ordenCompra->b_pagado = 1;
 				if($ordenCompra->save()){
 					
-					$usuario = EntUsuarios::find()->where(['id_usuario'=>$ordenCompra->id_usuario])->one();
-
-					$numBoletos = intval($ordenCompra->num_total/100);
-					
-					for($i=0; $i<$numBoletos; $i++){
-						$boleto = new EntBoletos();
-						$boleto->id_orden_compra = $ordenCompra->id_orden_compra;
-						$boleto->id_pago_recibido = $pagoRecibido->id_pago_recibido;
-						$boleto->id_usuario = $ordenCompra->id_usuario;
-						$boleto->txt_codigo = Utils::generateBoleto($ordenCompra->id_orden_compra);
-						$boleto->fch_creacion = Utils::getFechaActual(); 
-						
-						if($boleto->save()){
-
-						}else{
-							$this->crearLog('PayPal'.$custom, "Error al guardar boleto " . json_encode($boleto->errors));
-						}
-					}	
 
 
 					$utils = new \app\modules\ModUsuarios\models\Utils();
@@ -406,9 +446,24 @@ class PagosController extends Controller
 		$pago->generarPlan();
 	}
 
-	public function actionBorrarPlan(){
+	public function actionBorrarPlan($id=null){
 		$pago = new Pagos();
-		$pago->deletePlan("pf6ryoaner0pz9zp7kxq");
+		$pago->deletePlan($id);
+	}
+
+	public function actionBorrarCliente($id=null){
+		$pago = new Pagos();
+		$pago->borrarCliente($id);
+	}
+
+	public function actionBorrarTarjetaCliente($id=null, $idt){
+		$pago = new Pagos();
+		$pago->borrarTarjeta($id, $idt );
+	}
+
+	public function actionBorrarSubscripcionCliente($id=null, $ids=null){
+		$pago = new Pagos();
+		$pago->borrarSubscripcion($id, $ids);
 	}
 
 }
