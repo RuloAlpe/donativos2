@@ -34,9 +34,7 @@ $this->registerJsFile(
           <div class="tarjeta">
 
             <?= Html::beginForm([$url], 'post') ?>
-
             <div class="tarjeta-int">
-              
               <div class="header">Donar</div>
               <div class="monto">
                 <span class="currency">$</span>
