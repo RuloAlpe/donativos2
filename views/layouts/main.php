@@ -38,7 +38,11 @@ AppAsset::register($this);
         <?php
         } ?>
         <?= $content ?>
-        <footer class="not-absolute"><a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo por 2 Geeks one Monkey</a></footer>
+        
+        <footer>
+      <a class="sponsor" href="https://www.figma.org.mx/">Aviso de privacidad</a>
+  
+    </footer>
     </section> 
 <?php $this->endBody() ?>
 </body>
