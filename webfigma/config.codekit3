@@ -9,6 +9,13 @@
 	],
 "creatorBuild": "26261",
 "files": {
+	"\/aviso-privacidad.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/aviso-privacidad.html",
+		"oF": 0
+		},
 	"\/index.html": {
 		"cB": 0,
 		"ft": 8192,
@@ -723,6 +730,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/webassets\/sass\/_normalize.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/webassets\/sass\/_privacidad.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/webassets\/sass\/_privacidad.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

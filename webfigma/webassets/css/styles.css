@@ -3222,7 +3222,7 @@ hr {
 	-----------------------------------------------------------------------------
 	*/
 header {
-  background-color: #F1E8C9;
+  background-color: #F9C6C1;
   display: flex;
   height: 60px;
   justify-content: flex-start;
@@ -3230,7 +3230,7 @@ header {
   header .container-1024 {
     align-items: center;
     display: flex;
-    justify-content: flex-start; }
+    justify-content: space-between; }
     @media (min-width: 601px) and (max-width: 800px) {
       header .container-1024 {
         justify-content: center; } }
@@ -3243,33 +3243,42 @@ header {
     @media screen and (max-width: 320px) {
       header .container-1024 {
         justify-content: center; } }
-    header .container-1024 img {
-      height: 30px;
-      margin-right: 10px; }
-      @media screen and (max-width: 480px) {
-        header .container-1024 img {
-          margin-right: 6px; } }
-      @media screen and (max-width: 320px) {
-        header .container-1024 img {
-          margin-right: 2px; } }
-    header .container-1024 h1 {
-      color: #451518;
-      font-size: 1rem;
-      font-weight: 300; }
-      @media screen and (max-width: 480px) {
-        header .container-1024 h1 {
-          font-size: .95rem; } }
-      @media screen and (max-width: 320px) {
-        header .container-1024 h1 {
-          font-size: .9rem; } }
-      header .container-1024 h1 span {
-        background-image: url(../images/luna.png);
-        background-position: 50%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: inline-block;
-        height: 12px;
-        width: 11px; }
+    header .container-1024 .logo {
+      align-items: center;
+      display: flex;
+      justify-content: flex-start; }
+      header .container-1024 .logo img {
+        height: 30px;
+        margin-right: 10px; }
+        @media screen and (max-width: 480px) {
+          header .container-1024 .logo img {
+            margin-right: 6px; } }
+        @media screen and (max-width: 320px) {
+          header .container-1024 .logo img {
+            margin-right: 2px; } }
+      header .container-1024 .logo h1 {
+        color: #D9262C;
+        color: #8D2326;
+        font-size: 1rem;
+        font-weight: 300; }
+        @media screen and (max-width: 480px) {
+          header .container-1024 .logo h1 {
+            font-size: .95rem; } }
+        @media screen and (max-width: 320px) {
+          header .container-1024 .logo h1 {
+            font-size: .9rem; } }
+        header .container-1024 .logo h1 span {
+          background-image: url(../images/luna.png);
+          background-position: 50%;
+          background-repeat: no-repeat;
+          background-size: cover;
+          display: inline-block;
+          height: 12px;
+          width: 11px; }
+    header .container-1024 .menu a {
+      color: #8D2326;
+      font-size: .8rem;
+      text-transform: uppercase; }
 
 .banner {
   align-items: center;
@@ -3343,7 +3352,7 @@ header {
       text-align: center; }
 
 .secretos {
-  background-color: #FAF6F6;
+  background-color: #F9C6C1;
   padding: 45px 0 80px;
   width: 100%; }
   .secretos .container {
@@ -3820,5 +3829,30 @@ footer {
             footer .container-1024 .footer-author p span {
               display: block;
               margin: 0 auto; } }
+
+/*!
+	-----------------------------------------------------------------------------
+
+	2.0 - Basicos
+			# Basic
+			# Utility
+			# Extra
+
+	-----------------------------------------------------------------------------
+	*/
+/*  Aviso de privacidad
+	@mixin ========================================================================= */
+.aviso-privacidad {
+  background-color: #FFF; }
+  .aviso-privacidad h2 {
+    color: #D9262C;
+    font-size: 2rem;
+    margin: 40px 0 30px; }
+  .aviso-privacidad p {
+    color: #D9262C;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-align: justify; }
 
 /*# sourceMappingURL=styles.css.map */
