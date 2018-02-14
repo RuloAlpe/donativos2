@@ -47,7 +47,7 @@ use app\models\Pagos;
 					if(response=="success"){
 						window.location.replace(baseUrl+'site/gracias');
 					}else{
-						alert("Hubo un problema con el pago");
+						alert("Hubo un problema con el pago "+ response);
 						l.stop();
 					}
 
