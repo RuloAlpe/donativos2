@@ -8,14 +8,34 @@ $(document).ready(function(){
 		$('.screensize-tag').html(windowWidth + " px");
 	});
 
+	// Popup
 	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
 		disableOn: 700,
-		type: 'iframe',
-		mainClass: 'mfp-fade',
-		removalDelay: 160,
-		preloader: false,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
 
-		fixedContentPos: false
+        fixedContentPos: false
 	});
+
+	// Modal
+	var modal = document.getElementById('modal-video');
+	var btn = document.getElementById("open-modal");
+	var span = document.getElementsByClassName("modal-close")[0];
+
+	btn.onclick = function() {
+		modal.style.display = "block";
+	}
+
+	span.onclick = function() {
+		modal.style.display = "none";
+	}
+
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
 
 });
