@@ -324,6 +324,17 @@ class PagosController extends Controller
 				$pagoRecibido->id_orden_compra = null;
 				$pagoRecibido->save();
 
+				$utils = new \app\modules\ModUsuarios\models\Utils();
+				$parametrosEmail = [
+						'nombre' => $tarjeta->idUsuario->nombreCompleto,
+						'transaccion'=>$txn_id,
+						'totalPagado'=>$mc_gross
+				];
+			
+				$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
+
+				return;
+
 				
 			}else{
 
@@ -403,7 +414,7 @@ class PagosController extends Controller
 							'totalPagado'=>$ordenCompra->num_total
 					];
 				
-					//$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
+					$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
 
 				}else{
 					$error = true;
