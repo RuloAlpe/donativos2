@@ -327,7 +327,7 @@ class PagosController extends Controller
 				$this->crearLog('Open Pay', '------------- Envio de email -------------------');
 				$utils = new \app\modules\ModUsuarios\models\Utils();
 				$parametrosEmail = [
-						'nombre' => $tarjeta->idUsuario->nombreCompleto,
+						'nombre' => $tarjeta->usuario->nombreCompleto,
 						'transaccion'=>$txn_id,
 						'totalPagado'=>$mc_gross
 				];
@@ -405,10 +405,16 @@ class PagosController extends Controller
 
 				$ordenCompra->b_pagado = 1;
 				if($ordenCompra->save()){
-					
+					$usuario = EntUsuarios::find()->where(['id_usuario'=>$ordenCompra->id_usuario])->one();
 
-
-					
+					$utils = new \app\modules\ModUsuarios\models\Utils();
+					$parametrosEmail = [
+							'nombre' => $usuario->txt_username,
+							'transaccion'=>$ordenCompra->txt_order_number,
+							'totalPagado'=>$mc_gross
+					];
+				
+					$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
 
 				}else{
 					$error = true;
@@ -431,15 +437,8 @@ class PagosController extends Controller
 		}
 		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------------- Pago correcto---------------------\n\r" );
 
-		$utils = new \app\modules\ModUsuarios\models\Utils();
-					$parametrosEmail = [
-							'nombre' => $usuario->txt_username,
-							'transaccion'=>$ordenCompra->txt_order_number,
-							'totalPagado'=>$mc_gross
-					];
-				
-					$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
-		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------------- Envio de email ---------------------\n\r" );
+		
+		
 		
 	}
     
