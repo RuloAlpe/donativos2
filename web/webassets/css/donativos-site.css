@@ -603,6 +603,12 @@ body{
     overflow: hidden;
 }
 
+
+.donativos-wrapper .btn-boletos.boton-salir{
+    left: 24px;
+right: auto !important;
+}
+
 .mis-donaciones-content .donaciones-table .donaciones-head .donaciones-transaccion,
 .mis-donaciones-content .donaciones-table .donaciones-row .donaciones-transaccion{
     width: 44%;
@@ -847,7 +853,7 @@ footer{
 }
 @media only screen and (max-width: 480px){
     .container{
-        padding-top: 30px;
+        padding-top: 85px;
     }
 
     .donativos-wrapper .tipos-de-pago-content .open-pay img{
@@ -877,6 +883,12 @@ footer{
     .donativos-wrapper .tipos-de-pago-content h3{
         font-size: 1.4rem;
     }
+
+    .boton-salir{
+        left: 0 !important;
+    top: 40px !important;
+    }
     
+
 }
 

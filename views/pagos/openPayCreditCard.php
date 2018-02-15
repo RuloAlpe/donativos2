@@ -588,7 +588,7 @@ a.button.disabled {
 .modal-ticket-op-tc{
 	background-color: rgba(0,0,0,0.7);
 	bottom: 0;
-	height: 100vh;
+	/* height: 100vh; */
 	left: 0;
 	margin: 0;
 	position: fixed;
@@ -736,6 +736,17 @@ a.button.disabled {
 
 						</div>
 
+						<div class="sctn-rowz">
+
+							<button class="btn btn-green btn-small btn-donar ladda-button" data-style="zoom-in"
+
+								style="float: right; visibility: visible !important;"
+
+								id="pay-button">
+								<span class="ladda-label">Donar</span></button>
+
+						</div>
+
 						<div class="openpay">
 
 							<div class="logo">
@@ -754,16 +765,7 @@ a.button.disabled {
 
 						</div>
 
-						<div class="sctn-rowz">
-
-							<button class="btn btn-green btn-small btn-donar ladda-button" data-style="zoom-in"
-
-								style="float: right; visibility: visible !important;"
-
-								id="pay-button">
-								<span class="ladda-label">Donar</span></button>
-
-						</div>
+						
 
 					</div>
 
