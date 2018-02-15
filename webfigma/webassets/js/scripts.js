@@ -9,15 +9,15 @@ $(document).ready(function(){
 	});
 
 	// Popup
-	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-		disableOn: 700,
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        removalDelay: 160,
-        preloader: false,
+	// $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+	// disableOn: 700,
+	// type: 'iframe',
+	// mainClass: 'mfp-fade',
+	// removalDelay: 160,
+	// preloader: false,
 
-        fixedContentPos: false
-	});
+	// fixedContentPos: false
+	// });
 
 	// Modal
 	var modal = document.getElementById('modal-video');
@@ -25,16 +25,20 @@ $(document).ready(function(){
 	var span = document.getElementsByClassName("modal-close")[0];
 
 	btn.onclick = function() {
-		modal.style.display = "block";
+		modal.style.display = "-webkit-flex";
+		modal.style.display = "flex";
+		$("#video")[0].play();
 	}
 
 	span.onclick = function() {
 		modal.style.display = "none";
+		$("#video")[0].load();
 	}
 
 	window.onclick = function(event) {
 		if (event.target == modal) {
 			modal.style.display = "none";
+			$("#video")[0].load();
 		}
 	}
 

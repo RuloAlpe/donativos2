@@ -43,6 +43,7 @@
 				background-color: $white
 				+border-radius(20px)
 				color: $font-color
+				cursor: pointer
 				font-size: .8rem
 				margin-right: 8px
 				padding: 4px 30px
@@ -92,6 +93,7 @@
 		width: 100%
 
 		.programa-trabajo-body-int
+			align-items: flex-start
 			// bottom: 0
 			display: flex
 			flex-wrap: wrap
@@ -103,11 +105,15 @@
 			position: absolute
 			// right: 0
 			top: 0
-			width: 1640px
+			width: 1960px
 
 			.programa-trabajo-item
+				display: flex
+				flex-wrap: wrap
+				flex-flow: row wrap
+				// justify-content: space-between
 				margin-right: 1.30%
-				width: 250px
+				width: 350px
 				&:last-child
 					margin-right: 0
 
@@ -142,6 +148,7 @@
 				.programa-trabajo-card
 					display: flex
 					flex-wrap: wrap
+					width: 100%
 			
 				.programa-trabajo-text
 					color: $white
@@ -155,6 +162,7 @@
 					background-color: $white
 					+border-radius(3px)
 					display: flex
+					height: 120px
 					margin-bottom: 20px
 					padding: 20px 14px
 					.programa-trabajo-card-horario,
@@ -168,15 +176,15 @@
 						padding-right: 14px
 						width: 35%
 						p
-						font-size: .9rem
-						text-align: center
-						width: 100%
-					span
-						background-color: $pink
-						display: block
-						height: 1px
-						margin: 4px auto
-						width: 20px
+							font-size: .9rem
+							text-align: center
+							width: 100%
+						span
+							background-color: $pink
+							display: block
+							height: 1px
+							margin: 4px auto
+							width: 20px
 
 				.programa-trabajo-card-datos
 					align-items: flex-start

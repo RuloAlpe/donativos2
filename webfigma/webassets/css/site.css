@@ -3185,29 +3185,10 @@ hr {
   width: 90%;
   margin: 0 auto; }
 
-.mfp-fade.mfp-bg {
-  opacity: 0;
-  -webkit-transition: all 0.15s ease-out;
-  -webkit-transition: all 0.15s ease-;
-  transition: all 0.15s ease-;
-  overflow: hidden; }
-
-.mfp-fade.mfp-bg.mfp-ready {
-  opacity: 0.8; }
-
-.mfp-fade.mfp-bg.mfp-removing {
-  opacity: 0; }
-
-.mfp-fade.mfp-wrap .mfp-content {
-  opacity: 0;
-  -webkit-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out; }
-
-.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
-  opacity: 1; }
-
-.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
-  opacity: 0; }
+.container-full {
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%; }
 
 /*!
 	-----------------------------------------------------------------------------
@@ -3314,7 +3295,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   background-image: url(../images/bkgd.jpg);
-  background-position: 50%;
+  background-position: 70%;
   background-repeat: no-repeat;
   background-size: cover;
   display: -webkit-box;
@@ -3329,6 +3310,18 @@ header {
     margin: 0 auto;
     max-width: 90%;
     width: 1024px; }
+    @media (min-width: 601px) and (max-width: 800px) {
+      .banner .banner-texts {
+        margin-top: 320px; } }
+    @media screen and (max-width: 600px) {
+      .banner .banner-texts {
+        margin-top: 320px; } }
+    @media screen and (max-width: 480px) {
+      .banner .banner-texts {
+        margin-top: 320px; } }
+    @media screen and (max-width: 320px) {
+      .banner .banner-texts {
+        margin-top: 320px; } }
     .banner .banner-texts h2 {
       color: #FFF;
       font-size: 2.4rem;
@@ -3444,6 +3437,7 @@ header {
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 4px;
+        cursor: pointer;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -4179,6 +4173,7 @@ footer {
         background-color: #FFF;
         border-radius: 20px;
         color: #451518;
+        cursor: pointer;
         font-size: .8rem;
         margin-right: 8px;
         padding: 4px 30px; }
@@ -4258,6 +4253,9 @@ footer {
     position: relative;
     width: 100%; }
     .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int {
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -4272,10 +4270,19 @@ footer {
       overflow-y: auto;
       position: absolute;
       top: 0;
-      width: 1640px; }
+      width: 1960px; }
       .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: row wrap;
+                flex-flow: row wrap;
         margin-right: 1.30%;
-        width: 250px; }
+        width: 350px; }
         .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item:last-child {
           margin-right: 0; }
         .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-text,
@@ -4284,7 +4291,8 @@ footer {
           display: -ms-flexbox;
           display: flex;
           -ms-flex-wrap: wrap;
-              flex-wrap: wrap; }
+              flex-wrap: wrap;
+          width: 100%; }
         .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-text {
           color: #FFF;
           font-size: .95rem;
@@ -4300,6 +4308,7 @@ footer {
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
+          height: 120px;
           margin-bottom: 20px;
           padding: 20px 14px; }
           .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario,
@@ -4319,16 +4328,17 @@ footer {
                 -ms-flex-align: center;
                     align-items: center;
             padding-right: 14px;
-            width: 35%;
-            font-size: .9rem;
-            text-align: center;
-            width: 100%; }
-          .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card span {
-            background-color: #FF7F8E;
-            display: block;
-            height: 1px;
-            margin: 4px auto;
-            width: 20px; }
+            width: 35%; }
+            .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario p {
+              font-size: .9rem;
+              text-align: center;
+              width: 100%; }
+            .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario span {
+              background-color: #FF7F8E;
+              display: block;
+              height: 1px;
+              margin: 4px auto;
+              width: 20px; }
         .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card-datos {
           -webkit-box-align: start;
               -ms-flex-align: start;
