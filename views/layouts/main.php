@@ -43,7 +43,7 @@ AppAsset::register($this);
         <?php if(!Yii::$app->user->isGuest){ ?>
             <?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success btn-boletos">Ver mis donativos</a>'?>
             
-            
+            <a href="<?=Url::base()?>/site/logout" class="btn btn-success btn-boletos boton-salir">Salir</a>
         <?php }else{
         ?>
             <a href="<?=Url::base()?>/login" class="btn btn-success btn-boletos">Iniciar sesión</a>
