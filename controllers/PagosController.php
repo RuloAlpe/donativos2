@@ -408,14 +408,7 @@ class PagosController extends Controller
 					
 
 
-					$utils = new \app\modules\ModUsuarios\models\Utils();
-					$parametrosEmail = [
-							'nombre' => $usuario->txt_username,
-							'transaccion'=>$ordenCompra->txt_order_number,
-							'totalPagado'=>$mc_gross
-					];
-				
-					$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
+					
 
 				}else{
 					$error = true;
@@ -436,8 +429,18 @@ class PagosController extends Controller
 			$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "Ocurrio un problema al guardar la información=print_r($e)\n\r" );
 			$transaction->rollback ();
 		}
-		
 		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------------- PAGO CORRECTO ---------------------\n\r" );
+
+		$utils = new \app\modules\ModUsuarios\models\Utils();
+					$parametrosEmail = [
+							'nombre' => $usuario->txt_username,
+							'transaccion'=>$ordenCompra->txt_order_number,
+							'totalPagado'=>$mc_gross
+					];
+				
+					$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
+		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------------- PAGO CORRECTO ---------------------\n\r" );
+		
 	}
     
 
@@ -486,7 +489,7 @@ class PagosController extends Controller
 						'totalPagado'=>"140"
 				];
 			
-				$utils->sendPagoNotificacion("humberto@2gom.com.mx", $parametrosEmail );
+				$utils->sendPagoNotificacion("cloudelric74@gmail.com", $parametrosEmail );
 	}
 
 }
