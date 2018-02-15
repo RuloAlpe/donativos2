@@ -429,7 +429,7 @@ class PagosController extends Controller
 			$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "Ocurrio un problema al guardar la información=print_r($e)\n\r" );
 			$transaction->rollback ();
 		}
-		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------------- PAGO CORRECTO ---------------------\n\r" );
+		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------------- Pago correcto---------------------\n\r" );
 
 		$utils = new \app\modules\ModUsuarios\models\Utils();
 					$parametrosEmail = [
@@ -439,7 +439,7 @@ class PagosController extends Controller
 					];
 				
 					$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
-		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------------- PAGO CORRECTO ---------------------\n\r" );
+		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------------- Envio de email ---------------------\n\r" );
 		
 	}
     
