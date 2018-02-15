@@ -72,23 +72,66 @@ $this->registerJsFile(
 
           
         </div>
-        <!-- <div class="custom-amount-wrapper">
+
+
+        <div class="custom-amount-wrapper">
           <h3>¿ Tienes otro número en mente ?</h3>
           <div class="custom-bar">
             <div class="header">Donar</div>
             <div class="monto">
               <span class="currency">$</span>
               <?php if (Yii::$app->user->isGuest) { ?>
-                <input data-log="0" maxlength="10" class="js-add ingreso_monto input-monto" type="text" placeholder="10,000.00">
+                
+                <select data-log="0" class="js-add ingreso_monto input-monto" placeholder="10,000.00">
+                  <option value="1500"> 1500</option>
+                  <option value="2000"> 2000</option>
+                  <option value="2500"> 2500</option>
+                  <option value="3000"> 3000</option>
+                  <option value="3500"> 3500</option>
+                  <option value="4000"> 4000</option>
+                  <option value="4500"> 4500</option>
+                  <option value="5000"> 5000</option>
+                  <option value="5500"> 5500</option>
+                  <option value="6000"> 6000</option>
+                  <option value="6500"> 6500</option>
+                  <option value="7000"> 7000</option>
+                  <option value="7500"> 7500</option>
+                  <option value="8000"> 8000</option>
+                  <option value="8500"> 8500</option>
+                  <option value="9000"> 9000</option>
+                  <option value="9500"> 9500</option>
+                  <option value="9999"> 9999</option>
+                </select>
               <?php }else{ ?>
-                <input data-log="1" maxlength="10" class="js-add ingreso_monto input-monto" type="text" placeholder="10,000.00">                
+
+                <select data-log="1" maxlength="10" class="js-add ingreso_monto input-monto" placeholder="10,000.00">
+                  <option value="1500"> 1500</option>
+                  <option value="2000"> 2000</option>
+                  <option value="2500"> 2500</option>
+                  <option value="3000"> 3000</option>
+                  <option value="3500"> 3500</option>
+                  <option value="4000"> 4000</option>
+                  <option value="4500"> 4500</option>
+                  <option value="5000"> 5000</option>
+                  <option value="5500"> 5500</option>
+                  <option value="6000"> 6000</option>
+                  <option value="6500"> 6500</option>
+                  <option value="7000"> 7000</option>
+                  <option value="7500"> 7500</option>
+                  <option value="8000"> 8000</option>
+                  <option value="8500"> 8500</option>
+                  <option value="9000"> 9000</option>
+                  <option value="9500"> 9500</option>
+                  <option value="9999"> 9999</option>
+                </select>
+                               
               <?php } ?>
               <span class="moneda">mxn</span>
             </div>
             <a class="btn btn-default btn_nuevo_monto">Realizar Donativo</a>
           </div>
 
-        </div> -->
+        </div>
       </div>
     </div>
     

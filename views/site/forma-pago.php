@@ -32,7 +32,7 @@ $this->registerJsFile(
     <div class="tipos-de-pago-content">
       
       <h3>
-        Seleciona un medio para realizar tu contribución de $<?=$ordenCompra->num_total?> MXN
+        Selecciona un medio para realizar tu contribución de $<?=$ordenCompra->num_total?> MXN
       </h3>
       <div class="tipos-de-pago">
         <div class="pagocard">
