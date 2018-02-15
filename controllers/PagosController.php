@@ -325,9 +325,10 @@ class PagosController extends Controller
 				$pagoRecibido->save();
 
 				$this->crearLog('Open Pay', '------------- Envio de email -------------------');
+				$usuario = EntUsuarios::find()->where(['id_usuario'=>$tarjeta->id_usuario])->one();
 				$utils = new \app\modules\ModUsuarios\models\Utils();
 				$parametrosEmail = [
-						'nombre' => $tarjeta->usuario->nombreCompleto,
+						'nombre' => $usuario->nombreCompleto,
 						'transaccion'=>$txn_id,
 						'totalPagado'=>$mc_gross
 				];
