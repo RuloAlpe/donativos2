@@ -324,6 +324,7 @@ class PagosController extends Controller
 				$pagoRecibido->id_orden_compra = null;
 				$pagoRecibido->save();
 
+				$this->crearLog('Open Pay', '------------- Envio de email -------------------');
 				$utils = new \app\modules\ModUsuarios\models\Utils();
 				$parametrosEmail = [
 						'nombre' => $tarjeta->idUsuario->nombreCompleto,
@@ -411,7 +412,7 @@ class PagosController extends Controller
 					$parametrosEmail = [
 							'nombre' => $usuario->txt_username,
 							'transaccion'=>$ordenCompra->txt_order_number,
-							'totalPagado'=>$ordenCompra->num_total
+							'totalPagado'=>$mc_gross
 					];
 				
 					$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
@@ -475,6 +476,17 @@ class PagosController extends Controller
 	public function actionBorrarSubscripcionCliente($id=null, $ids=null){
 		$pago = new Pagos();
 		$pago->borrarSubscripcion($id, $ids);
+	}
+
+	public function actionSendEmailTest(){
+		$utils = new \app\modules\ModUsuarios\models\Utils();
+				$parametrosEmail = [
+						'nombre' => "Humberto Antonio",
+						'transaccion'=>"12345",
+						'totalPagado'=>"140"
+				];
+			
+				$utils->sendPagoNotificacion("humberto@2gom.com.mx", $parametrosEmail );
 	}
 
 }
