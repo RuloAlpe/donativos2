@@ -43,61 +43,56 @@ $this->registerJsFile(
       }
       ?>
 
+      <!-- <ul class="donaciones-accordion" id="accordion">
+
+        <li class="donaciones-accordion__list">
+          <div class="link">
+            <p class="donaciones-datos">Datosa</p>
+            <p class="donaciones-monto">Monto</p>
+            <p class="donaciones-fecha">Fecha</p>
+            <p class="donaciones-tipo">Tipo</p>
+            <p class="donaciones-facturar">Facturar</p>
+            <p class="donaciones-recurrencia">Recurrencia</p>
+            <span class="link__title"></span><i class="ion ion-ios-arrow-down"></i>
+          </div>
+          <ul class="submenu">
+            <span>Listo</span>
+          </ul>
+        </li>
+
+        <li class="donaciones-accordion__list">
+          <div class="link">
+            <p class="donaciones-datos">Datosa</p>
+            <p class="donaciones-monto">Monto</p>
+            <p class="donaciones-fecha">Fecha</p>
+            <p class="donaciones-tipo">Tipo</p>
+            <p class="donaciones-facturar">Facturar</p>
+            <p class="donaciones-recurrencia">Recurrencia</p>
+            <span class="link__title"></span><i class="ion ion-ios-arrow-down"></i>
+          </div>
+          <ul class="submenu">
+            <span>Listo</span>
+          </ul>
+        </li>
+
+        <li class="donaciones-accordion__list">
+          <div class="link">
+            <p class="donaciones-datos">Datosa</p>
+            <p class="donaciones-monto">Monto</p>
+            <p class="donaciones-fecha">Fecha</p>
+            <p class="donaciones-tipo">Tipo</p>
+            <p class="donaciones-facturar">Facturar</p>
+            <p class="donaciones-recurrencia">Recurrencia</p>
+            <span class="link__title"></span><i class="ion ion-ios-arrow-down"></i>
+          </div>
+          <ul class="submenu">
+            <span>Listo</span>
+          </ul>
+        </li>
+       
+      </ul> -->
+
     </div>
-
-
-  <!--
-  <ul class="donaciones-accordion" id="accordion">
-
-    <li class="donaciones-accordion__list">
-      <div class="link">
-        <p class="donaciones-datos">Datosa</p>
-        <p class="donaciones-monto">Monto</p>
-        <p class="donaciones-fecha">Fecha</p>
-        <p class="donaciones-tipo">Tipo</p>
-        <p class="donaciones-facturar">Facturar</p>
-        <p class="donaciones-recurrencia">Recurrencia</p>
-        <span class="link__title"></span><i class="ion ion-ios-arrow-down"></i>
-      </div>
-      <ul class="submenu">
-        <span>Listo</span>
-      </ul>
-    </li>
-
-    <li class="donaciones-accordion__list">
-      <div class="link">
-        <p class="donaciones-datos">Datosa</p>
-        <p class="donaciones-monto">Monto</p>
-        <p class="donaciones-fecha">Fecha</p>
-        <p class="donaciones-tipo">Tipo</p>
-        <p class="donaciones-facturar">Facturar</p>
-        <p class="donaciones-recurrencia">Recurrencia</p>
-        <span class="link__title"></span><i class="ion ion-ios-arrow-down"></i>
-      </div>
-      <ul class="submenu">
-        <span>Listo</span>
-      </ul>
-    </li>
-
-    <li class="donaciones-accordion__list">
-      <div class="link">
-        <p class="donaciones-datos">Datosa</p>
-        <p class="donaciones-monto">Monto</p>
-        <p class="donaciones-fecha">Fecha</p>
-        <p class="donaciones-tipo">Tipo</p>
-        <p class="donaciones-facturar">Facturar</p>
-        <p class="donaciones-recurrencia">Recurrencia</p>
-        <span class="link__title"></span><i class="ion ion-ios-arrow-down"></i>
-      </div>
-      <ul class="submenu">
-        <span>Listo</span>
-      </ul>
-    </li>
-   
-  </ul>
-  -->
-
-
 
   </div>
 </div>
