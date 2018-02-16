@@ -130,7 +130,14 @@ $this->registerJsFile(
             </div>
             <a class="btn btn-default btn_nuevo_monto">Realizar Donativo</a>
           </div>
-
+          <div class="check">
+              <div class="check__item">
+                <label class="label--checkbox">
+                  <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
+                  Contribuir mensualmente
+                </label>
+              </div>
+            </div>
         </div>
       </div>
     </div>

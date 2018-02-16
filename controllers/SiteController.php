@@ -90,17 +90,24 @@ class SiteController extends Controller
          $monto = $monto * -1;   
         }
 
-        $planes = CatPlanes::find()->all();
-
+        $planes = CatPlanes::find()->where(['b_extra'=>0])->all();
         if(!$planes){
             $p = new Pagos();
             $p->generarPlan();
+            $planes = CatPlanes::find()->where(['b_extra'=>0])->all();
             
-            $planes = CatPlanes::find()->all();
+        }
+
+        $planesExtras = CatPlanes::find()->where(['b_extra'=>1])->all();
+        if(!$planesExtras){
+            $p = new Pagos();
+            $p->generarPlanesAdicionales();
+            $planesExtras = CatPlanes::find()->where(['b_extra'=>1])->all();
+            
         }
           
 
-        return $this->render('index' , ['planes'=>$planes]);
+        return $this->render('index' , ['planes'=>$planes, 'planesExtras'=>$planesExtras]);
     }
 
     public function actionMisDonaciones(){
@@ -242,9 +249,11 @@ class SiteController extends Controller
 		$isSubscripcion = 0;
 		//$monto = 0;
 		if(isset($_POST["plan"]) && isset($_POST["monto"]) && isset($_POST["susbcripcion"])){
-			$idPlan = $_POST["plan"];
+            
+            $idPlan = $_POST["plan"];
+            $plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
 			$isSubscripcion = $_POST["susbcripcion"];
-			$monto = $_POST["monto"];
+			$monto = $plan->num_cantidad;
 			
 		}
 

@@ -174,6 +174,35 @@ class Pagos
 		return $subscription;
 	}
 
+	public function generarPlanesAdicionales(){
+		$this->alias = Yii::getAlias('@app') . '/vendor/openpay';
+
+		require($this->alias . DIRECTORY_SEPARATOR . 'Openpay.php');
+
+		$openpay = \Openpay::getInstance(self::API_OPEN_PAY, self::API_OPEN_PAY_SECRET);
+
+		$val = 500;
+		$valorInicial = 1500;
+		for($i=0; $i<18; $i++){
+			if($i==17){
+				$valorInicial = 9999;
+			}
+			$planDataRequest = [
+				'amount' =>$valorInicial,
+				'status_after_retry' => 'cancelled',
+				'retry_times' => 2,
+				'name' => "Donativo ".$valorInicial,
+				'repeat_unit' => 'month',
+				'trial_days' => '0',
+				'repeat_every' => '1',
+				'currency' => 'MXN'
+			];
+			$valorInicial += $val;
+			$this->guardarPlan($openpay, $planDataRequest);
+		}
+	}
+
+
 	public function generarPlan()
 	{
 		$this->alias = Yii::getAlias('@app') . '/vendor/openpay';
