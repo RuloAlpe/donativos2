@@ -102,7 +102,7 @@ class Utils {
 
 	public function sendPagoNotificacion($email, $parametrosEmail) {
 		// Envia el correo electronico
-		return $this->sendEmail ( '@app/mail/layouts/notificacion-compra.php', '@app/mail/', 'development@2gom.com.mx', $email, 'Notificación de donativo.', $parametrosEmail );
+		return $this->sendEmail ( '@app/mail/layouts/notificacion-compra.php', '@app/mail/layouts/notificacion-compra-text.php', 'pagos@figma.org.mx', $email, 'Notificación de donativo.', $parametrosEmail );
 	}
 
 	public static function generateBoleto($id="0"){

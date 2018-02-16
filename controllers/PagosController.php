@@ -324,6 +324,19 @@ class PagosController extends Controller
 				$pagoRecibido->id_orden_compra = null;
 				$pagoRecibido->save();
 
+				$this->crearLog('Open Pay', '------------- Envio de email -------------------');
+				$usuario = EntUsuarios::find()->where(['id_usuario'=>$tarjeta->id_usuario])->one();
+				$utils = new \app\modules\ModUsuarios\models\Utils();
+				$parametrosEmail = [
+						'nombre' => $usuario->nombreCompleto,
+						'transaccion'=>$txn_id,
+						'totalPagado'=>$mc_gross
+				];
+			
+				$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
+
+				return;
+
 				
 			}else{
 
@@ -393,17 +406,16 @@ class PagosController extends Controller
 
 				$ordenCompra->b_pagado = 1;
 				if($ordenCompra->save()){
-					
-
+					$usuario = EntUsuarios::find()->where(['id_usuario'=>$ordenCompra->id_usuario])->one();
 
 					$utils = new \app\modules\ModUsuarios\models\Utils();
 					$parametrosEmail = [
 							'nombre' => $usuario->txt_username,
 							'transaccion'=>$ordenCompra->txt_order_number,
-							'totalPagado'=>$ordenCompra->num_total
+							'totalPagado'=>$mc_gross
 					];
 				
-					//$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
+					$utils->sendPagoNotificacion($usuario->txt_email, $parametrosEmail );
 
 				}else{
 					$error = true;
@@ -424,8 +436,11 @@ class PagosController extends Controller
 			$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "Ocurrio un problema al guardar la información=print_r($e)\n\r" );
 			$transaction->rollback ();
 		}
+		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------------- Pago correcto---------------------\n\r" );
+
 		
-		$this->crearLog ('OpenPayUser'.$ordenCompra->id_usuario, "------------------- PAGO CORRECTO ---------------------\n\r" );
+		
+		
 	}
     
 
@@ -464,6 +479,17 @@ class PagosController extends Controller
 	public function actionBorrarSubscripcionCliente($id=null, $ids=null){
 		$pago = new Pagos();
 		$pago->borrarSubscripcion($id, $ids);
+	}
+
+	public function actionSendEmailTest(){
+		$utils = new \app\modules\ModUsuarios\models\Utils();
+				$parametrosEmail = [
+						'nombre' => "Humberto Antonio",
+						'transaccion'=>"12345",
+						'totalPagado'=>"140"
+				];
+			
+				$utils->sendPagoNotificacion("cloudelric74@gmail.com", $parametrosEmail );
 	}
 
 }

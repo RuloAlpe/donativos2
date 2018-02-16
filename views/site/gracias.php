@@ -15,6 +15,9 @@ $this->registerJsFile(
 		<div class="boletos-int">
 			<i class="ion ion-ios-heart"></i>
 			<h2>Gracias por tu <span>donación</span></h2>
+			<h5>
+			“Gracias por su donativo, en unos días recibirá en su correo electrónico el comprobante deducible”
+			</h5>
 			<a class="btn boletos-int-btn" href="https://www.figma.org.mx/">
 				Ir al inicio
 			</a>

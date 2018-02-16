@@ -2,6 +2,7 @@
 use yii\widgets\ActiveForm;
 use yii\bootstrap\Html;
 use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 $this->title = 'Elegir monto a donar';
@@ -24,9 +25,9 @@ $this->registerJsFile(
         ?>
           <?php
           if (Yii::$app->user->isGuest) { 
-            $url = "//sign-up?monto=".$plan->num_cantidad;
+            $url = "//sign-up";
           }else{
-            $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
+            $url = "//site/guardar-orden";
           } 
           ?>
           
@@ -72,23 +73,46 @@ $this->registerJsFile(
 
           
         </div>
-        <!-- <div class="custom-amount-wrapper">
+          <?php
+          if (Yii::$app->user->isGuest) { 
+            $url = "//sign-up";
+          }else{
+            $url = "//site/guardar-orden";
+          } 
+          ?>
+
+          
+
+        <div class="custom-amount-wrapper">
+        <?= Html::beginForm([$url], 'post') ?>
           <h3>¿ Tienes otro número en mente ?</h3>
           <div class="custom-bar">
             <div class="header">Donar</div>
             <div class="monto">
               <span class="currency">$</span>
-              <?php if (Yii::$app->user->isGuest) { ?>
-                <input data-log="0" maxlength="10" class="js-add ingreso_monto input-monto" type="text" placeholder="10,000.00">
-              <?php }else{ ?>
-                <input data-log="1" maxlength="10" class="js-add ingreso_monto input-monto" type="text" placeholder="10,000.00">                
-              <?php } ?>
+              
+              <?=Html::dropDownList("plan", 6, ArrayHelper::map($planesExtras, 'id_plan', 'num_cantidad') , ["class"=>" ingreso_monto input-monto"])?>
+
               <span class="moneda">mxn</span>
             </div>
-            <a class="btn btn-default btn_nuevo_monto">Realizar Donativo</a>
+            <button type="submit" class="btn btn-default btn_nuevo_monto js-select-amount" data-style="zoom-in" data-value="500">
+                  <span class="ladda-label">Realizar Donativo</span>
+                </button>
+            <!-- <a class="btn btn-default btn_nuevo_monto">Realizar Donativo</a> -->
           </div>
+          <div class="check">
+              <div class="check__item">
+                <label class="label--checkbox">
+                  <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
+                  Contribuir mensualmente
+                </label>
+              </div>
+            </div>
+          <?= Html::endForm() ?>
+        </div>
 
-        </div> -->
+        
+
       </div>
     </div>
     

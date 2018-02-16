@@ -8,14 +8,38 @@ $(document).ready(function(){
 		$('.screensize-tag').html(windowWidth + " px");
 	});
 
-	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-		disableOn: 700,
-		type: 'iframe',
-		mainClass: 'mfp-fade',
-		removalDelay: 160,
-		preloader: false,
+	// Popup
+	// $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+	// disableOn: 700,
+	// type: 'iframe',
+	// mainClass: 'mfp-fade',
+	// removalDelay: 160,
+	// preloader: false,
 
-		fixedContentPos: false
-	});
+	// fixedContentPos: false
+	// });
+
+	// Modal
+	var modal = document.getElementById('modal-video');
+	var btn = document.getElementById("open-modal");
+	var span = document.getElementsByClassName("modal-close")[0];
+
+	btn.onclick = function() {
+		modal.style.display = "-webkit-flex";
+		modal.style.display = "flex";
+		$("#video")[0].play();
+	}
+
+	span.onclick = function() {
+		modal.style.display = "none";
+		$("#video")[0].load();
+	}
+
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+			$("#video")[0].load();
+		}
+	}
 
 });

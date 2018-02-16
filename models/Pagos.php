@@ -10,10 +10,10 @@ class Pagos
 	const OPEN_PAY = 12;
 
 	// llaves 2gom
-	// const API_OPEN_PAY = "mgvepau0yawr74pc5p5x";
-	// const API_OPEN_PAY_SECRET = "sk_b1885d10781b4a05838869f02c211d48";
-	// const API_OPEN_PAY_PUBLIC = "pk_a4208044e7e4429090c369eae2f2efb3";
-	// const API_SANDBOX = true;
+	 const API_OPEN_PAY = "mgvepau0yawr74pc5p5x";
+	 const API_OPEN_PAY_SECRET = "sk_b1885d10781b4a05838869f02c211d48";
+	 const API_OPEN_PAY_PUBLIC = "pk_a4208044e7e4429090c369eae2f2efb3";
+	 const API_SANDBOX = true;
 
 	// LLaves cliente sandbox
 	//  const API_OPEN_PAY = "mdkj2jyrw5kagur64bfk";
@@ -22,10 +22,10 @@ class Pagos
 	//  const API_SANDBOX = true;
 
 	 // Llaves cliente producción
-	 const API_OPEN_PAY = "mql4tth4ssfl4t7kvs3l";
-	 const API_OPEN_PAY_SECRET = "sk_41a860b0e516447ea0ad32c936c0fd00";
-	 const API_OPEN_PAY_PUBLIC = "pk_394fcecbbab24298b244a608b0dfbb87";
-	 const API_SANDBOX = false;
+	//  const API_OPEN_PAY = "mql4tth4ssfl4t7kvs3l";
+	//  const API_OPEN_PAY_SECRET = "sk_cd52ec33376f46dc986d1fd2c4f9193c";
+	//  const API_OPEN_PAY_PUBLIC = "pk_1103fff416c043f9845f3563639df8f8";
+	//  const API_SANDBOX = false;
 
 	/**
 	 * Generar codigo para poder pagar en las tiendas
@@ -173,6 +173,35 @@ class Pagos
 		$s->save();
 		return $subscription;
 	}
+
+	public function generarPlanesAdicionales(){
+		$this->alias = Yii::getAlias('@app') . '/vendor/openpay';
+
+		require($this->alias . DIRECTORY_SEPARATOR . 'Openpay.php');
+
+		$openpay = \Openpay::getInstance(self::API_OPEN_PAY, self::API_OPEN_PAY_SECRET);
+
+		$val = 500;
+		$valorInicial = 1500;
+		for($i=0; $i<18; $i++){
+			if($i==17){
+				$valorInicial = 9999;
+			}
+			$planDataRequest = [
+				'amount' =>$valorInicial,
+				'status_after_retry' => 'cancelled',
+				'retry_times' => 2,
+				'name' => "Donativo ".$valorInicial,
+				'repeat_unit' => 'month',
+				'trial_days' => '0',
+				'repeat_every' => '1',
+				'currency' => 'MXN'
+			];
+			$valorInicial += $val;
+			$this->guardarPlan($openpay, $planDataRequest);
+		}
+	}
+
 
 	public function generarPlan()
 	{

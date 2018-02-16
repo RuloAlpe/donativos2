@@ -13,6 +13,7 @@ use app\modules\ModUsuarios\models\EntUsuariosCambioPass;
 use app\modules\ModUsuarios\models\EntUsuariosFacebook;
 use app\models\EntOrdenesCompras;
 use yii\helpers\Url;
+use app\models\CatPlanes;
 
 /**
  * Default controller for the `musuarios` module
@@ -22,15 +23,16 @@ class ManagerController extends Controller {
 	/**
 	 * Registrar usuario en la base de datos
 	 */
-	public function actionSignUp($monto = 0) {
+	public function actionSignUp() {
 
 		$idPlan = null;
 		$isSubscripcion = 0;
 		//$monto = 0;
-		if(isset($_POST["plan"]) && isset($_POST["monto"])){
+		if(isset($_POST["plan"])){
 			$idPlan = $_POST["plan"];
+			$plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
 			$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
-			$monto = $_POST["monto"];
+			$monto = $plan->num_cantidad;
 
 		}
 
@@ -50,17 +52,27 @@ class ManagerController extends Controller {
 			if($usuarioExiste){
 				
 				if (Yii::$app->getUser()->login($usuarioExiste)) {
-					$ordenCompra = new EntOrdenesCompras();
-					$ordenCompra->num_total = $monto;
-					$ordenCompra->txt_order_number = Utils::generateToken("oc_");
-					$ordenCompra->id_usuario = $usuarioExiste->id_usuario;
-					$ordenCompra->txt_description = "Donativo";
-					$ordenCompra->id_plan = $idPlan;
-					$ordenCompra->b_subscripcion = $isSubscripcion;
-
-					if ($ordenCompra->save()) {
-
-						return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+					if(isset($_POST["plan"]) && isset($_POST["monto"]) ){
+            
+						$idPlan = $_POST["plan"];
+						$plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
+						$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
+						$monto = $plan->num_cantidad;
+						
+						
+						$ordenCompra = new EntOrdenesCompras();
+						$ordenCompra->num_total = $monto;
+						$ordenCompra->txt_order_number = Utils::generateToken("oc_");
+						$ordenCompra->id_usuario = $usuarioExiste->id_usuario;
+						$ordenCompra->txt_description = "Donativo";
+						$ordenCompra->id_plan = $idPlan;
+						$ordenCompra->b_subscripcion = $isSubscripcion;
+				
+						if ($ordenCompra->save()) {
+				
+							return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+						}
+						
 					}
 				}
 			}
@@ -87,17 +99,26 @@ class ManagerController extends Controller {
 				}*/
 				if(Yii::$app->getUser()->login($user)){
 					$idUsuario = $user->id_usuario;
-					$ordenCompra = new EntOrdenesCompras();
-					$ordenCompra->num_total = $monto;
-					$ordenCompra->txt_order_number = Utils::generateToken("oc_");
-					$ordenCompra->id_usuario = $idUsuario;
-					$ordenCompra->txt_description = "Donativo";
-					$ordenCompra->id_plan = $idPlan;
-					$ordenCompra->b_subscripcion = $isSubscripcion;
-
-					if ($ordenCompra->save()) {
-
-						return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+					if(isset($_POST["plan"]) && isset($_POST["monto"]) ){
+            
+						$idPlan = $_POST["plan"];
+						$plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
+						$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
+						$monto = $plan->num_cantidad;
+						
+						$ordenCompra = new EntOrdenesCompras();
+						$ordenCompra->num_total = $monto;
+						$ordenCompra->txt_order_number = Utils::generateToken("oc_");
+						$ordenCompra->id_usuario = $idUsuario;
+						$ordenCompra->txt_description = "Donativo";
+						$ordenCompra->id_plan = $idPlan;
+						$ordenCompra->b_subscripcion = $isSubscripcion;
+				
+						if ($ordenCompra->save()) {
+				
+							return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+						}
+						
 					}
 				}
 			}

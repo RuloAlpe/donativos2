@@ -32,14 +32,14 @@ $this->registerJsFile(
     <div class="tipos-de-pago-content">
       
       <h3>
-        Seleciona un medio para realizar tu contribución de $<?=$ordenCompra->num_total?> MXN
+        Selecciona un medio para realizar tu contribución de $<?=$ordenCompra->num_total?> MXN
       </h3>
       <div class="tipos-de-pago">
         <div class="pagocard">
 
           <?php 
-          #if(!$ordenCompra->b_subscripcion){
-          if(false){
+          if(!$ordenCompra->b_subscripcion){
+          #if(false){
           ?> 
           <div>
             <a data-value="2" data-tarjeta="0" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
