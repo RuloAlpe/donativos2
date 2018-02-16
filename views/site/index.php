@@ -91,7 +91,7 @@ $this->registerJsFile(
             <div class="monto">
               <span class="currency">$</span>
               
-              <?=Html::dropDownList("plan", 6, ArrayHelper::map($planesExtras, 'id_plan', 'num_cantidad') , ["class"=>" ingreso_monto input-monto"])?>
+              <?=Html::dropDownList("plan", "", ArrayHelper::map($planesExtras, 'id_plan', 'num_cantidad') , ["class"=>" ingreso_monto input-monto"])?>
 
               <span class="moneda">mxn</span>
             </div>
