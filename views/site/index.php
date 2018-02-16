@@ -75,9 +75,9 @@ $this->registerJsFile(
         </div>
           <?php
           if (Yii::$app->user->isGuest) { 
-            $url = "//sign-up?monto=".$plan->num_cantidad;
+            $url = "//sign-up";
           }else{
-            $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
+            $url = "//site/guardar-orden";
           } 
           ?>
 
