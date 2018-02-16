@@ -4,7 +4,7 @@ use yii\bootstrap\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 
-/ @var $this yii\web\View /
+/* @var $this yii\web\View */
 $this->title = 'Elegir monto a donar';
 $this->registerJsFile(
     '@web/webassets/js/index.js',
@@ -25,9 +25,9 @@ $this->registerJsFile(
         ?>
           <?php
           if (Yii::$app->user->isGuest) { 
-            $url = "//sign-up?monto=".$plan->num_cantidad;
+            $url = "//sign-up";
           }else{
-            $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
+            $url = "//site/guardar-orden";
           } 
           ?>
           
@@ -75,9 +75,9 @@ $this->registerJsFile(
         </div>
           <?php
           if (Yii::$app->user->isGuest) { 
-            $url = "//sign-up?monto=".$plan->num_cantidad;
+            $url = "//sign-up";
           }else{
-            $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
+            $url = "//site/guardar-orden";
           } 
           ?>
 
