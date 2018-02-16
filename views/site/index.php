@@ -73,9 +73,6 @@ $this->registerJsFile(
 
           
         </div>
-
-
-
           <?php
           if (Yii::$app->user->isGuest) { 
             $url = "//sign-up?monto=".$plan->num_cantidad;
@@ -84,9 +81,8 @@ $this->registerJsFile(
           } 
           ?>
 
-          <?= Html::beginForm([$url], 'post') ?>
-
         <div class="custom-amount-wrapper">
+        <?= Html::beginForm([$url], 'post') ?>
           <h3>¿ Tienes otro número en mente ?</h3>
           <div class="custom-bar">
             <div class="header">Donar</div>
@@ -110,9 +106,10 @@ $this->registerJsFile(
                 </label>
               </div>
             </div>
+          <?= Html::endForm() ?>
         </div>
 
-        <?= Html::endForm() ?>
+        
 
       </div>
     </div>
