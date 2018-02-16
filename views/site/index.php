@@ -4,7 +4,7 @@ use yii\bootstrap\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 
-/ @var $this yii\web\View /
+// @var $this yii\web\View /
 $this->title = 'Elegir monto a donar';
 $this->registerJsFile(
     '@web/webassets/js/index.js',
