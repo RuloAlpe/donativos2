@@ -73,8 +73,16 @@ $this->registerJsFile(
           
         </div>
 
+          <?php
+          if (Yii::$app->user->isGuest) { 
+            $url = "//sign-up?monto=".$plan->num_cantidad;
+          }else{
+            $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
+          } 
+          ?>
 
         <div class="custom-amount-wrapper">
+        <?= Html::beginForm([$url], 'post') ?>
           <h3>¿ Tienes otro número en mente ?</h3>
           <div class="custom-bar">
             <div class="header">Donar</div>
@@ -130,6 +138,17 @@ $this->registerJsFile(
             </div>
             <a class="btn btn-default btn_nuevo_monto">Realizar Donativo</a>
           </div>
+
+          <div class="check">
+              <div class="check__item">
+                <label class="label--checkbox">
+                  <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
+                  Contribuir mensualmente
+                </label>
+              </div>
+            </div>
+          <?= Html::endForm() ?>
+        </div>
 
         </div>
       </div>
