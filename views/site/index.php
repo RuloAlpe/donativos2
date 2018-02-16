@@ -2,6 +2,7 @@
 use yii\widgets\ActiveForm;
 use yii\bootstrap\Html;
 use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 $this->title = 'Elegir monto a donar';
@@ -72,14 +73,15 @@ $this->registerJsFile(
 
           
         </div>
-
           <?php
           if (Yii::$app->user->isGuest) { 
-            $url = "//sign-up";
+            $url = "//sign-up?monto=".$plan->num_cantidad;
           }else{
-            $url = "//site/guardar-orden";
+            $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
           } 
           ?>
+
+          
 
         <div class="custom-amount-wrapper">
         <?= Html::beginForm([$url], 'post') ?>
@@ -88,57 +90,16 @@ $this->registerJsFile(
             <div class="header">Donar</div>
             <div class="monto">
               <span class="currency">$</span>
-              <?php if (Yii::$app->user->isGuest) { ?>
-                
-                <select data-log="0" class="js-add ingreso_monto input-monto" placeholder="10,000.00">
-                  <option value="1500"> 1500</option>
-                  <option value="2000"> 2000</option>
-                  <option value="2500"> 2500</option>
-                  <option value="3000"> 3000</option>
-                  <option value="3500"> 3500</option>
-                  <option value="4000"> 4000</option>
-                  <option value="4500"> 4500</option>
-                  <option value="5000"> 5000</option>
-                  <option value="5500"> 5500</option>
-                  <option value="6000"> 6000</option>
-                  <option value="6500"> 6500</option>
-                  <option value="7000"> 7000</option>
-                  <option value="7500"> 7500</option>
-                  <option value="8000"> 8000</option>
-                  <option value="8500"> 8500</option>
-                  <option value="9000"> 9000</option>
-                  <option value="9500"> 9500</option>
-                  <option value="9999"> 9999</option>
-                </select>
-              <?php }else{ ?>
+              
+              <?=Html::dropDownList("plan", 6, ArrayHelper::map($planesExtras, 'id_plan', 'num_cantidad') , ["class"=>" ingreso_monto input-monto"])?>
 
-                <select data-log="1" maxlength="10" class="js-add ingreso_monto input-monto" placeholder="10,000.00">
-                  <option value="1500"> 1500</option>
-                  <option value="2000"> 2000</option>
-                  <option value="2500"> 2500</option>
-                  <option value="3000"> 3000</option>
-                  <option value="3500"> 3500</option>
-                  <option value="4000"> 4000</option>
-                  <option value="4500"> 4500</option>
-                  <option value="5000"> 5000</option>
-                  <option value="5500"> 5500</option>
-                  <option value="6000"> 6000</option>
-                  <option value="6500"> 6500</option>
-                  <option value="7000"> 7000</option>
-                  <option value="7500"> 7500</option>
-                  <option value="8000"> 8000</option>
-                  <option value="8500"> 8500</option>
-                  <option value="9000"> 9000</option>
-                  <option value="9500"> 9500</option>
-                  <option value="9999"> 9999</option>
-                </select>
-                               
-              <?php } ?>
               <span class="moneda">mxn</span>
             </div>
-            <a class="btn btn-default btn_nuevo_monto">Realizar Donativo</a>
+            <button type="submit" class="btn btn-default btn_nuevo_monto js-select-amount" data-style="zoom-in" data-value="500">
+                  <span class="ladda-label">Realizar Donativo</span>
+                </button>
+            <!-- <a class="btn btn-default btn_nuevo_monto">Realizar Donativo</a> -->
           </div>
-
           <div class="check">
               <div class="check__item">
                 <label class="label--checkbox">
@@ -150,7 +111,8 @@ $this->registerJsFile(
           <?= Html::endForm() ?>
         </div>
 
-        </div>
+        
+
       </div>
     </div>
     
