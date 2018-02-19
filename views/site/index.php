@@ -4,7 +4,7 @@ use yii\bootstrap\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 
-// @var $this yii\web\View /
+/* @var $this yii\web\View */
 $this->title = 'Elegir monto a donar';
 $this->registerJsFile(
     '@web/webassets/js/index.js',
@@ -25,9 +25,9 @@ $this->registerJsFile(
         ?>
           <?php
           if (Yii::$app->user->isGuest) { 
-            $url = "//sign-up?monto=".$plan->num_cantidad;
+            $url = "//sign-up";
           }else{
-            $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
+            $url = "//site/guardar-orden";
           } 
           ?>
           
@@ -75,9 +75,9 @@ $this->registerJsFile(
         </div>
           <?php
           if (Yii::$app->user->isGuest) { 
-            $url = "//sign-up?monto=".$plan->num_cantidad;
+            $url = "//sign-up";
           }else{
-            $url = "//site/guardar-orden?monto=".$plan->num_cantidad;
+            $url = "//site/guardar-orden";
           } 
           ?>
 
@@ -91,7 +91,7 @@ $this->registerJsFile(
             <div class="monto">
               <span class="currency">$</span>
               
-              <?=Html::dropDownList("plan", 6, ArrayHelper::map($planesExtras, 'id_plan', 'num_cantidad') , ["class"=>" ingreso_monto input-monto"])?>
+              <?=Html::dropDownList("plan", "", ArrayHelper::map($planesExtras, 'id_plan', 'num_cantidad') , ["class"=>" ingreso_monto input-monto"])?>
 
               <span class="moneda">mxn</span>
             </div>
