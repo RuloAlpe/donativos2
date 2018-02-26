@@ -213,16 +213,21 @@ class PagosController extends Controller
                     ->createChargeCreditCard ( $ordenCompra->txt_description, $ordenCompra->txt_order_number, $ordenCompra->num_total, $_POST ["token_id"], $_POST['deviceIdHiddenFieldName']);
 				
 				echo "success";
-			} catch ( \OpenpayApiTransactionError $e ) {
-				
 
-				echo $e->getMessage ();
-				
+			
+			} catch ( \OpenpayApiTransactionError $e ) {
+				echo $this->parseMessage($e->getMessage ());
+			}catch(\OpenpayApiRequestError $e){
+				echo $this->parseMessage($e->getMessage ());
+			}catch(\ErrorException $e){
+				echo $this->parseMessage($e->getMessage ());
+			}catch(\Exception $e){
+				echo $this->parseMessage($e->getMessage ());
+			}catch(\OpenpayApiError $e){
+				echo $this->parseMessage($e->getMessage ());
 			}
 			
-			
 			exit;
-			
 		}
 	}
 	
@@ -244,11 +249,16 @@ class PagosController extends Controller
 				->addTarjetaCliente ( $ordenCompra->txt_description, $ordenCompra->txt_order_number, $ordenCompra->num_total, $_POST ["token_id"], $_POST['deviceIdHiddenFieldName'], $plan->txt_plan_open_pay);
 			
 			echo "success";
-		} catch ( Exception $e ) {
-			
-
-			echo $e->getMessage ();
-			
+		} catch ( \OpenpayApiTransactionError $e ) {
+			echo $this->parseMessage($e->getMessage ());
+		}catch(\OpenpayApiRequestError $e){
+			echo $this->parseMessage($e->getMessage ());
+		}catch(\ErrorException $e){
+			echo $this->parseMessage($e->getMessage ());
+		}catch(\Exception $e){
+			echo $this->parseMessage($e->getMessage ());
+		}catch(\OpenpayApiError $e){
+			echo $this->parseMessage($e->getMessage ());
 		}
 		
 		
@@ -256,6 +266,29 @@ class PagosController extends Controller
 		
 	}
 }
+
+	private function parseMessage($msg){
+		$pos = strrpos($mystring, "Card declined (k)");
+		if ($pos === true) { // nota: tres signos de igual
+			// encontrado.
+			return "La tarjeta fue declinada, por sistema antifraude";
+		}
+
+		$pos = strrpos($mystring, "Card declined (o)");
+		if ($pos === true) { // nota: tres signos de igual
+			// encontrado.
+			return "La tarjeta fue declinada, por sistema antifraude";
+		}
+
+		$pos = strrpos($mystring, "Card declined");
+		if ($pos === true) { // nota: tres signos de igual
+			// encontrado.
+			return "La tarjeta fue declinada, favor de validar con su banco";
+		}
+
+
+		return $msg;
+	}
 
     /**
 	 * Open pay hara el registro del pago en este action
