@@ -678,6 +678,7 @@ right: auto !important;
     position: relative;
   }
   .donaciones-accordion__list .link {
+    align-items: center;
     font-size: 0.85em;
     font-weight: 700;
     cursor: pointer;
@@ -718,15 +719,15 @@ right: auto !important;
   }
   .donaciones-accordion__list .header .donaciones-datos,
   .donaciones-accordion__list .link .donaciones-datos{
-    width: 15%;
+    width: 10%;
   }
   .donaciones-accordion__list .header .donaciones-monto,
   .donaciones-accordion__list .link .donaciones-monto{
-    width: 20%;
+    width: 18%;
   }
   .donaciones-accordion__list .header .donaciones-fecha,
   .donaciones-accordion__list .link .donaciones-fecha{
-    width: 20%;
+    width: 16%;
   }
   .donaciones-accordion__list .header .donaciones-tipo,
   .donaciones-accordion__list .link .donaciones-tipo{
@@ -734,13 +735,79 @@ right: auto !important;
   }
   .donaciones-accordion__list .header .donaciones-facturar,
   .donaciones-accordion__list .link .donaciones-facturar{
-    width: 10%;
+    width: 15%;
   }
   .donaciones-accordion__list .header .donaciones-recurrencia,
   .donaciones-accordion__list .link .donaciones-recurrencia{
-    width: 10%;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 18%;
   }
-  
+
+  .donaciones-accordion__list .link .donaciones-facturar{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .donaciones-accordion__list .link .donaciones-recurrencia .donaciones-recurrencia-cancelada{
+    color: #E26666;
+  }
+
+  .donaciones-accordion__list .donaciones-btn-facturar,
+  .donaciones-accordion__list .donaciones-btn-cancelar-donativo,
+  .donaciones-accordion__list .donaciones-facturar-pdf,
+  .donaciones-accordion__list .donaciones-facturar-xml{
+    font-size: .9rem;
+    min-width: 40px;
+    overflow: hidden;
+    padding: .6rem .4rem;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    width: 100%
+  }
+  .donaciones-accordion__list .btn:last-child{
+    margin-left: 10px;
+  }
+
+  .donaciones-accordion__list .donaciones-btn-facturar{
+    background-color: #18ba1a;
+    color: white;
+  }
+  .donaciones-accordion__list .donaciones-btn-facturar:active,
+  .donaciones-accordion__list .donaciones-btn-facturar:focus,
+  .donaciones-accordion__list .donaciones-btn-facturar:hover{
+    background-color: #128d14;
+    color: white;
+  }
+
+  .donaciones-accordion__list .donaciones-btn-cancelar-donativo{
+    background-color: #ff6;
+    color: #555;
+  }
+  .donaciones-accordion__list .donaciones-btn-cancelar-donativo:active,
+  .donaciones-accordion__list .donaciones-btn-cancelar-donativo:focus,
+  .donaciones-accordion__list .donaciones-btn-cancelar-donativo:hover{
+    background-color: #ff9;
+    color: #555;
+  }
+
+  .donaciones-accordion__list .donaciones-facturar-pdf,
+  .donaciones-accordion__list .donaciones-facturar-xml{
+    background-color: #F1E8C9;
+    color: #E26666;
+  }
+  .donaciones-accordion__list .donaciones-facturar-pdf:active,
+  .donaciones-accordion__list .donaciones-facturar-xml:active,
+  .donaciones-accordion__list .donaciones-facturar-pdf:focus,
+  .donaciones-accordion__list .donaciones-facturar-xml:focus,
+  .donaciones-accordion__list .donaciones-facturar-pdf:hover,
+  .donaciones-accordion__list .donaciones-facturar-xml:hover{
+    background-color: #E26666;
+    color: #F1E8C9;
+  }
+
   .donaciones-accordion__list .link__title {
     padding: 1.5em;
     padding-left: 3em;
@@ -938,11 +1005,118 @@ footer{
 }
 
 .modal{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: black;
+    background-color: rgba(0,0,0,.7);
+    height: 100%;
+    width: 100%;
     z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .modal-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+.modal .modal-body .close{
+    color: white;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    z-index: 4;
+}
+.modal .modal-body form{
+    background-color: #f9c6c1;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 40px 34px;
+    position: relative;
+    width: 380px;
+    z-index: 2;
+}
+.modal .modal-body form .form-group{
+    margin-bottom: 12px;
+    width: 100%;
+}
+.modal .modal-body form .form-group input[type="text"]{
+    width: 100%;
+}
+
+.modal .modal-body form .form-group .help-block{
+    color: #D9262C;
+    font-size: .9rem;
+    margin-top: 4px;
+    padding-left: 16px;
+}
+
+.modal .modal-body form .form-group input[type="text"],
+.modal .modal-body form .form-group input[type="password"],
+.modal .modal-body form .form-group input[type="email"]{
+    color: #8D2326;
+    border-color: #fff;
+    font-size: 1.1rem;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 400;
+    padding: 4px 12px;
+    text-align: left;
+    width: 100%;
+}
+@media only screen and (max-width: 480px) {
+    .modal .modal-body form .form-group input[type="text"],
+    .modal .modal-body form .form-group input[type="email"]{
+        font-size: 1rem;
+    }
+}
+.modal .modal-body form .form-group input[type="text"]::placeholder,
+.modal .modal-body form .form-group input[type="email"]::placeholder {
+    color: #cac6c6;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 300;
+    opacity: 1;
+
+}
+
+.modal .modal-body form .form-group input[type="text"]:-ms-input-placeholder,
+.modal .modal-body form .form-group input[type="email"]:-ms-input-placeholder {
+    color: #cac6c6;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 300;
+}
+
+.modal .modal-body form .form-group input[type="text"]::-ms-input-placeholder,
+.modal .modal-body form .form-group input[type="email"]::-ms-input-placeholder {
+    color: #cac6c6;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 300;
+}
+
+.modal .modal-body form .form-group .btn-primary{
+    background-color: #D9262C;
+    border-color: #D9262C;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 300;
+    font-size: 1.45rem;
+    margin-top: 20px;
+    width: 100%;
+}
+.modal .modal-body form .form-group .btn-primary:active,
+.modal .modal-body form .form-group .btn-primary:focus,
+.modal .modal-body form .form-group .btn-primary:hover{
+    background-color: #f1e8c9;
+    border-color: #f1e8c9;
+    color: #D9262C;
 }

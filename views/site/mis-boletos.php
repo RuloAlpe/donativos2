@@ -33,7 +33,7 @@ $this->registerJsFile(
             <p class="donaciones-fecha">Fecha</p>
             <p class="donaciones-tipo">Tipo</p>
             <p class="donaciones-facturar">Facturar</p>
-            <p class="donaciones-recurrencia"></p>
+            <p class="donaciones-recurrencia">Cancelar recurrencia</p>
           </div>
         </div>
       </div>
@@ -53,9 +53,9 @@ $this->registerJsFile(
             $subscripcion = EntSubscripciones::find()->where(["txt_subscipcion_open_pay"=>$json->transaction->subscription_id])->one();
 
             if($subscripcion->b_subscrito){
-              $cancelarRecurrencia = '<button id="cancelar-'.$json->transaction->subscription_id.'" class="js-cancelar-subscripcion" data-token="'.$json->transaction->subscription_id.'">Cancelar donativo recurrente</button>';
+              $cancelarRecurrencia = '<button id="cancelar-'.$json->transaction->subscription_id.'" class="btn donaciones-btn-cancelar-donativo js-cancelar-subscripcion" data-token="'.$json->transaction->subscription_id.'">Cancelar</button>';
             }else{
-              $cancelarRecurrencia = "Donativo recurrente cancelado";
+              $cancelarRecurrencia = "<span class='donaciones-recurrencia-cancelada'>Cancelada</span>";
             }
 
             
@@ -63,7 +63,8 @@ $this->registerJsFile(
 
           // Se revisa si el pago ya ha sido facturado
           if(!$donacion->b_facturado){
-            $btnGenerarFactura = '<button class="js-generar-factura" id="facturar-'.$donacion->txt_transaccion.'" data-token="'.$donacion->txt_transaccion.'">Facturar</button>';
+            $btnGenerarFactura = '<button class="btn donaciones-btn-facturar js-generar-factura" id="facturar-'.$donacion->txt_transaccion.'" data-token="'.$donacion->txt_transaccion.'">Facturar</button>';
+            // $btnGenerarFactura = '<button class="btn donaciones-facturar-pdf">PDF</button> <button class="btn donaciones-facturar-xml">XML</button>';
           }
         ?>
         <li class="donaciones-accordion__list">
@@ -107,21 +108,23 @@ if(!$facturacion){
 <div class="modal" id="modal-facturacion" style="display:none;">
   <div class="modal-body">
 
- 
-     <?php $form = ActiveForm::begin([
-      'id'=>'form-datos-facturacion',
-      'action'=>Url::base().'/pagos/generar-factura'
-  ]); ?>
+    <div class="close js-modal-close" id="modal-close"><i class="ion ion-close"></i></div>
 
-  <?=Html::hiddenInput("t", "", ["id"=>"transaccion"])?>
-  <?= $form->field($facturacion, 'txt_rfc')->textInput(['maxlength' => true])->label(false) ?>
-  <?= $form->field($facturacion, 'txt_nombre')->textInput(['maxlength' => true])->label(false) ?>
+    <?php $form = ActiveForm::begin([
+    'id'=>'form-datos-facturacion',
+    'action'=>Url::base().'/pagos/generar-factura'
+    ]); ?>
 
-  <?= Html::submitButton('Generar factura', ['class' => 'btn btn-primary', 'id' => 'js-generar-factura']) ?>
+      <?=Html::hiddenInput("t", "", ["id"=>"transaccion"])?>
+      <?= $form->field($facturacion, 'txt_rfc')->textInput(['maxlength' => true])->label(false) ?>
+      <?= $form->field($facturacion, 'txt_nombre')->textInput(['maxlength' => true])->label(false) ?>
+      
+      <div class="form-group">
+        <?= Html::submitButton('Generar factura', ['class' => 'btn btn-primary', 'id' => 'js-generar-factura']) ?>
+      </div>
 
-   <?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?>
     
-
   </div>
 </div>
 
