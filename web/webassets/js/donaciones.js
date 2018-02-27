@@ -73,7 +73,7 @@ $(document).ready(function(){
 			method: "POST",
 			success:function(r){
 				if(r.status=="success"){
-					$("#botones-"+tr).html(r.botones);
+					$(".botones-"+tr).html(r.botones);
 					$("#modal-facturacion").hide();
 					l.stop();
 				}

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\modules\ModUsuarios\models\EntUsuarios;
 
 class Pagos
 {
@@ -142,12 +143,17 @@ class Pagos
 		$openpay = \Openpay::getInstance(self::API_OPEN_PAY, self::API_OPEN_PAY_SECRET);
 		
 		
-		$usuario = Yii::$app->user->identity;
+		$usuario = EntUsuarios::find()->where(["id_usuario"=>Yii::$app->user->identity->id_usuario])->one();
 
 		if(!$usuario->txt_usuario_open_pay){
 			$p = new Pagos();
-			$respuesta = $p->guardarCliente($ususuarioer->nombreCompleto, $usuario->txt_email);
-			$usuario->txt_usuario_open_pay = $respuesta->id;
+			$customerData = [
+				'name' => $usuario->nombreCompleto,
+				'email' => $usuario->txt_email
+			 ];
+		   
+		   	$customer = $openpay->customers->add($customerData);
+			$usuario->txt_usuario_open_pay = $customer->id;
 			$usuario->save();
 		}
 	
