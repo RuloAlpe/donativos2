@@ -15,9 +15,7 @@ $(document).ready(function(){
 
 			var elemento = $(e.target);
 			var isNotToggle = elemento.hasClass("js-cancelar-subscripcion") 
-				|| elemento.hasClass("js-generar-factura") 
-				|| elemento.hasClass("js-descargar-pdf") 
-				|| elemento.hasClass("js-descargar-xml");
+				|| elemento.hasClass("js-generar-factura") ;
 
 			if(isNotToggle){
 				return false;
@@ -42,6 +40,7 @@ $(document).ready(function(){
 		var accordion = new Accordion($('#accordion'), false);
 	});
 
+
 	$(".js-generar-factura").on("click", function(e){
 		e.preventDefault();
 		var token = $(this).data("token");
@@ -49,17 +48,36 @@ $(document).ready(function(){
 		$("#modal-facturacion").show();
 	});
 
+
+
 	$("#js-generar-factura").on("click", function(e){
 		e.preventDefault();
-		$("#modal-facturacion").hide();
+		
 		var data = $("#form-datos-facturacion").serialize();
+		var tr = $("#transaccion").val();
+
+		if(!validarRFC($("#entdatosfacturacion-txt_rfc").val())){
+			swal("Espera", "RFC no válido", "warning");
+			$("#entdatosfacturacion-txt_rfc").val("");
+			return false;
+		}
+
+		var l = Ladda.create(this);
+		 l.start();
+		 
+		 
 
 		$.ajax({
 			url: baseUrl+"pagos/generar-factura",
 			data:data,
 			method: "POST",
 			success:function(r){
-				console.log(r);
+				if(r.status=="success"){
+					$("#botones-"+tr).html(r.botones);
+					$("#modal-facturacion").hide();
+					l.stop();
+				}
+				
 			}
 		});
 	});
@@ -79,14 +97,6 @@ $(document).ready(function(){
 		});
 	});
 
-	$(".js-descargar-pdf").on("click", function(e){
-		e.preventDefault();
-	});
-
-
-	$(".js-descargar-xml").on("click", function(e){
-		e.preventDefault();
-	});
 
 
 	$(".js-modal-close").on("click", function(e){
@@ -94,5 +104,20 @@ $(document).ready(function(){
 		$("#modal-facturacion").hide();
 	});
 
+	$("#entdatosfacturacion-txt_rfc").on("change", function(){
+		
+		if(!validarRFC($(this).val())){
+			swal("Espera", "RFC no válido", "warning");
+			
+			$(this).val("");
+		}
+	});
+
 
 });
+function validarRFC(string){
+	var regex = /^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))((-)?([A-Z\d]{3}))?$/g;
+
+
+	return regex.test(string);
+}

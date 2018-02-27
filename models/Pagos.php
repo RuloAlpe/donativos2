@@ -344,7 +344,7 @@ class Pagos
 		$parametros = [
 			"sandbox"=>true,
 			"transaccion"=>$transaccion->txt_transaccion,
-			"formaPago"=>$transaccion->id_tipo_pago,
+			"formaPago"=>"04",
 			"condicionesDePago"=>"Contado",
 			"subTotal"=>$transaccion->txt_monto_pago,
 			"total"=>$transaccion->txt_monto_pago,
@@ -394,8 +394,7 @@ class Pagos
         //close connection
         curl_close($ch);
 
-        // print_r($result);
-        // exit;
+         
         return json_decode($result);
 	}
 

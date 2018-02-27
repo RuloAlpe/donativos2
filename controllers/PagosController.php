@@ -22,6 +22,7 @@ use app\models\EntTarjetas;
 use app\models\EntSubscripciones;
 use yii\web\Response;
 use app\models\EntDatosFacturacion;
+use yii\helpers\Url;
 
 class PagosController extends Controller
 {
@@ -546,29 +547,96 @@ class PagosController extends Controller
 		Yii::$app->response->format = Response::FORMAT_JSON;
 		$respuesta["status"] = "error";
 		$respuesta["message"] = "Ocurrio un problema";
+		$botones = "";
+
+		if(isset($_POST["t"])){
+			$transaccion = $_POST["t"];
+			$ordenPagada = EntPagosRecibidos::find()->where(["txt_transaccion"=>$transaccion])->one();
+			$botones = '<a class="btn donaciones-facturar-pdf js-descargar-pdf" target="_blank" href='.Url::base().'/pagos/descargar-factura-pdf?token='.$transaccion.'>PDF</a> 
+			<a href='.Url::base().'/pagos/descargar-factura-xml?token='.$transaccion.' target="_blank" class="btn donaciones-facturar-xml js-descargar-xml">XML</a>';
+		}
+
+		if(!$ordenPagada){
+			$respuesta["message"] = "No existe la transaccion";
+			return $respuesta;
+		}
+
+		if($ordenPagada->b_facturado){
+			$respuesta["status"] = "success";
+			$respuesta["botones"] =  $botones;
+			return $respuesta;
+		}
 		
 		// Datos de facturación
 		$usuario = Yii::$app->user->identity;
-		$facturacion = new EntDatosFacturacion();
+		$facturacion = EntDatosFacturacion::find()->where(["id_usuairo"=>$usuario->id_usuario])->one();
+		if(!$facturacion){
+			$facturacion = new EntDatosFacturacion();
+		}
+
 		$facturacion->id_usuairo = $usuario->id_usuario;
 		if($facturacion->load(Yii::$app->request->post()) && $facturacion->save() && isset($_POST["t"])){
-			$transaccion = $_POST["t"];
-			$ordenPagada = EntPagosRecibidos::find()->where(["txt_transaccion"=>$transaccion])->one();
 
 			$factura = new Pagos();
 			$facturaGenerar = $factura->generarFactura($facturacion, $ordenPagada);
-			$respuesta["result"] = $facturaGenerar;
-			if(isset($facturaGenerar->pdf)){
-
-			}
-
-			if(isset($facturaGenerar->xml)){
-
-			}
 			
+			if(isset($facturaGenerar->pdf) && isset($facturaGenerar->xml)){
+				$this->validarDirectorio("facturas/".$usuario->txt_token);
+				$this->validarDirectorio("facturas/".$usuario->txt_token."/".$transaccion);
+
+				$pdf = base64_decode($facturaGenerar->pdf);
+
+				$xml = base64_decode($facturaGenerar->xml);
+
+				file_put_contents("facturas/".$usuario->txt_token."/".$transaccion."/factura.pdf", $pdf);
+				file_put_contents("facturas/".$usuario->txt_token."/".$transaccion."/factura.xml", $xml);
+				//EICA821101RM6
+				$respuesta["status"] = "success";
+				$respuesta["message"] = "Facturas guardadas";
+				$respuesta["botones"] =  $botones;
+
+				$ordenPagada->b_facturado = 1;
+				$ordenPagada->save();
+
+			}
+
 		}
 
 		return $respuesta;
 	}
 
+	public function actionTestDirectorio(){
+		$usuario = Yii::$app->user->identity;
+		$this->validarDirectorio($usuario->txt_token);
+	}
+
+	public function validarDirectorio($path){
+		
+		if (!file_exists($path)) {
+			mkdir($path, 0777);
+		}
+	}
+
+	public function actionDescargarFacturaPdf($token=null){
+		$usuario = Yii::$app->user->identity;
+		$ordenPagada = EntPagosRecibidos::find()->where(["txt_transaccion"=>$token])->one();
+		$file = "facturas/".$usuario->txt_token."/".$ordenPagada->txt_transaccion."/factura.pdf";
+
+		if (file_exists($file)) {
+			
+			return Yii::$app->response->sendFile($file);
+		}
+	}
+
+	public function actionDescargarFacturaXml($token=null){
+
+		$usuario = Yii::$app->user->identity;
+		$ordenPagada = EntPagosRecibidos::find()->where(["txt_transaccion"=>$token])->one();
+		$file = "facturas/".$usuario->txt_token."/".$ordenPagada->txt_transaccion."/factura.xml";
+
+		if (file_exists($file)) {
+
+			return Yii::$app->response->sendFile($file);
+		}
+	}
 }
