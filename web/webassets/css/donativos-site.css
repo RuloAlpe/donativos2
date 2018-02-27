@@ -669,6 +669,7 @@ right: auto !important;
     background-color: #f7f7f7;
   }
   .donaciones-accordion__list .header {
+    align-content: center;
     background-color: #F9C6C1;
     font-size: 0.85em;
     font-weight: 700;
@@ -717,13 +718,20 @@ right: auto !important;
     font-size: .95rem;
     font-weight: 500;
   }
-  .donaciones-accordion__list .header .donaciones-datos,
-  .donaciones-accordion__list .link .donaciones-datos{
-    width: 10%;
+  .donaciones-accordion__list .link .donaciones-datos,
+  .donaciones-accordion__list .link .donaciones-monto,
+  .donaciones-accordion__list .link .donaciones-fecha,
+  .donaciones-accordion__list .link .donaciones-tipo,
+  .donaciones-accordion__list .link .donaciones-facturar,
+  .donaciones-accordion__list .link .donaciones-recurrencia{
+    white-space: pre-wrap;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
   }
+
   .donaciones-accordion__list .header .donaciones-monto,
   .donaciones-accordion__list .link .donaciones-monto{
-    width: 18%;
+    width: 23%;
   }
   .donaciones-accordion__list .header .donaciones-fecha,
   .donaciones-accordion__list .link .donaciones-fecha{
@@ -731,7 +739,7 @@ right: auto !important;
   }
   .donaciones-accordion__list .header .donaciones-tipo,
   .donaciones-accordion__list .link .donaciones-tipo{
-    width: 20%;
+    width: 25%;
   }
   .donaciones-accordion__list .header .donaciones-facturar,
   .donaciones-accordion__list .link .donaciones-facturar{
@@ -739,10 +747,7 @@ right: auto !important;
   }
   .donaciones-accordion__list .header .donaciones-recurrencia,
   .donaciones-accordion__list .link .donaciones-recurrencia{
-    overflow: hidden;
     text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     width: 18%;
   }
 
@@ -761,10 +766,10 @@ right: auto !important;
   .donaciones-accordion__list .donaciones-facturar-xml{
     font-size: .9rem;
     min-width: 40px;
-    overflow: hidden;
     padding: .6rem .4rem;
-    text-overflow: ellipsis;
-    white-space: nowrap; 
+    white-space: pre-wrap;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
     width: 100%
   }
   .donaciones-accordion__list .btn:last-child{
@@ -861,16 +866,180 @@ right: auto !important;
   /**=======================
   * Submenu
   ==========================**/
-  .submenu {
+  .donaciones-submenu {
     display: none;
-    background: #444359;
-    font-size: 0.95em;
+    background-color: #8D2326;
+    padding: 20px;
   }
   
-  .submenu span {
-    background-color: #e7e7e6;
-    display: block;
-    padding: 10px 20px;
+  .donaciones-submenu-small{
+    display: flex;
+    justify-content: space-between;
+  }
+  .donaciones-submenu-panel,
+  .donaciones-submenu-panel-row{
+    display: none;
+    justify-content: space-between;
+  }
+  .donaciones-submenu-panel{
+    margin-bottom: 16px;
+  }
+  .donaciones-submenu-panel-row{
+    margin-top: 26px;
+  }
+
+  .donaciones-submenu-small p,
+  .donaciones-submenu-small span,
+  .donaciones-submenu-panel span,
+  .donaciones-submenu-panel p,
+  .donaciones-submenu-panel-col p,
+  .donaciones-submenu-panel-col span{
+    color: white;
+    font-weight: 400;
+  }
+  .donaciones-submenu-panel span{
+    width: 140px;
+  }
+  .donaciones-submenu-panel p{
+    width: calc(100% - 140px);
+  }
+
+  .donaciones-submenu-panel-row{
+    flex-wrap: wrap;
+  }
+  .donaciones-submenu-panel-col{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+  }
+  /* .donaciones-submenu-panel-col p,
+  .donaciones-submenu-panel-col span{
+    color: white;
+  } */
+
+  .donaciones-submenu-panel-col:first-child{
+    padding-right: 10px;
+  }
+  .donaciones-submenu-panel-col:last-child{
+    padding-left: 10px;
+}
+  .donaciones-submenu-panel-col p{
+    display: flex;
+    width: 60%
+  }
+  .donaciones-submenu-panel-col span{
+    display: flex;
+    width: 40%;
+  }
+  @media only screen and (max-width: 768px){
+    .donaciones-accordion__list .header .donaciones-tipo,
+    .donaciones-accordion__list .header .donaciones-facturar,
+    .donaciones-accordion__list .header .donaciones-recurrencia,
+    .donaciones-accordion__list .link .donaciones-tipo,
+    .donaciones-accordion__list .link .donaciones-facturar,
+    .donaciones-accordion__list .link .donaciones-recurrencia{
+        display: none;
+    }
+    .donaciones-accordion__list .header .donaciones-datos,
+    .donaciones-accordion__list .link .donaciones-datos{
+        width: 20%;
+    }
+    .donaciones-accordion__list .header .donaciones-monto,
+    .donaciones-accordion__list .link .donaciones-monto{
+        width: 40%;
+    }
+    .donaciones-accordion__list .header .donaciones-fecha,
+    .donaciones-accordion__list .link .donaciones-fecha{
+        width: 40%;
+    }
+
+    .donaciones-submenu-small{
+        display: none;
+    }
+    .donaciones-submenu-panel,
+    .donaciones-submenu-panel-row{
+      display: flex;
+    }
+  }
+  @media only screen and (max-width: 600px){
+    .donaciones-accordion__list .header .donaciones-tipo,
+    .donaciones-accordion__list .header .donaciones-facturar,
+    .donaciones-accordion__list .header .donaciones-recurrencia,
+    .donaciones-accordion__list .link .donaciones-tipo,
+    .donaciones-accordion__list .link .donaciones-facturar,
+    .donaciones-accordion__list .link .donaciones-recurrencia{
+        display: none;
+    }
+    .donaciones-accordion__list .header .donaciones-datos,
+    .donaciones-accordion__list .link .donaciones-datos{
+        width: 20%;
+    }
+    .donaciones-accordion__list .header .donaciones-monto,
+    .donaciones-accordion__list .link .donaciones-monto{
+        width: 40%;
+    }
+    .donaciones-accordion__list .header .donaciones-fecha,
+    .donaciones-accordion__list .link .donaciones-fecha{
+        width: 40%;
+    }
+
+    .donaciones-submenu-small{
+        display: none;
+    }
+    .donaciones-submenu-panel,
+    .donaciones-submenu-panel-row{
+      display: flex;
+    }
+
+    /* .donaciones-submenu-panel-col{
+        width: 100%;
+    }
+    .donaciones-submenu-panel-col:first-child{
+        margin-bottom: 20px;
+        padding-right: 0;
+    }
+    .donaciones-submenu-panel-col:last-child{
+        padding-left: 0;
+    }
+
+    .donaciones-submenu-panel-col p,
+    .donaciones-submenu-panel-col span{
+        text-align: center;
+        width: 100%;
+    }
+    .donaciones-submenu-panel-col span{
+        margin-bottom: 12px;
+    } */
+  }
+  @media only screen and (max-width: 480px){
+    .donaciones-submenu-small{
+        display: none;
+    }
+    .donaciones-submenu-panel,
+    .donaciones-submenu-panel-row{
+      display: flex;
+    }
+
+    .donaciones-submenu-panel-col{
+        width: 100%;
+    }
+    .donaciones-submenu-panel-col:first-child{
+        margin-bottom: 20px;
+        padding-right: 0;
+    }
+    .donaciones-submenu-panel-col:last-child{
+        padding-left: 0;
+    }
+
+    .donaciones-submenu-panel-col p,
+    .donaciones-submenu-panel-col span{
+        text-align: center;
+        width: 100%;
+    }
+    .donaciones-submenu-panel-col span{
+        margin-bottom: 12px;
+    }
   }
 
 /* Footer */
