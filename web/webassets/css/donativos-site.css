@@ -379,16 +379,19 @@ body{
 }
 
 /* checkbox */
-.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .check {
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .check,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .check {
     margin-top: 26px;
 }
 
-.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .check__item {
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .check__item,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .check__item {
     /*margin: 0 0 0.5rem 0;*/
     padding: 0;
 }
 
-.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .label--checkbox {
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .label--checkbox,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .label--checkbox {
     color: #fff;
     position: relative;
     /*margin: 0.5rem;*/
@@ -396,7 +399,8 @@ body{
     cursor: pointer;
 }
 
-.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox {
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .checkbox {
     position: relative;
     cursor: pointer;
     height: 10px;
@@ -406,7 +410,8 @@ body{
    -moz-appearance: none;
    appearance: none;
 }
-.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:before {
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:before,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .checkbox:before {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -420,7 +425,8 @@ body{
   border-radius: 2px;
   top: -6px;
 }
-.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:checked:before {
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:checked:before,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .checkbox:checked:before {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
@@ -432,7 +438,8 @@ body{
   border-right-style: none;
   /* border-radius: 6px; */
 }
-.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:after {
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .checkbox:after,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .checkbox:after {
   content: "";
   position: absolute;
   top: -6px;
@@ -819,6 +826,10 @@ footer{
     .donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .moneda{
         font-size: .85rem;
     }
+
+    .donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar{
+        margin: 0 auto;
+    }
 }
 @media only screen and (max-width: 768px){
     .container{
@@ -858,6 +869,8 @@ footer{
     .donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar{
         flex-direction: column;
         justify-content: flex-start;
+        margin: 0 auto;
+        width: 90%;
     }
     .donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .header{
         margin-bottom: 4px;
@@ -918,9 +931,18 @@ footer{
 
     .boton-salir{
         left: 0 !important;
-    top: 40px !important;
+        top: 40px !important;
     }
     
 
 }
 
+.modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    z-index: 999;
+}

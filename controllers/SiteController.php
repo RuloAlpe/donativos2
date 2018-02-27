@@ -90,17 +90,24 @@ class SiteController extends Controller
          $monto = $monto * -1;   
         }
 
-        $planes = CatPlanes::find()->all();
-
+        $planes = CatPlanes::find()->where(['b_extra'=>0])->all();
         if(!$planes){
             $p = new Pagos();
             $p->generarPlan();
+            $planes = CatPlanes::find()->where(['b_extra'=>0])->all();
             
-            $planes = CatPlanes::find()->all();
+        }
+
+        $planesExtras = CatPlanes::find()->where(['b_extra'=>1])->all();
+        if(!$planesExtras){
+            $p = new Pagos();
+            $p->generarPlanesAdicionales();
+            $planesExtras = CatPlanes::find()->where(['b_extra'=>1])->all();
+            
         }
           
 
-        return $this->render('index' , ['planes'=>$planes]);
+        return $this->render('index' , ['planes'=>$planes, 'planesExtras'=>$planesExtras]);
     }
 
     public function actionMisDonaciones(){
@@ -234,32 +241,37 @@ class SiteController extends Controller
         }
     }
 
-    public function actionGuardarOrden($monto){
+    public function actionGuardarOrden(){
 
         $user = Yii::$app->user->identity;
 
         $idPlan = null;
 		$isSubscripcion = 0;
 		//$monto = 0;
-		if(isset($_POST["plan"]) && isset($_POST["monto"]) && isset($_POST["susbcripcion"])){
-			$idPlan = $_POST["plan"];
-			$isSubscripcion = $_POST["susbcripcion"];
-			$monto = $_POST["monto"];
+		if(isset($_POST["plan"])){
+            
+            $idPlan = $_POST["plan"];
+            $plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
+			$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
+            $monto = $plan->num_cantidad;
+            
+            $idUsuario = $user->id_usuario;
+            $ordenCompra = new EntOrdenesCompras();
+            $ordenCompra->num_total = $monto;
+            $ordenCompra->txt_order_number = Utils::generateToken("oc_");
+            $ordenCompra->id_usuario = $idUsuario;
+            $ordenCompra->txt_description = "Donativo";
+            $ordenCompra->id_plan = $idPlan;
+            $ordenCompra->b_subscripcion = $isSubscripcion;
+    
+            if ($ordenCompra->save()) {
+    
+                return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+            }
 			
-		}
+		}else{
 
-        $idUsuario = $user->id_usuario;
-        $ordenCompra = new EntOrdenesCompras();
-        $ordenCompra->num_total = $monto;
-        $ordenCompra->txt_order_number = Utils::generateToken("oc_");
-        $ordenCompra->id_usuario = $idUsuario;
-        $ordenCompra->txt_description = "Donativo";
-        $ordenCompra->id_plan = $idPlan;
-		$ordenCompra->b_subscripcion = $isSubscripcion;
-
-        if ($ordenCompra->save()) {
-
-            return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+            return $this->goHome();       
         }
         
     }

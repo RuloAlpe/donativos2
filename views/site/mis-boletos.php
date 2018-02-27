@@ -1,5 +1,11 @@
 <?php
 use yii\helpers\Url;
+use app\models\Calendario;
+use app\models\EntSubscripciones;
+use app\models\EntDatosFacturacion;
+use yii\widgets\ActiveForm;
+use yii\bootstrap\Html;
+$this->title = "Mis donaciones";
 
 $this->params['btns'] = '';
 
@@ -18,10 +24,7 @@ $this->registerJsFile(
     <h3>Mis donaciones</h3>
 
     <div class="donaciones-table">
-      
      
-      
-
       <div class="donaciones-accordion-head">
         <div class="donaciones-accordion__list">
           <div class="header">
@@ -30,7 +33,7 @@ $this->registerJsFile(
             <p class="donaciones-fecha">Fecha</p>
             <p class="donaciones-tipo">Tipo</p>
             <p class="donaciones-facturar">Facturar</p>
-            <p class="donaciones-recurrencia">Recurrencia</p>
+            <p class="donaciones-recurrencia"></p>
           </div>
         </div>
       </div>
@@ -38,24 +41,45 @@ $this->registerJsFile(
       <ul class="donaciones-accordion" id="accordion">
         
         <?php
-        foreach($boletos as $boleto){
-          // $json = json_decode($boleto->txt_cadena_comprador);
-          // if($json->subscription_id){
-          //   echo "Subscripción";
-          // }
+        foreach($boletos as $donacion){
+          $json = json_decode($donacion->txt_cadena_comprador);
+
+          // Se revisa si el pago recibido es un pago recurrente
+          $recurrencia = "";
+          $cancelarRecurrencia = "";
+          if (isset($json->transaction->subscription_id)) {
+            
+            $recurrencia = "Donativo recurrente";
+            $subscripcion = EntSubscripciones::find()->where(["txt_subscipcion_open_pay"=>$json->transaction->subscription_id])->one();
+
+            if($subscripcion->b_subscrito){
+              $cancelarRecurrencia = '<button id="cancelar-'.$json->transaction->subscription_id.'" class="js-cancelar-subscripcion" data-token="'.$json->transaction->subscription_id.'">Cancelar donativo recurrente</button>';
+            }else{
+              $cancelarRecurrencia = "Donativo recurrente cancelado";
+            }
+
+            
+          }
+
+          // Se revisa si el pago ya ha sido facturado
+          if(!$donacion->b_facturado){
+            $btnGenerarFactura = '<button class="js-generar-factura" id="facturar-'.$donacion->txt_transaccion.'" data-token="'.$donacion->txt_transaccion.'">Facturar</button>';
+          }
         ?>
         <li class="donaciones-accordion__list">
           <div class="link">
             <p class="donaciones-datos">Datos</p>
-            <p class="donaciones-monto">$<?=number_format((float)$boleto->txt_monto_pago, 2, '.', ''); ?></p>
-            <p class="donaciones-fecha"><?=$boleto->fch_pago?></p>
-            <p class="donaciones-tipo">Tipo</p>
-            <p class="donaciones-facturar">Facturar</p>
-            <p class="donaciones-recurrencia">Recurrencia</p>
+            <p class="donaciones-monto">$<?=number_format((float)$donacion->txt_monto_pago, 2, '.', ','); ?></p>
+            <p class="donaciones-fecha"><?=Calendario::getDateComplete($donacion->fch_pago)?></p>
+            <p class="donaciones-tipo"><?=$recurrencia?$recurrencia:"Pago único"?></p>
+            <p class="donaciones-facturar">
+              <?=$btnGenerarFactura?>
+            </p>
+            <p class="donaciones-recurrencia"><?=$cancelarRecurrencia?></p>
             <span class="link__title"></span><i class="ion ion-ios-arrow-down"></i>
           </div>
           <ul class="submenu">
-            <span>ID: <?=$boleto->txt_transaccion?></span>
+            <span>ID: <?=$donacion->txt_transaccion?></span>
           </ul>
         </li>
         <?php
@@ -65,6 +89,38 @@ $this->registerJsFile(
       </ul>
 
     </div>
+
+  </div>
+</div>
+
+
+<?php 
+// Datos de facturación
+$usuario = Yii::$app->user->identity;
+$facturacion = EntDatosFacturacion::find()->where(["id_usuairo"=>$usuario->id_usuario])->one();
+
+if(!$facturacion){
+ $facturacion = new EntDatosFacturacion();
+ $facturacion->txt_nombre = $usuario->nombreCompleto;
+}
+?>
+<div class="modal" id="modal-facturacion" style="display:none;">
+  <div class="modal-body">
+
+ 
+     <?php $form = ActiveForm::begin([
+      'id'=>'form-datos-facturacion',
+      'action'=>Url::base().'/pagos/generar-factura'
+  ]); ?>
+
+  <?=Html::hiddenInput("t", "", ["id"=>"transaccion"])?>
+  <?= $form->field($facturacion, 'txt_rfc')->textInput(['maxlength' => true])->label(false) ?>
+  <?= $form->field($facturacion, 'txt_nombre')->textInput(['maxlength' => true])->label(false) ?>
+
+  <?= Html::submitButton('Generar factura', ['class' => 'btn btn-primary', 'id' => 'js-generar-factura']) ?>
+
+   <?php ActiveForm::end(); ?>
+    
 
   </div>
 </div>

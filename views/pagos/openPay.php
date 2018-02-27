@@ -16,14 +16,14 @@ $date = date("Y-m-d",$date);
   <div class="modal-ticket-op-cont">
 
     <div class="cargo-total">
-      <h5>Total a Pagar</h5>
+      <h5>Total a Donar</h5>
       <span class="monto-total">$  <?=number_format($charger->amount)?></span>
       <span class="moneda">mxn</span>
       <span class="comision">+ 8 pesos de comisión</span>
     </div>
 
     <div class="barcode">
-      <h3>Para completar tu pago presenta este código de barras en cualquier establecimiento participante</h3>
+      <h3>Para completar tu Donativo presenta este código de barras en cualquier establecimiento participante</h3>
       <!--<h4>Este ticket será vigente hasta el:</h4>
 
       <span class="fecha">31/Dic/18</span>-->

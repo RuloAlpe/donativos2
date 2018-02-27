@@ -158,12 +158,12 @@ a[x-apple-data-detectors=true] {
 
     </style>
 </head>
-<body class="clean-body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #F9C6C1">
+<body class="clean-body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #FFE8E6">
   <style type="text/css" id="media-query-bodytag">
     @media (max-width: 520px) {
       .block-grid {
         min-width: 320px!important;
-        max-width: 100%!important;
+        max-width: 90%!important;
         width: 100%!important;
         display: block!important;
       }
@@ -216,26 +216,26 @@ a[x-apple-data-detectors=true] {
   </style>
   <!--[if IE]><div class="ie-browser"><![endif]-->
   <!--[if mso]><div class="mso-container"><![endif]-->
-  <table class="nl-container" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #F9C6C1;width: 100%" cellpadding="0" cellspacing="0">
+  <table class="nl-container" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #FFE8E6;width: 100%" cellpadding="0" cellspacing="0">
 	<tbody>
 	<tr style="vertical-align: top">
 		<td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-    <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #F9C6C1;"><![endif]-->
+    <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #FFE8E6;"><![endif]-->
 
-    <div style="background-color:#0D0C0C;">
-      <div style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFF;" class="block-grid ">
+    <div style="background-color:#000000;">
+      <div style="Margin: 0 auto;min-width: 320px;max-width: 460px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFF;" class="block-grid ">
         <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFF;">
           <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#0D0C0C;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 600px;"><tr class="layout-full-width" style="background-color:#FFF;"><![endif]-->
 
               <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color:#050404; width:600px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
-            <div class="col num12" style="min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;">
-              <div style="background-color: #050404; width: 100% !important;">
-              <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+            <div class="col num12" style="min-width: 320px;max-width: 460px;display: table-cell;vertical-align: top;">
+              <div style="background-color: #000000; width: 100% !important;">
+              <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:18px; padding-bottom:18px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
                   
                     <div align="center" class="img-container center  autowidth  fullwidth " style="padding-right: 0px;  padding-left: 0px;">
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px;line-height:0px;"><td style="padding-right: 0px; padding-left: 0px;" align="center"><![endif]-->
-  <img class="center  autowidth  fullwidth" align="center" border="0" src="http://www.figma.org.mx/donativos/web/webassets/images/email.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;width: 100%;max-width: 600px" width="600">
+  <img class="center  autowidth  fullwidth" align="center" border="0" src="http://www.figma.org.mx/donativos/web/webassets/images/email.png" alt="Figma" title="Figma" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;width: 100%;max-width: 600px" width="600">
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
 
@@ -246,15 +246,15 @@ a[x-apple-data-detectors=true] {
           <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
         </div>
       </div>
-    </div>    <div style="background-color:#F9C6C1;">
-      <div style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #F9C6C1;" class="block-grid ">
-        <div style="border-collapse: collapse;display: table;width: 100%;background-color:#F9C6C1;">
-          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#F9C6C1;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 600px;"><tr class="layout-full-width" style="background-color:#F9C6C1;"><![endif]-->
+    </div>    <div style="background-color:#FFE8E6;">
+      <div style="Margin: 0 auto;min-width: 320px;max-width: 460px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFE8E6;" class="block-grid ">
+        <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFE8E6;">
+          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#FFE8E6;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 600px;"><tr class="layout-full-width" style="background-color:#FFE8E6;"><![endif]-->
 
               <!--[if (mso)|(IE)]><td align="center" width="600" style=" width:600px; padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
-            <div class="col num12" style="min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;">
+            <div class="col num12" style="min-width: 320px;max-width: 460px;display: table-cell;vertical-align: top;">
               <div style="background-color: transparent; width: 100% !important;">
-              <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+              <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:20px; padding-bottom:10px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
                   
                     &#160;
@@ -266,32 +266,39 @@ a[x-apple-data-detectors=true] {
         </div>
       </div>
     </div>    <div style="background-color:transparent;">
-      <div style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFF;" class="block-grid ">
+      <div style="Margin: 0 auto;min-width: 320px;max-width: 460px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFF;" class="block-grid ">
         <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFF;">
           <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 600px;"><tr class="layout-full-width" style="background-color:#FFF;"><![endif]-->
 
               <!--[if (mso)|(IE)]><td align="center" width="600" style=" width:600px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
-            <div class="col num12" style="min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;">
+            <div class="col num12" style="min-width: 320px;max-width: 460px;display: table-cell;vertical-align: top;">
               <div style="background-color: transparent; width: 100% !important;">
               <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
                   
                     <div class="">
-	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 10px;"><![endif]-->
-	<div style="line-height:200%;color:#555555;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif; padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 10px;">	
-		<div style="font-size:12px;line-height:24px;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif;color:#555555;text-align:left;"><p style="margin: 0;font-size: 14px;line-height: 28px;text-align: center"><strong><span style="font-size: 24px; line-height: 48px;">Gracias por tu donativo</span></strong></p></div>	
+	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
+	<div style="line-height:200%;color:#555555;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;">	
+		<div style="font-size:16px;line-height:24px;font-family:'Verdana', Georgia, Times, 'Times New Roman', serif;color:#555555;text-align:left;"><p style="margin: 0;font-size: 16px;line-height: 28px;text-align: left"><span style="font-size: 18px; font-weight: bold; color: #000000; line-height: 48px;">Gracias por tu donativo</span></p></div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
 </div>
                   
                   
                     <div class="">
-	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 50px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
-	<div style="line-height:200%;color:#555555;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif; padding-right: 10px; padding-left: 50px; padding-top: 10px; padding-bottom: 10px;">	
-		<div style="line-height:24px;font-size:12px;color:#555555;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif;text-align:left;"><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"><span style="font-size: 16px; line-height: 32px;">Para poder consultar información de tu cuenta&#160;</span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"><span style="font-size: 16px; line-height: 32px;">puedes acceder al portal con las siguientes</span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"><span style="font-size: 16px; line-height: 32px;">claves de usuario:</span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left">&#160;<br></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"><span style="font-size: 16px; line-height: 32px;">Nombre de usuario:</span></p><p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px" dir="ltr"><span style="font-size: 16px; line-height: 32px;">
-<?=$email?>
-</span><span style="font-size: 16px; line-height: 32px;"></span></p><p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px" dir="ltr">&#160;<br></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"><span style="font-size: 16px; line-height: 32px;">Contraseña:</span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"><span style="font-size: 16px; line-height: 32px;"><?=$password?>
-</span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left">&#160;<br></p></div>	
+	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
+	<div style="line-height:200%;color:#555555;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;">	
+        <div style="line-height:24px;font-size:12px;color:#555555;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif;text-align:left;">
+            <p style="margin: 0;font-size: 12px;line-height: 24px;text-align: justify;"><span style="font-size: 16px; line-height: 32px;">Para poder consultar informacion de tu cuenta puedes acceder al portal con las siguientes claves de usuario</span></p>
+            <p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px" dir="ltr">&#160;<br></p>
+            <p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px" dir="ltr">&#160;<br></p>
+            <p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"><span style="font-size: 16px; line-height: 32px;">Nombre de usuario:</span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"></p>
+            <p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"><span style="color: #3C86E9; font-size: 14px; line-height: 16px;"><?=$email?></span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"></p>
+            <p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px" dir="ltr">&#160;<br></p>
+            <p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"><span style="font-size: 16px; line-height: 32px;">Contraseña:</span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"></p>
+            <p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"><span style="color: #3C86E9; font-size: 14px; line-height: 16px;"><?=$password?></span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left"></p>
+            <p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left">&#160;<br></p>
+        </div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
 </div>
@@ -299,9 +306,9 @@ a[x-apple-data-detectors=true] {
                   
                     
 <div align="center" class="button-container center " style="padding-right: 10px; padding-left: 10px; padding-top:25px; padding-bottom:30px;">
-  <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:25px; padding-bottom:30px;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="<?=$url?>" style="height:35pt; v-text-anchor:middle; width:196pt;" arcsize="13%" strokecolor="#E33032" fillcolor="#E33032"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif; font-size:16px;"><![endif]-->
-    <a href="<?=$url?>" target="_blank" style="display: block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #ffffff; background-color: #E33032; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; max-width: 262px; width: 222px;width: auto; border-top: 0px solid transparent; border-right: 0px solid transparent; border-bottom: 0px solid transparent; border-left: 0px solid transparent; padding-top: 10px; padding-right: 20px; padding-bottom: 5px; padding-left: 20px; font-family: 'Droid Serif', Georgia, Times, 'Times New Roman', serif;mso-border-alt: none">
-      <span style="font-size:12px;line-height:24px;"><strong><span style="font-size: 16px; line-height: 32px;" data-mce-style="font-size: 16px; line-height: 32px;">Ingreso automático al portal</span></strong></span>
+  <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:25px; padding-bottom:30px;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="<?=$url?>" style="height:35pt; v-text-anchor:middle; width:196pt;" arcsize="13%" strokecolor="#E33032" fillcolor="#E33032"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; font-size:16px;"><![endif]-->
+    <a href="<?=$url?>" target="_blank" style="display: block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #D9262C; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; max-width: 262px; width: 222px;width: auto; border-top: 0px solid transparent; border-right: 0px solid transparent; border-bottom: 0px solid transparent; border-left: 0px solid transparent; padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif;mso-border-alt: none; font-weight: 300;">
+      <span style="font-size:12px;line-height:24px;"><span style="font-size: 14px; line-height: 32px;" data-mce-style="font-size: 14px; line-height: 32px; color: #000000;">Ingreso automático al portal</span></span>
     </a>
   <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
 </div>
@@ -313,21 +320,28 @@ a[x-apple-data-detectors=true] {
           <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
         </div>
       </div>
-    </div>    <div style="background-color:#F9C6C1;">
-      <div style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #F9C6C1;" class="block-grid ">
-        <div style="border-collapse: collapse;display: table;width: 100%;background-color:#F9C6C1;">
-          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#F9C6C1;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 600px;"><tr class="layout-full-width" style="background-color:#F9C6C1;"><![endif]-->
+    </div>    <div style="background-color:#FFE8E6;">
+      <div style="Margin: 0 auto;min-width: 320px;max-width: 460px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFE8E6;" class="block-grid ">
+        <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFE8E6;">
+          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#FFE8E6;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 600px;"><tr class="layout-full-width" style="background-color:#FFE8E6;"><![endif]-->
 
               <!--[if (mso)|(IE)]><td align="center" width="600" style=" width:600px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
-            <div class="col num12" style="min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;">
+            <div class="col num12" style="min-width: 320px;max-width: 460px;display: table-cell;vertical-align: top;">
               <div style="background-color: transparent; width: 100% !important;">
               <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
                   
                     <div class="">
 	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 20px; padding-top: 20px; padding-bottom: 20px;"><![endif]-->
-	<div style="color:#555555;line-height:120%;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif; padding-right: 20px; padding-left: 20px; padding-top: 20px; padding-bottom: 20px;">	
-		<div style="font-size:12px;line-height:14px;color:#555555;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif;text-align:left;"><p style="margin: 0;font-size: 14px;line-height: 17px;text-align: justify">Este correo electrónico fue generado de manera automática por el</p><p style="margin: 0;font-size: 14px;line-height: 17px;text-align: justify">sistema y no es necesario contestes a el, si necesitas asistencia o</p><p style="margin: 0;font-size: 14px;line-height: 17px;text-align: justify">soporte favor de escribirme a: <span style="color: rgb(0, 0, 255); font-size: 14px; line-height: 16px;">soporte@figma.org.mx</span></p></div>	
+	<div style="color:#555555;line-height:120%;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 20px; padding-left: 20px; padding-top: 40px; padding-bottom: 20px;">	
+		<div style="font-size:12px;line-height:14px;color:#555555;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif;text-align: center;">
+
+            <p style="margin: 0;font-size: 14px;line-height: 24px;text-align: justify;">Este correo electrónico fue generado de manera automática por el sistema y no es necesario contestes a el, si necesitas asistencia o soporte favor de escribirme a: <a href="mailto:soporte@figma.org.mx?Subject=Ayuda%20Web" target="_blank" style="display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: left; width: auto; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif; mso-border-alt: none; font-weight: 300; color: #3C86E9; font-size: 14px; line-height: 16px;"><span style="font-size: 14px; line-height: 20px;" data-mce-style="font-size: 14px; line-height: 20px;">soporte@figma.org.mx</span></a></p>
+            <p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px" dir="ltr">&#160;<br><br></p>
+            <p style="margin: 0;font-size: 14px;line-height: 17px;text-align: center;">&copy; Figma 2018 </p>
+            <p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px" dir="ltr">&#160;<br><br></p>
+            <p style="margin: 0;font-size: 14px;line-height: 17px;text-align: center;"><img class="center  autowidth  fullwidth" align="center" border="0" src="2gom-black.png" alt="2GOM" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;margin: 0 auto; width: 108px;max-width: 100%" width="108"></p>
+        </div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
 </div>

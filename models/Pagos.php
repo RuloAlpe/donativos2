@@ -8,6 +8,9 @@ class Pagos
 {
 	const PAY_PAL = 2;
 	const OPEN_PAY = 12;
+	const URL_FACTURACION = "https://dev.2geeksonemonkey.com/cfdi/web/services/add-cfdi?uddi=";
+	const FACTURACION_SANDBOX = true;
+	
 
 	// llaves 2gom
 	 const API_OPEN_PAY = "mgvepau0yawr74pc5p5x";
@@ -16,10 +19,10 @@ class Pagos
 	 const API_SANDBOX = true;
 
 	// LLaves cliente sandbox
-	//  const API_OPEN_PAY = "mdkj2jyrw5kagur64bfk";
-	//  const API_OPEN_PAY_SECRET = "sk_10fb9b0e51a54412a4df34704b626eb5";
-	//  const API_OPEN_PAY_PUBLIC = "pk_be60c6e82b4842dd9103c9e2630537d4";
-	//  const API_SANDBOX = true;
+//   const API_OPEN_PAY = "mdkj2jyrw5kagur64bfk";
+// 	 const API_OPEN_PAY_SECRET = "sk_10fb9b0e51a54412a4df34704b626eb5";
+// 	  const API_OPEN_PAY_PUBLIC = "pk_be60c6e82b4842dd9103c9e2630537d4";
+// 	  const API_SANDBOX = true;
 
 	 // Llaves cliente producción
 	//  const API_OPEN_PAY = "mql4tth4ssfl4t7kvs3l";
@@ -174,6 +177,35 @@ class Pagos
 		return $subscription;
 	}
 
+	public function generarPlanesAdicionales(){
+		$this->alias = Yii::getAlias('@app') . '/vendor/openpay';
+
+		require($this->alias . DIRECTORY_SEPARATOR . 'Openpay.php');
+
+		$openpay = \Openpay::getInstance(self::API_OPEN_PAY, self::API_OPEN_PAY_SECRET);
+
+		$val = 500;
+		$valorInicial = 1500;
+		for($i=0; $i<18; $i++){
+			if($i==17){
+				$valorInicial = 9999;
+			}
+			$planDataRequest = [
+				'amount' =>$valorInicial,
+				'status_after_retry' => 'cancelled',
+				'retry_times' => 2,
+				'name' => "Donativo ".$valorInicial,
+				'repeat_unit' => 'month',
+				'trial_days' => '0',
+				'repeat_every' => '1',
+				'currency' => 'MXN'
+			];
+			$valorInicial += $val;
+			$this->guardarPlan($openpay, $planDataRequest);
+		}
+	}
+
+
 	public function generarPlan()
 	{
 		$this->alias = Yii::getAlias('@app') . '/vendor/openpay';
@@ -288,7 +320,11 @@ class Pagos
 
 		$customer = $openpay->customers->get($idCustomer);
 		$subscription = $customer->subscriptions->get($idSubscripcion);
-		$subscription->delete();
+		if(!$subscription->delete()){
+			return true;
+		}
+
+		return false;
 	}
 
 	public function borrarTarjeta($idCustomer, $idCard){
@@ -301,6 +337,97 @@ class Pagos
 		$customer = $openpay->customers->get($idCustomer);
 		$card = $customer->cards->get($idCard);
 		$card->delete();
+	}
+
+	public function generarFactura($datosFacturar, $transaccion, $idu){
+
+		$parametros = [
+			"sandbox"=>true,
+			"transaccion"=>$transaccion->txt_transaccion,
+			"formaPago"=>$transaccion->id_tipo_pago,
+			"condicionesDePago"=>"Contado",
+			"subTotal"=>$transaccion->txt_monto_pago,
+			"total"=>$transaccion->txt_monto_pago,
+			"rfcReceptor"=>$datosFacturar->txt_rfc,
+			"nombreReceptor"=>$datosFacturar->txt_nombre,
+			"usoCFDIReceptor"=>"D04",
+			"claveProdServ"=>"84101600",
+			"cantidad"=>"1",
+			"claveUnidad"=>"C62",
+			"unidad"=>"Uno",
+			"descripcion"=>"DONATIVO",
+			"valorUnitario"=>$transaccion->txt_monto_pago,
+			"importe"=>$transaccion->txt_monto_pago
+		];
+
+		$respuesta = $this->callGenerarFactura($parametros, $idu);
+		//$respuesta = $this->testFactura();
+		print_r($respuesta);
+		exit;
+		return $parametros;
+		
+	}
+
+	public function testFactura(){
+		
+
+		$curl = curl_init();
+		
+		curl_setopt_array($curl, array(
+		  CURLOPT_URL => "https://dev.2geeksonemonkey.com/cfdi/web/services/add-cfdi?uddi=FAAA750615",
+		  CURLOPT_RETURNTRANSFER => true,
+		  
+		  CURLOPT_CUSTOMREQUEST => "POST",
+		  CURLOPT_POSTFIELDS => "{\n\t\t\"sandbox\":true,\n\t\t\"transaccion\":\"ARTWRT45454\",\n        \"formaPago\":\"03\",\n        \"condicionesDePago\":\"Contado\",\n        \"subTotal\":\"100\",\n        \"total\":\"100\",\n        \"rfcReceptor\":\"FAAA750615JG3\",\n        \"nombreReceptor\":\"Alberto Farías Acuña\",\n        \"usoCFDIReceptor\":\"D04\",\n        \"claveProdServ\":\"84101600\",\n        \"cantidad\":\"1\",\n        \"claveUnidad\":\"C62\",\n        \"unidad\":\"Uno\",\n        \"descripcion\":\"DONATIVO\",\n        \"valorUnitario\":\"100.00\",\n        \"importe\":\"100.00\"\n}",
+		  CURLOPT_HTTPHEADER => array(
+			'Content-Type: application/json',  
+		
+		  ),
+		));
+		
+		$response = curl_exec($curl);
+		$err = curl_error($curl);
+		
+		curl_close($curl);
+		
+		if ($err) {
+		  echo "cURL Error #:" . $err;
+		} else {
+		  return $response;
+		}
+	}
+
+	public function callGenerarFactura($parametros, $idu){
+
+                                                                    
+		$data_string = json_encode($parametros); 
+		//$data_string = http_build_query($parametros);
+
+        //open connection
+        $ch = curl_init();
+
+        //set the url, number of POST vars, POST data
+        curl_setopt($ch, CURLOPT_URL, self::URL_FACTURACION.$idu);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                  
+         curl_setopt($ch, CURLOPT_HTTPHEADER,[                                                                          
+             'Content-Type: application/json',                                                                                
+        //     //'Content-Length: ' . strlen($data_string))                                                                       
+         ]); 
+
+        //execute post
+        $result = curl_exec($ch);
+        
+        $info = curl_getinfo($ch);
+
+        #print_r($info);
+        //close connection
+        curl_close($ch);
+
+        #print_r($result);
+        #exit;
+        return $result;
 	}
 
 }
