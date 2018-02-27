@@ -89,4 +89,10 @@ $(document).ready(function(){
 	});
 
 
+	$(".js-modal-close").on("click", function(e){
+		e.preventDefault();
+		$("#modal-facturacion").hide();
+	});
+
+
 });
