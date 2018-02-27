@@ -643,9 +643,10 @@ right: auto !important;
 * Conentendor Principal
 =============================
 **/
+.donaciones-accordion-head,
 .donaciones-accordion {
     width: 100%;
-    margin: 3em auto 2em;
+    margin: 0 auto;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -667,6 +668,15 @@ right: auto !important;
   .donaciones-accordion__list:nth-child(odd){
     background-color: #f7f7f7;
   }
+  .donaciones-accordion__list .header {
+    background-color: #F9C6C1;
+    font-size: 0.85em;
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+  }
   .donaciones-accordion__list .link {
     font-size: 0.85em;
     font-weight: 700;
@@ -682,6 +692,12 @@ right: auto !important;
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
   }
+  .donaciones-accordion__list .header .donaciones-datos,
+  .donaciones-accordion__list .header .donaciones-monto,
+  .donaciones-accordion__list .header .donaciones-fecha,
+  .donaciones-accordion__list .header .donaciones-tipo,
+  .donaciones-accordion__list .header .donaciones-facturar,
+  .donaciones-accordion__list .header .donaciones-recurrencia,
   .donaciones-accordion__list .link .donaciones-datos,
   .donaciones-accordion__list .link .donaciones-monto,
   .donaciones-accordion__list .link .donaciones-fecha,
@@ -690,21 +706,37 @@ right: auto !important;
   .donaciones-accordion__list .link .donaciones-recurrencia{
     padding: 10px 12px;
   }
-  .donaciones-accordion__list .link .donaciones-datos{
-      width: 15%;
+  .donaciones-accordion__list .header .donaciones-datos,
+  .donaciones-accordion__list .header .donaciones-monto,
+  .donaciones-accordion__list .header .donaciones-fecha,
+  .donaciones-accordion__list .header .donaciones-tipo,
+  .donaciones-accordion__list .header .donaciones-facturar,
+  .donaciones-accordion__list .header .donaciones-recurrencia{
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 500;
   }
+  .donaciones-accordion__list .header .donaciones-datos,
+  .donaciones-accordion__list .link .donaciones-datos{
+    width: 15%;
+  }
+  .donaciones-accordion__list .header .donaciones-monto,
   .donaciones-accordion__list .link .donaciones-monto{
     width: 20%;
   }
+  .donaciones-accordion__list .header .donaciones-fecha,
   .donaciones-accordion__list .link .donaciones-fecha{
     width: 20%;
   }
+  .donaciones-accordion__list .header .donaciones-tipo,
   .donaciones-accordion__list .link .donaciones-tipo{
     width: 20%;
   }
+  .donaciones-accordion__list .header .donaciones-facturar,
   .donaciones-accordion__list .link .donaciones-facturar{
     width: 10%;
   }
+  .donaciones-accordion__list .header .donaciones-recurrencia,
   .donaciones-accordion__list .link .donaciones-recurrencia{
     width: 10%;
   }
@@ -769,7 +801,7 @@ right: auto !important;
   }
   
   .submenu span {
-    background-color: blue;
+    background-color: #e7e7e6;
     display: block;
     padding: 10px 20px;
   }
@@ -905,3 +937,12 @@ footer{
 
 }
 
+.modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    z-index: 999;
+}

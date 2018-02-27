@@ -19,6 +19,9 @@ use app\models\IPNPayPal;
 use app\modules\ModUsuarios\models\EntUsuarios;
 use app\models\EntBoletos;
 use app\models\EntTarjetas;
+use app\models\EntSubscripciones;
+use yii\web\Response;
+use app\models\EntDatosFacturacion;
 
 class PagosController extends Controller
 {
@@ -268,19 +271,19 @@ class PagosController extends Controller
 }
 
 	private function parseMessage($msg){
-		$pos = strrpos($mystring, "Card declined (k)");
+		$pos = strrpos($msg, "Card declined (k)");
 		if ($pos === true) { // nota: tres signos de igual
 			// encontrado.
 			return "La tarjeta fue declinada, por sistema antifraude";
 		}
 
-		$pos = strrpos($mystring, "Card declined (o)");
+		$pos = strrpos($msg, "Card declined (o)");
 		if ($pos === true) { // nota: tres signos de igual
 			// encontrado.
 			return "La tarjeta fue declinada, por sistema antifraude";
 		}
 
-		$pos = strrpos($mystring, "Card declined");
+		$pos = strrpos($msg, "Card declined");
 		if ($pos === true) { // nota: tres signos de igual
 			// encontrado.
 			return "La tarjeta fue declinada, favor de validar con su banco";
@@ -509,9 +512,23 @@ class PagosController extends Controller
 		$pago->borrarTarjeta($id, $idt );
 	}
 
-	public function actionBorrarSubscripcionCliente($id=null, $ids=null){
-		$pago = new Pagos();
-		$pago->borrarSubscripcion($id, $ids);
+	public function actionBorrarSubscripcionCliente($ids=null){
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		$respuesta["status"] = "error";
+		$usuario = Yii::$app->user->identity;
+		$subscripcionHabilitada = EntSubscripciones::find()->where(["id_usuario"=>$usuario->id_usuario, "txt_subscipcion_open_pay"=>$ids, "b_subscrito"=>1])->one();
+		if($subscripcionHabilitada){
+			
+			$pago = new Pagos();
+			if($pago->borrarSubscripcion($usuario->txt_usuario_open_pay, $ids)){
+				$subscripcionHabilitada->b_subscrito = 0;
+				if($subscripcionHabilitada->save()){
+					$respuesta["status"] = "success";
+					return $respuesta;
+				}
+			}
+		}
+		
 	}
 
 	public function actionSendEmailTest(){
@@ -523,6 +540,27 @@ class PagosController extends Controller
 				];
 			
 				$utils->sendPagoNotificacion("cloudelric74@gmail.com", $parametrosEmail );
+	}
+
+	public function actionGenerarFactura(){
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		$respuesta["status"] = "error";
+		$respuesta["message"] = "Ocurrio un problema";
+		
+		// Datos de facturación
+		$usuario = Yii::$app->user->identity;
+		$facturacion = new EntDatosFacturacion();
+		$facturacion->id_usuairo = $usuario->id_usuario;
+		if($facturacion->load(Yii::$app->request->post()) && $facturacion->save() && isset($_POST["t"])){
+			$transaccion = $_POST["t"];
+			$ordenPagada = EntPagosRecibidos::find()->where(["txt_transaccion"=>$transaccion])->one();
+
+			$factura = new Pagos();
+			$factura->generarFactura($facturacion, $ordenPagada, $usuario->txt_token);
+			$respuesta ["result"] = $_POST;
+		}
+
+		return $respuesta;
 	}
 
 }
