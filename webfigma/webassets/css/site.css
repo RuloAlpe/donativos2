@@ -3018,9 +3018,6 @@ body {
   font-size: 16px;
   font-weight: 300;
   color: #451518; }
-  body.body-gradient {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#FE8787), to(#EF4B84));
-    background-image: linear-gradient(-180deg, #FE8787 0%, #EF4B84 100%); }
 
 /* a */
 a {
@@ -3375,6 +3372,18 @@ header {
       font-weight: 700;
       padding: 12px 58px;
       text-align: center; }
+  .banner.banner-programa-trabajo {
+    background-image: url(../images/bkgd-programa-trabajo.png); }
+    .banner.banner-programa-trabajo .banner-texts h2 {
+      font-size: 2rem;
+      max-width: 90%;
+      width: 800px; }
+      .banner.banner-programa-trabajo .banner-texts h2 span {
+        font-size: 2.9rem;
+        margin-top: 0; }
+    .banner.banner-programa-trabajo .banner-texts a {
+      background-color: #F35A84;
+      background-color: #F35A84; }
 
 .secretos {
   background-color: #F9C6C1;
@@ -4103,11 +4112,19 @@ footer {
 
 	-----------------------------------------------------------------------------
 	*/
-/*  Aviso de privacidad
+/*  Talleres que tenemos
 	@mixin ========================================================================= */
-.programa-trabajo {
+.programa-talleres {
+  background-color: #FFF;
+  padding: 60px 0; }
+
+/*  Calendario de Actividades
+	@mixin ========================================================================= */
+.programa-calendario {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FE8787), to(#EF4B84));
+  background-image: linear-gradient(-180deg, #FE8787 0%, #EF4B84 100%);
   padding-bottom: 60px; }
-  .programa-trabajo .programa-trabajo-head {
+  .programa-calendario .programa-calendario-head {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -4119,30 +4136,30 @@ footer {
             justify-content: space-between;
     padding: 60px 0; }
     @media (min-width: 601px) and (max-width: 800px) {
-      .programa-trabajo .programa-trabajo-head {
+      .programa-calendario .programa-calendario-head {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
                 flex-direction: column; } }
     @media screen and (max-width: 600px) {
-      .programa-trabajo .programa-trabajo-head {
+      .programa-calendario .programa-calendario-head {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
                 flex-direction: column; } }
     @media screen and (max-width: 480px) {
-      .programa-trabajo .programa-trabajo-head {
+      .programa-calendario .programa-calendario-head {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
                 flex-direction: column; } }
     @media screen and (max-width: 320px) {
-      .programa-trabajo .programa-trabajo-head {
+      .programa-calendario .programa-calendario-head {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
                 flex-direction: column; } }
-    .programa-trabajo .programa-trabajo-head .programa-trabajo-cat {
+    .programa-calendario .programa-calendario-head .programa-calendario-cat {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -4150,26 +4167,26 @@ footer {
           -ms-flex-pack: start;
               justify-content: flex-start; }
       @media (min-width: 601px) and (max-width: 800px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-cat {
+        .programa-calendario .programa-calendario-head .programa-calendario-cat {
           -webkit-box-ordinal-group: 3;
               -ms-flex-order: 2;
                   order: 2; } }
       @media screen and (max-width: 600px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-cat {
+        .programa-calendario .programa-calendario-head .programa-calendario-cat {
           -webkit-box-ordinal-group: 3;
               -ms-flex-order: 2;
                   order: 2; } }
       @media screen and (max-width: 480px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-cat {
+        .programa-calendario .programa-calendario-head .programa-calendario-cat {
           -webkit-box-ordinal-group: 3;
               -ms-flex-order: 2;
                   order: 2; } }
       @media screen and (max-width: 320px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-cat {
+        .programa-calendario .programa-calendario-head .programa-calendario-cat {
           -webkit-box-ordinal-group: 3;
               -ms-flex-order: 2;
                   order: 2; } }
-      .programa-trabajo .programa-trabajo-head .programa-trabajo-cat p {
+      .programa-calendario .programa-calendario-head .programa-calendario-cat p {
         background-color: #FFF;
         border-radius: 20px;
         color: #451518;
@@ -4177,9 +4194,9 @@ footer {
         font-size: .8rem;
         margin-right: 8px;
         padding: 4px 30px; }
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-cat p:last-child {
+        .programa-calendario .programa-calendario-head .programa-calendario-cat p:last-child {
           margin-right: 0; }
-    .programa-trabajo .programa-trabajo-head .programa-trabajo-title {
+    .programa-calendario .programa-calendario-head .programa-calendario-title {
       -webkit-box-align: end;
           -ms-flex-align: end;
               align-items: flex-end;
@@ -4191,7 +4208,7 @@ footer {
           -ms-flex-direction: column;
               flex-direction: column; }
       @media (min-width: 601px) and (max-width: 800px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-title {
+        .programa-calendario .programa-calendario-head .programa-calendario-title {
           -webkit-box-align: center;
               -ms-flex-align: center;
                   align-items: center;
@@ -4200,7 +4217,7 @@ footer {
               -ms-flex-order: 1;
                   order: 1; } }
       @media screen and (max-width: 600px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-title {
+        .programa-calendario .programa-calendario-head .programa-calendario-title {
           -webkit-box-align: center;
               -ms-flex-align: center;
                   align-items: center;
@@ -4209,7 +4226,7 @@ footer {
               -ms-flex-order: 1;
                   order: 1; } }
       @media screen and (max-width: 480px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-title {
+        .programa-calendario .programa-calendario-head .programa-calendario-title {
           -webkit-box-align: center;
               -ms-flex-align: center;
                   align-items: center;
@@ -4218,7 +4235,7 @@ footer {
               -ms-flex-order: 1;
                   order: 1; } }
       @media screen and (max-width: 320px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-title {
+        .programa-calendario .programa-calendario-head .programa-calendario-title {
           -webkit-box-align: center;
               -ms-flex-align: center;
                   align-items: center;
@@ -4226,18 +4243,18 @@ footer {
           -webkit-box-ordinal-group: 2;
               -ms-flex-order: 1;
                   order: 1; } }
-      .programa-trabajo .programa-trabajo-head .programa-trabajo-title h2 {
+      .programa-calendario .programa-calendario-head .programa-calendario-title h2 {
         color: #FFF;
         font-size: 2rem;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase; }
-      .programa-trabajo .programa-trabajo-head .programa-trabajo-title .programa-trabajo-title-mes {
+      .programa-calendario .programa-calendario-head .programa-calendario-title .programa-calendario-title-mes {
         color: #FFF;
         font-size: 1.6rem;
         font-weight: 400;
         letter-spacing: 1px; }
-  .programa-trabajo .programa-trabajo-body {
+  .programa-calendario .programa-calendario-body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4252,7 +4269,7 @@ footer {
     overflow-y: auto;
     position: relative;
     width: 100%; }
-    .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int {
+    .programa-calendario .programa-calendario-body .programa-calendario-body-int {
       -webkit-box-align: start;
           -ms-flex-align: start;
               align-items: flex-start;
@@ -4271,7 +4288,7 @@ footer {
       position: absolute;
       top: 0;
       width: 1960px; }
-      .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item {
+      .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -4283,17 +4300,17 @@ footer {
                 flex-flow: row wrap;
         margin-right: 1.30%;
         width: 350px; }
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item:last-child {
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item:last-child {
           margin-right: 0; }
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-text,
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card {
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-text,
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card {
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
           -ms-flex-wrap: wrap;
               flex-wrap: wrap;
           width: 100%; }
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-text {
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-text {
           color: #FFF;
           font-size: .95rem;
           -webkit-box-pack: center;
@@ -4302,7 +4319,7 @@ footer {
           margin-bottom: 4px;
           padding: 6px 0;
           text-align: center; }
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card {
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card {
           background-color: #FFF;
           border-radius: 3px;
           display: -webkit-box;
@@ -4311,8 +4328,8 @@ footer {
           height: 120px;
           margin-bottom: 20px;
           padding: 20px 14px; }
-          .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario,
-          .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-datos {
+          .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card .programa-calendario-card-horario,
+          .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card .programa-calendario-card-datos {
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -4323,30 +4340,142 @@ footer {
             -webkit-box-pack: center;
                 -ms-flex-pack: center;
                     justify-content: center; }
-          .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario {
+          .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card .programa-calendario-card-horario {
             -webkit-box-align: center;
                 -ms-flex-align: center;
                     align-items: center;
             padding-right: 14px;
             width: 35%; }
-            .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario p {
+            .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card .programa-calendario-card-horario p {
               font-size: .9rem;
               text-align: center;
               width: 100%; }
-            .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario span {
+            .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card .programa-calendario-card-horario span {
               background-color: #FF7F8E;
               display: block;
               height: 1px;
               margin: 4px auto;
               width: 20px; }
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card-datos {
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card-datos {
           -webkit-box-align: start;
               -ms-flex-align: start;
                   align-items: flex-start;
           width: 65%; }
-          .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card-datos p {
+          .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card-datos p {
             font-size: .9rem;
             margin: .35rem 0;
             width: 100%; }
-            .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card-datos p span {
+            .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card-datos p span {
               color: #FF7F8E; }
+
+/*  Consultorio
+	@mixin ========================================================================= */
+.programa-consultorio {
+  padding: 60px 0;
+  position: relative; }
+  .programa-consultorio .programa-consultorio-panel {
+    background-color: #EF4B84;
+    height: 350px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 4; }
+  .programa-consultorio .container-1024 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+    z-index: 4; }
+    .programa-consultorio .container-1024 h2 {
+      color: #FFF;
+      margin-bottom: 48px;
+      text-align: center; }
+    .programa-consultorio .container-1024 .programa-consultorio-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start; }
+      .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col {
+        background-color: #FFF;
+        border-radius: 14px;
+        -webkit-box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.75);
+        margin-right: 3%;
+        padding: 32px;
+        width: 31.31%; }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col:last-child {
+          margin-right: 0; }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-head {
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: justify;
+              -ms-flex-pack: justify;
+                  justify-content: space-between; }
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-head h4 {
+            color: #F35A84;
+            font-size: 1.1rem; }
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-head span {
+            color: #F35A84;
+            font-size: .85rem; }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-title {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          margin: 40px 0; }
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-title h3 {
+            color: #F35A84;
+            font-size: 1.25rem;
+            font-style: italic;
+            font-weight: 400;
+            text-align: right; }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-body {
+          margin-bottom: 40px; }
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-body p {
+            text-align: justify; }
+            .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-body p span {
+              color: #F35A84;
+              font-weight: 700; }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-actions {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: end;
+              -ms-flex-pack: end;
+                  justify-content: flex-end; }
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-actions a {
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            background-color: #F35A84;
+            border-radius: 50%;
+            color: #FFF;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            font-size: 1.25rem;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            height: 42px;
+            width: 42px; }
+
+/*  Gente hablando de Figma
+	@mixin ========================================================================= */
+.programa-persons-talkin {
+  background-color: teal;
+  padding: 60px 0; }
+/*# sourceMappingURL=site.css.map */

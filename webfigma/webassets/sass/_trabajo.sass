@@ -9,13 +9,19 @@
 	-----------------------------------------------------------------------------
 	*/
 
-/*  Aviso de privacidad
+/*  Talleres que tenemos
 	========================================================================== */
+.programa-talleres
+	background-color: $white
+	padding: 60px 0
 
-.programa-trabajo
+/*  Calendario de Actividades
+	========================================================================== */
+.programa-calendario
+	background-image: linear-gradient(-180deg, #FE8787 0%, #EF4B84 100%)
 	padding-bottom: 60px
 
-	.programa-trabajo-head
+	.programa-calendario-head
 		align-items: center
 		display: flex
 		justify-content: space-between
@@ -28,7 +34,7 @@
 			flex-direction: column
 		+respond-to(sp)
 			flex-direction: column
-		.programa-trabajo-cat
+		.programa-calendario-cat
 			display: flex
 			justify-content: flex-start
 			+respond-to(tl)
@@ -50,7 +56,7 @@
 				&:last-child
 					margin-right: 0
 
-		.programa-trabajo-title
+		.programa-calendario-title
 			align-items: flex-end
 			display: flex
 			flex-direction: column
@@ -76,13 +82,13 @@
 				font-weight: $bold
 				letter-spacing: 1px
 				text-transform: uppercase
-			.programa-trabajo-title-mes
+			.programa-calendario-title-mes
 				color: $white
 				font-size: 1.6rem
 				font-weight: $regular
 				letter-spacing: 1px
 
-	.programa-trabajo-body
+	.programa-calendario-body
 		display: flex
 		flex-wrap: wrap
 		flex-flow: row wrap
@@ -92,7 +98,7 @@
 		position: relative
 		width: 100%
 
-		.programa-trabajo-body-int
+		.programa-calendario-body-int
 			align-items: flex-start
 			// bottom: 0
 			display: flex
@@ -107,7 +113,7 @@
 			top: 0
 			width: 1960px
 
-			.programa-trabajo-item
+			.programa-calendario-item
 				display: flex
 				flex-wrap: wrap
 				flex-flow: row wrap
@@ -144,13 +150,13 @@
 				// 	margin-right: 0
 				// 	width: 100%
 
-				.programa-trabajo-text,
-				.programa-trabajo-card
+				.programa-calendario-text,
+				.programa-calendario-card
 					display: flex
 					flex-wrap: wrap
 					width: 100%
 			
-				.programa-trabajo-text
+				.programa-calendario-text
 					color: $white
 					font-size: .95rem
 					justify-content: center
@@ -158,20 +164,20 @@
 					padding: 6px 0
 					text-align: center
 
-				.programa-trabajo-card
+				.programa-calendario-card
 					background-color: $white
 					+border-radius(3px)
 					display: flex
 					height: 120px
 					margin-bottom: 20px
 					padding: 20px 14px
-					.programa-trabajo-card-horario,
-					.programa-trabajo-card-datos
+					.programa-calendario-card-horario,
+					.programa-calendario-card-datos
 						display: flex
 						flex-direction: column
 						justify-content: center
 
-					.programa-trabajo-card-horario
+					.programa-calendario-card-horario
 						align-items: center
 						padding-right: 14px
 						width: 35%
@@ -186,7 +192,7 @@
 							margin: 4px auto
 							width: 20px
 
-				.programa-trabajo-card-datos
+				.programa-calendario-card-datos
 					align-items: flex-start
 					width: 65%
 					p
@@ -198,3 +204,86 @@
 						span
 							color: $pink
 
+/*  Consultorio
+	========================================================================== */
+.programa-consultorio
+	// background-color: green
+	padding: 60px 0
+	position: relative
+	.programa-consultorio-panel
+		background-color: #EF4B84
+		height: 350px
+		left: 0
+		position: absolute
+		right: 0
+		top: 0
+		width: 100%
+		z-index: 4
+	.container-1024
+		display: flex
+		flex-direction: column
+		position: relative
+		z-index: 4
+		h2
+			color: $white
+			margin-bottom: 48px
+			text-align: center
+		.programa-consultorio-row
+			display: flex
+			flex-wrap: wrap
+			justify-content: flex-start
+			.programa-consultorio-col
+				background-color: $white
+				border-radius: 14px
+				box-shadow: 0 2px 6px 0px rgba($black, 0.75)
+				margin-right: 3%
+				padding: 32px
+				width: 31.31%
+				&:last-child
+					margin-right: 0
+				
+				.programa-consultorio-head
+					align-items: center
+					display: flex
+					justify-content: space-between
+					h4
+						color: $rose
+						font-size: 1.1rem
+					span
+						color: $rose
+						font-size: .85rem
+				.programa-consultorio-title
+					display: flex
+					margin: 40px 0
+					h3
+						color: $rose
+						font-size: 1.25rem
+						font-style: italic
+						font-weight: $regular
+						text-align: right
+				.programa-consultorio-body
+					margin-bottom: 40px
+					p
+						text-align: justify
+						span
+							color: $rose
+							font-weight: $bold
+				.programa-consultorio-actions
+					display: flex
+					justify-content: flex-end
+					a
+						align-items: center
+						background-color: $rose
+						border-radius: 50%
+						color: $white
+						display: flex
+						font-size: 1.25rem
+						justify-content: center
+						height: 42px
+						width: 42px
+
+/*  Gente hablando de Figma
+	========================================================================== */
+.programa-persons-talkin
+	background-color: teal
+	padding: 60px 0
