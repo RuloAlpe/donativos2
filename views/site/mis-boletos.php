@@ -136,7 +136,7 @@ if(!$facturacion){
     ]); ?>
 
       <?=Html::hiddenInput("t", "", ["id"=>"transaccion"])?>
-      <?= $form->field($facturacion, 'txt_rfc')->textInput(['maxlength' => true, "placeholder"=>"Ingresar RFC"])->label("Ingrear RFC") ?>
+      <?= $form->field($facturacion, 'txt_rfc')->textInput(['maxlength' => true, "placeholder"=>"Ingresar RFC"])->label("Ingresar RFC") ?>
       <?= $form->field($facturacion, 'txt_nombre')->textInput(['maxlength' => true, "placeholder"=>"Nombre"])->label("Ingresar nombre") ?>
       
       <div class="form-group">

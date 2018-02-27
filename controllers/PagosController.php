@@ -597,9 +597,13 @@ class PagosController extends Controller
 
 				$ordenPagada->b_facturado = 1;
 				$ordenPagada->save();
-
+				return $respuesta;
 			}
 
+		}else{
+			// print_r($facturacion->errors);
+			// print_r($_POST);
+			// exit;
 		}
 
 		return $respuesta;
