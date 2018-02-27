@@ -28,10 +28,9 @@ $this->registerJsFile(
       <div class="donaciones-accordion-head">
         <div class="donaciones-accordion__list">
           <div class="header">
-            <p class="donaciones-datos">Datos</p>
+            <p class="donaciones-tipo">Tipo</p>
             <p class="donaciones-monto">Monto</p>
             <p class="donaciones-fecha">Fecha</p>
-            <p class="donaciones-tipo">Tipo</p>
             <p class="donaciones-facturar">Facturar</p>
             <p class="donaciones-recurrencia">Cancelar recurrencia</p>
           </div>
@@ -73,19 +72,36 @@ $this->registerJsFile(
         ?>
         <li class="donaciones-accordion__list">
           <div class="link">
-            <p class="donaciones-datos">Datos</p>
+            <p class="donaciones-tipo"><?=$recurrencia?$recurrencia: "Pago único"?></p>
             <p class="donaciones-monto">$<?=number_format((float)$donacion->txt_monto_pago, 2, '.', ','); ?></p>
             <p class="donaciones-fecha"><?=Calendario::getDateComplete($donacion->fch_pago)?></p>
-            <p class="donaciones-tipo"><?=$recurrencia?$recurrencia:"Pago único"?></p>
-            <p class="donaciones-facturar" id="botones-<?=$donacion->txt_transaccion?>">
+
+            <p class="donaciones-facturar botones-<?=$donacion->txt_transaccion?>">
+
               <?=$btnGenerarFactura?>
             </p>
             <p class="donaciones-recurrencia"><?=$cancelarRecurrencia?></p>
             <span class="link__title"></span><i class="ion ion-ios-arrow-down"></i>
           </div>
-          <ul class="submenu">
-            <span>ID: <?=$donacion->txt_transaccion?></span>
-          </ul>
+          <div class="donaciones-submenu">
+            <div class="donaciones-submenu-small">
+              <span>Id de transacción:</span> <p><?=$donacion->txt_transaccion?></p>
+            </div>
+            <div class="donaciones-submenu-panel">
+              <span>Id de transacción:</span> <p><?=$donacion->txt_transaccion?></p>
+            </div>
+            <div class="donaciones-submenu-panel">
+              <span>Tipo:</span> <p><?=$recurrencia?$recurrencia: "Pago único"?></p>
+            </div>
+            <div class="donaciones-submenu-panel-row">
+              <div class="donaciones-submenu-panel-col">
+                <span>Facturar:</span> <p class="botones-<?=$donacion->txt_transaccion?>"><?=$btnGenerarFactura?></p>
+              </div>
+              <div class="donaciones-submenu-panel-col">
+                <span>Cancelar recurrencia:</span> <p><?=$cancelarRecurrencia?></p>
+              </div>
+            </div>
+          </div>
         </li>
         <?php
         }

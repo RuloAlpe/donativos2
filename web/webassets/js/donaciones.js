@@ -32,7 +32,7 @@ $(document).ready(function(){
 			
 			//Parametro inicial que permite ver 1 solo submenu abierto 
 			if(!e.data.multiple){
-				$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+				$el.find('.donaciones-submenu').not($next).slideUp().parent().removeClass('open');
 			}
 		
 		}
