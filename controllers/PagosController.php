@@ -556,8 +556,16 @@ class PagosController extends Controller
 			$ordenPagada = EntPagosRecibidos::find()->where(["txt_transaccion"=>$transaccion])->one();
 
 			$factura = new Pagos();
-			$factura->generarFactura($facturacion, $ordenPagada, $usuario->txt_token);
-			$respuesta ["result"] = $_POST;
+			$facturaGenerar = $factura->generarFactura($facturacion, $ordenPagada);
+			$respuesta["result"] = $facturaGenerar;
+			if(isset($facturaGenerar->pdf)){
+
+			}
+
+			if(isset($facturaGenerar->xml)){
+
+			}
+			
 		}
 
 		return $respuesta;

@@ -8,7 +8,7 @@ class Pagos
 {
 	const PAY_PAL = 2;
 	const OPEN_PAY = 12;
-	const URL_FACTURACION = "https://dev.2geeksonemonkey.com/cfdi/web/services/add-cfdi?uddi=";
+	const URL_FACTURACION = "https://dev.2geeksonemonkey.com/cfdi/web/services/add-cfdi?uddi=FAAA750615";
 	const FACTURACION_SANDBOX = true;
 	
 
@@ -339,8 +339,8 @@ class Pagos
 		$card->delete();
 	}
 
-	public function generarFactura($datosFacturar, $transaccion, $idu){
-
+	public function generarFactura($datosFacturar, $transaccion){
+		
 		$parametros = [
 			"sandbox"=>true,
 			"transaccion"=>$transaccion->txt_transaccion,
@@ -360,44 +360,13 @@ class Pagos
 			"importe"=>$transaccion->txt_monto_pago
 		];
 
-		$respuesta = $this->callGenerarFactura($parametros, $idu);
-		//$respuesta = $this->testFactura();
-		print_r($respuesta);
-		exit;
-		return $parametros;
+		$respuesta = $this->callGenerarFactura($parametros);
+		
+		return $respuesta;
 		
 	}
 
-	public function testFactura(){
-		
-
-		$curl = curl_init();
-		
-		curl_setopt_array($curl, array(
-		  CURLOPT_URL => "https://dev.2geeksonemonkey.com/cfdi/web/services/add-cfdi?uddi=FAAA750615",
-		  CURLOPT_RETURNTRANSFER => true,
-		  
-		  CURLOPT_CUSTOMREQUEST => "POST",
-		  CURLOPT_POSTFIELDS => "{\n\t\t\"sandbox\":true,\n\t\t\"transaccion\":\"ARTWRT45454\",\n        \"formaPago\":\"03\",\n        \"condicionesDePago\":\"Contado\",\n        \"subTotal\":\"100\",\n        \"total\":\"100\",\n        \"rfcReceptor\":\"FAAA750615JG3\",\n        \"nombreReceptor\":\"Alberto Farías Acuña\",\n        \"usoCFDIReceptor\":\"D04\",\n        \"claveProdServ\":\"84101600\",\n        \"cantidad\":\"1\",\n        \"claveUnidad\":\"C62\",\n        \"unidad\":\"Uno\",\n        \"descripcion\":\"DONATIVO\",\n        \"valorUnitario\":\"100.00\",\n        \"importe\":\"100.00\"\n}",
-		  CURLOPT_HTTPHEADER => array(
-			'Content-Type: application/json',  
-		
-		  ),
-		));
-		
-		$response = curl_exec($curl);
-		$err = curl_error($curl);
-		
-		curl_close($curl);
-		
-		if ($err) {
-		  echo "cURL Error #:" . $err;
-		} else {
-		  return $response;
-		}
-	}
-
-	public function callGenerarFactura($parametros, $idu){
+	public function callGenerarFactura($parametros){
 
                                                                     
 		$data_string = json_encode($parametros); 
@@ -407,8 +376,8 @@ class Pagos
         $ch = curl_init();
 
         //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, self::URL_FACTURACION.$idu);
-        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_URL, self::URL_FACTURACION);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                  
          curl_setopt($ch, CURLOPT_HTTPHEADER,[                                                                          
@@ -425,9 +394,9 @@ class Pagos
         //close connection
         curl_close($ch);
 
-        #print_r($result);
-        #exit;
-        return $result;
+        // print_r($result);
+        // exit;
+        return json_decode($result);
 	}
 
 }
