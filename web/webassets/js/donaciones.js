@@ -76,6 +76,9 @@ $(document).ready(function(){
 					$(".botones-"+tr).html(r.botones);
 					$("#modal-facturacion").hide();
 					l.stop();
+				}else{
+					swal("Espera", "Ocurrio un problema al generar la factura: "+r.message, "warning");
+					l.stop();
 				}
 				
 			}

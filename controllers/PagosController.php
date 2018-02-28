@@ -575,12 +575,14 @@ class PagosController extends Controller
 		}
 
 		$facturacion->id_usuairo = $usuario->id_usuario;
+		
 		if($facturacion->load(Yii::$app->request->post()) && $facturacion->save() && isset($_POST["t"])){
-
+			
 			$factura = new Pagos();
 			$facturaGenerar = $factura->generarFactura($facturacion, $ordenPagada);
 			
 			if(isset($facturaGenerar->pdf) && isset($facturaGenerar->xml)){
+				
 				$this->validarDirectorio("facturas/".$usuario->txt_token);
 				$this->validarDirectorio("facturas/".$usuario->txt_token."/".$transaccion);
 
@@ -600,10 +602,15 @@ class PagosController extends Controller
 				return $respuesta;
 			}
 
+			if(isset($facturaGenerar->error) && $facturaGenerar->error){
+				$respuesta["message"] = $facturaGenerar->message;
+				return $respuesta;
+			}
+
 		}else{
-			// print_r($facturacion->errors);
-			// print_r($_POST);
-			// exit;
+			 print_r($facturacion->errors);
+			print_r($_POST);
+			exit;
 		}
 
 		return $respuesta;

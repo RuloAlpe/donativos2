@@ -373,8 +373,7 @@ class Pagos
 	}
 
 	public function callGenerarFactura($parametros){
-
-                                                                    
+                                                           
 		$data_string = json_encode($parametros); 
 		//$data_string = http_build_query($parametros);
 
