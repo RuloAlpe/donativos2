@@ -4702,6 +4702,7 @@ footer {
         border: 1px solid #F35A84;
         border-radius: 32px;
         color: #F35A84;
+        cursor: pointer;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -4785,4 +4786,96 @@ footer {
       width: 9px; }
     .programa-persons-talkin .container-1024 .owl-carousel .owl-dots .owl-dot.active span {
       background-color: #F35A84; }
+
+.modal-ayuda {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(243, 90, 132, 0.95);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 999;
+  /* Modal Content/Box */
+  /* The Close Button */ }
+  .modal-ayuda .modal-content {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 48px 24px;
+    width: 360px;
+    position: relative; }
+    .modal-ayuda .modal-content h3 {
+      color: #FFF;
+      font-size: 1rem;
+      font-style: italic;
+      font-weight: 300;
+      text-align: center; }
+    .modal-ayuda .modal-content .modal-panel {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      margin: 32px auto;
+      width: 100%; }
+      .modal-ayuda .modal-content .modal-panel .btn {
+        border-width: 1px;
+        border-style: solid;
+        color: #FFF;
+        text-align: center; }
+        .modal-ayuda .modal-content .modal-panel .btn.btn-facebook {
+          background-color: #7B6EE4;
+          border-color: #7B6EE4;
+          margin-bottom: 20px; }
+        .modal-ayuda .modal-content .modal-panel .btn.btn-primary {
+          background-color: transparent;
+          border-color: #FFF; }
+    .modal-ayuda .modal-content a {
+      color: #FFF;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      font-size: .85rem;
+      text-align: center; }
+      .modal-ayuda .modal-content a span {
+        display: block; }
+  .modal-ayuda .modal-close {
+    color: #FFF;
+    font-size: 28px;
+    font-weight: 300;
+    position: absolute;
+    right: 10px;
+    top: 0; }
+  .modal-ayuda .modal-close:hover,
+  .modal-ayuda .modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer; }
 /*# sourceMappingURL=site.css.map */
