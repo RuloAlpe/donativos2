@@ -13,7 +13,108 @@
 	========================================================================== */
 .programa-talleres
 	background-color: $white
-	padding: 60px 0
+	padding: 60px 0 0
+	.container-full
+		display: flex
+		flex-direction: column
+		padding: 0
+		h2
+			color: $rose
+			font-weight: $bold
+			margin-bottom: 40px
+			text-align: center
+		.programa-talleres-gallery
+			display: flex
+			flex-wrap: wrap
+			justify-content: flex-start
+			// margin-bottom: 30px
+			.programa-talleres-gallery-item
+				align-items: flex-start
+				background-color: rgba(green,.5)
+				display: flex
+				flex-direction: column
+				justify-content: flex-end
+				min-height: 60px
+				overflow: hidden
+				position: relative
+				width: 25%
+				+respond-to(md)
+					width: 33.33%
+				+respond-to(tl)
+					width: 50%
+				+respond-to(tp)
+					width: 50%
+				+respond-to(sl)
+					width: 100%
+				+respond-to(sp)
+					width: 100%
+				figcaption
+					bottom: -50%
+					opacity: 0
+					padding: 20px
+					position: absolute
+					+transition(all 0.45s ease-in)
+					z-index: 4
+					p
+						color: $white
+						font-size: 1.25rem
+						margin-bottom: 12px
+						position: relative
+						width: 90%
+						z-index: 1
+						+respond-to(md)
+							width: 100%
+						+respond-to(tl)
+							width: 100%
+						+respond-to(tp)
+							width: 100%
+						+respond-to(sl)
+							width: 100%
+						+respond-to(sp)
+							width: 100%
+					a
+						background-color: $palo
+						border-radius: 9.6px
+						color: $white
+						display: inline-block
+						font-size: .75rem
+						font-weight: 100
+						padding: 2px 16px
+						position: relative
+						z-index: 1
+				.mask
+					background-color: rgba(#F04F84,.65)
+					height: 2px
+					left: 50%
+					opacity: 0
+					position: absolute
+					top: 50%
+					+transition(all 0.3s ease-in)
+					width: 2px
+					z-index: 3
+
+				img 
+					width: 100%
+					max-width: 100%
+					height: auto
+					position: relative
+					z-index: 1
+				&:hover
+					figcaption
+						bottom: 0
+						opacity: 1
+						+transition(all 0.45s ease-out)
+					.mask
+						bottom: 0
+						height: 100%
+						left: 0
+						opacity: 1
+						right: 0
+						top: 0
+						+transition(all 0.3s ease-out)
+						width: 100%
+
+
 
 /*  Calendario de Actividades
 	========================================================================== */
@@ -22,71 +123,102 @@
 	padding-bottom: 60px
 
 	.programa-calendario-head
-		align-items: center
+		align-items: flex-start
 		display: flex
-		justify-content: space-between
-		padding: 60px 0
-		+respond-to(tl)
-			flex-direction: column
-		+respond-to(tp)
-			flex-direction: column
-		+respond-to(sl)
-			flex-direction: column
-		+respond-to(sp)
-			flex-direction: column
-		.programa-calendario-cat
-			display: flex
-			justify-content: flex-start
-			+respond-to(tl)
-				order: 2
-			+respond-to(tp)
-				order: 2
-			+respond-to(sl)
-				order: 2
-			+respond-to(sp)
-				order: 2
-			p
-				background-color: $white
-				+border-radius(20px)
-				color: $font-color
-				cursor: pointer
-				font-size: .8rem
-				margin-right: 8px
-				padding: 4px 30px
-				&:last-child
-					margin-right: 0
+		flex-direction: column
+		// justify-content: space-between
+		padding: 60px 40px
 
 		.programa-calendario-title
-			align-items: flex-end
 			display: flex
-			flex-direction: column
-			+respond-to(tl)
-				align-items: center
-				margin-bottom: 30px
-				order: 1
-			+respond-to(tp)
-				align-items: center
-				margin-bottom: 30px
-				order: 1
-			+respond-to(sl)
-				align-items: center
-				margin-bottom: 30px
-				order: 1
-			+respond-to(sp)
-				align-items: center
-				margin-bottom: 30px
-				order: 1
+			margin-bottom: 30px
+			width: 100%
 			h2
 				color: $white
 				font-size: 2rem
 				font-weight: $bold
 				letter-spacing: 1px
 				text-transform: uppercase
-			.programa-calendario-title-mes
-				color: $white
-				font-size: 1.6rem
-				font-weight: $regular
-				letter-spacing: 1px
+			// .programa-calendario-title-mes
+			// 	color: $white
+			// 	font-size: 1.6rem
+			// 	font-weight: $regular
+			// 	letter-spacing: 1px
+
+		.programa-calendario-actions
+			display: flex
+			justify-content: space-between
+			width: 100%
+			+respond-to(tl)
+				flex-direction: column
+			+respond-to(tp)
+				flex-direction: column
+			+respond-to(sl)
+				flex-direction: column
+			+respond-to(sp)
+				flex-direction: column
+			.programa-calendario-actions-cat
+				display: flex
+				+respond-to(tl)
+					margin-bottom: 40px
+				+respond-to(tp)
+					justify-content: center
+					margin-bottom: 40px
+				+respond-to(sl)
+					align-items: center
+					flex-wrap: wrap
+					margin-bottom: 40px
+				+respond-to(sp)
+					align-items: center
+					flex-wrap: wrap
+					margin-bottom: 40px
+				span
+					background-color: transparent
+					border: 1px solid $white
+					border-radius: 20px
+					color: $white
+					display: flex
+					font-size: .8rem
+					font-weight: $light
+					margin-right: 8px
+					padding: 4px 40px
+					+transition(all 0.3s ease-in)
+					&:hover,
+					&.active
+						background-color: $white
+						color: $grey
+						cursor: pointer
+						+transition(all 0.3s ease-out)
+					+respond-to(sl)
+						margin-bottom: 8px
+
+			.programa-calendario-actions-arrows
+				display: flex
+				justify-content: flex-end
+				+respond-to(tl)
+					justify-content: center
+				+respond-to(tp)
+					justify-content: center
+				+respond-to(sl)
+					justify-content: center
+				+respond-to(sp)
+					justify-content: center
+				p
+					background-color: $white
+					border: 1px solid $white
+					border-radius: 20px
+					cursor: pointer
+					font-size: .8rem
+					margin-right: 8px
+					padding: 4px 30px
+					&:last-child
+						margin-right: 0
+					i
+						color: $grey
+					&:hover
+						background-color: transparent
+						i
+							color: $white
 
 	.programa-calendario-body
 		display: flex
@@ -97,6 +229,12 @@
 		overflow-y: auto
 		position: relative
 		width: 100%
+		// +respond-to(lg)
+		// 	padding: 0 40px
+		// +respond-to(md)
+		// 	padding: 0 40px
+		// +respond-to(tl)
+		// 	padding: 0 40px
 
 		.programa-calendario-body-int
 			align-items: flex-start
@@ -232,16 +370,36 @@
 			display: flex
 			flex-wrap: wrap
 			justify-content: flex-start
+			width: 100%
 			.programa-consultorio-col
 				background-color: $white
 				border-radius: 14px
-				box-shadow: 0 2px 6px 0px rgba($black, 0.75)
+				box-shadow: 0 2px 6px 0px rgba($black, 0.35)
 				margin-right: 3%
 				padding: 32px
 				width: 31.31%
 				&:last-child
 					margin-right: 0
+				&:hover
+					box-shadow: 0 2px 6px 0px rgba($black, 0.6)
 				
+				+respond-to(tl)
+					margin-bottom: 32px
+					margin-right: 0
+					width: 100%
+				+respond-to(tp)
+					margin-bottom: 32px
+					margin-right: 0
+					width: 100%
+				+respond-to(sl)
+					margin-bottom: 32px
+					margin-right: 0
+					width: 100%
+				+respond-to(sp)
+					margin-bottom: 32px
+					margin-right: 0
+					width: 100%
+					
 				.programa-consultorio-head
 					align-items: center
 					display: flex
@@ -282,8 +440,86 @@
 						height: 42px
 						width: 42px
 
+		.programa-consultorio-more
+			align-items: center
+			display: flex
+			justify-content: center
+			padding: 60px 0 0
+			+respond-to(sl)
+				flex-direction: column
+			.programa-consultorio-more-link
+				align-items: center
+				background-color: transparent
+				border: 1px solid $rose
+				border-radius: 32px
+				color: $rose
+				display: flex
+				font-size: 1rem
+				font-weight: $regular
+				justify-content: center
+				margin-left: 20px
+				padding: 12px 48px
+				&:active,
+				&:hover
+					background-color: $rose
+					color: $white
+				+respond-to(tp)
+					padding: 12px 32px
+				+respond-to(sl)
+					margin-bottom: 20px
+					margin-left: 0
+					&:last-child
+						margin-left: 0
+				+respond-to(sp)
+					margin-bottom: 20px
+					margin-left: 0
+					&:last-child
+						margin-left: 0
 /*  Gente hablando de Figma
 	========================================================================== */
 .programa-persons-talkin
-	background-color: teal
 	padding: 60px 0
+	.container-1024
+		.owl-carousel
+			margin: 0 auto
+			max-width: 90%
+			width: 768px
+			.owl-item-panel
+				align-items: center
+				display: flex
+				flex-direction: column
+				justify-content: center
+				padding: 10px 0 30px
+				h3
+					color: $rose
+					font-weight: $medium
+				hr
+					background-color: $rose
+					height: 2px
+					margin: 24px auto
+					width: 18%
+				p
+					color: $rose
+					font-size: 1rem
+					font-style: italic
+					letter-spacing: 1
+					line-height: 1.2
+				span
+					display: flex
+					font-size: 1rem
+					font-style: italic
+					margin: 24px auto
+				i
+					color: $rose
+					font-size: 2rem
+				
+			.owl-dots
+				.owl-dot
+					span
+						background-color: transparent
+						border: 1px solid $rose
+						height: 9px
+						width: 9px
+					&.active
+						span
+							background-color: $rose
