@@ -3018,9 +3018,6 @@ body {
   font-size: 16px;
   font-weight: 300;
   color: #451518; }
-  body.body-gradient {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#FE8787), to(#EF4B84));
-    background-image: linear-gradient(-180deg, #FE8787 0%, #EF4B84 100%); }
 
 /* a */
 a {
@@ -3346,7 +3343,7 @@ header {
           font-size: 1.1rem; } }
       .banner .banner-texts h2 span {
         display: block;
-        font-weight: 900;
+        font-weight: 800;
         font-size: 4.55rem;
         letter-spacing: -1px;
         margin-top: -20px; }
@@ -3375,6 +3372,49 @@ header {
       font-weight: 700;
       padding: 12px 58px;
       text-align: center; }
+  .banner.banner-programa-trabajo {
+    background-image: url(../images/bkgd-programa-trabajo.png); }
+    .banner.banner-programa-trabajo .banner-texts h2 {
+      font-size: 2rem;
+      max-width: 90%;
+      width: 800px; }
+      .banner.banner-programa-trabajo .banner-texts h2 span {
+        font-size: 2.9rem;
+        margin-top: 0; }
+    .banner.banner-programa-trabajo .banner-texts a {
+      background-color: #F35A84;
+      background-color: #F35A84; }
+    @media (min-width: 601px) and (max-width: 800px) {
+      .banner.banner-programa-trabajo .banner-texts {
+        margin-top: 230px; }
+        .banner.banner-programa-trabajo .banner-texts h2 {
+          font-size: 1.85rem; }
+          .banner.banner-programa-trabajo .banner-texts h2 span {
+            font-size: 2.75rem; } }
+    @media screen and (max-width: 600px) {
+      .banner.banner-programa-trabajo .banner-texts {
+        margin-top: 130px; }
+        .banner.banner-programa-trabajo .banner-texts h2 {
+          font-size: 1.7rem; }
+          .banner.banner-programa-trabajo .banner-texts h2 span {
+            font-size: 2.6rem; } }
+    @media screen and (max-width: 600px) {
+      .banner.banner-programa-trabajo .banner-texts {
+        margin-top: 30px; }
+        .banner.banner-programa-trabajo .banner-texts h2 {
+          font-size: 1.5rem; }
+          .banner.banner-programa-trabajo .banner-texts h2 span {
+            font-size: 2.4rem; } }
+    @media screen and (max-width: 480px) {
+      .banner.banner-programa-trabajo .banner-texts h2 {
+        font-size: 1.3rem; }
+        .banner.banner-programa-trabajo .banner-texts h2 span {
+          font-size: 2.2rem; } }
+    @media screen and (max-width: 480px) {
+      .banner.banner-programa-trabajo .banner-texts h2 {
+        font-size: 1.2rem; }
+        .banner.banner-programa-trabajo .banner-texts h2 span {
+          font-size: 2.1rem; } }
 
 .secretos {
   background-color: #F9C6C1;
@@ -3742,7 +3782,7 @@ header {
         color: #451518;
         font-family: "Open Sans", sans-serif;
         font-size: 4.5rem;
-        font-weight: 900; }
+        font-weight: 800; }
       .estadisticas .container-1024 .estadisticas-col .estadisticas-text {
         color: #8D2326;
         font-size: 1.1rem;
@@ -4061,7 +4101,7 @@ footer {
   .aviso-privacidad h2 {
     color: #D9262C;
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: 1px;
     margin: 40px 0 30px; }
   .aviso-privacidad h3 {
@@ -4103,141 +4143,299 @@ footer {
 
 	-----------------------------------------------------------------------------
 	*/
-/*  Aviso de privacidad
+/*  Talleres que tenemos
 	@mixin ========================================================================= */
-.programa-trabajo {
-  padding-bottom: 60px; }
-  .programa-trabajo .programa-trabajo-head {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+.programa-talleres {
+  background-color: #FFF;
+  padding: 60px 0 0; }
+  .programa-talleres .container-full {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    padding: 60px 0; }
-    @media (min-width: 601px) and (max-width: 800px) {
-      .programa-trabajo .programa-trabajo-head {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column; } }
-    @media screen and (max-width: 600px) {
-      .programa-trabajo .programa-trabajo-head {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column; } }
-    @media screen and (max-width: 480px) {
-      .programa-trabajo .programa-trabajo-head {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column; } }
-    @media screen and (max-width: 320px) {
-      .programa-trabajo .programa-trabajo-head {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column; } }
-    .programa-trabajo .programa-trabajo-head .programa-trabajo-cat {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0; }
+    .programa-talleres .container-full h2 {
+      color: #F35A84;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center; }
+    .programa-talleres .container-full .programa-talleres-gallery {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
       -webkit-box-pack: start;
           -ms-flex-pack: start;
               justify-content: flex-start; }
-      @media (min-width: 601px) and (max-width: 800px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-cat {
-          -webkit-box-ordinal-group: 3;
-              -ms-flex-order: 2;
-                  order: 2; } }
-      @media screen and (max-width: 600px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-cat {
-          -webkit-box-ordinal-group: 3;
-              -ms-flex-order: 2;
-                  order: 2; } }
-      @media screen and (max-width: 480px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-cat {
-          -webkit-box-ordinal-group: 3;
-              -ms-flex-order: 2;
-                  order: 2; } }
-      @media screen and (max-width: 320px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-cat {
-          -webkit-box-ordinal-group: 3;
-              -ms-flex-order: 2;
-                  order: 2; } }
-      .programa-trabajo .programa-trabajo-head .programa-trabajo-cat p {
-        background-color: #FFF;
-        border-radius: 20px;
-        color: #451518;
-        cursor: pointer;
-        font-size: .8rem;
-        margin-right: 8px;
-        padding: 4px 30px; }
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-cat p:last-child {
-          margin-right: 0; }
-    .programa-trabajo .programa-trabajo-head .programa-trabajo-title {
-      -webkit-box-align: end;
-          -ms-flex-align: end;
-              align-items: flex-end;
+      .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item {
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+        background-color: rgba(0, 128, 0, 0.5);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
+        min-height: 60px;
+        overflow: hidden;
+        position: relative;
+        width: 25%; }
+        @media (min-width: 801px) and (max-width: 1023px) {
+          .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item {
+            width: 33.33%; } }
+        @media (min-width: 601px) and (max-width: 800px) {
+          .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item {
+            width: 50%; } }
+        @media screen and (max-width: 600px) {
+          .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item {
+            width: 50%; } }
+        @media screen and (max-width: 480px) {
+          .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item {
+            width: 100%; } }
+        @media screen and (max-width: 320px) {
+          .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item {
+            width: 100%; } }
+        .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item figcaption {
+          bottom: -50%;
+          opacity: 0;
+          padding: 20px;
+          position: absolute;
+          -webkit-transition: all 0.45s ease-in;
+          transition: all 0.45s ease-in;
+          z-index: 4; }
+          .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item figcaption p {
+            color: #FFF;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            position: relative;
+            width: 90%;
+            z-index: 1; }
+            @media (min-width: 801px) and (max-width: 1023px) {
+              .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item figcaption p {
+                width: 100%; } }
+            @media (min-width: 601px) and (max-width: 800px) {
+              .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item figcaption p {
+                width: 100%; } }
+            @media screen and (max-width: 600px) {
+              .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item figcaption p {
+                width: 100%; } }
+            @media screen and (max-width: 480px) {
+              .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item figcaption p {
+                width: 100%; } }
+            @media screen and (max-width: 320px) {
+              .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item figcaption p {
+                width: 100%; } }
+          .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item figcaption a {
+            background-color: #FC8286;
+            border-radius: 9.6px;
+            color: #FFF;
+            display: inline-block;
+            font-size: .75rem;
+            font-weight: 100;
+            padding: 2px 16px;
+            position: relative;
+            z-index: 1; }
+        .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item .mask {
+          background-color: rgba(240, 79, 132, 0.65);
+          height: 2px;
+          left: 50%;
+          opacity: 0;
+          position: absolute;
+          top: 50%;
+          -webkit-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          width: 2px;
+          z-index: 3; }
+        .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item img {
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+          position: relative;
+          z-index: 1; }
+        .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item:hover figcaption {
+          bottom: 0;
+          opacity: 1;
+          -webkit-transition: all 0.45s ease-out;
+          transition: all 0.45s ease-out; }
+        .programa-talleres .container-full .programa-talleres-gallery .programa-talleres-gallery-item:hover .mask {
+          bottom: 0;
+          height: 100%;
+          left: 0;
+          opacity: 1;
+          right: 0;
+          top: 0;
+          -webkit-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+          width: 100%; }
+
+/*  Calendario de Actividades
+	@mixin ========================================================================= */
+.programa-calendario {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FE8787), to(#EF4B84));
+  background-image: linear-gradient(-180deg, #FE8787 0%, #EF4B84 100%);
+  padding-bottom: 60px; }
+  .programa-calendario .programa-calendario-head {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 60px 40px; }
+    .programa-calendario .programa-calendario-head .programa-calendario-title {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column; }
-      @media (min-width: 601px) and (max-width: 800px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-title {
-          -webkit-box-align: center;
-              -ms-flex-align: center;
-                  align-items: center;
-          margin-bottom: 30px;
-          -webkit-box-ordinal-group: 2;
-              -ms-flex-order: 1;
-                  order: 1; } }
-      @media screen and (max-width: 600px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-title {
-          -webkit-box-align: center;
-              -ms-flex-align: center;
-                  align-items: center;
-          margin-bottom: 30px;
-          -webkit-box-ordinal-group: 2;
-              -ms-flex-order: 1;
-                  order: 1; } }
-      @media screen and (max-width: 480px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-title {
-          -webkit-box-align: center;
-              -ms-flex-align: center;
-                  align-items: center;
-          margin-bottom: 30px;
-          -webkit-box-ordinal-group: 2;
-              -ms-flex-order: 1;
-                  order: 1; } }
-      @media screen and (max-width: 320px) {
-        .programa-trabajo .programa-trabajo-head .programa-trabajo-title {
-          -webkit-box-align: center;
-              -ms-flex-align: center;
-                  align-items: center;
-          margin-bottom: 30px;
-          -webkit-box-ordinal-group: 2;
-              -ms-flex-order: 1;
-                  order: 1; } }
-      .programa-trabajo .programa-trabajo-head .programa-trabajo-title h2 {
+      margin-bottom: 30px;
+      width: 100%; }
+      .programa-calendario .programa-calendario-head .programa-calendario-title h2 {
         color: #FFF;
         font-size: 2rem;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase; }
-      .programa-trabajo .programa-trabajo-head .programa-trabajo-title .programa-trabajo-title-mes {
-        color: #FFF;
-        font-size: 1.6rem;
-        font-weight: 400;
-        letter-spacing: 1px; }
-  .programa-trabajo .programa-trabajo-body {
+    .programa-calendario .programa-calendario-head .programa-calendario-actions {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      width: 100%; }
+      @media (min-width: 601px) and (max-width: 800px) {
+        .programa-calendario .programa-calendario-head .programa-calendario-actions {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column; } }
+      @media screen and (max-width: 600px) {
+        .programa-calendario .programa-calendario-head .programa-calendario-actions {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column; } }
+      @media screen and (max-width: 480px) {
+        .programa-calendario .programa-calendario-head .programa-calendario-actions {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column; } }
+      @media screen and (max-width: 320px) {
+        .programa-calendario .programa-calendario-head .programa-calendario-actions {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column; } }
+      .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-cat {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+        @media (min-width: 601px) and (max-width: 800px) {
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-cat {
+            margin-bottom: 40px; } }
+        @media screen and (max-width: 600px) {
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-cat {
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            margin-bottom: 40px; } }
+        @media screen and (max-width: 480px) {
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-cat {
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            margin-bottom: 40px; } }
+        @media screen and (max-width: 320px) {
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-cat {
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            margin-bottom: 40px; } }
+        .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-cat span {
+          background-color: transparent;
+          border: 1px solid #FFF;
+          border-radius: 20px;
+          color: #FFF;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          font-size: .8rem;
+          font-weight: 300;
+          margin-right: 8px;
+          padding: 4px 40px;
+          -webkit-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in; }
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-cat span:hover, .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-cat span.active {
+            background-color: #FFF;
+            color: #676767;
+            cursor: pointer;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out; }
+          @media screen and (max-width: 480px) {
+            .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-cat span {
+              margin-bottom: 8px; } }
+      .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-arrows {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end; }
+        @media (min-width: 601px) and (max-width: 800px) {
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-arrows {
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center; } }
+        @media screen and (max-width: 600px) {
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-arrows {
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center; } }
+        @media screen and (max-width: 480px) {
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-arrows {
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center; } }
+        @media screen and (max-width: 320px) {
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-arrows {
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center; } }
+        .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-arrows p {
+          background-color: #FFF;
+          border: 1px solid #FFF;
+          border-radius: 20px;
+          cursor: pointer;
+          font-size: .8rem;
+          margin-right: 8px;
+          padding: 4px 30px; }
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-arrows p:last-child {
+            margin-right: 0; }
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-arrows p i {
+            color: #676767; }
+          .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-arrows p:hover {
+            background-color: transparent; }
+            .programa-calendario .programa-calendario-head .programa-calendario-actions .programa-calendario-actions-arrows p:hover i {
+              color: #FFF; }
+  .programa-calendario .programa-calendario-body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4252,7 +4450,7 @@ footer {
     overflow-y: auto;
     position: relative;
     width: 100%; }
-    .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int {
+    .programa-calendario .programa-calendario-body .programa-calendario-body-int {
       -webkit-box-align: start;
           -ms-flex-align: start;
               align-items: flex-start;
@@ -4271,7 +4469,7 @@ footer {
       position: absolute;
       top: 0;
       width: 1960px; }
-      .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item {
+      .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -4283,17 +4481,17 @@ footer {
                 flex-flow: row wrap;
         margin-right: 1.30%;
         width: 350px; }
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item:last-child {
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item:last-child {
           margin-right: 0; }
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-text,
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card {
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-text,
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card {
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
           -ms-flex-wrap: wrap;
               flex-wrap: wrap;
           width: 100%; }
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-text {
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-text {
           color: #FFF;
           font-size: .95rem;
           -webkit-box-pack: center;
@@ -4302,7 +4500,7 @@ footer {
           margin-bottom: 4px;
           padding: 6px 0;
           text-align: center; }
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card {
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card {
           background-color: #FFF;
           border-radius: 3px;
           display: -webkit-box;
@@ -4311,8 +4509,8 @@ footer {
           height: 120px;
           margin-bottom: 20px;
           padding: 20px 14px; }
-          .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario,
-          .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-datos {
+          .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card .programa-calendario-card-horario,
+          .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card .programa-calendario-card-datos {
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -4323,30 +4521,361 @@ footer {
             -webkit-box-pack: center;
                 -ms-flex-pack: center;
                     justify-content: center; }
-          .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario {
+          .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card .programa-calendario-card-horario {
             -webkit-box-align: center;
                 -ms-flex-align: center;
                     align-items: center;
             padding-right: 14px;
             width: 35%; }
-            .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario p {
+            .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card .programa-calendario-card-horario p {
               font-size: .9rem;
               text-align: center;
               width: 100%; }
-            .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card .programa-trabajo-card-horario span {
+            .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card .programa-calendario-card-horario span {
               background-color: #FF7F8E;
               display: block;
               height: 1px;
               margin: 4px auto;
               width: 20px; }
-        .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card-datos {
+        .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card-datos {
           -webkit-box-align: start;
               -ms-flex-align: start;
                   align-items: flex-start;
           width: 65%; }
-          .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card-datos p {
+          .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card-datos p {
             font-size: .9rem;
             margin: .35rem 0;
             width: 100%; }
-            .programa-trabajo .programa-trabajo-body .programa-trabajo-body-int .programa-trabajo-item .programa-trabajo-card-datos p span {
+            .programa-calendario .programa-calendario-body .programa-calendario-body-int .programa-calendario-item .programa-calendario-card-datos p span {
               color: #FF7F8E; }
+
+/*  Consultorio
+	@mixin ========================================================================= */
+.programa-consultorio {
+  padding: 60px 0;
+  position: relative; }
+  .programa-consultorio .programa-consultorio-panel {
+    background-color: #EF4B84;
+    height: 350px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 4; }
+  .programa-consultorio .container-1024 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+    z-index: 4; }
+    .programa-consultorio .container-1024 h2 {
+      color: #FFF;
+      margin-bottom: 48px;
+      text-align: center; }
+    .programa-consultorio .container-1024 .programa-consultorio-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      width: 100%; }
+      .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col {
+        background-color: #FFF;
+        border-radius: 14px;
+        -webkit-box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.35);
+                box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.35);
+        margin-right: 3%;
+        padding: 32px;
+        width: 31.31%; }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col:last-child {
+          margin-right: 0; }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col:hover {
+          -webkit-box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.6);
+                  box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.6); }
+        @media (min-width: 601px) and (max-width: 800px) {
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col {
+            margin-bottom: 32px;
+            margin-right: 0;
+            width: 100%; } }
+        @media screen and (max-width: 600px) {
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col {
+            margin-bottom: 32px;
+            margin-right: 0;
+            width: 100%; } }
+        @media screen and (max-width: 480px) {
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col {
+            margin-bottom: 32px;
+            margin-right: 0;
+            width: 100%; } }
+        @media screen and (max-width: 320px) {
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col {
+            margin-bottom: 32px;
+            margin-right: 0;
+            width: 100%; } }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-head {
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: justify;
+              -ms-flex-pack: justify;
+                  justify-content: space-between; }
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-head h4 {
+            color: #F35A84;
+            font-size: 1.1rem; }
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-head span {
+            color: #F35A84;
+            font-size: .85rem; }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-title {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          margin: 40px 0; }
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-title h3 {
+            color: #F35A84;
+            font-size: 1.25rem;
+            font-style: italic;
+            font-weight: 400;
+            text-align: right; }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-body {
+          margin-bottom: 40px; }
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-body p {
+            text-align: justify; }
+            .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-body p span {
+              color: #F35A84;
+              font-weight: 700; }
+        .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-actions {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: end;
+              -ms-flex-pack: end;
+                  justify-content: flex-end; }
+          .programa-consultorio .container-1024 .programa-consultorio-row .programa-consultorio-col .programa-consultorio-actions a {
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            background-color: #F35A84;
+            border-radius: 50%;
+            color: #FFF;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            font-size: 1.25rem;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            height: 42px;
+            width: 42px; }
+    .programa-consultorio .container-1024 .programa-consultorio-more {
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      padding: 60px 0 0; }
+      @media screen and (max-width: 480px) {
+        .programa-consultorio .container-1024 .programa-consultorio-more {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column; } }
+      .programa-consultorio .container-1024 .programa-consultorio-more .programa-consultorio-more-link {
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        background-color: transparent;
+        border: 1px solid #F35A84;
+        border-radius: 32px;
+        color: #F35A84;
+        cursor: pointer;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 1rem;
+        font-weight: 400;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        margin-left: 20px;
+        padding: 12px 48px; }
+        .programa-consultorio .container-1024 .programa-consultorio-more .programa-consultorio-more-link:active, .programa-consultorio .container-1024 .programa-consultorio-more .programa-consultorio-more-link:hover {
+          background-color: #F35A84;
+          color: #FFF; }
+        @media screen and (max-width: 600px) {
+          .programa-consultorio .container-1024 .programa-consultorio-more .programa-consultorio-more-link {
+            padding: 12px 32px; } }
+        @media screen and (max-width: 480px) {
+          .programa-consultorio .container-1024 .programa-consultorio-more .programa-consultorio-more-link {
+            margin-bottom: 20px;
+            margin-left: 0; }
+            .programa-consultorio .container-1024 .programa-consultorio-more .programa-consultorio-more-link:last-child {
+              margin-left: 0; } }
+        @media screen and (max-width: 320px) {
+          .programa-consultorio .container-1024 .programa-consultorio-more .programa-consultorio-more-link {
+            margin-bottom: 20px;
+            margin-left: 0; }
+            .programa-consultorio .container-1024 .programa-consultorio-more .programa-consultorio-more-link:last-child {
+              margin-left: 0; } }
+
+/*  Gente hablando de Figma
+	@mixin ========================================================================= */
+.programa-persons-talkin {
+  padding: 60px 0; }
+  .programa-persons-talkin .container-1024 .owl-carousel {
+    margin: 0 auto;
+    max-width: 90%;
+    width: 768px; }
+    .programa-persons-talkin .container-1024 .owl-carousel .owl-item-panel {
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      padding: 10px 0 30px; }
+      .programa-persons-talkin .container-1024 .owl-carousel .owl-item-panel h3 {
+        color: #F35A84;
+        font-weight: 500; }
+      .programa-persons-talkin .container-1024 .owl-carousel .owl-item-panel hr {
+        background-color: #F35A84;
+        height: 2px;
+        margin: 24px auto;
+        width: 18%; }
+      .programa-persons-talkin .container-1024 .owl-carousel .owl-item-panel p {
+        color: #F35A84;
+        font-size: 1rem;
+        font-style: italic;
+        letter-spacing: 1;
+        line-height: 1.2; }
+      .programa-persons-talkin .container-1024 .owl-carousel .owl-item-panel span {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 1rem;
+        font-style: italic;
+        margin: 24px auto; }
+      .programa-persons-talkin .container-1024 .owl-carousel .owl-item-panel i {
+        color: #F35A84;
+        font-size: 2rem; }
+    .programa-persons-talkin .container-1024 .owl-carousel .owl-dots .owl-dot span {
+      background-color: transparent;
+      border: 1px solid #F35A84;
+      height: 9px;
+      width: 9px; }
+    .programa-persons-talkin .container-1024 .owl-carousel .owl-dots .owl-dot.active span {
+      background-color: #F35A84; }
+
+.modal-ayuda {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(243, 90, 132, 0.95);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 999;
+  /* Modal Content/Box */
+  /* The Close Button */ }
+  .modal-ayuda .modal-content {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 48px 24px;
+    width: 360px;
+    position: relative; }
+    .modal-ayuda .modal-content h3 {
+      color: #FFF;
+      font-size: 1rem;
+      font-style: italic;
+      font-weight: 300;
+      text-align: center; }
+    .modal-ayuda .modal-content .modal-panel {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      margin: 32px auto;
+      width: 100%; }
+      .modal-ayuda .modal-content .modal-panel .btn {
+        border-width: 1px;
+        border-style: solid;
+        color: #FFF;
+        text-align: center; }
+        .modal-ayuda .modal-content .modal-panel .btn.btn-facebook {
+          background-color: #7B6EE4;
+          border-color: #7B6EE4;
+          margin-bottom: 20px; }
+        .modal-ayuda .modal-content .modal-panel .btn.btn-primary {
+          background-color: transparent;
+          border-color: #FFF; }
+    .modal-ayuda .modal-content a {
+      color: #FFF;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      font-size: .85rem;
+      text-align: center; }
+      .modal-ayuda .modal-content a span {
+        display: block; }
+  .modal-ayuda .modal-close {
+    color: #FFF;
+    font-size: 28px;
+    font-weight: 300;
+    position: absolute;
+    right: 10px;
+    top: 0; }
+  .modal-ayuda .modal-close:hover,
+  .modal-ayuda .modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer; }
+/*# sourceMappingURL=site.css.map */
