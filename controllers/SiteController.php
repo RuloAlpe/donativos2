@@ -9,59 +9,36 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\EntOrdenesCompras;
-use app\modules\ModUsuarios\models\Utils;
-use app\models\EntBoletos;
-use app\modules\ModUsuarios\models\EntUsuarios;
-
-use app\models\CatPlanes;
-use app\models\Pagos;
-
-use app\models\EntPagosRecibidos;
-
+use app\components\AccessControlExtend;
 
 class SiteController extends Controller
 {
-
-    public function beforeAction($event)
-    {
-
-        // if(isset($_GET['monto'])){
-        //     $monto = $_GET['monto'];
-        // }else{
-        //     $monto = 0;
-        // }
-        // $session = Yii::$app->session;
-        // $session->set('monto', $monto);
-        
-        return parent::beforeAction($event);
-    }
-
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'mis-donaciones', 'forma-pago'],
-                'rules' => [
-                    [
-                        'actions' => ['logout', 'ingreso', 'mis-donaciones', 'forma-pago'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
+    // public function behaviors()
+    // {
+        // return [
+        //     'access' => [
+        //         'class' => AccessControlExtend::className(),
+        //         'only' => ['logout', 'about'],
+        //         'rules' => [
+        //             [
+        //                 'actions' => ['logout'],
+        //                 'allow' => true,
+        //                 'roles' => ['admin'],
+        //             ],
+                   
+        //         ],
+        //     ],
             // 'verbs' => [
             //     'class' => VerbFilter::className(),
             //     'actions' => [
-            //         //'logout' => ['post'],
+            //         'logout' => ['post'],
             //     ],
             // ],
-        ];
-    }
+        //];
+    //}
 
     /**
      * @inheritdoc
@@ -79,92 +56,34 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionTest(){
+         //$auth = Yii::$app->authManager;
+    
+        //  // add "updatePost" permission
+        //  $updatePost = $auth->createPermission('about');
+        //  $updatePost->description = 'Update post';
+        //  $auth->add($updatePost);
+        //         // add "admin" role and give this role the "updatePost" permission
+        // // as well as the permissions of the "author" role
+        // $admin = $auth->createRole('test');
+         //$auth->add($admin);
+        // $auth->addChild($admin, $updatePost);
+        
+    }
+
     /**
      * Displays homepage.
      *
      * @return string
      */
-    public function actionIndex($monto=0){
-
-        if($monto<0){
-         $monto = $monto * -1;   
-        }
-
-        $planes = CatPlanes::find()->where(['b_extra'=>0])->all();
-        if(!$planes){
-            $p = new Pagos();
-            $p->generarPlan();
-            $planes = CatPlanes::find()->where(['b_extra'=>0])->all();
-            
-        }
-
-        $planesExtras = CatPlanes::find()->where(['b_extra'=>1])->all();
-        if(!$planesExtras){
-            $p = new Pagos();
-            $p->generarPlanesAdicionales();
-            $planesExtras = CatPlanes::find()->where(['b_extra'=>1])->all();
-            
-        }
-          
-
-        return $this->render('index' , ['planes'=>$planes, 'planesExtras'=>$planesExtras]);
-    }
-
-    public function actionMisDonaciones(){
-        $idUsuario = Yii::$app->user->identity->id_usuario;
-        $boletosUsuario = EntPagosRecibidos::find()->where(['id_usuario'=>$idUsuario])->all();
-        
-        return $this->render("mis-boletos", ['boletos'=>$boletosUsuario]);   
-    }
-
-    /**
-    * Action para seleccionar la orden de pago (Paypal u OpenPay)
-    */
-    public function actionFormaPago($token=null){
-        $existeOrdenCompra = $this->findOrdenCompra($token);
-        if(!$token || !$existeOrdenCompra ){
-            return $this->redirect("index");
-        }
-
-
-        return $this->render("forma-pago", ["tokenOc"=>$token, 'ordenCompra'=>$existeOrdenCompra]);
-
-    }
-
-    /**
-     * Busca la orden de compra en la base de datosd.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return EntVoluntario the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-     protected function findOrdenCompra($token)
-     {
-         if (($model = EntOrdenesCompras::findOne(["txt_order_number"=>$token])) !== null) {
-             return $model;
-         } else {
-             throw new NotFoundHttpException('The requested page does not exist.');
-         }
-     }
-
-    /**
-     * Login action.
-     *
-     * @return Response|string
-     */
-    public function actionLogin()
+    public function actionIndex()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+        
+        // $usuario = Yii::$app->user->identity;
+        // $auth = \Yii::$app->authManager;
+        // $authorRole = $auth->getRole('test');
+        // $auth->assign($authorRole, $usuario->getId());
+        return $this->render('index');
     }
 
     /**
@@ -176,109 +95,47 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->redirect(["index"]);
+        return $this->goHome();
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
+    public function actionConstruccion(){
+
+        $this->layout = "classic/topBar/mainBlank";
+
+        return $this->render("construccion");
+    }
+
+    
+
+    public function actionGetcontrollersandactions()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
-
-
-    public function actionProcesando($oc=null){
-        $ordenCompra = EntOrdenesCompras::find()->where(['txt_order_number'=>$oc, 'b_pagado'=>1])->one();
-
-        if(empty($ordenCompra)){
-            return $this->render('procesando-pago',  ['oc'=>$oc]);
-        }else{
-            return $this->redirect(["mis-boletos"]);
-        }
-
-    }
-
-    public function actionVerificarPago($oc=null){
-        $ordenCompra = EntOrdenesCompras::find()->where(['txt_order_number'=>$oc, 'b_pagado'=>1])->one();
-        
-                if(empty($ordenCompra)){
-                  echo "0";
-                }else{
-                    echo "1";
+        $controllerlist = [];
+        if ($handle = opendir('../controllers')) {
+            while (false !== ($file = readdir($handle))) {
+                if ($file != "." && $file != ".." && substr($file, strrpos($file, '.') - 10) == 'Controller.php') {
+                    $controllerlist[] = $file;
                 }
-    }
-
-    public function actionIngresar($token){
-        $usuario = EntUsuarios::find()->where(['txt_token'=>$token])->one();
-        if($usuario){
-            if (Yii::$app->getUser()->login($usuario)) {
-                //return $this->goHome ();
-                return $this->redirect('index');
             }
-        } else {
-            echo "Token invalido";
-            //$this->render();
+            closedir($handle);
         }
-    }
-
-    public function actionGuardarOrden(){
-
-        $user = Yii::$app->user->identity;
-
-        $idPlan = null;
-		$isSubscripcion = 0;
-		//$monto = 0;
-		if(isset($_POST["plan"])){
-            
-            $idPlan = $_POST["plan"];
-            $plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
-			$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
-            $monto = $plan->num_cantidad;
-            
-            $idUsuario = $user->id_usuario;
-            $ordenCompra = new EntOrdenesCompras();
-            $ordenCompra->num_total = $monto;
-            $ordenCompra->txt_order_number = Utils::generateToken("oc_");
-            $ordenCompra->id_usuario = $idUsuario;
-            $ordenCompra->txt_description = "Donativo";
-            $ordenCompra->id_plan = $idPlan;
-            $ordenCompra->b_subscripcion = $isSubscripcion;
-    
-            if ($ordenCompra->save()) {
-    
-                return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
+        asort($controllerlist);
+        $fulllist = [];
+        foreach ($controllerlist as $controller):
+            $handle = fopen('../controllers/' . $controller, "r");
+            if ($handle) {
+                while (($line = fgets($handle)) !== false) {
+                    if (preg_match('/public function action(.*?)\(/', $line, $display)):
+                        if (strlen($display[1]) > 2):
+                            $fulllist[strtolower(substr($controller, 0, -14))][] = strtolower($display[1]);
+                        endif;
+                    endif;
+                }
             }
-			
-		}else{
+            fclose($handle);
+        endforeach;
 
-            return $this->goHome();       
-        }
-        
+        print_r($fulllist);
+        exit;
+        return $fulllist;
     }
-
-    public function actionGracias(){
-
-        return $this->render("gracias");
-    }
-
 }

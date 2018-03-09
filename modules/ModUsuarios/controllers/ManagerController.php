@@ -11,124 +11,87 @@ use app\modules\ModUsuarios\models\Utils;
 use app\modules\ModUsuarios\models\EntUsuariosActivacion;
 use app\modules\ModUsuarios\models\EntUsuariosCambioPass;
 use app\modules\ModUsuarios\models\EntUsuariosFacebook;
-use app\models\EntOrdenesCompras;
-use yii\helpers\Url;
-use app\models\CatPlanes;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
+use yii\filters\AccessControl;
 
 /**
  * Default controller for the `musuarios` module
  */
 class ManagerController extends Controller {
+
+	/**
+     * @inheritdoc
+     */
+     public function behaviors()
+     {
+         return [
+             'access' => [
+                 'class' => AccessControl::className(),
+                 'only' => ['profile'],
+                 'rules' => [
+                     [
+                         'actions' => ['profile'],
+                         'allow' => true,
+                         'roles' => ['@'],
+                     ],
+                   
+                 ],
+             ],
+            // 'verbs' => [
+            //     'class' => VerbFilter::className(),
+            //     'actions' => [
+            //         'logout' => ['post'],
+            //     ],
+            // ],
+        ];
+    }
+
+	public $layout = "@app/views/layouts/classic/topBar/mainBlank";
 	
 	/**
 	 * Registrar usuario en la base de datos
 	 */
 	public function actionSignUp() {
-
-		$idPlan = null;
-		$isSubscripcion = 0;
-		//$monto = 0;
-		if(isset($_POST["plan"])){
-			$idPlan = $_POST["plan"];
-			$plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
-			$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
-			$monto = $plan->num_cantidad;
-
-		}
-
+		
 		$model = new EntUsuarios ( [ 
 				'scenario' => 'registerInput' 
 		] );
-		// Enviar correo de activación
-		$utils = new Utils ();
 
-		$model->password = $utils->generateBoleto();
-		$model->repeatPassword = $model->password;
+		if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+			Yii::$app->response->format = Response::FORMAT_JSON;
+			return ActiveForm::validate($model);
+		}
 		
-		if ($model->load ( Yii::$app->request->post () )){
-
-			$usuarioExiste = EntUsuarios::find()->where(['txt_email'=>$model->email])->one();
+		if ($model->load ( Yii::$app->request->post () )) {
 			
-			if($usuarioExiste){
-				
-				if (Yii::$app->getUser()->login($usuarioExiste)) {
-					if(isset($_POST["plan"]) && isset($_POST["monto"]) ){
-            
-						$idPlan = $_POST["plan"];
-						$plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
-						$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
-						$monto = $plan->num_cantidad;
-						
-						
-						$ordenCompra = new EntOrdenesCompras();
-						$ordenCompra->num_total = $monto;
-						$ordenCompra->txt_order_number = Utils::generateToken("oc_");
-						$ordenCompra->id_usuario = $usuarioExiste->id_usuario;
-						$ordenCompra->txt_description = "Donativo";
-						$ordenCompra->id_plan = $idPlan;
-						$ordenCompra->b_subscripcion = $isSubscripcion;
-				
-						if ($ordenCompra->save()) {
-				
-							return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
-						}
-						
-					}
+			if ($model->signup ()) {
+
+				// Envia un correo de bienvenida al usuario
+				if(Yii::$app->params ['modUsuarios'] ['mandarCorreoBienvenida']){
+					$model->enviarEmailBienvenida();
 				}
-			}
-			
-			if($user = $model->signup()){
-
+				
 				if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
 					
-					// Parametros para el email
-					$parametrosEmail ['url'] = Yii::$app->urlManager->createAbsoluteUrl([ 
-							'/site/ingresar?token=' . $user->txt_token 
-					] );
-					$parametrosEmail ['user'] = $user->getNombreCompleto ();
-					$parametrosEmail ['email'] = $user->txt_email;
-					$parametrosEmail ['password'] = $model->repeatPassword;
+					$model->enviarEmailActivacion();
 					
-					// Envio de correo electronico
-					$utils->sendEmailIngresar ( $user->txt_email,$parametrosEmail );
-					/*$this->redirect ( [ 
+					$this->redirect ( [ 
 							'login' 
-					] );*/
-				}/*else {
+					] );
 					
-				}*/
-				if(Yii::$app->getUser()->login($user)){
-					$idUsuario = $user->id_usuario;
-					if(isset($_POST["plan"]) && isset($_POST["monto"]) ){
-            
-						$idPlan = $_POST["plan"];
-						$plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
-						$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
-						$monto = $plan->num_cantidad;
-						
-						$ordenCompra = new EntOrdenesCompras();
-						$ordenCompra->num_total = $monto;
-						$ordenCompra->txt_order_number = Utils::generateToken("oc_");
-						$ordenCompra->id_usuario = $idUsuario;
-						$ordenCompra->txt_description = "Donativo";
-						$ordenCompra->id_plan = $idPlan;
-						$ordenCompra->b_subscripcion = $isSubscripcion;
-				
-						if ($ordenCompra->save()) {
-				
-							return $this->redirect(['/site/forma-pago','token'=>$ordenCompra->txt_order_number]);
-						}
-						
+				} else {
+					
+					if (Yii::$app->getUser ()->login ( $model )) {
+						return $this->goHome ();
 					}
 				}
 			}
+			
+			// return $this->redirect(['view', 'id' => $model->id_usuario]);
 		}
-
 		return $this->render ( 'signUp', [ 
-				'model' => $model,
-				'idPlan' =>$idPlan,
-				'subscripcion'=>$isSubscripcion,
-				'monto'=>$monto
+				'model' => $model 
 		] );
 	}
 	
@@ -159,6 +122,29 @@ class ManagerController extends Controller {
 		return $this->render ( 'peticionPass', [ 
 				'model' => $model 
 		] );
+	}
+
+	/**
+	 * Ingresa automaticamente al portal
+	 */
+	public function actionIngresar($t=null){
+		$usuario = EntUsuarios::find()->where(["txt_token"=>$t])->one();
+
+		if($usuario && $usuario->id_status == EntUsuarios::STATUS_BLOCKED){
+			// Mandar 
+
+			return false;
+		}
+
+		if($usuario){
+			Yii::$app->getUser ()->login ( $usuario );
+			$usuario->id_status = EntUsuarios::STATUS_ACTIVED;
+			$usuario->save();
+		}
+
+		
+
+		return $this->goHome();
 	}
 	
 	/**
@@ -226,39 +212,40 @@ class ManagerController extends Controller {
 	 */
 	public function actionLogin() {
 
-		//return $this->goHome ();
-		$this->layout = "@app/views/layouts/main";
-		
-		if (! Yii::$app->user->isGuest && $monto != 0) {
-			$idUsuario = Yii::$app->user->identity->id_usuario;
-        	$ordenCompra = new EntOrdenesCompras();
-			$ordenCompra->num_total = $monto;
-			$ordenCompra->txt_order_number = Utils::generateToken("oc_");
-			$ordenCompra->id_usuario = $idUsuario;
-			$ordenCompra->txt_description = "Donativo";
-
-			if ($ordenCompra->save()) {
-
-				return $this->redirect(['site/forma-pago','token'=>$ordenCompra->txt_order_number]);
-			}
+		if (! Yii::$app->user->isGuest) {
+			return $this->goHome ();
 		}
-		
+
 		$model = new LoginForm ();
 		$model->scenario = 'login';
+
+		if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+			Yii::$app->response->format = Response::FORMAT_JSON;
+			return ActiveForm::validate($model);
+		}
+
 		if ($model->load ( Yii::$app->request->post () ) && $model->login ()) {
 			
 			return $this->goBack ();
 		}
-
 		return $this->render ( 'login', [ 
 				'model' => $model 
 		] );
+	}
+
+	public function actionProfile(){
+		$this->layout = "@app/views/layouts/main";
+		$usuario = Yii::$app->user->identity;
+
+		return $this->redirect(["//site/construccion"]);
+
+		return $this->render('profile', ['model'=>$usuario]);
 	}
 	
 	/**
 	 * Callback para facebook
 	 */
-	public function actionCallbackFacebook($monto=0) {
+	public function actionCallbackFacebook() {
 		$fb = new FacebookI ();
 		
 		// Obtenemos la respuesta de facebook
@@ -280,13 +267,7 @@ class ManagerController extends Controller {
 		// }
 		
 		// Buscamos al usuario por email
-		if(!isset($data ['profile'] ['email'])){
-			$correo = $data ['profile'] ['id']."@fbemail.com";
-			$data ['profile'] ['email'] = $correo;
-		}else{
-			$correo = $data ['profile'] ['email'];
-		}
-		$existUsuario = EntUsuarios::findByEmail ( $correo );
+		$existUsuario = EntUsuarios::findByEmail ( $data ['profile'] ['email'] );
 		
 		// Si no existe creamos su cuenta
 		if (! $existUsuario) {
@@ -307,7 +288,6 @@ class ManagerController extends Controller {
 		$usuarioGuardado = $existUsuarioFacebook->saveDataFacebook ( $data );
 		
 		if (Yii::$app->getUser ()->login ( $existUsuario )) {
-			//return $this->redirect(['site/index', 'monto'=>$monto]);
 			return $this->goHome ();
 		}
 	}

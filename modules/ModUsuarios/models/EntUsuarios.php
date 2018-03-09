@@ -8,7 +8,8 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use app\modules\ModUsuarios\models\Utils;
 use kartik\password\StrengthValidator;
-use app\models\Pagos;
+use yii\web\UploadedFile;
+use app\models\Email;
 
 /**
  * This is the model class for table "ent_usuarios".
@@ -38,10 +39,12 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 	const STATUS_PENDIENTED = 1;
 	const STATUS_ACTIVED = 2;
 	const STATUS_BLOCKED = 3;
+	const USUARIO_REGISTRADO = "usuario-normal";
 	public $password;
 	public $repeatPassword;
-	public $email;
+	public $repeat;
 	public $repeatEmail;
+	public $image;
 	
 	/**
 	 * @inheritdoc
@@ -56,16 +59,23 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 	public function rules() {
 		return [ 
 				[ 
-					'repeatPassword',
-					'compare',
-					'compareAttribute' => 'password',
-					'on' => 'registerInput' 
-				],
-				[ 
 					'repeatEmail',
 					'compare',
-					'compareAttribute' => 'email',
-					'on' => 'registerInput' 
+					'compareAttribute' => 'txt_email',
+					'on' => 'registerInput',
+					'message'=>'Los email deben coincidir'
+				],
+				[
+					['txt_email', 'repeatEmail'], 'email', 
+					'on' => 'registerInput',
+					
+				],
+				[ 
+						'repeatPassword',
+						'compare',
+						'compareAttribute' => 'password',
+						'on' => 'registerInput',
+						'message'=>'Las contraseñas deben coincidir'
 				],
 				[ 
 						'txt_email',
@@ -88,37 +98,31 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 								'txt_email' 
 						],
 						'required',
-						'on' => 'registerInput' 
+						'on' => 'registerInput',
+						'message'=>'Campo requerido'
 				],
-				/*[ 
-						[ 
-								'password'
-						],
-						StrengthValidator::className (),
-						'min' => 10,
-						'digit' => 2,
-						'special' => 2,
-						'upper'=>2,
-						'lower'=>2,
-						'special'=>2,
-						'hasUser'=>false,
+				// [ 
+				// 		[ 
+				// 				'password'
+				// 		],
+				// 		// StrengthValidator::className (),
+				// 		// 'min' => 10,
+				// 		// 'digit' => 2,
+				// 		// 'special' => 2,
+				// 		// 'upper'=>2,
+				// 		// 'lower'=>2,
+				// 		// 'special'=>2,
+				// 		// 'hasUser'=>false,
 						
-				],*/
+				// ],
 				[ 
-					[ 
-							'password',
-							'repeatPassword' 
-					],
-					'required',
-					'on' => 'registerInput' 
-				],
-				[ 
-					[ 
-							'email',
-							'repeatEmail' 
-					],
-					'required',
-					'on' => 'registerInput' 
+						[ 
+								'password',
+								'repeatPassword' 
+						],
+						'required',
+						'on' => 'registerInput',
+						'message'=>'Campo requerido' 
 				],
 				[ 
 						[ 
@@ -126,7 +130,8 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 								'repeatPassword' 
 						],
 						'required',
-						'on' => 'cambiarPass' 
+						'on' => 'cambiarPass',
+						'message'=>'Campo requerido' 
 				],
 				[ 
 						[ 
@@ -143,7 +148,8 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 								'txt_email' 
 						],
 						'string',
-						'max' => 255 
+						'max' => 255,
+						'message'=>'Solo puede ingresar 255 caracteres' 
 				],
 				[ 
 						[ 
@@ -151,7 +157,8 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 								'txt_apellido_materno' 
 						],
 						'string',
-						'max' => 30 
+						'max' => 30,
+						'message'=>'Solo puede ingresar 30 caracteres' 
 				],
 				[ 
 						[ 
@@ -164,7 +171,8 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 						[ 
 								'txt_email' 
 						],
-						'unique' 
+						'unique',
+						'message'=>'El email ya se encuentra registrado'  
 				],
 				[ 
 						[ 
@@ -199,17 +207,17 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 		return [ 
 				'id_usuario' => 'Id Usuario',
 				'txt_token' => 'Txt Token',
-				'txt_username' => 'Nombre',
-				'txt_apellido_paterno' => 'Apellido Paterno',
-				'txt_apellido_materno' => 'Apellido Materno',
+				'txt_username' => 'Txt Username',
+				'txt_apellido_paterno' => 'Txt Apellido Paterno',
+				'txt_apellido_materno' => 'Txt Apellido Materno',
 				'txt_auth_key' => 'Txt Auth Key',
 				'txt_password_hash' => 'Txt Password Hash',
 				'txt_password_reset_token' => 'Txt Password Reset Token',
-				'txt_email' => 'Email',
+				'txt_email' => 'Txt Email',
 				'fch_creacion' => 'Fch Creacion',
 				'fch_actualizacion' => 'Fch Actualizacion',
-				'id_status' => 'Id Status' ,
-				'repeatEmail'=>"Repetir email"
+				'id_status' => 'Id Status',
+				'repeatEmail'=>'Repetir email' 
 		];
 	}
 	
@@ -314,6 +322,17 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 				'id_status' => self::STATUS_ACTIVED
 		] );
 	}
+
+	/**
+	 * Busca un usuario por token
+	 * @param string $token
+	 * @return EntUsuarios|null
+	 */
+	public static function findByToken($token){
+		return static::findOne ( [ 
+			'txt_token' => $token,
+	] );
+	}
 	
 	/**
 	 * Finds user by password reset token
@@ -408,40 +427,69 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 	 */
 	public function signup($isFacebook=false) {
 		
-		/*if (! $this->validate ()) {
-			return null;
-		}*/
+		if (! $this->validate ()) {
+			return false;
+		}
+
+		$this->image = UploadedFile::getInstance($this, 'image');
+
+		$this->txt_token = Utils::generateToken ( 'usr' );
 		
-		$user = new EntUsuarios ();
-		$user->txt_token = Utils::generateToken ( 'usr' );
-		$user->txt_username = $this->txt_username;
-		$user->txt_apellido_paterno = $this->txt_apellido_paterno;
-		$user->txt_apellido_materno = $this->txt_apellido_materno;
-		$user->txt_email = $this->email;
-		$user->setPassword ( $this->password );
-		$user->generateAuthKey ();
-		$user->fch_creacion = Utils::getFechaActual ();
-		$user->id_tipo_usuario = 1;
+		if($this->image){
+			$this->txt_imagen = $this->txt_token.".".$this->image->extension;
+			if(!$this->upload()){
+				return false;
+			}
+		}
+
+		if(!$this->txt_auth_item){
+			$this->txt_auth_item = self::USUARIO_REGISTRADO;
+		}
+
+		$this->setPassword ( $this->password );
+		$this->generateAuthKey ();
+		$this->fch_creacion = Utils::getFechaActual ();
 		
 		// Si esta activada la opcion de mandar correo de activación el usuario estara en status pendiente
 		if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion'] && !$isFacebook) {
-			$user->id_status = self::STATUS_ACTIVED;
+			$this->id_status = self::STATUS_PENDIENTED;
 		} else {
-			$user->id_status = self::STATUS_ACTIVED;
+			$this->id_status = self::STATUS_ACTIVED;
 		}
 
-		if($user->save()){
-			$p = new Pagos();
-			$respuesta = $p->guardarCliente($user->nombreCompleto, $user->txt_email);
-			$user->txt_usuario_open_pay = $respuesta->id;
-			$user->save();
-			return $user;
+		if($this->save()){
+
+			$this->guardarRoleUsuario();
+
+			return true;
 		}else{
-			return null;
+			return false;
 		}
 		
-		return $user->save () ? $user : null;
 	}
+
+	public function guardarRoleUsuario(){
+		
+		$auth = \Yii::$app->authManager;
+		$authorRole = $auth->getRole($this->txt_auth_item);
+		$auth->assign($authorRole, $this->getId());
+	}
+
+
+	public function upload()
+    {
+		$path = "profiles/".$this->txt_token;
+		if (!file_exists($path)) {
+			mkdir($path, 0777, true);
+		}
+       
+    	if($this->image->saveAs($path."/".$this->txt_imagen)){
+			return true;
+		}else{
+			return false;	
+		}
+            
+    }
 	
 	/**
 	 * Agregamos los datos para el usuario
@@ -465,6 +513,15 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 	public function getNombreCompleto() {
 		return $this->txt_username . ' ' . $this->txt_apellido_paterno . ' ' . $this->txt_apellido_materno;
 	}
+
+	public function getNombreCorto(){
+		return $this->txt_username. ' '. $this->txt_apellido_paterno;
+	}
+
+	public function getNombreAbreviado(){
+
+		return null; 
+	}
 	
 	/**
 	 * Actualiza el status del usuario a activado
@@ -484,5 +541,112 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 	public function bloquearUsuario() {
 		$this->id_status = self::STATUS_BLOCKED;
 		return $this->save () ? $this : null;
+	}
+
+	/**
+	 * Si la imagen esta vacia mandamos una por default
+	 *
+	 * @return string
+	 */
+	 public function getImageProfile() {
+		$basePath = Yii::getAlias ( '@web' );
+		
+		$usuarioFacebook = $this->entUsuariosFacebook;
+		
+		if(empty($usuarioFacebook)){
+			if ($this->txt_imagen) {
+				return $basePath . '/profiles/' . $this->txt_token."/". $this->txt_imagen;
+			}
+			
+			return $basePath . '/webAssets/images/site/user.png';
+		}
+		
+		return 'http://graph.facebook.com/'.$usuarioFacebook->id_facebook.'/picture';
+		
+	}
+
+	public function isRegisterFaceBook(){
+		$usuarioFacebook = $this->entUsuariosFacebook;
+		
+		if(empty($usuarioFacebook)){
+			return false;
+		} else{
+			return $usuarioFacebook;
+		}
+	}
+
+
+	/**
+	 * Envia email de activación
+	 */
+	public function enviarEmailActivacion($params=[]){
+		$activacion = new EntUsuariosActivacion ();
+		$activacion->saveUsuarioActivacion ( $this->id_usuario );
+		
+		// Parametros para el email
+		$params ['url'] = Yii::$app->urlManager->createAbsoluteUrl ( [ 
+				'activar-cuenta/' . $activacion->txt_token 
+		] );
+		$params ['user'] = $this->getNombreCompleto ();
+		
+		try{
+			$email = new Email();
+			$email->emailHtml = "@app/modules/ModUsuarios/email/activarCuenta";
+			$email->emailText = "@app/modules/ModUsuarios/email/layouts/text";
+			$email->to = $this->txt_email;
+			$email->subject = "Activación de cuenta";
+			$email->params =$params ;
+			
+			// Envio de correo electronico
+			$email->sendEmail();
+			return true;
+		}catch(\Exception $e){
+			
+			return false;
+		}
+		
+	}
+
+	public function enviarEmailBienvenida(){
+		// Parametros para el email
+		$params ['url'] = Yii::$app->urlManager->createAbsoluteUrl ( [ 
+			'ingresar/' . $this->txt_token 
+		] );
+		$params ['user'] = $this->getNombreCompleto ();
+		$params ['email'] = $this->txt_email;
+		$params ['password'] = $this->password;
+		
+		try{
+			$email = new Email();
+			$email->emailHtml = "@app/modules/ModUsuarios/email/bienvenida";
+			$email->emailText = "@app/modules/ModUsuarios/email/layouts/text";
+			$email->to = $this->txt_email;
+			$email->subject = "Bienvenido";
+			$email->params =$params ;
+			
+			// Envio de correo electronico
+			$email->sendEmail();
+			return true;
+		}catch(\Exception $e){
+			
+			return false;
+		}
+
+	}
+
+	public function enviarEmailRecoveryPass($params){
+
+	}
+
+	public function enviarEmailNotificacion($params){
+
+	}
+
+	public static function getUsuarioLogueado(){
+		$usuarioLogueado = Yii::$app->user->identity;
+		if(!$usuarioLogueado){
+			$usuarioLogueado = new EntUsuarios();
+		}
+		return $usuarioLogueado;
 	}
 }

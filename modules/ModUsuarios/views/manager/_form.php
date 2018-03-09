@@ -8,37 +8,29 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div>
-    <div class="ent-usuarios-form">
+    <?php $form = ActiveForm::begin([
+						'id' => 'form-ajax',
+						//'options' => ['class' => 'form-horizontal'],
+						'enableAjaxValidation' => true,
+						'enableClientValidation'=>true,
+					]); ?>
 
-        <?php $form = ActiveForm::begin(); ?>
+    <?= $form->field($model, 'image')->fileInput(["class"=>"hide"])->label(false) ?> 
 
-            <div class="form-line">
-                <?= $form->field($model, 'txt_username')->textInput(['maxlength' => true, "placeholder" => "Nombre"]) -> label(false) ?>
-            </div>
+    <?= $form->field($model, 'txt_username')->textInput(['maxlength' => true, 'placeholder'=>'Nombre'])->label(false) ?>
 
-            <div class="form-line">
-                <?= $form->field($model, 'txt_apellido_paterno')->textInput(['maxlength' => true, "placeholder" => "Apellido Paterno"]) -> label(false) ?>
-            </div>
+    <?= $form->field($model, 'txt_apellido_paterno')->textInput(['maxlength' => true, 'placeholder'=>'Apellido paterno'])->label(false) ?>
 
-            <div class="form-line">
-                <?= $form->field($model, 'email')->textInput(['maxlength' => true, "placeholder" => "Email"]) -> label(false) ?>
-            </div>
+    <?= $form->field($model, 'txt_email')->textInput(['maxlength' => true, 'placeholder'=>'Email'])->label(false) ?>
+    <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true, 'placeholder'=>'Repetir email'])->label(false) ?>
+    
+    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true, 'placeholder'=>'Contraseña'])->label(false) ?>
+    
+    <?= $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true, 'placeholder'=>'Repetir contraseña'])->label(false) ?>
 
-            <div class="form-line">
-                <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true, "placeholder" => "Repetir Email"]) -> label(false) ?>
-            </div>
-
-            <input type="hidden" value="<?=$idPlan?>" name="plan" />
-            <input type="hidden" name="susbcripcion" value="<?=$subscripcion?>"/>
-            <input type="hidden" value="<?=$monto?>" name="monto"/>
-
-            <div class="form-group">
-                <?= Html::submitButton($model->isNewRecord ? 'Continuar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-            </div>
-
-
-        <?php ActiveForm::end(); ?>
-
+    <div class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? 'Registrarme' : 'Actualizar información', ['class' => "btn btn-success btn-block btn-lg"]) ?>
     </div>
-</div>
+
+    <?php ActiveForm::end(); ?>
+

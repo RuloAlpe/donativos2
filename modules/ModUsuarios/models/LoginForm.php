@@ -17,6 +17,17 @@ class LoginForm extends Model {
 	public $rememberMe = true;
 	public $userEncontrado;
 	private $_user = false;
+
+	/**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'username' => 'Nombre de Usuario',
+            'password' => 'Contraseña'
+        ];
+    }
 	
 	/**
 	 *
@@ -31,7 +42,8 @@ class LoginForm extends Model {
 								'password' 
 						],
 						'required',
-						'on' => 'login' 
+						'on' => 'login',
+						'message'=>'Campo requerido' 
 				],
 				// username es requerido para recuperar la contraseña
 				[ 
@@ -39,14 +51,15 @@ class LoginForm extends Model {
 								'username' 
 						],
 						'required',
-						'on' => 'recovery' 
+						'on' => 'recovery',
+						'message'=>'Campo requerido' 
 				],
 				[ 
 						[ 
 								'username' 
 						],
 						'validateUsuario',
-						'on' => 'recovery' 
+						'on' => 'recovery',
 				],
 				[ 
 						[ 
@@ -54,7 +67,7 @@ class LoginForm extends Model {
 						],
 						'trim' 
 				],
-				['username','email'],
+				['username','email', 'message'=>'Debe agregar un email válido'],
 				
 				// rememberMe must be a boolean value
 				[ 
@@ -84,7 +97,7 @@ class LoginForm extends Model {
 			$user = $this->getUser ();
 			
 			if (! $user || ! $user->validatePassword ( $this->password )) {
-				$this->addError ( $attribute, 'Incorrect username or password.' );
+				$this->addError ( $attribute, 'Usuario o contraseña incorrectos.' );
 			}
 		}
 	}

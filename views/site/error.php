@@ -8,6 +8,8 @@
 use yii\helpers\Html;
 
 $this->title = $name;
+
+$this->params['classBody'] = "page-login-v3 layout-full preguntas-page";
 ?>
 <div class="site-error">
 

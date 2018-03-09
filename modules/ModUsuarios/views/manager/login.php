@@ -1,42 +1,60 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-
-
 /* @var $this yii\web\View */
-/* @var $model app\models\EntUsuarios */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model app\models\LoginForm */
+
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Url;
 
 $this->title = 'Login';
-$this->params['breadcrumbs'][] = ['label' => 'Ent Usuarios', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['classBody'] = "page-login-v3 layout-full";
+
 ?>
-<div class="container container-full">
 
-	<div class="registro-int">
-
-		<h2><?= Html::encode($this->title) ?></h2>
-		
-		<div>
-			<div class="ent-usuarios-form">
-
-				<?php 
-				$form = ActiveForm::begin(); 
-				?>
-				<div class="form-line">
-					<?= $form->field($model, 'username')->textInput(['placeholder'=>'Email'])->label(false) ?>
-				</div>	
-				<div class="form-line">
-					<?= $form->field($model, 'password')->passwordInput(['placeholder'=>'Contraseña'])->label(false)?>
-				</div>
-				<div class="form-group">
-					<?= Html::submitButton('<span class="ladda-label">Ingresar</span>', ["data-style"=>"zoom-in", 'class' => 'btn btn-primary btn-block btn-lg mt-40 ladda-button', 'name' => 'login-button'])
-					?>
-				</div>
-				<?php ActiveForm::end(); ?>
-				</div>
+<div class="panel">
+	<div class="panel-body">
+		<div class="brand">
+			<img class="brand-img mb-40" src="<?=Url::base()?>/webAssets/images/logo.png" alt="...">
 		</div>
 
-    </div>
 
+		<?php 
+		$form = ActiveForm::begin([
+			'id' => 'form-ajax',
+			'enableAjaxValidation' => true,
+			'enableClientValidation'=>true,
+			'fieldConfig' => [
+				"template" => "{input}{label}{error}",
+				"options" => [
+					"class" => "form-group form-material floating",
+					"data-plugin" => "formMaterial"
+				],
+				"labelOptions" => [
+					"class" => "floating-label"
+				]
+			]
+		]); 
+		?>
+
+		<?= $form->field($model, 'username')->textInput(["class"=>"form-control"]) ?>
+
+		<?= $form->field($model, 'password')->passwordInput(["class"=>"form-control"])?>
+
+		<div class="form-group clearfix">
+			<a class="float-right" href="<?=Url::base()?>/peticion-pass">¿Olvidaste tu contraseña?</a>
+		</div>
+
+		<?= Html::submitButton('<span class="ladda-label">Ingresar</span>', ["data-style"=>"zoom-in", 'class' => 'btn btn-primary btn-block btn-lg mt-20 ladda-button', 'name' => 'login-button'])
+		?>
+		<div class="form-group clearfix text-center mt-20">
+			<a href="<?=Url::base()?>/sign-up">Necesito una cuenta</a>
+		</div>
+
+		<?php ActiveForm::end(); ?>
+
+
+		<p class="soporteTxt">¿Necesitas ayuda? escribe a: <a class="no-redirect" href="mailto:soporte@2gom.com.mx?Subject=Solicitud%de%Soporte">soporte@2gom.com.mx</a></p>
+	</div>
 </div>

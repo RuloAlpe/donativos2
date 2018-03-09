@@ -16,22 +16,19 @@ use yii\web\AssetBundle;
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $baseUrl = '@web/webAssets/';
     public $css = [
-        
-        'webassets/css/styles.css',
-        'webassets/css/donativos-site.css',
-        'webassets/plugins/ladda/ladda.css'
-        
+        'plugins/ladda/ladda.css',
+        'css/site-extend.css.map',
+        'css/site-extend.css'
     ];
     public $js = [
-        'webassets/plugins/sweet-alert/sweetalert.min.js',
-        'webassets/plugins/ladda/spin.js',
-        'webassets/plugins/ladda/ladda.js',
-        'webassets/js/geeks.js'
+        'plugins/ladda/spin.min.js',
+        'plugins/ladda/ladda.min.js',
+        'js/geeks.js'
+
     ];
     public $depends = [
-         'yii\web\YiiAsset',
-         //'yii\bootstrap\BootstrapAsset',
+        'app\assets\AppAssetClassicTopBar',
     ];
 }
