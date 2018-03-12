@@ -17,11 +17,16 @@ $this->registerJsFile(
 
 
 
-<a href="<?=Url::base()?>" class="btn btn-success btn-boletos btn-inicio">Inicio</a>
+<!-- <a href="<?=Url::base()?>" class="btn btn-success btn-boletos btn-inicio">Inicio</a> -->
     
 <div class="container container-full">
   <div class="mis-donaciones-content">
-    <h3>Mis donaciones</h3>
+
+    <div class="title-gral">
+      <h2 class="second">
+        Mis donaciones
+      </h2>
+    </div>
 
     <div class="donaciones-table">
      
@@ -81,7 +86,8 @@ $this->registerJsFile(
               <?=$btnGenerarFactura?>
             </p>
             <p class="donaciones-recurrencia"><?=$cancelarRecurrencia?></p>
-            <span class="link__title"></span><i class="ion ion-ios-arrow-down"></i>
+            <span class="link__title"></span>
+            <span class="glyphicon glyphicon-chevron-down"></span>
           </div>
           <div class="donaciones-submenu">
             <div class="donaciones-submenu-small">

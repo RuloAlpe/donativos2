@@ -379,3 +379,600 @@
 
 .donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar
   background-color: #F1E8C9  
+
+
+/*  Gracias
+	======================================= */
+.container-gracias
+	// background-color: red
+	.boletos-content
+		display: flex
+		margin: 80px auto 60px
+		justify-content: center
+		padding: 0 0 80px 0
+		margin-top: 0px
+
+	.boletos-int
+		align-items: center
+		background-color: rgba(69,21,24,.8)
+		display: flex
+		flex-direction: column
+		justify-content: center
+		max-width: 90%
+		padding: 40px
+		width: 510px
+
+		i
+			color: $white
+			font-size: 8rem
+			margin-bottom: 20px
+
+		h2
+			color: $white
+			font-size: 2.4rem
+			font-weight: 300
+			text-align: center
+
+		h2 span
+			font-size: 2.45rem
+			font-weight: 700
+
+		h5
+			color: $white
+			font-size: 1.65rem
+			font-weight: 300
+			margin-bottom: 32px
+
+		.boletos-int-btn
+			background-color: #D9262C
+			color: #FFF
+			text-transform: uppercase
+
+		.boletos-int-btn:hover
+			background-color: #F1E8C9
+			color: #E26666
+
+
+
+/*  Mis donaciones
+	======================================= */
+.donativos-wrapper .btn-inicio
+    right: 180px
+    right: 24px
+
+.mis-donaciones-content
+    align-items: center
+    padding-bottom: 80px
+    display: flex
+    flex-direction: column
+    /* height: 100% */
+    width: 100%
+
+.mis-donaciones-content h3
+    margin: 80px 0 60px
+    text-align: center
+
+
+
+.mis-donaciones-content .donaciones-table
+    background-color: white
+    border-radius: 4px
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    margin: 0 auto
+    max-width: 90%
+    overflow: hidden
+    width: 1024px
+
+
+.mis-donaciones-content .donaciones-table .donaciones-head,
+.mis-donaciones-content .donaciones-table .donaciones-row
+    display: flex
+    justify-content: flex-start
+    width: 100%
+
+.mis-donaciones-content .donaciones-table .donaciones-head
+    background-color: #F9C6C1
+    color: #fff
+
+
+.mis-donaciones-content .donaciones-table .donaciones-row
+    background-color: #fff
+    border-bottom: 1px solid #eee
+
+.mis-donaciones-content .donaciones-table .donaciones-row:nth-child(odd)
+    background-color: #f7f7f7
+
+
+.mis-donaciones-content .donaciones-table .donaciones-head p
+    font-weight: 500
+    /*text-align: center*/
+
+.mis-donaciones-content .donaciones-table .donaciones-head p,
+.mis-donaciones-content .donaciones-table .donaciones-row p
+    padding: 10px 12px
+
+
+.mis-donaciones-content .donaciones-table .donaciones-head .donaciones-monto,
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-monto
+    width: 24%
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+
+
+
+.donativos-wrapper .btn-boletos.boton-salir
+	left: 24px
+	right: auto !important
+
+
+.mis-donaciones-content .donaciones-table .donaciones-head .donaciones-transaccion,
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-transaccion
+    width: 44%
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+
+.mis-donaciones-content .donaciones-table .donaciones-head .donaciones-fecha,
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-fecha
+    width: 32%
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+
+
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-monto
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-transaccion
+.mis-donaciones-content .donaciones-table .donaciones-row .donaciones-fecha
+
+
+
+
+
+/** ==========================
+	* Conentendor Principal
+	=============================
+	**/
+.donaciones-accordion 
+	padding-left: 0
+
+.donaciones-accordion-head,
+.donaciones-accordion 
+	width: 100%
+	margin: 0 auto
+	border-radius: 4px
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 5px 0 rgba(0, 0, 0, 0.12)
+	display: flex
+	flex-wrap: wrap
+
+	.donaciones-accordion__list 
+		background-color: #FFF
+		list-style: none
+		width: 100%
+
+	.donaciones-accordion__list:nth-child(odd)
+		background-color: #f7f7f7
+
+	.donaciones-accordion__list .header 
+		align-content: center
+		background-color: #F9C6C1
+		font-size: 0.85em
+		font-weight: 700
+		display: flex
+		justify-content: flex-start
+		width: 100%
+		position: relative
+
+	.donaciones-accordion__list .link 
+		align-items: center
+		font-size: 0.85em
+		font-weight: 700
+		cursor: pointer
+		border-bottom: 1px solid #e7e7e6
+		display: flex
+		justify-content: flex-start
+		width: 100%
+		position: relative
+		-webkit-transition: all 0.4s ease
+		-moz-transition: all 0.4s ease
+		-moz-transition: all 0.4s ease
+		-o-transition: all 0.4s ease
+		transition: all 0.4s ease
+
+	.donaciones-accordion__list .header .donaciones-datos,
+	.donaciones-accordion__list .header .donaciones-monto,
+	.donaciones-accordion__list .header .donaciones-fecha,
+	.donaciones-accordion__list .header .donaciones-tipo,
+	.donaciones-accordion__list .header .donaciones-facturar,
+	.donaciones-accordion__list .header .donaciones-recurrencia,
+	.donaciones-accordion__list .link .donaciones-datos,
+	.donaciones-accordion__list .link .donaciones-monto,
+	.donaciones-accordion__list .link .donaciones-fecha,
+	.donaciones-accordion__list .link .donaciones-tipo,
+	.donaciones-accordion__list .link .donaciones-facturar,
+	.donaciones-accordion__list .link .donaciones-recurrencia
+		padding: 10px 12px
+
+	.donaciones-accordion__list .header .donaciones-datos,
+	.donaciones-accordion__list .header .donaciones-monto,
+	.donaciones-accordion__list .header .donaciones-fecha,
+	.donaciones-accordion__list .header .donaciones-tipo,
+	.donaciones-accordion__list .header .donaciones-facturar,
+	.donaciones-accordion__list .header .donaciones-recurrencia
+		color: #fff
+		font-size: .95rem
+		font-weight: 500
+
+	.donaciones-accordion__list .link .donaciones-datos,
+	.donaciones-accordion__list .link .donaciones-monto,
+	.donaciones-accordion__list .link .donaciones-fecha,
+	.donaciones-accordion__list .link .donaciones-tipo,
+	.donaciones-accordion__list .link .donaciones-facturar,
+	.donaciones-accordion__list .link .donaciones-recurrencia
+		white-space: pre-wrap
+		word-wrap: break-word
+		overflow-wrap: break-word
+
+
+	.donaciones-accordion__list .header .donaciones-monto,
+	.donaciones-accordion__list .link .donaciones-monto
+		width: 23%
+
+	.donaciones-accordion__list .header .donaciones-fecha,
+	.donaciones-accordion__list .link .donaciones-fecha
+		width: 16%
+
+	.donaciones-accordion__list .header .donaciones-tipo,
+	.donaciones-accordion__list .link .donaciones-tipo
+		width: 25%
+
+	// XS
+	.donaciones-accordion__list .header .donaciones-tipo,
+	.donaciones-accordion__list .header .donaciones-facturar,
+	.donaciones-accordion__list .header .donaciones-recurrencia,
+	.donaciones-accordion__list .link .donaciones-tipo,
+	.donaciones-accordion__list .link .donaciones-facturar,
+	.donaciones-accordion__list .link .donaciones-recurrencia
+		+respond-to(xs)
+			display: none
+
+	.donaciones-accordion__list .header .donaciones-datos,
+	.donaciones-accordion__list .link .donaciones-datos
+		+respond-to(xs)
+			width: 20%
+
+	.donaciones-accordion__list .header .donaciones-monto,
+	.donaciones-accordion__list .link .donaciones-monto
+		+respond-to(xs)
+			width: 40%
+
+	.donaciones-accordion__list .header .donaciones-fecha,
+	.donaciones-accordion__list .link .donaciones-fecha
+		+respond-to(xs)
+			width: 40%
+
+	// TP
+	.donaciones-accordion__list .header .donaciones-tipo,
+	.donaciones-accordion__list .header .donaciones-facturar,
+	.donaciones-accordion__list .header .donaciones-recurrencia,
+	.donaciones-accordion__list .link .donaciones-tipo,
+	.donaciones-accordion__list .link .donaciones-facturar,
+	.donaciones-accordion__list .link .donaciones-recurrencia
+		+respond-to(tp)
+			display: none
+
+	.donaciones-accordion__list .header .donaciones-datos,
+	.donaciones-accordion__list .link .donaciones-datos
+		+respond-to(tp)
+			width: 20%
+
+	.donaciones-accordion__list .header .donaciones-monto,
+	.donaciones-accordion__list .link .donaciones-monto
+		+respond-to(tp)
+			width: 40%
+
+	.donaciones-accordion__list .header .donaciones-fecha,
+	.donaciones-accordion__list .link .donaciones-fecha
+		+respond-to(tp)
+			width: 40%
+
+	.donaciones-accordion__list .header .donaciones-facturar,
+	.donaciones-accordion__list .link .donaciones-facturar
+		+respond-to(tp)
+			width: 15%
+
+	.donaciones-accordion__list .header .donaciones-recurrencia,
+	.donaciones-accordion__list .link .donaciones-recurrencia
+		+respond-to(tp)
+			text-align: center
+			width: 18%
+
+
+	.donaciones-accordion__list .link .donaciones-facturar
+		display: flex
+		justify-content: space-between
+		+respond-to(xs)
+			display: none
+		+respond-to(tp)
+			display: none
+
+
+	.donaciones-accordion__list .link .donaciones-recurrencia .donaciones-recurrencia-cancelada
+		color: #E26666
+
+
+	.donaciones-accordion__list .donaciones-btn-facturar,
+	.donaciones-accordion__list .donaciones-btn-cancelar-donativo,
+	.donaciones-accordion__list .donaciones-facturar-pdf,
+	.donaciones-accordion__list .donaciones-facturar-xml
+		font-size: .9rem
+		min-width: 40px
+		padding: .6rem .4rem
+		white-space: pre-wrap
+		word-wrap: break-word
+		overflow-wrap: break-word
+		width: 100%
+
+	.donaciones-accordion__list .btn:last-child
+		margin-left: 10px
+
+
+	.donaciones-accordion__list .donaciones-btn-facturar
+		background-color: #18ba1a
+		color: white
+
+	.donaciones-accordion__list .donaciones-btn-facturar:active,
+	.donaciones-accordion__list .donaciones-btn-facturar:focus,
+	.donaciones-accordion__list .donaciones-btn-facturar:hover
+		background-color: #128d14
+		color: white
+
+
+	.donaciones-accordion__list .donaciones-btn-cancelar-donativo
+		background-color: #ff6
+		color: #555
+
+	.donaciones-accordion__list .donaciones-btn-cancelar-donativo:active,
+	.donaciones-accordion__list .donaciones-btn-cancelar-donativo:focus,
+	.donaciones-accordion__list .donaciones-btn-cancelar-donativo:hover
+		background-color: #ff9
+		color: #555
+
+
+	.donaciones-accordion__list .donaciones-facturar-pdf,
+	.donaciones-accordion__list .donaciones-facturar-xml
+		background-color: #F1E8C9
+		color: #E26666
+
+	.donaciones-accordion__list .donaciones-facturar-pdf:active,
+	.donaciones-accordion__list .donaciones-facturar-xml:active,
+	.donaciones-accordion__list .donaciones-facturar-pdf:focus,
+	.donaciones-accordion__list .donaciones-facturar-xml:focus,
+	.donaciones-accordion__list .donaciones-facturar-pdf:hover,
+	.donaciones-accordion__list .donaciones-facturar-xml:hover
+		background-color: #E26666
+		color: #F1E8C9
+
+
+	.donaciones-accordion__list .link__title 
+		padding: 1.5em
+		padding-left: 3em
+		position: relative
+		box-sizing: border-box
+		width: 10%
+		display: none
+		background-color: transparent
+		color: #37474F
+
+	.donaciones-accordion li:last-child .link 
+		border-bottom: 0
+
+  
+// Dise: No iconos font-awesome
+.donaciones-accordion li span.glyphicon 
+	position: absolute
+	top: .8em
+	left: .8rem
+	font-size: 1em
+	color: #595959
+	transition: all 0.4s ease
+  
+  
+.donaciones-accordion li span.glyphicon 
+	right: 12px
+	left: auto
+	font-size: 1.2em
+  
+  
+// Conf. clase link al estar activo submenu (con js) **/
+.donaciones-accordion li.open span.glyphicon
+	color: #ff5252
+
+
+.donaciones-accordion li.open span.glyphicon 
+	transform: rotate(180deg)
+  
+  
+// Submenu
+.donaciones-submenu 
+	display: none
+	background-color: #8D2326
+	padding: 20px
+
+
+	.donaciones-submenu-small
+		display: flex
+		justify-content: space-between
+		+respond-to(xs)
+			display: none
+		+respond-to(tp)
+			display: none
+		+respond-to(sl)
+			display: none
+
+	.donaciones-submenu-panel,
+	.donaciones-submenu-panel-row
+		display: none
+		justify-content: space-between
+		+respond-to(xs)
+			display: flex
+		+respond-to(tp)
+			display: flex
+		+respond-to(sl)
+			display: flex
+
+	.donaciones-submenu-panel
+		margin-bottom: 16px
+
+	.donaciones-submenu-panel-row
+		margin-top: 26px
+
+
+	.donaciones-submenu-small p,
+	.donaciones-submenu-small span,
+	.donaciones-submenu-panel span,
+	.donaciones-submenu-panel p,
+	.donaciones-submenu-panel-col p,
+	.donaciones-submenu-panel-col span
+		color: white
+		font-weight: 400
+
+	
+
+	.donaciones-submenu-panel span
+		width: 140px
+
+	.donaciones-submenu-panel p
+		width: calc(100% - 140px)
+
+
+	.donaciones-submenu-panel-row
+		flex-wrap: wrap
+
+	.donaciones-submenu-panel-col
+		align-items: center
+		display: flex
+		flex-wrap: wrap
+		width: 50%
+		+respond-to(sl)
+			width: 100%
+
+	.donaciones-submenu-panel-col:first-child
+		padding-right: 10px
+		+respond-to(sl)
+			margin-bottom: 20px
+			padding-right: 0
+
+	.donaciones-submenu-panel-col:last-child
+		padding-left: 10px
+		+respond-to(sl)
+			padding-left: 0
+
+	.donaciones-submenu-panel-col p
+		display: flex
+		width: 60%
+		+respond-to(sl)
+			text-align: center
+			width: 100%
+
+	.donaciones-submenu-panel-col span
+		display: flex
+		width: 40%
+		+respond-to(sl)
+			margin-bottom: 12px
+			text-align: center
+			width: 100%
+  
+
++respond-to(xs)
+	// .donaciones-accordion__list .header .donaciones-tipo,
+	// .donaciones-accordion__list .header .donaciones-facturar,
+	// .donaciones-accordion__list .header .donaciones-recurrencia,
+	// .donaciones-accordion__list .link .donaciones-tipo,
+	// .donaciones-accordion__list .link .donaciones-facturar,
+	// .donaciones-accordion__list .link .donaciones-recurrencia
+	// 	display: none
+
+	// .donaciones-accordion__list .header .donaciones-datos,
+	// .donaciones-accordion__list .link .donaciones-datos
+	// 	width: 20%
+
+	// .donaciones-accordion__list .header .donaciones-monto,
+	// .donaciones-accordion__list .link .donaciones-monto
+	// 	width: 40%
+
+	// .donaciones-accordion__list .header .donaciones-fecha,
+	// .donaciones-accordion__list .link .donaciones-fecha
+	// 	width: 40%
+
+
+	// .donaciones-submenu-small
+	// 	display: none
+
+	// .donaciones-submenu-panel,
+	// .donaciones-submenu-panel-row
+	// 	display: flex
+
+  
++respond-to(tp)
+	// .donaciones-accordion__list .header .donaciones-tipo,
+	// .donaciones-accordion__list .header .donaciones-facturar,
+	// .donaciones-accordion__list .header .donaciones-recurrencia,
+	// .donaciones-accordion__list .link .donaciones-tipo,
+	// .donaciones-accordion__list .link .donaciones-facturar,
+	// .donaciones-accordion__list .link .donaciones-recurrencia
+	// 	display: none
+
+	// .donaciones-accordion__list .header .donaciones-datos,
+	// .donaciones-accordion__list .link .donaciones-datos
+	// 	width: 20%
+
+	// .donaciones-accordion__list .header .donaciones-monto,
+	// .donaciones-accordion__list .link .donaciones-monto
+	// 	width: 40%
+
+	// .donaciones-accordion__list .header .donaciones-fecha,
+	// .donaciones-accordion__list .link .donaciones-fecha
+	// 	width: 40%
+
+
+	// .donaciones-submenu-small
+	// 	display: none
+
+	// .donaciones-submenu-panel,
+	// .donaciones-submenu-panel-row
+	// 	display: flex
+
+
+  
++respond-to(sl)
+	// .donaciones-submenu-small
+	// 	display: none
+
+	// .donaciones-submenu-panel,
+	// .donaciones-submenu-panel-row
+	// 	display: flex
+
+
+	// .donaciones-submenu-panel-col
+	// 	width: 100%
+
+	// .donaciones-submenu-panel-col:first-child
+	// 	margin-bottom: 20px
+	// 	padding-right: 0
+
+	// .donaciones-submenu-panel-col:last-child
+	// 	padding-left: 0
+
+
+	// .donaciones-submenu-panel-col p,
+	// .donaciones-submenu-panel-col span
+	// 	text-align: center
+	// 	width: 100%
+
+	// .donaciones-submenu-panel-col span
+	// 	margin-bottom: 12px
+
+
