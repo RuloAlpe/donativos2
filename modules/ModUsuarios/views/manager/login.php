@@ -23,12 +23,11 @@ $this->params['breadcrumbs'][] = $this->title;
 				<?php 
 				$form = ActiveForm::begin(); 
 				?>
-				<div class="form-line">
+				
 					<?= $form->field($model, 'username')->textInput(['placeholder'=>'Email'])->label(false) ?>
-				</div>	
-				<div class="form-line">
+				
 					<?= $form->field($model, 'password')->passwordInput(['placeholder'=>'Contraseña'])->label(false)?>
-				</div>
+				
 				<div class="form-group">
 					<?= Html::submitButton('<span class="ladda-label">Ingresar</span>', ["data-style"=>"zoom-in", 'class' => 'btn btn-primary btn-block btn-lg mt-40 ladda-button', 'name' => 'login-button'])
 					?>

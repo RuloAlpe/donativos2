@@ -9,6 +9,11 @@ use yii\helpers\Html;
 $this->title = 'Antes de realizar tu donativo necesitamos nos compartas unos datos';
 $this->params['breadcrumbs'][] = ['label' => 'Ent Usuarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$this->registerJsFile(
+    '@web/webassets/js/signup.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
 ?>
 <div class="container container-full">
 
