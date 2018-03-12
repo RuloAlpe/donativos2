@@ -24,54 +24,58 @@ $this->registerJsFile(
 );
 ?>
 
-<div class="title">
-  <h2>
-    Selecciona un medio para realizar tu contribución de $<?=$ordenCompra->num_total?> MXN
-  </h2>
-</div>
+<div class="donativos-wrapper">
 
-<div class="row">
-    <?php 
-    if(!$ordenCompra->b_subscripcion){
-    ?> 
-    <div class="col-md-2 col-md-offset-5">
+  <div class="title-gral">
+    <h2 class="second">
+      Selecciona un medio para realizar tu contribución de $<?=$ordenCompra->num_total?> MXN
+    </h2>
+  </div>
+
+  <div class="row">
+      <?php 
+      if(!$ordenCompra->b_subscripcion){
+      ?> 
+      <div class="col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-3">
+        <div class="panel">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Establecimiento
+            </h3>
+          </div>
+          <div class="panel-body">
+                <a data-value="2" data-tarjeta="0" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
+                  <img class="img-responsive" src="<?=Url::base()?>/webassets/images/shop.png" alt="Pago en establecimiento">
+                </a>
+          </div>
+        </div>
+      </div>
+      <?php
+      }?>
+
+    <div class="col-sm-4 col-md-3 <?=$ordenCompra->b_subscripcion?'col-md-offset-5':''?>">
       <div class="panel">
         <div class="panel-heading">
           <h3 class="panel-title">
-            Establecimiento
+            Pago con tarjeta
           </h3>
         </div>
         <div class="panel-body">
-              <a data-value="2" data-tarjeta="0" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
-                <img class="img-responsive" src="<?=Url::base()?>/webassets/images/shop.png" alt="Pago en establecimiento">
-              </a>
+          <a data-value="2" data-tarjeta="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
+                <img class="img-responsive" src="<?=Url::base()?>/webassets/images/creditCard.png" alt="Pago con tarjeta">
+            </a>
         </div>
       </div>
     </div>
-    <?php
-    }?>
+  </div>
 
-  <div class="col-md-2 <?=$ordenCompra->b_subscripcion?'col-md-offset-5':''?>">
-    <div class="panel">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          Pago con tarjeta
-        </h3>
-      </div>
-      <div class="panel-body">
-        <a data-value="2" data-tarjeta="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
-              <img class="img-responsive" src="<?=Url::base()?>/webassets/images/creditCard.png" alt="Pago con tarjeta">
-          </a>
-      </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <span class="color-white">Transacción protegida por</span>
+      <img class="img-responsive m-auto" src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12 text-center">
-    <span>Transacción protegida por</span>
-    <img class="img-responsive" src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
-  </div>
 </div>
           
 <!-- Modal -->
@@ -79,7 +83,7 @@ $this->registerJsFile(
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content">
+    <div class="modal-content print">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Modal Header</h4>

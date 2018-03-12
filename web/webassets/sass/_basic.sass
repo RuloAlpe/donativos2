@@ -138,6 +138,41 @@ body
 		box-shadow: none
 		padding: 0 24px
 
+	
+/* modal */
+.modal-content
+	background-color: $white
+	.modal-header
+		background-color: #F9C6C1
+		h4
+			color: $white
+	.modal-body
+		.barcode
+			img
+				margin-bottom: 24px
+				margin-top: 12px
+		.caption
+			display: block
+			margin-bottom: 24px
+		.tiendas-participantes,
+		.powered
+			margin-bottom: 12px
+			text-align: center
+			img
+				display: inline-block
+				margin: 0 auto
+				max-width: 90%
+		
+		.tiendas-participantes
+			img
+				width: 332px
+
+		.powered
+			margin-bottom: 32px
+			span
+				display: block
+			img
+				width: 150px
 
 /*  Generales Globals
 	======================================= */
@@ -173,6 +208,11 @@ body
 		box-shadow: none
 		color: #E26666
 		outline: none
+
+.btn-logout
+	@extend .btn-gral
+	margin-left: 12px
+	padding: 10px 12px!important
 
 .btn-warning
 	background-color: #F1E8C9
@@ -210,6 +250,9 @@ body
 // 		border: 6px double $primary
 // 		font-size: 1.125rem
 
+.color-white
+	color: $white
+	
 .color-yellow
 	color: $yellow
 
@@ -290,6 +333,9 @@ body
 .letter-spacing-5
 	letter-spacing: 5px
 
+.m-auto
+	margin-left: auto
+	margin-right: auto
 
 .text-center
 	text-align: center
@@ -362,3 +408,5 @@ body
 		@extend .text-uppercase
 		small
 			@extend .bold
+
+/****************/

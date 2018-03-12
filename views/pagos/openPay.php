@@ -52,7 +52,10 @@ $date = date("Y-m-d",$date);
       <span>powered by</span><img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="powered by openpay">
     </div>
     
-    <a href="" class="btn btn-primary print-btn">Imprimir este ticket</a>
+    <div class="text-center">
+      <a href="" class="btn btn-success print-btn">Imprimir este ticket</a>
+    </div>
+    
 
   </div>
 

@@ -51,7 +51,7 @@
 			background-color: #D9262C
 
 
-/*  Listado
+/*  Login y Registro
 	======================================= */
 .registro-int
     padding: 20px 0 60px
@@ -189,3 +189,193 @@
 	color: #D9262C
 	margin-top: 30px
 	width: 100%
+
+
+/*  Forma de pago
+	======================================= */
+.donativos-wrapper
+	// background-color: red
+	+respond-to(sl)
+		padding: 0 32px
+
+.donativos-wrapper .tipos-de-pago-content
+    height: auto
+    padding-bottom: 80px
+
+
+.donativos-wrapper .tipos-de-pago-content h3
+    font-weight: 600
+    /*margin: 80px 0 60px*/
+    width: 400px
+
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago
+    background-color: rgba(69,21,24,.8)
+    max-width: 90%
+    padding: 30px 40px
+    width: auto
+
+
+
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard .btn-tipo-de-pago
+    background-color: #F1E8C9
+
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard .caption
+    font-size: 1rem
+    font-style: normal
+    font-weight: 300
+
+
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard
+    display: flex
+    justify-content: center
+    margin: 0
+    width: 100%
+
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard div:hover
+    cursor: pointer
+
+.donativos-wrapper .tipos-de-pago-content .tipos-de-pago .pagocard div:nth-child(2)
+    margin-left: 20px
+
+
+.donativos-wrapper .tipos-de-pago-content .open-pay
+    margin-top: 80px
+
+.donativos-wrapper .tipos-de-pago-content .open-pay span
+    color: #fff
+    display: block
+    margin-bottom: 20px
+    text-align: center
+
+.donativos-wrapper .tipos-de-pago-content .open-pay img
+    width: 350px
+
+
+
+.donativos-wrapper .btn-boletos
+    background-color: #E26666
+    font-size: .9rem
+    text-transform: uppercase
+
+.donativos-wrapper .btn-boletos:active,
+.donativos-wrapper .btn-boletos:hover,
+.donativos-wrapper .btn-boletos:focus
+    background-color: #F1E8C9
+    color: #E26666
+
+
+.donativos-wrapper .donativos-content
+    height: auto
+    padding-bottom: 80px
+
+
+.donativos-wrapper .donativos-content .title
+    margin: 0 0 60px
+
+.donativos-wrapper .donativos-content .title .title-lg
+    display: block
+    font-size: 2rem
+    font-weight: 700
+    margin: 0 auto
+    text-transform: uppercase
+
+.donativos-wrapper .donativos-content .title .title-xs
+    display: block
+    font-size: 1.3rem
+    font-weight: 600
+    margin: 0 auto
+
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper
+    flex-wrap: wrap
+    justify-content: flex-start
+    margin: 0 auto
+    max-width: 1024px
+    width: 90%
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta
+    background-color: transparent
+    margin: 0
+    margin-right: 3%
+    width: 31.31%
+
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .tarjeta-int
+    background-color: #F9C6C1
+    border-radius: 4px
+    width: 100%
+
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta:nth-child(3n + 3)
+    margin-right: 0
+
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .header
+    color: #fff
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto
+    color: #8D2326
+
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .currency
+    font-size: 1.6rem
+    margin-top: -2px
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .cantidad
+    font-size: 5rem
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .monto .moneda
+    font-size: .95rem
+
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta form
+    width: 100%
+
+/**/
+
+.donativos-wrapper .donativos-content .custom-amount-wrapper
+    background-color: rgba(69,21,24,.8)
+    height: auto
+    margin-top: 80px
+    padding: 30px 0 60px
+
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar
+    max-width: 90%
+    padding: 10px 20px
+    width: 740px
+
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .header
+    color: #8D2326
+
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto
+    margin: 0
+    width: auto
+
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto .currency
+    font-size: 1.4rem
+    margin: 12px 8px 16px 0
+
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto .currency,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto .moneda
+    color: #8D2326
+
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto .input-monto,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .monto input[type="text"]
+    color: #8D2326
+    border-color: #fff
+    font-size: 1.85rem
+    font-family: "Source Sans Pro",sans-serif
+    font-weight: 400
+    max-width: 100%
+    padding: 4px 12px
+    text-align: right
+    width: 280px
+
+
+.donativos-wrapper .donativos-content .tarjetas-wrapper .tarjeta .btn-donativo,
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar .btn_nuevo_monto
+    background-color: #D9262C
+
+
+.donativos-wrapper .donativos-content .custom-amount-wrapper .custom-bar
+  background-color: #F1E8C9  
