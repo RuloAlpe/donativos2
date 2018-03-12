@@ -6,7 +6,8 @@ use yii\helpers\ArrayHelper;
 use yii\web\View;
 
 /* @var $this yii\web\View */
-$this->title = 'Elegir monto a donar';
+$this->title = 'Elegir monto a donar 2';
+
 $this->registerJsFile(
     '@web/webassets/js/index.js',
     ['depends' => [\yii\web\JqueryAsset::className()]]
@@ -26,54 +27,73 @@ if (Yii::$app->user->isGuest) {
 
 <?= Html::beginForm([$url], 'post') ?>
 
-<div class="row js-tipo-donativo">
-  <div class="col-md-6">
-    <div class="panel card" for="test">
-      <div class="panel-body text-center">
-        <h2>Donativo único </h2>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <label class="panel card">
-      <div class="panel-body text-center">
-        <h2>Apadrinar un niño</h2>
-        <input id="js_susbcripcion" type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
-      </div>
-    </label>
-  </div>
-</div>
+  <div class="page-donativo">
 
-<div class="js-slider" style="display:none">
-  <h3>Elige una cantidad</h3>
-  
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h3 class="js-apadrinar" style="display:none">Apadrinare a un niño y</h3>
+    <!-- <div class="title-gral">
       <h3>
-        Mi donativo será de $ <span class="js-amount">10</span><small>.00</small>
+        <span class="primary">Tu puedes hacer la diferencia</span>
+        <span class="second">Elige el monto con el cual deseas contribuir</span>
       </h3>
+    </div> -->
+
+    <div class="row js-tipo-donativo">
+      <div class="col-md-6">
+        <div class="panel card" for="test">
+          <div class="panel-body text-center">
+            <h2>Donativo único </h2>
+            <div class="panel-bg"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="panel card">
+          <div class="panel-body text-center">
+            <h2>Apadrinar un niño</h2>
+            <input id="js_susbcripcion" type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
+            <div class="panel-bg"></div>
+          </div>
+        </label>
+      </div>
     </div>
+
+    <div class="js-slider" style="display:none">
+
+      <div class="title-gral">
+        <h3 class="primary">Elige una cantidad</h3>
+      
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h3 class="second js-apadrinar" style="display:none">Apadrinare a un niño y</h3>
+            <h3 class="tertiary">
+              Mi donativo será de $ <span class="donar-costo js-amount">10</span><small>.00</small>
+            </h3>
+          </div>
+        
+        </div>
+      </div>
+
+      <div class="row p">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="donativo-slider" id="slider"></div>
+          <?=Html::hiddenInput('plan', 10, ['id'=>'amount_plan'])?>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <button class="btn btn-warning js-back">
+            Seleccionar tipo de donativo
+          </button>
+          <?=Html::submitButton("Realizar donativo", ["class"=>"btn btn-success"])?>
+        </div>
+      </div>
+      
+    </div> 
+
   </div>
 
-  <div class="row p">
-    <div class="col-md-6 col-md-offset-3">
-      <div id="slider"></div>
-      <?=Html::hiddenInput('plan', 10, ['id'=>'amount_plan'])?>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <button class="btn btn-warning js-back">
-        Seleccionar tipo de donativo
-      </button>
-      <?=Html::submitButton("Realizar donativo", ["class"=>"btn btn-success"])?>
-    </div>
-  </div>
-  
-</div>  
 <?= Html::endForm() ?>
+
 <?php
 $this->registerJs("
   $(document).ready(function(){

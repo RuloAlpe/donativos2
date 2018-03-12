@@ -1,0 +1,352 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	2.0 - Basicos
+			#
+			# Login
+			# Footer
+			# Usuarios
+
+	-----------------------------------------------------------------------------
+	*/
+
+
+/*  Generales Basic
+	======================================= */
+html,
+body
+    min-height: 100%
+    position: relative
+
+.container
+    min-height: 78vh
+    position: relative
+
+body
+	font-size: 16px
+
+.card
+	min-height: 250px
+	h2
+		display: inline-block
+		margin-right: 10px
+		margin-left: 10px
+		font-size: 2.286rem
+		line-height: 1
+
+.panel.card
+    display: block
+
+.panel.card
+	input[type="checkbox"]
+    	visibility: hidden
+
+/* Slider */
+.ui-widget-content 
+	border: 1px solid #bdc3c7
+	background: #e1e1e1
+	color: #222222
+	margin-top: 4px
+
+.ui-slider
+	.ui-slider-handle 
+		position: absolute
+		z-index: 2
+		width: 5.2em
+		height: 2.2em
+		cursor: default
+		margin: 0 -40px auto !important
+		text-align: center	
+		line-height: 30px
+		color: #FFFFFF
+		font-size: 15px
+		.glyphicon 
+			color: #FFFFFF
+			margin: 0 3px 
+			font-size: 11px
+			opacity: 0.5
+
+.ui-corner-all 
+	border-radius: 20px
+
+
+.ui-slider-horizontal
+	.ui-slider-handle 
+		top: -.9em
+
+.ui-state-default,
+.ui-widget-content .ui-state-default 
+	border: 1px solid #f9f9f9
+	background: #3498db
+
+.ui-slider-horizontal
+	.ui-slider-handle 
+		margin-left: -0.5em
+
+.ui-slider
+	.ui-slider-handle 
+		cursor: pointer
+
+.ui-slider a,
+.ui-slider a:focus 
+	cursor: pointer
+	outline: none
+
+.ui-slider-range-min 
+	background: #2980b9
+
+.p
+	padding: 25px
+
+.navbar-default
+	@extend .bg-trans
+	@extend .border-trans
+
+.navbar-default
+	.navbar-nav>.active>a
+		background-color: #E26666
+		color: $white
+		&:active,
+		&:hover,
+		&:focus
+			background-color: #F1E8C9
+			border-color: #F1E8C9
+			box-shadow: none
+			color: #E26666
+			outline: none
+
+.navbar-toggle.collapsed
+	background-color: rgba(#D9262C,.25)
+	border-color: #D9262C
+
+.navbar-default
+
+	.navbar-toggle
+		&:focus,
+		&:hover
+			background-color: rgba(#D9262C,.65)
+			border-color: #D9262C
+		.icon-bar
+			background-color: $white
+
+	.navbar-collapse, 
+	.navbar-form
+		border-color: transparent
+		box-shadow: none
+		padding: 0 24px
+
+
+/*  Generales Globals
+	======================================= */
+.bg-trans
+	background-color: $bg-trans
+
+.border-trans
+	border-color: $bg-trans
+
+.bkgd-image
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: cover
+
+.bkgd-gral
+	background-image: url(../images/bkgd.jpg)
+	@extend .bkgd-image
+
+.btn-gral
+	background-color: #E26666
+	border: 1px solid #E26666
+	// color: $white
+	font-size: 1rem
+	font-weight: $regular
+	@extend .letter-spacing-1
+	@extend .text-center
+	text-transform: uppercase
+	&:active,
+	&:hover,
+	&:focus
+		background-color: #F1E8C9
+		border-color: #F1E8C9
+		box-shadow: none
+		color: #E26666
+		outline: none
+
+.btn-warning
+	background-color: #F1E8C9
+	border-color: #F1E8C9
+	color: #D9262C
+	&:active,
+	&:hover,
+	&:focus
+		background-color: #e3d193
+		border-color: #e3d193
+		color: #D9262C
+		outline: none
+
+.btn-success
+	background-color: #D9262C
+	border-color: #D9262C
+	color: $white
+	&:active,
+	&:hover,
+	&:focus
+		background-color: #ae1e23
+		border-color: #ae1e23
+		outline: none
+
+	
+
+// 	&.btn-lg
+// 		width: 100%
+	
+// 	+respond-to(xs)
+// 		border: 7px double $primary
+// 		font-size: 1.325rem
+
+// 	+respond-to(sl)
+// 		border: 6px double $primary
+// 		font-size: 1.125rem
+
+.color-yellow
+	color: $yellow
+
+.color-red
+	color: $error
+
+.block
+	display: block
+
+.flex
+	display: flex
+
+.flex-center
+	align-items: center
+	@extend .flex
+	justify-content: center
+
+.flex-y-end
+	align-items: flex-end
+	@extend .flex
+
+.flex-y-start
+	align-items: flex-start
+	@extend .flex
+
+.flex-y-center
+	align-items: center
+	@extend .flex
+
+.flex-x-end
+	@extend .flex
+	justify-content: flex-end
+
+.flex-x-start
+	@extend .flex
+	justify-content: flex-start
+
+.flex-x-center
+	@extend .flex
+	justify-content: flex-center
+	
+.img-respon
+	max-width: 100%
+
+// .input
+// 	background-color: $secondary
+// 	border: 9px double $primary
+// 	color: $white
+// 	font-size: 1.65rem
+// 	font-weight: $bold
+// 	height: 60px
+// 	text-transform: uppercase
+// 	&:active,
+// 	&:hover,
+// 	&:focus
+// 		box-shadow: none
+// 		outline: none
+// 	+placeholder
+// 		color: rgba($white,.3)
+// 		font-size: 1.35rem
+// 		font-weight: $regular
+// 	+respond-to(xs)
+// 		font-size: 1.125rem
+// 		height: 54px
+// 	+respond-to(sl)
+// 		border: 6px double $primary
+// 		font-size: .9rem
+// 		height: 48px
+
+.letter-spacing-1
+	letter-spacing: 1px
+.letter-spacing-2
+	letter-spacing: 2px
+.letter-spacing-3
+	letter-spacing: 3px
+.letter-spacing-4
+	letter-spacing: 4px
+.letter-spacing-5
+	letter-spacing: 5px
+
+
+.text-center
+	text-align: center
+.text-left
+	text-align: left
+.text-right
+	text-align: right
+
+.text-decoration-line
+	text-decoration: underline
+
+.text-decoration-none
+	text-decoration: none
+
+.text-uppercase
+	text-transform: uppercase
+
+.xbold
+	font-weight: $xbold
+.bold
+	font-weight: $bold
+.semi
+	font-weight: $semi
+.regular
+	font-weight: $regular
+.light
+	font-weight: $light
+.thin
+	font-weight: $thin
+
+.title-gral
+	color: $white
+	font-family: $f-base
+	font-size: 2.2rem
+	// font-weight: $bold
+	@extend .letter-spacing-1
+	margin-bottom: 60px
+	text-align: center
+
+	.primary,
+	.second,
+	.tertiary
+		@extend .block
+		small
+			font-size: 90%
+
+	.primary
+		font-size: 3.3rem
+		@extend .xbold
+		@extend .text-uppercase
+
+	.second
+		font-size: 2.2rem
+		@extend .semi
+		margin-top: 4px
+	
+	.tertiary
+		font-size: 2.9rem
+		@extend .bold
+		margin-top: 32px
+		@extend .text-uppercase
+		small
+			@extend .bold

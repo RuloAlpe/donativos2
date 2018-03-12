@@ -21,6 +21,7 @@ class AppAsset extends AssetBundle
         
         'webAssets/plugins/ladda/ladda.css',
         'webAssets/css/bootstrap.min.css',
+        'webAssets/css/donativos.css.map',
         'webAssets/css/donativos.css'
         
     ];

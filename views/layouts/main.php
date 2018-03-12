@@ -37,7 +37,7 @@ AppAsset::register($this);
     </script>
     <?php $this->head() ?>
 </head>
-<body >
+<body class="bkgd-gral">
 <?php $this->beginBody() ?>
 
     <nav class="navbar navbar-default">
@@ -56,15 +56,15 @@ AppAsset::register($this);
                     <a class="navbar-brand" href="#">WebSiteName</a>
                 </div> -->
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="<?=Url::base()?>">Home</a></li>
+                    <li class="active"><a class="btn btn-gral" href="<?=Url::base()?>">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if(!Yii::$app->user->isGuest){ ?>
                         <li><?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success">Ver mis donativos</a>'?></li>
-                        <li><a href="<?=Url::base()?>/site/logout" class="btn btn-success"><span class="glyphicon glyphicon-log-out"></span>Salir</a></li>
+                        <li><a href="<?=Url::base()?>/site/logout" class="btn btn-primary"><span class="glyphicon glyphicon-log-out"></span>Salir</a></li>
                     <?php }else{
                     ?>
-                        <li><a href="<?=Url::base()?>/login" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span>Iniciar sesión</a></li>
+                        <li><a href="<?=Url::base()?>/login" class="btn btn-gral"><span class="glyphicon glyphicon-log-in"></span>Iniciar sesión</a></li>
                     <?php
                     } ?>
                    
@@ -78,7 +78,7 @@ AppAsset::register($this);
     </div>
     
     
-    <footer>
+    <footer class="site-footer">
       <a class="sponsor" target="_blank" href="https://www.figma.org.mx/aviso-privacidad.html">Aviso de privacidad</a>
     </footer>
    
