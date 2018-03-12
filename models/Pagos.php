@@ -212,7 +212,7 @@ class Pagos
 	}
 
 
-	public function generarPlan()
+	public function generarPlan($monto=0)
 	{
 		$this->alias = Yii::getAlias('@app') . '/vendor/openpay';
 
@@ -221,44 +221,20 @@ class Pagos
 		$openpay = \Openpay::getInstance(self::API_OPEN_PAY, self::API_OPEN_PAY_SECRET);
 
 		$planDataRequest = [
-			'amount' =>'250',
+			'amount' =>$monto,
 			'status_after_retry' => 'cancelled',
 			'retry_times' => 2,
-			'name' => "Donativo 250",
+			'name' => "Donativo ".$monto,
 			'repeat_unit' => 'month',
 			'trial_days' => '0',
 			'repeat_every' => '1',
 			'currency' => 'MXN'
 		];
 
-		$planDataRequest2 = [
-			'amount' => '500',
-			'status_after_retry' => 'cancelled',
-			'retry_times' => 2,
-			'name' => "Donativo 500",
-			'repeat_unit' => 'month',
-			'trial_days' => '0',
-			'repeat_every' => '1',
-			'currency' => 'MXN'
-		];
 
-		$planDataRequest3 = [
-			'amount' => '1000',
-			'status_after_retry' => 'cancelled',
-			'retry_times' => 2,
-			'name' => "Donativo 1000",
-			'repeat_unit' => 'month',
-			'trial_days' => '0',
-			'repeat_every' => '1',
-			'currency' => 'MXN'
-		];
 
 		$this->guardarPlan($openpay, $planDataRequest);
-		$this->guardarPlan($openpay, $planDataRequest2);
-		$this->guardarPlan($openpay, $planDataRequest3);
-
 		
-
 	}
 
 	public function guardarCliente($nombre, $email){

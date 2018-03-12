@@ -4,7 +4,9 @@ $(document).ready(function(){
     });
 
     $("div.panel.card").on("click",function(){
-        $("#js_susbcripcion").prop("checked", false);
+        var elemento = $("#js_susbcripcion");
+        elemento.prop("checked", false);
+        seleccionarTipoDonativo(elemento);
     });
 
     $(".js-back").on("click", function(e){
@@ -14,13 +16,17 @@ $(document).ready(function(){
 
     $("#js_susbcripcion").on("change", function(){
         var elemento = $(this);
-        if(elemento.prop("checked")){
-            $(".js-apadrinar").show();
-        }else{
-            $(".js-apadrinar").hide();
-        }
+        seleccionarTipoDonativo(elemento);
     })
 });
+
+function seleccionarTipoDonativo(elemento){
+    if(elemento.prop("checked")){
+        $(".js-apadrinar").show();
+    }else{
+        $(".js-apadrinar").hide();
+    }
+}
 
 function esconderTipoDonativo(){
     $(".js-tipo-donativo").fadeOut("slow", function(){

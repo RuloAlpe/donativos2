@@ -14,6 +14,7 @@ use app\modules\ModUsuarios\models\EntUsuariosFacebook;
 use app\models\EntOrdenesCompras;
 use yii\helpers\Url;
 use app\models\CatPlanes;
+use app\models\Pagos;
 
 /**
  * Default controller for the `musuarios` module
@@ -30,7 +31,12 @@ class ManagerController extends Controller {
 		//$monto = 0;
 		if(isset($_POST["plan"])){
 			$idPlan = $_POST["plan"];
-			$plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
+			$plan = CatPlanes::find()->where(["num_cantidad"=>$idPlan])->one();
+
+			if(!$plan){
+				Pagos::generarPlan();
+			}
+
 			$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
 			$monto = $plan->num_cantidad;
 
