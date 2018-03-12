@@ -24,15 +24,17 @@ $this->registerJsFile(
 );
 ?>
 
-<h3>
-  Selecciona un medio para realizar tu contribución de $<?=$ordenCompra->num_total?> MXN
-</h3>
+<div class="title">
+  <h2>
+    Selecciona un medio para realizar tu contribución de $<?=$ordenCompra->num_total?> MXN
+  </h2>
+</div>
 
 <div class="row">
     <?php 
     if(!$ordenCompra->b_subscripcion){
     ?> 
-    <div class="col-md-3 col-md-offset-3">
+    <div class="col-md-2 col-md-offset-5">
       <div class="panel">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -49,7 +51,7 @@ $this->registerJsFile(
     <?php
     }?>
 
-  <div class="col-md-3">
+  <div class="col-md-2 <?=$ordenCompra->b_subscripcion?'col-md-offset-5':''?>">
     <div class="panel">
       <div class="panel-heading">
         <h3 class="panel-title">
