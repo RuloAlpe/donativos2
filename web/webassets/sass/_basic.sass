@@ -19,8 +19,11 @@ body
     position: relative
 
 .container
-    min-height: 78vh
-    position: relative
+	min-height: 78vh
+	position: relative
+	+respond-to(sl)
+		padding-left: 0
+		padding-right: 0
 
 body
 	font-size: 16px
@@ -317,11 +320,20 @@ body
 .thin
 	font-weight: $thin
 
+.title
+	h2
+		color: $white
+		font-family: $f-base
+		font-size: 2.2rem
+		@extend .letter-spacing-1
+		margin-bottom: 60px
+		text-align: center
+
 .title-gral
 	color: $white
 	font-family: $f-base
 	font-size: 2.2rem
-	// font-weight: $bold
+	@extend .bold
 	@extend .letter-spacing-1
 	margin-bottom: 60px
 	text-align: center

@@ -49,3 +49,143 @@
 		.ui-slider-handle,
 		.ui-state-default
 			background-color: #D9262C
+
+
+/*  Listado
+	======================================= */
+.registro-int
+    padding: 20px 0 60px
+
+
+.registro-int h2
+	color: $white
+	font-size: 1.8rem
+	font-weight: $bold
+	text-align: center
+	margin: 0 auto 40px
+	max-width: 90%
+	width: 440px
+
+@media only screen and (max-width: 768px)
+    .ent-usuarios-create h1
+        font-size: 2.4rem
+    
+    .registro-int h2
+        font-size: 1.2rem
+        width: 80%
+    
+
+@media only screen and (max-width: 480px)
+    .registro-int .registro-int
+        margin: 0 auto
+        width: 90%
+    
+    .ent-usuarios-create h1
+        font-size: 2rem
+    
+    .registro-int h2
+        font-size: 1.1rem
+        width: 90%
+    
+
+
+.ent-usuarios-form
+    background-color: #F9C6C1
+    border-radius: 8px
+    margin: 0 auto
+    width: 340px
+    padding: 40px 34px
+
+@media only screen and (max-width: 768px) 
+    .ent-usuarios-form 
+        width: 80%
+    
+
+@media only screen and (max-width: 480px) 
+    .ent-usuarios-form 
+        padding: 40px 20px
+        min-width: 90%
+        width: 90%
+    
+
+
+.ent-usuarios-form .form-line 
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    margin-bottom: 18px
+    width: 100%
+
+.ent-usuarios-form .form-line .form-group
+    width: 100%
+
+.ent-usuarios-form .form-line .form-group .help-block
+    color: #D9262C
+    font-size: .9rem
+    margin-top: 4px
+    padding-left: 16px
+
+
+.ent-usuarios-form .form-line input[type="text"],
+.ent-usuarios-form .form-line input[type="password"],
+.ent-usuarios-form .form-line input[type="email"]
+    color: #8D2326
+    border-color: #fff
+    font-size: 1.1rem
+    font-family: "Source Sans Pro",sans-serif
+    font-weight: 400
+    padding: 4px 12px
+    text-align: left
+
+    width: 100%
+
+@media only screen and (max-width: 480px) 
+    .ent-usuarios-form .form-line input[type="text"],
+    .ent-usuarios-form .form-line input[type="email"]
+        font-size: 1rem
+    
+
+.ent-usuarios-form .form-line input[type="text"]::placeholder,
+.ent-usuarios-form .form-line input[type="email"]::placeholder 
+    color: #cac6c6
+    font-family: "Source Sans Pro",sans-serif
+    font-weight: 300
+    opacity: 1
+
+
+
+.ent-usuarios-form .form-line input[type="text"]:-ms-input-placeholder,
+.ent-usuarios-form .form-line input[type="email"]:-ms-input-placeholder 
+    color: #cac6c6
+    font-family: "Source Sans Pro",sans-serif
+    font-weight: 300
+
+
+.ent-usuarios-form .form-line input[type="text"]::-ms-input-placeholder,
+.ent-usuarios-form .form-line input[type="email"]::-ms-input-placeholder 
+    color: #cac6c6
+    font-family: "Source Sans Pro",sans-serif
+    font-weight: 300
+
+
+.ent-usuarios-form .form-group .btn-primary, 
+.ent-usuarios-form .form-group .btn-success
+	background-color: #D9262C
+	border-color: #D9262C
+	font-family: "Source Sans Pro",sans-serif
+	font-weight: 300
+	font-size: 1.45rem
+	margin-top: 30px
+	width: 100%
+
+.ent-usuarios-form .form-group .btn-primary:active, 
+.ent-usuarios-form .form-group .btn-success:active,
+.ent-usuarios-form .form-group .btn-primary:focus, 
+.ent-usuarios-form .form-group .btn-success:focus,
+.ent-usuarios-form .form-group .btn-primary:hover, 
+.ent-usuarios-form .form-group .btn-success:hover
+	background-color: #F1E8C9
+	border-color: #F1E8C9
+	color: #D9262C
+	margin-top: 30px
+	width: 100%
