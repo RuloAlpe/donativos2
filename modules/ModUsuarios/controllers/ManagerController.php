@@ -34,7 +34,8 @@ class ManagerController extends Controller {
 			$plan = CatPlanes::find()->where(["num_cantidad"=>$idPlan])->one();
 
 			if(!$plan){
-				Pagos::generarPlan();
+				$pagos = new Pagos();
+				$plan = $pagos->generarPlan($idPlan);
 			}
 
 			$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
@@ -61,7 +62,7 @@ class ManagerController extends Controller {
 					if(isset($_POST["plan"]) && isset($_POST["monto"]) ){
             
 						$idPlan = $_POST["plan"];
-						$plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
+						$plan = CatPlanes::find()->where(["num_cantidad"=>$idPlan])->one();
 						$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
 						$monto = $plan->num_cantidad;
 						
@@ -71,7 +72,7 @@ class ManagerController extends Controller {
 						$ordenCompra->txt_order_number = Utils::generateToken("oc_");
 						$ordenCompra->id_usuario = $usuarioExiste->id_usuario;
 						$ordenCompra->txt_description = "Donativo";
-						$ordenCompra->id_plan = $idPlan;
+						$ordenCompra->id_plan = $plan->id_plan;
 						$ordenCompra->b_subscripcion = $isSubscripcion;
 				
 						if ($ordenCompra->save()) {
@@ -108,7 +109,7 @@ class ManagerController extends Controller {
 					if(isset($_POST["plan"]) && isset($_POST["monto"]) ){
             
 						$idPlan = $_POST["plan"];
-						$plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
+						$plan = CatPlanes::find()->where(["num_cantidad"=>$idPlan])->one();
 						$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
 						$monto = $plan->num_cantidad;
 						
@@ -117,7 +118,7 @@ class ManagerController extends Controller {
 						$ordenCompra->txt_order_number = Utils::generateToken("oc_");
 						$ordenCompra->id_usuario = $idUsuario;
 						$ordenCompra->txt_description = "Donativo";
-						$ordenCompra->id_plan = $idPlan;
+						$ordenCompra->id_plan = $plan->id_plan;
 						$ordenCompra->b_subscripcion = $isSubscripcion;
 				
 						if ($ordenCompra->save()) {

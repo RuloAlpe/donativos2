@@ -233,8 +233,10 @@ class Pagos
 
 
 
-		$this->guardarPlan($openpay, $planDataRequest);
-		
+		$catPlan = $this->guardarPlan($openpay, $planDataRequest);
+
+		return $catPlan;
+			
 	}
 
 	public function guardarCliente($nombre, $email){
@@ -278,6 +280,8 @@ class Pagos
 		$catPlan->txt_moneda = $plan->currency;
 
 		$catPlan->save();
+
+		return $catPlan;
 	}
 
 	public function deletePlan($id)

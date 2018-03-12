@@ -55,8 +55,9 @@ function enviarInformacion(token , tokenOc, tipo, tarjeta){
                 $("#form-pay-pal").submit();    
             }else{
                 if(!tarjeta){
-                    $(".modal-ticket-op").html(res);
-                    $(".modal-ticket-op").removeClass("modal-ticket-op-hide");
+                    $("#open-pay-ticket .modal-body").html(res);
+                    $("#open-pay-ticket").modal("show");
+                    //$(".modal-ticket-op").removeClass("modal-ticket-op-hide");
                 }else{
                     $(".modal-ticket-op-tc").html(res);
                     $(".modal-ticket-op-tc").removeClass("modal-ticket-op-hide");
