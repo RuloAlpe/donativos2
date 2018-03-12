@@ -3,14 +3,6 @@ html, body, .container{
     height: 100%;
 }
 
-.navbar-inverse {
-    background:rgba(0,0,0,0.0);
-    border-color:rgba(0,0,0,0.0);
-}
-
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    border-color: rgba(0,0,0,0.0);
-}
 
 .card{
     min-height: 250px;
@@ -91,4 +83,8 @@ html, body, .container{
 
 .ui-slider-range-min {
 	background: #2980b9;
+}
+
+.p{
+	padding: 25px;
 }

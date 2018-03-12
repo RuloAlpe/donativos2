@@ -26,7 +26,7 @@ if (Yii::$app->user->isGuest) {
 
 <?= Html::beginForm([$url], 'post') ?>
 
-<div class="row">
+<div class="row js-tipo-donativo">
   <div class="col-md-6">
     <div class="panel card" for="test">
       <div class="panel-body text-center">
@@ -38,26 +38,41 @@ if (Yii::$app->user->isGuest) {
     <label class="panel card">
       <div class="panel-body text-center">
         <h2>Apadrinar un niño</h2>
-        <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
+        <input id="js_susbcripcion" type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
       </div>
     </label>
   </div>
 </div>
 
-<h3>Elige una cantidad</h3>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div id="slider"></div>
-    <?=Html::hiddenInput('plan', 10, ['amount_plan'])?>
+<div class="js-slider" style="display:none">
+  <h3>Elige una cantidad</h3>
+  
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3 class="js-apadrinar" style="display:none">Apadrinare a un niño y</h3>
+      <h3>
+        Mi donativo será de $ <span class="js-amount">10</span><small>.00</small>
+      </h3>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h3>
-      Mi donativo será de $ <span class="js-amount">10</span><small>.00</small>
-    </h3>
+
+  <div class="row p">
+    <div class="col-md-6 col-md-offset-3">
+      <div id="slider"></div>
+      <?=Html::hiddenInput('plan', 10, ['id'=>'amount_plan'])?>
+    </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <button class="btn btn-warning js-back">
+        Seleccionar tipo de donativo
+      </button>
+      <?=Html::submitButton("Realizar donativo", ["class"=>"btn btn-success"])?>
+    </div>
+  </div>
+  
+</div>  
 <?= Html::endForm() ?>
 <?php
 $this->registerJs("

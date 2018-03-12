@@ -40,7 +40,7 @@ AppAsset::register($this);
 <body >
 <?php $this->beginBody() ?>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -59,26 +59,21 @@ AppAsset::register($this);
                     <li class="active"><a href="<?=Url::base()?>">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?=Url::base()?>/sign-up"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-                    <li><a href="<?=Url::base()?>/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <?php if(!Yii::$app->user->isGuest){ ?>
+                        <li><?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success">Ver mis donativos</a>'?></li>
+                        <li><a href="<?=Url::base()?>/site/logout" class="btn btn-success"><span class="glyphicon glyphicon-log-out"></span>Salir</a></li>
+                    <?php }else{
+                    ?>
+                        <li><a href="<?=Url::base()?>/login" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span>Iniciar sesión</a></li>
+                    <?php
+                    } ?>
+                   
                 </ul>
             </div>    
         </div>
     </nav>
 
-    
-    <?php if(!Yii::$app->user->isGuest){ ?>
-        <?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success btn-boletos">Ver mis donativos</a>'?>
-        
-        <a href="<?=Url::base()?>/site/logout" class="btn btn-success btn-boletos boton-salir">Salir</a>
-    <?php }else{
-    ?>
-        <a href="<?=Url::base()?>/login" class="btn btn-success btn-boletos">Iniciar sesión</a>
-    <?php
-    } ?>
-
-    <div class="container">
-        <br><br>
+    <div class="container page">
         <?= $content ?>
     </div>
     
