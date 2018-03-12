@@ -19,8 +19,11 @@ body
     position: relative
 
 .container
-    min-height: 78vh
-    position: relative
+	min-height: 78vh
+	position: relative
+	+respond-to(sl)
+		padding-left: 0
+		padding-right: 0
 
 body
 	font-size: 16px
