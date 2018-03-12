@@ -1,4 +1,11 @@
 $(document).ready(function(){
+
+    $(".ladda-button").on("click", function(){
+        var l = Ladda.create(this);
+         l.start();
+         $("form").submit();
+    });
+
     $(".panel.card").on("click",function(){
         esconderTipoDonativo();
     });

@@ -84,7 +84,7 @@ if (Yii::$app->user->isGuest) {
           <button class="btn btn-warning js-back">
             Seleccionar tipo de donativo
           </button>
-          <?=Html::submitButton("Realizar donativo", ["class"=>"btn btn-success"])?>
+          <?=Html::submitButton("<span class='ladda-label'></span>Realizar donativo", ["class"=>"btn btn-success ladda-button", "data-style"=>"zoom-in"])?>
         </div>
       </div>
       
