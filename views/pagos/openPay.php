@@ -14,7 +14,7 @@ $date = date("Y-m-d",$date);
 ?>
 
   <div class="modal-ticket-op-cont">
-
+   <div class="print-area">
     <div class="cargo-total">
       <h5>Total a Donar</h5>
       <span class="monto-total">$  <?=number_format($charger->amount)?></span>
@@ -51,8 +51,11 @@ $date = date("Y-m-d",$date);
     <div class="powered">
       <span>powered by</span><img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="powered by openpay">
     </div>
+    </div> 
+    <div class="text-center">
+      <a href="" class="btn btn-success print-btn">Imprimir este ticket</a>
+    </div>
     
-    <a href="" class="btn btn-primary print-btn">Imprimir este ticket</a>
 
   </div>
 

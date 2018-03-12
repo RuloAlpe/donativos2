@@ -45,9 +45,10 @@ use app\models\Pagos;
 				method:"POST",
 				success: function(response){
 					if(response=="success"){
+						swal("Pago correcto","", "success");
 						window.location.replace(baseUrl+'site/gracias');
 					}else{
-						alert("Hubo un problema con el pago "+ response);
+						swal("Espera","Hubo un problema con el pago "+ response, "warning");
 						l.stop();
 					}
 
@@ -69,7 +70,7 @@ use app\models\Pagos;
 
                 var desc = response.data.description != undefined ? response.data.description : response.message;
 
-                alert("ERROR [" + response.status + "] " + desc);
+                swal("Espera","Hubo un problemo con el pago: ERROR [" + response.status + "] " + desc, "warning");
 
                 l.stop();
 
@@ -170,8 +171,8 @@ use app\models\Pagos;
 			</div>	
 
 			<div class="row">
-				<div class="col-md-12">
-					<button class="btn btn-success btn-donar ladda-button" data-style="zoom-in" id="pay-button">
+				<div class="col-md-6 col-md-offset-3 text-center">
+					<button class="btn btn-success btn-donar btn-block ladda-button" data-style="zoom-in" id="pay-button">
 							<span class="ladda-label">Donar</span>
 					</button>
 				</div>

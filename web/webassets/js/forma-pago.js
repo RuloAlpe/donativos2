@@ -17,14 +17,18 @@ $(document).ready(function(){
 
 
 $(document).on({
-    'click': function(){	window.print();$(".modal-ticket-op").addClass("modal-ticket-op-hide");
+    'click': function(){	
+        $(".print-area").printArea();
+
+        
+        
     }
 }, ".print-btn");
 
 $(document).on({
   'click': function(){
-    $(".modal-ticket-op").addClass("modal-ticket-op-hide");
-    $(".modal-ticket-op-tc").addClass("modal-ticket-op-hide");
+    
+    
   }
 }, ".close-modal");
 

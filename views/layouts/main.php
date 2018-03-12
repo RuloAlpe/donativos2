@@ -61,7 +61,7 @@ AppAsset::register($this);
                 <ul class="nav navbar-nav navbar-right">
                     <?php if(!Yii::$app->user->isGuest){ ?>
                         <li><?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success">Ver mis donativos</a>'?></li>
-                        <li><a href="<?=Url::base()?>/site/logout" class="btn btn-primary"><span class="glyphicon glyphicon-log-out"></span>Salir</a></li>
+                        <li><a href="<?=Url::base()?>/site/logout" class="btn btn-logout"><span class="glyphicon glyphicon-log-out"></span>Salir</a></li>
                     <?php }else{
                     ?>
                         <li><a href="<?=Url::base()?>/login" class="btn btn-gral"><span class="glyphicon glyphicon-log-in"></span>Iniciar sesión</a></li>
