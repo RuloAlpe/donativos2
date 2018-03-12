@@ -39,23 +39,54 @@ AppAsset::register($this);
 </head>
 <body >
 <?php $this->beginBody() ?>
-    <section class="donativos-wrapper">
-        <?php if(!Yii::$app->user->isGuest){ ?>
-            <?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success btn-boletos">Ver mis donativos</a>'?>
-            
-            <a href="<?=Url::base()?>/site/logout" class="btn btn-success btn-boletos boton-salir">Salir</a>
-        <?php }else{
-        ?>
-            <a href="<?=Url::base()?>/login" class="btn btn-success btn-boletos">Iniciar sesión</a>
-        <?php
-        } ?>
-        <?= $content ?>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!-- <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div> -->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="<?=Url::base()?>">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?=Url::base()?>/sign-up"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+                    <li><a href="<?=Url::base()?>/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>    
+        </div>
+    </nav>
+
+    
+    <?php if(!Yii::$app->user->isGuest){ ?>
+        <?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success btn-boletos">Ver mis donativos</a>'?>
         
-        <footer>
+        <a href="<?=Url::base()?>/site/logout" class="btn btn-success btn-boletos boton-salir">Salir</a>
+    <?php }else{
+    ?>
+        <a href="<?=Url::base()?>/login" class="btn btn-success btn-boletos">Iniciar sesión</a>
+    <?php
+    } ?>
+
+    <div class="container">
+        <br><br>
+        <?= $content ?>
+    </div>
+    
+    
+    <footer>
       <a class="sponsor" target="_blank" href="https://www.figma.org.mx/aviso-privacidad.html">Aviso de privacidad</a>
-  
     </footer>
-    </section> 
+   
 <?php $this->endBody() ?>
 </body>
 </html>

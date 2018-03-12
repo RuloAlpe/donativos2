@@ -71,3 +71,12 @@ function validarSoloNumeros(e) {
 		e.preventDefault();
 	}
 }
+
+ //changed. now with parameter
+ function update(slider,val) {
+    //changed. Now, directly take value from ui.value. if not set (initial, will use current value.)
+    var $amount = val;   
+    $("#amount_plan").val($amount);
+    $(".js-amount").html($amount);
+    $('#slider a').html('<label><span class="glyphicon glyphicon-chevron-left"></span> '+$amount+' <span class="glyphicon glyphicon-chevron-right"></span></label>');
+}

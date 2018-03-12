@@ -90,24 +90,16 @@ class SiteController extends Controller
          $monto = $monto * -1;   
         }
 
-        $planes = CatPlanes::find()->where(['b_extra'=>0])->all();
+        $planes = CatPlanes::find()->all();
         if(!$planes){
             $p = new Pagos();
             $p->generarPlan();
-            $planes = CatPlanes::find()->where(['b_extra'=>0])->all();
+            $planes = CatPlanes::find()->all();
             
         }
 
-        $planesExtras = CatPlanes::find()->where(['b_extra'=>1])->all();
-        if(!$planesExtras){
-            $p = new Pagos();
-            $p->generarPlanesAdicionales();
-            $planesExtras = CatPlanes::find()->where(['b_extra'=>1])->all();
-            
-        }
-          
 
-        return $this->render('index' , ['planes'=>$planes, 'planesExtras'=>$planesExtras]);
+        return $this->render('index' , ['planes'=>$planes]);
     }
 
     public function actionMisDonaciones(){
