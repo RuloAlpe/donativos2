@@ -59,8 +59,8 @@ function enviarInformacion(token , tokenOc, tipo, tarjeta){
                     $("#open-pay-ticket").modal("show");
                     //$(".modal-ticket-op").removeClass("modal-ticket-op-hide");
                 }else{
-                    $(".modal-ticket-op-tc").html(res);
-                    $(".modal-ticket-op-tc").removeClass("modal-ticket-op-hide");
+                    $("#open-pay-card .modal-body").html(res);
+                    $("#open-pay-card").modal("show");
                 }    
 
                 

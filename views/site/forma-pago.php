@@ -34,7 +34,7 @@ $this->registerJsFile(
     <?php 
     if(!$ordenCompra->b_subscripcion){
     ?> 
-    <div class="col-md-2 col-md-offset-5">
+    <div class="col-md-2 col-md-offset-4">
       <div class="panel">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -82,7 +82,24 @@ $this->registerJsFile(
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Imprimir ticket</h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="open-pay-card" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Pago con tarjeta</h4>
       </div>
       <div class="modal-body">
         
