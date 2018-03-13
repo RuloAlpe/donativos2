@@ -140,49 +140,52 @@ body
 
 	
 /* modal */
-.modal-content
-	background-color: $white
-	.modal-header
-		background-color: #F9C6C1
-		h4
-			color: $white
-	.modal-body
-		.barcode
-			img
-				margin-bottom: 24px
-				margin-top: 12px
-		.caption
-			display: block
-			margin-bottom: 24px
-		.tiendas-participantes,
-		.powered
-			margin-bottom: 12px
-			text-align: center
-			img
-				display: inline-block
-				margin: 0 auto
-				max-width: 90%
-		
-		.tiendas-participantes
-			img
-				width: 332px
-
-		.powered
-			margin-bottom: 32px
-			span
+.modal-backdrop
+	background-color: transparent
+.modal
+	.modal-content
+		background-color: $white
+		.modal-header
+			background-color: #F9C6C1
+			h4
+				color: $white
+		.modal-body
+			.barcode
+				img
+					margin-bottom: 24px
+					margin-top: 12px
+			.caption
 				display: block
-			img
-				width: 150px
-		
-		.row-footer
-			.logo,
-			.shield
-				margin-top: 24px
-				+respond-to(xs)
-					align-items: center
-					display: flex
-					flex-direction: column
-					text-align: center
+				margin-bottom: 24px
+			.tiendas-participantes,
+			.powered
+				margin-bottom: 12px
+				text-align: center
+				img
+					display: inline-block
+					margin: 0 auto
+					max-width: 90%
+			
+			.tiendas-participantes
+				img
+					width: 332px
+
+			.powered
+				margin-bottom: 32px
+				span
+					display: block
+				img
+					width: 150px
+			
+			.row-footer
+				.logo,
+				.shield
+					margin-top: 24px
+					+respond-to(xs)
+						align-items: center
+						display: flex
+						flex-direction: column
+						text-align: center
 
 /*  Generales Globals
 	======================================= */
