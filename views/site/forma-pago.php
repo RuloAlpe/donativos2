@@ -53,7 +53,7 @@ $this->registerJsFile(
       <?php
       }?>
     
-    <div class="col-sm-4 <?=$ordenCompra->b_subscripcion?'col-md-4 col-md-offset-4':'col-md-3'?>">
+    <div class="col-sm-4 <?=$ordenCompra->b_subscripcion?'col-md-4 col-sm-offset-4 col-md-offset-4':'col-md-3 col-sm-offset-4 col-md-offset-4'?>">
       <div class="panel">
         <div class="panel-heading">
           <h3 class="panel-title">

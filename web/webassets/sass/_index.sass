@@ -14,7 +14,7 @@
 	background-color: black
 	left: 0
 	height: 100vh
-	position: absolute
+	position: fixed
 	right: 0
 	top: 0
 	width: 100%
@@ -34,6 +34,8 @@
 	.panel
 		// @extend .bg-trans
 		background-color: #F9C6C1
+		+respond-to(sl)
+			margin: 0 20px 24px
 		h2
 			color: $white
 			@extend .block
@@ -541,23 +543,9 @@
 			.donaciones-fecha,
 			.donaciones-tipo,
 			.donaciones-facturar,
-			.donaciones-recurrencia,
-			.donaciones-datos,
-			.donaciones-monto,
-			.donaciones-fecha,
-			.donaciones-tipo,
-			.donaciones-facturar,
 			.donaciones-recurrencia
+				font-size: 1.2rem
 				padding: 10px 12px
-
-			.donaciones-datos,
-			.donaciones-monto,
-			.donaciones-fecha,
-			.donaciones-tipo,
-			.donaciones-facturar,
-			.donaciones-recurrencia
-				color: #fff
-				font-size: .95rem
 				font-weight: 500
 
 			.donaciones-datos,
@@ -573,7 +561,7 @@
 
 			.donaciones-monto,
 			.donaciones-monto
-				width: 23%
+				width: 22%
 				+respond-to(xs)
 					width: 40%
 				+respond-to(tp)
@@ -617,23 +605,50 @@
 
 			.donaciones-recurrencia,
 			.donaciones-recurrencia
+				width: 18%
 				+respond-to(tp)
 					text-align: center
 					width: 18%
+				.donaciones-btn-cancelar-donativo
+					margin-left: 0
+					width: 90%
 
 
 			.donaciones-facturar
+				// background-color: red
 				display: flex
 				justify-content: space-between
+				width: 18%
 				+respond-to(xs)
 					display: none
 				+respond-to(tp)
 					display: none
+				.donaciones-btn-facturar
+					margin-left: 0
+					width: 100%
 
 
 			.donaciones-recurrencia .donaciones-recurrencia-cancelada
 				color: #E26666
 
+		.header
+			.donaciones-datos,
+			.donaciones-monto,
+			.donaciones-fecha,
+			.donaciones-tipo,
+			.donaciones-facturar,
+			.donaciones-recurrencia
+				color: $white
+
+		.link
+			.donaciones-datos,
+			.donaciones-monto,
+			.donaciones-fecha,
+			.donaciones-tipo,
+			.donaciones-facturar,
+			.donaciones-recurrencia
+				color: #595959
+				
 
 		.donaciones-btn-facturar,
 		.donaciones-btn-cancelar-donativo,
@@ -708,17 +723,11 @@
 	li
 		span.glyphicon 
 			position: absolute
-			top: .8em
-			left: .8rem
-			font-size: 1em
+			top: 20px
+			font-size: .85em
 			color: #595959
 			transition: all 0.4s ease
-  
-  
-		span.glyphicon 
-			right: 12px
-			left: auto
-			font-size: 1.2em
+			right: 8px
   
 
 		&.open
