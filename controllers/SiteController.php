@@ -90,24 +90,8 @@ class SiteController extends Controller
          $monto = $monto * -1;   
         }
 
-        $planes = CatPlanes::find()->where(['b_extra'=>0])->all();
-        if(!$planes){
-            $p = new Pagos();
-            $p->generarPlan();
-            $planes = CatPlanes::find()->where(['b_extra'=>0])->all();
-            
-        }
 
-        $planesExtras = CatPlanes::find()->where(['b_extra'=>1])->all();
-        if(!$planesExtras){
-            $p = new Pagos();
-            $p->generarPlanesAdicionales();
-            $planesExtras = CatPlanes::find()->where(['b_extra'=>1])->all();
-            
-        }
-          
-
-        return $this->render('index' , ['planes'=>$planes, 'planesExtras'=>$planesExtras]);
+        return $this->render('index');
     }
 
     public function actionMisDonaciones(){
@@ -251,7 +235,13 @@ class SiteController extends Controller
 		if(isset($_POST["plan"])){
             
             $idPlan = $_POST["plan"];
-            $plan = CatPlanes::find()->where(["id_plan"=>$idPlan])->one();
+            $plan = CatPlanes::find()->where(["num_cantidad"=>$idPlan])->one();
+
+            if(!$plan){
+                $pagos = new Pagos();
+				$plan = $pagos->generarPlan($idPlan);
+            }
+
 			$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
             $monto = $plan->num_cantidad;
             
@@ -261,7 +251,7 @@ class SiteController extends Controller
             $ordenCompra->txt_order_number = Utils::generateToken("oc_");
             $ordenCompra->id_usuario = $idUsuario;
             $ordenCompra->txt_description = "Donativo";
-            $ordenCompra->id_plan = $idPlan;
+            $ordenCompra->id_plan = $plan->id_plan;
             $ordenCompra->b_subscripcion = $isSubscripcion;
     
             if ($ordenCompra->save()) {

@@ -1,73 +1,78 @@
-var botonesAmount = null;
-var otraCantidad = null;
-var amount = null;
-var botonEnviar = null;
-
+var total =9999;
 $(document).ready(function(){
-    //botonesAmount = $(".js-select-amount");
-    otraCantidad = $(".js-add");
-    //amount = $("#entordenescompras-num_total");
-    botonEnviar = $(".btn_nuevo_monto");
 
-    botonEnviar.on("click", function(e){
-        monto = $(".ingreso_monto").val();
-        log = $(".ingreso_monto").data("log");
-        if(log == "0"){
-            window.location.href = baseUrl+"sign-up?monto="+monto;
-        }else{
-            window.location.href = baseUrl+"site/guardar-orden?monto="+monto;            
-        }
-    })
+    $(".ladda-button").on("click", function(){
+        var l = Ladda.create(this);
+         l.start();
+         $("form").submit();
+    });
 
-    /*otraCantidad.on("change", function(e){
-        removerActivar();
-        amount.val(otraCantidad.val());
-    });*/
+    $(".panel.card").on("click",function(){
+        esconderTipoDonativo();
+    });
 
-    // Al campo de texto número validara solo numeros
-	otraCantidad.keydown(function (e) {
-		validarSoloNumeros(e);
-	})
+    $("div.panel.card").on("click",function(){
+        var elemento = $("#js_susbcripcion");
+        elemento.prop("checked", false);
+        seleccionarTipoDonativo(elemento);
+    });
 
-    /*botonesAmount.on("click", function(e){
+    $(".js-back").on("click", function(e){
         e.preventDefault();
+        esconderSlider();
+    });
+
+    $("#js_susbcripcion").on("change", function(){
         var elemento = $(this);
-        removerActivar()
-        activarBoton(elemento);
-        var cantidad = $(this).data("value");
-        amount.val(cantidad);
-        $("form").submit();
-    });*/
-
-
+        seleccionarTipoDonativo(elemento);
+    })
 });
 
-function activarBoton(elemento){
-    elemento.addClass("btn-success");
+function seleccionarTipoDonativo(elemento){
+    if(elemento.prop("checked")){
+        $(".js-apadrinar").show();
+    }else{
+        $(".js-apadrinar").hide();
+    }
 }
 
-function removerActivar(){
-    botonesAmount.removeClass("btn-success");
+function esconderTipoDonativo(){
+    $(".js-tipo-donativo").fadeOut("slow", function(){
+        mostrarSlider();
+    });
+
+    
 }
 
-/**
- * Valida que cuando se aprieta un boton sea solo números
- *
- * @param e
- */
-function validarSoloNumeros(e) {
-	// Allow: backspace, delete, tab, escape, enter and .
-	if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-		// Allow: Ctrl+A, Command+A
-		(e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-		// Allow: home, end, left, right, down, up
-		(e.keyCode >= 35 && e.keyCode <= 40)) {
-		// let it happen, don't do anything
-		return;
-	}
-	// Ensure that it is a number and stop the keypress
-	if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57))
-		&& (e.keyCode < 96 || e.keyCode > 105)) {
-		e.preventDefault();
-	}
+function mostrarTipoDonativo(){
+    $(".js-tipo-donativo").fadeIn();
 }
+
+function esconderSlider(){
+    $(".js-slider").fadeOut("slow", function(){
+        mostrarTipoDonativo();
+    });
+}
+
+function mostrarSlider(){
+    $(".js-slider").fadeIn();
+}
+
+ //changed. now with parameter
+ function update(slider,val) {
+    //changed. Now, directly take value from ui.value. if not set (initial, will use current value.)
+    var $amount = val;   
+    $("#amount_plan").val($amount);
+    $(".js-amount").html($amount);
+    $('#slider span').html('<label><span class="glyphicon glyphicon-chevron-left"></span> '+$amount+' <span class="glyphicon glyphicon-chevron-right"></span></label>');
+
+    var degradado = (val * 1) / total;
+    console.log(degradado);
+    degradado = (1 - degradado);
+
+    if(degradado<0){
+        degradado = degradado * -1;
+    }
+    $('.bkgd-gral-mask').css('background-color', 'rgba(0,0,0,' + degradado + ')');
+}
+

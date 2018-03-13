@@ -3,116 +3,126 @@ use yii\widgets\ActiveForm;
 use yii\bootstrap\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
+use yii\web\View;
 
 /* @var $this yii\web\View */
-$this->title = 'Elegir monto a donar';
+$this->title = 'Elegir monto a donar 2';
+
 $this->registerJsFile(
     '@web/webassets/js/index.js',
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
+
+$this->registerJsFile(
+  '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js',
+  ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+
+$this->registerJsFile(
+  '//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js',
+  ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+
+$this->params['classBody'] = true;
+
+if (Yii::$app->user->isGuest) { 
+  $url = "//sign-up";
+}else{
+  $url = "//site/guardar-orden";
+} 
 ?>
 
-    <div class="container container-full">
-      <div class="donativos-content">
-        <h3 class="title">
-          <span class="title-lg">Tu puedes hacer la diferencia</span>
-          <span class="title-xs">Elige el monto con el cual deseas contribuir</span>  
-        </h3>
-        <div class="tarjetas-wrapper">
+<?= Html::beginForm([$url], 'post') ?>
 
-        <?php
-        foreach($planes as $plan){
-        ?>
-          <?php
-          if (Yii::$app->user->isGuest) { 
-            $url = "//sign-up";
-          }else{
-            $url = "//site/guardar-orden";
-          } 
-          ?>
-          
+  <div class="page-donativo">
 
-          <div class="tarjeta">
+    <!-- <div class="title-gral">
+      <h3>
+        <span class="primary">Tu puedes hacer la diferencia</span>
+        <span class="second">Elige el monto con el cual deseas contribuir</span>
+      </h3>
+    </div> -->
 
-            <?= Html::beginForm([$url], 'post') ?>
-
-            <div class="tarjeta-int">
-              
-              <div class="header">Donar</div>
-              <div class="monto">
-                <span class="currency">$</span>
-                <span class="cantidad"><?=$plan->num_cantidad?></span>
-                <span class="moneda">mxn</span></div>
-
-                <input type="hidden" value="<?=$plan->id_plan?>" name="plan" />
-                
-                <input type="hidden" value="<?=$plan->num_cantidad?>" name="monto"/>
-                <button type="submit" class="btn btn-default btn-donativo js-select-amount btn-success" data-style="zoom-in" data-value="500">
-                  <span class="ladda-label">Realizar Donativo</span>
-                </button>
-                
-            </div>
-
-            <div class="check">
-              <div class="check__item">
-                <label class="label--checkbox">
-                  <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
-                  Contribuir mensualmente
-                </label>
-              </div>
-            </div>
-
-            <?= Html::endForm() ?>
-
+    <div class="row js-tipo-donativo">
+      <div class="col-md-6">
+        <div class="panel card" for="test">
+          <div class="panel-body text-center">
+            <h2>Donativo único </h2>
+            <div class="panel-bg"></div>
           </div>
-          
-
-        <?php
-        }
-        ?>
-
-          
         </div>
-          <?php
-          if (Yii::$app->user->isGuest) { 
-            $url = "//sign-up";
-          }else{
-            $url = "//site/guardar-orden";
-          } 
-          ?>
-
-          
-
-        <div class="custom-amount-wrapper">
-        <?= Html::beginForm([$url], 'post') ?>
-          <h3>¿ Tienes otro número en mente ?</h3>
-          <div class="custom-bar">
-            <div class="header">Donar</div>
-            <div class="monto">
-              <span class="currency">$</span>
-              
-              <?=Html::dropDownList("plan", "", ArrayHelper::map($planesExtras, 'id_plan', 'num_cantidad') , ["class"=>" ingreso_monto input-monto"])?>
-
-              <span class="moneda">mxn</span>
-            </div>
-            <button type="submit" class="btn btn-default btn_nuevo_monto js-select-amount" data-style="zoom-in" data-value="500">
-                  <span class="ladda-label">Realizar Donativo</span>
-                </button>
-            <!-- <a class="btn btn-default btn_nuevo_monto">Realizar Donativo</a> -->
+      </div>
+      <div class="col-md-6">
+        <label class="panel card">
+          <div class="panel-body text-center">
+            <h2>Apadrinar un niño</h2>
+            <input id="js_susbcripcion" type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
+            <div class="panel-bg"></div>
           </div>
-          <div class="check">
-              <div class="check__item">
-                <label class="label--checkbox">
-                  <input type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
-                  Contribuir mensualmente
-                </label>
-              </div>
-            </div>
-          <?= Html::endForm() ?>
-        </div>
-
-        
-
+        </label>
       </div>
     </div>
-    
+
+    <div class="js-slider" style="display:none">
+
+      <div class="title-gral">
+        <h3 class="primary">Elige una cantidad</h3>
+      
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h3 class="second js-apadrinar" style="display:none">Apadrinare a un niño y</h3>
+            <h3 class="tertiary">
+              Mi donativo será de $ <span class="donar-costo js-amount">10</span><small>.00</small>
+            </h3>
+          </div>
+        
+        </div>
+      </div>
+
+      <div class="row p">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="donativo-slider" id="slider"></div>
+          <?=Html::hiddenInput('plan', 10, ['id'=>'amount_plan'])?>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <button class="btn btn-warning js-back">
+            Seleccionar tipo de donativo
+          </button>
+          <?=Html::submitButton("<span class='ladda-label'></span>Realizar donativo", ["class"=>"btn btn-success ladda-button", "data-style"=>"zoom-in"])?>
+        </div>
+      </div>
+      
+    </div> 
+
+  </div>
+
+<?= Html::endForm() ?>
+
+<?php
+$this->registerJs("
+  $(document).ready(function(){
+
+    $('#slider').slider({
+      animate: true,
+      value:1,
+      min: 10,
+      max: 9999,
+      step: 10,
+      slide: function(event, ui) {
+        update(1,ui.value);
+      }
+    });
+
+    update(1, 10);
+  });
+  ",
+  View::POS_READY,
+  'my-button-handler'
+);
+?>
+
+          
+       

@@ -69,6 +69,13 @@ class LoginForm extends Model {
 				] 
 		];
 	}
+
+	public function attributeLabels() {
+		return [ 
+				'username'=>"Email",
+				'password'=>"Contraseña",
+		];
+	}
 	
 	/**
 	 * Validates the password.

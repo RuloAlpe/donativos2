@@ -17,14 +17,18 @@ $(document).ready(function(){
 
 
 $(document).on({
-    'click': function(){	window.print();$(".modal-ticket-op").addClass("modal-ticket-op-hide");
+    'click': function(){	
+        $(".print-area").printArea();
+
+        
+        
     }
 }, ".print-btn");
 
 $(document).on({
   'click': function(){
-    $(".modal-ticket-op").addClass("modal-ticket-op-hide");
-    $(".modal-ticket-op-tc").addClass("modal-ticket-op-hide");
+    
+    
   }
 }, ".close-modal");
 
@@ -55,11 +59,12 @@ function enviarInformacion(token , tokenOc, tipo, tarjeta){
                 $("#form-pay-pal").submit();    
             }else{
                 if(!tarjeta){
-                    $(".modal-ticket-op").html(res);
-                    $(".modal-ticket-op").removeClass("modal-ticket-op-hide");
+                    $("#open-pay-ticket .modal-body").html(res);
+                    $("#open-pay-ticket").modal("show");
+                    //$(".modal-ticket-op").removeClass("modal-ticket-op-hide");
                 }else{
-                    $(".modal-ticket-op-tc").html(res);
-                    $(".modal-ticket-op-tc").removeClass("modal-ticket-op-hide");
+                    $("#open-pay-card .modal-body").html(res);
+                    $("#open-pay-card").modal("show");
                 }    
 
                 

@@ -37,26 +37,59 @@ AppAsset::register($this);
     </script>
     <?php $this->head() ?>
 </head>
-<body >
+<body class="bkgd-gral">
+
+<?=isset($this->params['classBody'])?'<div class="bkgd-gral-mask"></div>':''?> 
+
+
+
 <?php $this->beginBody() ?>
-    <section class="donativos-wrapper">
-        <?php if(!Yii::$app->user->isGuest){ ?>
-            <?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success btn-boletos">Ver mis donativos</a>'?>
-            
-            <a href="<?=Url::base()?>/site/logout" class="btn btn-success btn-boletos boton-salir">Salir</a>
-        <?php }else{
-        ?>
-            <a href="<?=Url::base()?>/login" class="btn btn-success btn-boletos">Iniciar sesión</a>
-        <?php
-        } ?>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!-- <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div> -->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a class="btn btn-gral" href="<?=Url::base()?>">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <?php if(!Yii::$app->user->isGuest){ ?>
+                        <li><?=isset($this->params["btns"])?$this->params["btns"]:'<a href="'.Url::base().'/site/mis-donaciones" class="btn btn-success">Ver mis donativos</a>'?></li>
+                        <li><a href="<?=Url::base()?>/site/logout" class="btn btn-logout"><span class="glyphicon glyphicon-log-out"></span>Salir</a></li>
+                    <?php }else{
+                    ?>
+                        <li><a href="<?=Url::base()?>/login" class="btn btn-gral"><span class="glyphicon glyphicon-log-in"></span>Iniciar sesión</a></li>
+                    <?php
+                    } ?>
+                   
+                </ul>
+            </div>    
+        </div>
+    </nav>
+
+    <div class="container page">
         <?= $content ?>
-        
-        <footer>
+    </div>
+    
+    
+    <footer class="site-footer">
       <a class="sponsor" target="_blank" href="https://www.figma.org.mx/aviso-privacidad.html">Aviso de privacidad</a>
-  
     </footer>
-    </section> 
+   
 <?php $this->endBody() ?>
+
+<?=isset($this->params['modales'])?$this->params['modales']:''?> 
 </body>
 </html>
 <?php $this->endPage() ?>

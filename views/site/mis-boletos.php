@@ -17,11 +17,16 @@ $this->registerJsFile(
 
 
 
-<a href="<?=Url::base()?>" class="btn btn-success btn-boletos btn-inicio">Inicio</a>
+<!-- <a href="<?=Url::base()?>" class="btn btn-success btn-boletos btn-inicio">Inicio</a> -->
     
 <div class="container container-full">
   <div class="mis-donaciones-content">
-    <h3>Mis donaciones</h3>
+
+    <div class="title-gral">
+      <h2 class="second">
+        Mis donaciones
+      </h2>
+    </div>
 
     <div class="donaciones-table">
      
@@ -81,7 +86,8 @@ $this->registerJsFile(
               <?=$btnGenerarFactura?>
             </p>
             <p class="donaciones-recurrencia"><?=$cancelarRecurrencia?></p>
-            <span class="link__title"></span><i class="ion ion-ios-arrow-down"></i>
+            <span class="link__title"></span>
+            <span class="glyphicon glyphicon-chevron-down"></span>
           </div>
           <div class="donaciones-submenu">
             <div class="donaciones-submenu-small">
@@ -125,27 +131,11 @@ if(!$facturacion){
  $facturacion->txt_nombre = $usuario->nombreCompleto;
 }
 ?>
-<div class="modal" id="modal-facturacion" style="display:none;">
-  <div class="modal-body">
 
-    <div class="close js-modal-close" id="modal-close"><i class="ion ion-close"></i></div>
+<?php
 
-    <?php $form = ActiveForm::begin([
-    'id'=>'form-datos-facturacion',
-    'action'=>Url::base().'/pagos/generar-factura'
-    ]); ?>
+$this->params['modales'] = $this->render("_facturacion", ['facturacion'=>$facturacion]);
 
-      <?=Html::hiddenInput("t", "", ["id"=>"transaccion"])?>
-      <?= $form->field($facturacion, 'txt_rfc')->textInput(['maxlength' => true, "placeholder"=>"Ingresar RFC"])->label("Ingresar RFC") ?>
-      <?= $form->field($facturacion, 'txt_nombre')->textInput(['maxlength' => true, "placeholder"=>"Nombre"])->label("Ingresar nombre") ?>
-      
-      <div class="form-group">
-        <?= Html::submitButton('<span class="ladda-label">Generar factura</span>', ['class' => 'btn btn-primary ladda-button', 'id' => 'js-generar-factura', "data-style"=>"zoom-in"]) ?>
-      </div>
 
-    <?php ActiveForm::end(); ?>
-    
-  </div>
-</div>
 
 
