@@ -133,7 +133,7 @@ use app\models\Pagos;
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-9">
 					<div class="form-group">
 						<label for="mes-card">Fecha de vencimiento</label>
 						<div class="row">
@@ -154,11 +154,7 @@ use app\models\Pagos;
 						</div>
 					</div>
 				</div>
-				
-				
-				<div class="col-md-3">
-					
-				</div>
+				8
 				<div class="col-md-3">
 					<div class="form-group">
 						<label for="cvv-card">CVV</label>
