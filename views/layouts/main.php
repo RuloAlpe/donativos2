@@ -38,6 +38,9 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body class="bkgd-gral">
+
+<div class="bkgd-gral-mask"></div> 
+
 <?php $this->beginBody() ?>
 
     <nav class="navbar navbar-default">

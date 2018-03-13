@@ -132,7 +132,7 @@ if(!$facturacion){
 }
 ?>
 
-!-- Modal -->
+<!-- Modal -->
 <div id="modal-facturacion" class="modal fade" role="dialog">
   <div class="modal-dialog">
 

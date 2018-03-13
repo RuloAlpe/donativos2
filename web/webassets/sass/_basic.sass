@@ -211,6 +211,7 @@ body
 	@extend .text-center
 	text-transform: uppercase
 	&:active,
+	&:active:focus,
 	&:hover,
 	&:focus
 		background-color: #F1E8C9
@@ -218,6 +219,8 @@ body
 		box-shadow: none
 		color: #E26666
 		outline: none
+	+respond-to(xs)
+		margin-bottom: 20px
 
 .btn-logout
 	@extend .btn-gral
@@ -225,29 +228,37 @@ body
 	padding: 10px 12px!important
 	+respond-to(xs)
 		margin-left: 0
+	+respond-to(xs)
+		margin-bottom: 20px
 
 .btn-warning
 	background-color: #F1E8C9
 	border-color: #F1E8C9
 	color: #D9262C
 	&:active,
+	&:active:focus,
 	&:hover,
 	&:focus
 		background-color: #e3d193
 		border-color: #e3d193
 		color: #D9262C
 		outline: none
+	+respond-to(xs)
+		margin-bottom: 20px
 
 .btn-success
 	background-color: #D9262C
 	border-color: #D9262C
 	color: $white
 	&:active,
+	&:active:focus,
 	&:hover,
 	&:focus
 		background-color: #ae1e23
 		border-color: #ae1e23
 		outline: none
+	+respond-to(xs)
+		margin-bottom: 20px
 
 	
 
@@ -407,11 +418,15 @@ body
 		font-size: 3.3rem
 		@extend .xbold
 		@extend .text-uppercase
+		+respond-to(xs)
+			font-size: 2.6rem
 
 	.second
 		font-size: 2.2rem
 		@extend .semi
 		margin-top: 4px
+		+respond-to(xs)
+			font-size: 1.9rem
 	
 	.tertiary
 		font-size: 2.9rem
@@ -420,5 +435,7 @@ body
 		@extend .text-uppercase
 		small
 			@extend .bold
+		+respond-to(xs)
+			font-size: 2rem
 
-/****************/
+
