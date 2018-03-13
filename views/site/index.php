@@ -23,6 +23,8 @@ $this->registerJsFile(
   ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 
+$this->params['classBody'] = true;
+
 if (Yii::$app->user->isGuest) { 
   $url = "//sign-up";
 }else{

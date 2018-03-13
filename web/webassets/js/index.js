@@ -67,6 +67,12 @@ function mostrarSlider(){
     $('#slider a').html('<label><span class="glyphicon glyphicon-chevron-left"></span> '+$amount+' <span class="glyphicon glyphicon-chevron-right"></span></label>');
 
     var degradado = (val * 1) / total;
-    $('.degradado').css('background-color', 'rgba(0,0,0,.' + degradado + ')');
+    console.log(degradado);
+    degradado = (1 - degradado);
+
+    if(degradado<0){
+        degradado = degradado * -1;
+    }
+    $('.bkgd-gral-mask').css('background-color', 'rgba(0,0,0,' + degradado + ')');
 }
 

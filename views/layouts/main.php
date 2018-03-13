@@ -39,7 +39,9 @@ AppAsset::register($this);
 </head>
 <body class="bkgd-gral">
 
-<div class="bkgd-gral-mask"></div> 
+<?=isset($this->params['classBody'])?'<div class="bkgd-gral-mask"></div>':''?> 
+
+
 
 <?php $this->beginBody() ?>
 
