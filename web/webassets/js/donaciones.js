@@ -45,7 +45,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		var token = $(this).data("token");
 		$("#transaccion").val(token);
-		$("#modal-facturacion").show();
+		$("#modal-facturacion").modal("show");
 	});
 
 
@@ -74,7 +74,8 @@ $(document).ready(function(){
 			success:function(r){
 				if(r.status=="success"){
 					$(".botones-"+tr).html(r.botones);
-					$("#modal-facturacion").hide();
+					$("#modal-facturacion").modal("hide");
+					swal("Factura generada", "Se ha generado su factura ya puede descargarla: "+r.message, "success");
 					l.stop();
 				}else{
 					swal("Espera", "Ocurrio un problema al generar la factura: "+r.message, "warning");

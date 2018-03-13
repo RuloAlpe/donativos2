@@ -131,12 +131,19 @@ if(!$facturacion){
  $facturacion->txt_nombre = $usuario->nombreCompleto;
 }
 ?>
-<div class="modal" id="modal-facturacion" style="display:none;">
-  <div class="modal-body">
 
-    <div class="close js-modal-close" id="modal-close"><i class="ion ion-close"></i></div>
+!-- Modal -->
+<div id="modal-facturacion" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-    <?php $form = ActiveForm::begin([
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Datos de facturación</h4>
+      </div>
+      <div class="modal-body">
+      <?php $form = ActiveForm::begin([
     'id'=>'form-datos-facturacion',
     'action'=>Url::base().'/pagos/generar-factura'
     ]); ?>
@@ -151,7 +158,11 @@ if(!$facturacion){
 
     <?php ActiveForm::end(); ?>
     
+      </div>
+    </div>
   </div>
 </div>
+
+
 
 
