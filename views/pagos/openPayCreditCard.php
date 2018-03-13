@@ -181,21 +181,24 @@ use app\models\Pagos;
 
 
 						
-
-			<div class="logo">
-				<span>
-					Transacciones realizadas vía:
-				</span>
-				<img src="<?= Url::base() ?>/webassets/images/openpay/openpay.png") alt="">
+			<div class="row row-footer">
+				<div class="col-sm-6 col-md-6">
+					<div class="logo">
+						<span>
+							Transacciones realizadas vía:
+						</span>
+						<img src="<?= Url::base() ?>/webassets/images/openpay/openpay.png") alt="">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-6">
+					<div class="shield">
+						<span>
+							Tus pagos se realizan de forma segura con encriptación de 256 bits
+						</span>
+						<img src="<?= Url::base() ?>/webassets/images/openpay/security.png" alt="">
+					</div>
+				</div>
 			</div>
-
-			<div class="shield">
-				<span>
-					Tus pagos se realizan de forma segura con encriptación de 256 bits
-				</span>
-				<img src="<?= Url::base() ?>/webassets/images/openpay/security.png" alt="">
-			</div>
-
 
 		</form>
 		
