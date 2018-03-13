@@ -88,6 +88,8 @@ AppAsset::register($this);
     </footer>
    
 <?php $this->endBody() ?>
+
+<?=isset($this->params['modales'])?$this->params['modales']:''?> 
 </body>
 </html>
 <?php $this->endPage() ?>

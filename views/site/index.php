@@ -14,7 +14,7 @@ $this->registerJsFile(
 );
 
 $this->registerJsFile(
-  'https://code.jquery.com/ui/1.10.4/jquery-ui.min.js',
+  '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js',
   ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 

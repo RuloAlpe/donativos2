@@ -77,8 +77,10 @@ $this->registerJsFile(
   </div>
 
 </div>
-          
-<!-- Modal -->
+
+<?php
+$this->params['modales'] = '
+
 <div id="open-pay-ticket" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -110,8 +112,8 @@ $this->registerJsFile(
       </div>
     </div>
   </div>
-</div>
-
+</div>';
+?>
 <div style="display:none" class="ajax-container">
   
 </div>

@@ -64,7 +64,7 @@ function mostrarSlider(){
     var $amount = val;   
     $("#amount_plan").val($amount);
     $(".js-amount").html($amount);
-    $('#slider a').html('<label><span class="glyphicon glyphicon-chevron-left"></span> '+$amount+' <span class="glyphicon glyphicon-chevron-right"></span></label>');
+    $('#slider span').html('<label><span class="glyphicon glyphicon-chevron-left"></span> '+$amount+' <span class="glyphicon glyphicon-chevron-right"></span></label>');
 
     var degradado = (val * 1) / total;
     console.log(degradado);
