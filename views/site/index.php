@@ -18,6 +18,11 @@ $this->registerJsFile(
   ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 
+$this->registerJsFile(
+  '//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js',
+  ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+
 if (Yii::$app->user->isGuest) { 
   $url = "//sign-up";
 }else{

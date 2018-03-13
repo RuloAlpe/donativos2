@@ -1,3 +1,4 @@
+var total =9999;
 $(document).ready(function(){
 
     $(".ladda-button").on("click", function(){
@@ -64,5 +65,8 @@ function mostrarSlider(){
     $("#amount_plan").val($amount);
     $(".js-amount").html($amount);
     $('#slider a').html('<label><span class="glyphicon glyphicon-chevron-left"></span> '+$amount+' <span class="glyphicon glyphicon-chevron-right"></span></label>');
+
+    var degradado = (val * 1) / total;
+    $('.degradado').css('background-color', 'rgba(0,0,0,.' + degradado + ')');
 }
 
