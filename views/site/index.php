@@ -72,7 +72,7 @@ if (Yii::$app->user->isGuest) {
           <div class="col-md-6 col-md-offset-3">
             <h3 class="second js-apadrinar" style="display:none">Apadrinare a un niño y</h3>
             <h3 class="tertiary">
-              Mi donativo será de $ <span class="donar-costo js-amount">10</span><small>.00</small>
+              Mi donativo será de MXN $ <span class="donar-costo js-amount">10</span><small>.00</small>
             </h3>
           </div>
         
