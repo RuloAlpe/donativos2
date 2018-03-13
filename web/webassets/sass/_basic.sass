@@ -19,9 +19,11 @@ body
     position: relative
 
 .container
+	margin-bottom: 32px
 	min-height: 78vh
 	position: relative
 	+respond-to(sl)
+		margin-bottom: 40px
 		padding-left: 0
 		padding-right: 0
 
@@ -30,6 +32,8 @@ body
 
 .card
 	min-height: 250px
+	+respond-to(xs)
+		min-height: 150px
 	h2
 		display: inline-block
 		margin-right: 10px
@@ -99,7 +103,7 @@ body
 	background: #2980b9
 
 .p
-	padding: 25px
+	padding: 25px 48px
 
 .navbar-default
 	@extend .bg-trans
@@ -141,7 +145,7 @@ body
 /**/
 p
 	margin: 0 0 0
-		
+
 /* modal */
 .modal-backdrop
 	background-color: transparent
@@ -218,6 +222,7 @@ p
 	text-transform: uppercase
 	&:active,
 	&:active:focus,
+	&:active:hover,
 	&:hover,
 	&:focus
 		background-color: #F1E8C9
@@ -243,14 +248,23 @@ p
 	color: #D9262C
 	&:active,
 	&:active:focus,
+	&:active:hover,
 	&:hover,
 	&:focus
 		background-color: #e3d193
 		border-color: #e3d193
 		color: #D9262C
 		outline: none
-	+respond-to(xs)
-		margin-bottom: 20px
+	+respond-to(tp)
+		margin-top: 20px
+
+.btn-outline
+	@extend .btn-warning
+	background-color: rgba(#F1E8C9,.85)
+	color: #D9262C
+	+respond-to(tp)
+		display: block
+		margin: 0 auto
 
 .btn-success
 	background-color: #D9262C
@@ -258,13 +272,20 @@ p
 	color: $white
 	&:active,
 	&:active:focus,
+	&:active:hover,
 	&:hover,
 	&:focus
 		background-color: #ae1e23
 		border-color: #ae1e23
 		outline: none
-	+respond-to(xs)
+	+respond-to(tp)
 		margin-bottom: 20px
+	&.btn-lg
+		font-size: 1.6rem
+		font-weight: $regular
+		padding: 6px 48px
+		// padding-left: 48px
+		// padding-right: 48px
 
 	
 
@@ -325,6 +346,9 @@ p
 	
 .img-respon
 	max-width: 100%
+
+.img-w-250
+	width: 250px
 
 // .input
 // 	background-color: $secondary
@@ -417,9 +441,7 @@ p
 	.second,
 	.tertiary
 		@extend .block
-		small
-			font-size: 90%
-
+		
 	.primary
 		font-size: 3.3rem
 		@extend .xbold
@@ -439,9 +461,16 @@ p
 		@extend .bold
 		margin-top: 32px
 		@extend .text-uppercase
-		small
-			@extend .bold
 		+respond-to(xs)
 			font-size: 2rem
+		.diner
+			display: block
+			font-size: 3rem
+			text-align: center
+			span
+				font-size: 3rem
+			small
+				font-size: 96%
+				@extend .bold
 
 

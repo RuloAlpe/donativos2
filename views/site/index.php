@@ -6,7 +6,7 @@ use yii\helpers\ArrayHelper;
 use yii\web\View;
 
 /* @var $this yii\web\View */
-$this->title = 'Elegir monto a donar 2';
+$this->title = 'Elegir monto a donar';
 
 $this->registerJsFile(
     '@web/webassets/js/index.js',
@@ -44,7 +44,7 @@ if (Yii::$app->user->isGuest) {
     </div> -->
 
     <div class="row js-tipo-donativo">
-      <div class="col-md-6">
+      <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="panel card" for="test">
           <div class="panel-body text-center">
             <h2>Donativo único </h2>
@@ -52,7 +52,7 @@ if (Yii::$app->user->isGuest) {
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-xs-12 col-sm-6 col-md-6">
         <label class="panel card">
           <div class="panel-body text-center">
             <h2>Apadrinar un niño</h2>
@@ -72,7 +72,10 @@ if (Yii::$app->user->isGuest) {
           <div class="col-md-6 col-md-offset-3">
             <h3 class="second js-apadrinar" style="display:none">Apadrinare a un niño y</h3>
             <h3 class="tertiary">
-              Mi donativo será de $ <span class="donar-costo js-amount">10</span><small>.00</small>
+              Mi donativo será de 
+              <div class="diner">
+                $ <span class="donar-costo js-amount">10</span><small>.00</small>
+              </div>
             </h3>
           </div>
         
@@ -88,10 +91,10 @@ if (Yii::$app->user->isGuest) {
 
       <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center">
-          <button class="btn btn-warning js-back">
-            Seleccionar tipo de donativo
+          <?=Html::submitButton("<span class='ladda-label'></span>Realizar donativo", ["class"=>"btn btn-success btn-lg ladda-button", "data-style"=>"zoom-in"])?>
+          <button class="btn btn-warning btn-outline js-back">
+            Cambiar mi tipo de donación
           </button>
-          <?=Html::submitButton("<span class='ladda-label'></span>Realizar donativo", ["class"=>"btn btn-success ladda-button", "data-style"=>"zoom-in"])?>
         </div>
       </div>
       

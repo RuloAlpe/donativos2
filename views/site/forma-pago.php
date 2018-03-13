@@ -36,7 +36,7 @@ $this->registerJsFile(
       <?php 
       if(!$ordenCompra->b_subscripcion){
       ?> 
-      <div class="col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-3">
+      <div class="col-xs-12 col-sm-6 col-md-3 col-md-offset-3">
         <div class="panel">
           <div class="panel-heading">
             <h3 class="panel-title">
@@ -53,7 +53,7 @@ $this->registerJsFile(
       <?php
       }?>
     
-    <div class="col-sm-4 <?=$ordenCompra->b_subscripcion?'col-md-4 col-sm-offset-4 col-md-offset-4':'col-md-3 col-sm-offset-4 col-md-offset-4'?>">
+    <div class="col-xs-12 col-sm-6 <?=$ordenCompra->b_subscripcion?'col-xs-8 col-xs-offset-2 col-md-4 col-sm-offset-4 col-md-offset-4':'col-md-3'?>">
       <div class="panel">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -72,7 +72,7 @@ $this->registerJsFile(
   <div class="row">
     <div class="col-md-12 text-center">
       <span class="color-white">Transacción protegida por</span>
-      <img class="img-responsive m-auto" src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
+      <img class="img-responsive img-w-250 m-auto" src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="Open pay">
     </div>
   </div>
 

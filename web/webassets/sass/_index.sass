@@ -31,6 +31,8 @@
 .page-donativo
 	// background-color: red
 	margin-top: 40px
+	+respond-to(xs)
+		margin-top: 10px
 	.panel
 		// @extend .bg-trans
 		background-color: #F9C6C1
@@ -39,11 +41,23 @@
 		h2
 			color: $white
 			@extend .block
-			font-size: 4rem
+			font-size: 3.8rem
 			font-weight: $light
 			margin-bottom: 24px
+			+respond-to(md)
+				font-size: 3.5rem
+			+respond-to(tl)
+				font-size: 3.1rem
+			+respond-to(xs)
+				font-size: 2.7rem
+			+respond-to(sl)
+				font-size: 2rem
 		
 		.panel-body
+			+respond-to(xs)
+				padding: 12px 10px
+			+respond-to(sl)
+				padding: 12px 8px
 			input[type="checkbox"]
 				background-color: red
 				position: absolute
@@ -54,6 +68,12 @@
 			@extend .bkgd-image
 			height: 250px
 			width: 100%
+			+respond-to(xs)
+				height: 170px
+			+respond-to(tp)
+				height: 150px
+			+respond-to(sl)
+				height: 130px
 	
 	.title-gral
 		.donar-costo
@@ -289,6 +309,13 @@
 
 /**/
 .donativos-wrapper
+
+	.panel
+		.panel-body
+			a
+				img
+					margin: auto
+
 	.donativos-content
 		.custom-amount-wrapper
 			background-color: rgba(69,21,24,.8)
