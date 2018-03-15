@@ -45,7 +45,7 @@ $this->registerJsFile(
           </div>
           <div class="panel-body">
                 <a data-value="2" data-tarjeta="0" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
-                  <img class="img-responsive" src="<?=Url::base()?>/webassets/images/shop.png" alt="Pago en establecimiento">
+                  <img class="img-responsive" src="<?=Url::base()?>/webAssets/images/shop.png" alt="Pago en establecimiento">
                 </a>
           </div>
         </div>
@@ -62,7 +62,7 @@ $this->registerJsFile(
         </div>
         <div class="panel-body">
           <a data-value="2" data-tarjeta="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
-                <img class="img-responsive" src="<?=Url::base()?>/webassets/images/creditCard.png" alt="Pago con tarjeta">
+                <img class="img-responsive" src="<?=Url::base()?>/webAssets/images/creditCard.png" alt="Pago con tarjeta">
             </a>
         </div>
       </div>

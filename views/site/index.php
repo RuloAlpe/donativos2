@@ -74,7 +74,7 @@ if (Yii::$app->user->isGuest) {
             <h3 class="tertiary">
               Mi donativo será de 
               <div class="diner">
-                $ <span class="donar-costo js-amount">10</span><small>.00</small>
+                MXN $ <span class="donar-costo js-amount">10</span><small>.00</small>
               </div>
             </h3>
           </div>

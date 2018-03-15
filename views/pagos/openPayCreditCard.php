@@ -133,32 +133,28 @@ use app\models\Pagos;
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-9">
 					<div class="form-group">
 						<label for="mes-card">Fecha de vencimiento</label>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 									<div class="input-group">
-										<input value="" id="mes-card" class="form-control"  maxlength="2" type="number" placeholder="Mes" data-openpay-card="expiration_month" min="1" max="12">
+										<input value="" id="mes-card" class="form-control"  maxlength="2" type="number" placeholder="Mes (09)" data-openpay-card="expiration_month" min="1" max="12">
 										<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 									</div>
 								</div>	
 							</div>
 							<div class="col-md-6">
 								<div class="input-group">
-									<input value="" id="anio-card" class="form-control"  maxlength="2" type="number" placeholder="Año" data-openpay-card="expiration_year" min="18">
+									<input value="" id="anio-card" class="form-control"  maxlength="2" type="number" placeholder="Año (18)" data-openpay-card="expiration_year" min="18">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				
-				
-				<div class="col-md-3">
-					
-				</div>
+				8
 				<div class="col-md-3">
 					<div class="form-group">
 						<label for="cvv-card">CVV</label>
@@ -187,7 +183,7 @@ use app\models\Pagos;
 						<span>
 							Transacciones realizadas vía:
 						</span>
-						<img src="<?= Url::base() ?>/webassets/images/openpay/openpay.png") alt="">
+						<img src="<?= Url::base() ?>/webAssets/images/openpay/openpay.png") alt="">
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-6">
@@ -195,7 +191,7 @@ use app\models\Pagos;
 						<span>
 							Tus pagos se realizan de forma segura con encriptación de 256 bits
 						</span>
-						<img src="<?= Url::base() ?>/webassets/images/openpay/security.png" alt="">
+						<img src="<?= Url::base() ?>/webAssets/images/openpay/security.png" alt="">
 					</div>
 				</div>
 			</div>
