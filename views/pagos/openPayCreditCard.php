@@ -154,7 +154,7 @@ use app\models\Pagos;
 						</div>
 					</div>
 				</div>
-				8
+				
 				<div class="col-md-3">
 					<div class="form-group">
 						<label for="cvv-card">CVV</label>
