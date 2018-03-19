@@ -366,6 +366,7 @@ class PagosController extends Controller
 				$utils = new \app\modules\ModUsuarios\models\Utils();
 				$parametrosEmail = [
 						'nombre' => $usuario->nombreCompleto,
+						
 						'transaccion'=>$txn_id,
 						'totalPagado'=>$mc_gross
 				];

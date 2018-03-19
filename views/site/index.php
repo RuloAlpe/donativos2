@@ -4,24 +4,26 @@ use yii\bootstrap\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\web\View;
+use app\assets\AppAsset;
 
 /* @var $this yii\web\View */
-$this->title = 'Elegir monto a donar 2';
+$this->title = 'Elegir monto a donar';
 
 $this->registerJsFile(
-    '@web/webassets/js/index.js',
+    '@web/webAssets/js/index.js',
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 
-$this->registerJsFile(
-  '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js',
-  ['depends' => [\yii\web\JqueryAsset::className()]]
+$this->registerCssFile(
+  '@web/webAssets/plugins/nouislider/nouislider.css',
+  ['depends' => [AppAsset::className()]]
 );
 
 $this->registerJsFile(
-  '//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js',
-  ['depends' => [\yii\web\JqueryAsset::className()]]
+  '@web/webAssets/plugins/nouislider/nouislider.js',
+  ['depends' => [AppAsset::className()]]
 );
+
 
 $this->params['classBody'] = true;
 
@@ -55,7 +57,7 @@ if (Yii::$app->user->isGuest) {
       <div class="col-md-6">
         <label class="panel card">
           <div class="panel-body text-center">
-            <h2>Apadrinar un niño</h2>
+            <h2>Apadrinar una mamá soltera</h2>
             <input id="js_susbcripcion" type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
             <div class="panel-bg"></div>
           </div>
@@ -70,9 +72,9 @@ if (Yii::$app->user->isGuest) {
       
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <h3 class="second js-apadrinar" style="display:none">Apadrinare a un niño y</h3>
+            <h3 class="second js-apadrinar" style="display:none">Apadrinaré a una mamá soltera</h3>
             <h3 class="tertiary">
-              Mi donativo será de MXN $ <span class="donar-costo js-amount">10</span><small>.00</small>
+              Mi donativo será de <br>MXN $ <span class="donar-costo js-amount">10</span><small>.00</small>
             </h3>
           </div>
         
@@ -105,18 +107,25 @@ if (Yii::$app->user->isGuest) {
 $this->registerJs("
   $(document).ready(function(){
 
-    $('#slider').slider({
-      animate: true,
-      value:1,
-      min: 10,
-      max: 9999,
+    var bigValueSlider = document.getElementById('slider');
+    
+  
+    noUiSlider.create(bigValueSlider, {
+      start: 10,
       step: 10,
-      slide: function(event, ui) {
-        update(1,ui.value);
+      range: {
+        min: 10,
+        max: 9999
       }
     });
 
-    update(1, 10);
+
+
+    bigValueSlider.noUiSlider.on('update', function ( values, handle ) {
+      update(1, values);
+    });
+
+    
   });
   ",
   View::POS_READY,
