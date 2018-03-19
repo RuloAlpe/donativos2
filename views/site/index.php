@@ -76,7 +76,7 @@ if (Yii::$app->user->isGuest) {
             <h3 class="tertiary">
               Mi donativo será de 
               <div class="diner">
-                MXN $ <span class="donar-costo js-amount">10</span>
+                MXN $ <span class="donar-costo js-amount">250</span>
               </div>
             </h3>
           </div>
@@ -87,7 +87,7 @@ if (Yii::$app->user->isGuest) {
       <div class="row p">
         <div class="col-md-6 col-md-offset-3">
           <div class="donativo-slider" id="slider"></div>
-          <?=Html::hiddenInput('plan', 10, ['id'=>'amount_plan'])?>
+          <?=Html::hiddenInput('plan', 250, ['id'=>'amount_plan'])?>
         </div>
       </div>
 
@@ -116,7 +116,7 @@ $this->registerJs("
       start: 250,
       step: 10,
       range: {
-        min: 10,
+        min: 250,
         max: 9999
       }
     });
