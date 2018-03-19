@@ -366,7 +366,7 @@ class PagosController extends Controller
 				$utils = new \app\modules\ModUsuarios\models\Utils();
 				$parametrosEmail = [
 						'nombre' => $usuario->nombreCompleto,
-						
+						'tipo'=>"donativo recurrente",
 						'transaccion'=>$txn_id,
 						'totalPagado'=>$mc_gross
 				];
@@ -449,6 +449,7 @@ class PagosController extends Controller
 					$utils = new \app\modules\ModUsuarios\models\Utils();
 					$parametrosEmail = [
 							'nombre' => $usuario->txt_username,
+							'tipo'=>"donativo único",
 							'transaccion'=>$ordenCompra->txt_order_number,
 							'totalPagado'=>$mc_gross
 					];
