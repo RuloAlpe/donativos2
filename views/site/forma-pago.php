@@ -14,12 +14,12 @@ $this->registerJsFile(
 );
 
 $this->registerJsFile(
-    '@web/webassets/plugins/print-area/print-area.js',
+    '@web/webAssets/plugins/print-area/print-area.js',
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 
 $this->registerJsFile(
-    '@web/webassets/js/forma-pago.js',
+    '@web/webAssets/js/forma-pago.js',
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 ?>
