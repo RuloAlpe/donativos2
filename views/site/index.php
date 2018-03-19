@@ -103,7 +103,6 @@ if (Yii::$app->user->isGuest) {
     </div> 
 
   </div>
-
 <?= Html::endForm() ?>
 
 <?php
