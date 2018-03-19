@@ -75,10 +75,10 @@ $(document).ready(function(){
 				if(r.status=="success"){
 					$(".botones-"+tr).html(r.botones);
 					$("#modal-facturacion").modal("hide");
-					swal("Factura generada", "Se ha generado su factura ya puede descargarla: "+r.message, "success");
+					swal("Recibo generado", "Se ha generado su recibo deducible ya puede descargarlo: "+r.message, "success");
 					l.stop();
 				}else{
-					swal("Espera", "Ocurrio un problema al generar la factura: "+r.message, "warning");
+					swal("Espera", "Ocurrio un problema al generar el recibo deducible: "+r.message, "warning");
 					l.stop();
 				}
 				
