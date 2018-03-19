@@ -15,8 +15,8 @@
 	======================================= */
 html,
 body
-    min-height: 100%
-    position: relative
+	min-height: 100%
+	position: relative
 
 .container
 	margin-bottom: 32px
@@ -24,6 +24,7 @@ body
 	position: relative
 	+respond-to(sl)
 		margin-bottom: 40px
+		min-height: 112vh
 		padding-left: 0
 		padding-right: 0
 
@@ -210,6 +211,8 @@ p
 .bkgd-gral
 	background-image: url(../images/bkgd.jpg)
 	@extend .bkgd-image
+	overflow-x: hidden
+	+transition(background 0.3s ease-in)
 
 .btn-gral
 	background-color: #E26666
