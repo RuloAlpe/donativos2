@@ -113,7 +113,7 @@ $this->registerJs("
     
   
     noUiSlider.create(bigValueSlider, {
-      start: 10,
+      start: 250,
       step: 10,
       range: {
         min: 10,
