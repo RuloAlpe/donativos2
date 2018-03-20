@@ -126,7 +126,7 @@ use app\models\Pagos;
 						<label for="number-card">Número de tarjeta</label>
 						<div class="input-group">
 								
-								<input id="number-card" class="form-control" autocomplete="off" data-openpay-card="card_number" value="" maxlength="16">
+								<input id="number-card" placeholder="Número de tarjeta" class="form-control" autocomplete="off" data-openpay-card="card_number" value="" maxlength="16">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
 						</div>
 					</div>

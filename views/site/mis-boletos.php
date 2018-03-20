@@ -68,7 +68,7 @@ $this->registerJsFile(
 
           // Se revisa si el pago ya ha sido facturado
           if(!$donacion->b_facturado){
-            $btnGenerarFactura = '<button class="btn donaciones-btn-facturar js-generar-factura" id="facturar-'.$donacion->txt_transaccion.'" data-token="'.$donacion->txt_transaccion.'">Facturar</button>';
+            $btnGenerarFactura = '<button class="btn donaciones-btn-facturar js-generar-factura" id="facturar-'.$donacion->txt_transaccion.'" data-token="'.$donacion->txt_transaccion.'">Generar recibo deducible</button>';
             // $btnGenerarFactura = '<a class="btn donaciones-facturar-pdf">PDF</a> <a class="btn donaciones-facturar-xml">XML</a>';
           }else{
             $btnGenerarFactura = '<a class="btn donaciones-facturar-pdf js-descargar-pdf" target="_blank" href='.Url::base().'/pagos/descargar-factura-pdf?token='.$donacion->txt_transaccion.'>PDF</a> 
@@ -77,7 +77,7 @@ $this->registerJsFile(
         ?>
         <li class="donaciones-accordion__list">
           <div class="link">
-            <p class="donaciones-tipo"><?=$recurrencia?$recurrencia: "Pago único"?></p>
+            <p class="donaciones-tipo"><?=$recurrencia?$recurrencia: "Donativo único"?></p>
             <p class="donaciones-monto">$<?=number_format((float)$donacion->txt_monto_pago, 2, '.', ','); ?></p>
             <p class="donaciones-fecha"><?=Calendario::getDateComplete($donacion->fch_pago)?></p>
 
@@ -97,7 +97,7 @@ $this->registerJsFile(
               <span>Id de transacción:</span> <p><?=$donacion->txt_transaccion?></p>
             </div>
             <div class="donaciones-submenu-panel">
-              <span>Tipo:</span> <p><?=$recurrencia?$recurrencia: "Pago único"?></p>
+              <span>Tipo:</span> <p><?=$recurrencia?$recurrencia: "Donativo único"?></p>
             </div>
             <div class="donaciones-submenu-panel-row">
               <div class="donaciones-submenu-panel-col">
