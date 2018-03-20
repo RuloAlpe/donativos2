@@ -61,7 +61,7 @@ AppAsset::register($this);
                     <a class="navbar-brand" href="#">WebSiteName</a>
                 </div> -->
                 <ul class="nav navbar-nav">
-                    <li class="active"><a class="btn btn-gral" href="<?=Url::base()?>">Home</a></li>
+                    <li class="active"><a class="btn btn-gral" href="https://www.figma.org.mx/donativos/">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if(!Yii::$app->user->isGuest){ ?>

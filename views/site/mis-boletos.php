@@ -10,7 +10,7 @@ $this->title = "Mis donaciones";
 $this->params['btns'] = '';
 
 $this->registerJsFile(
-  '@web/webassets/js/donaciones.js',
+  '@web/webAssets/js/donaciones.js',
   ['depends' => [\app\assets\AppAsset::className()]]
 );
 ?>
