@@ -14,6 +14,8 @@ $this->registerJsFile(
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 
+
+
 $this->registerCssFile(
   '@web/webAssets/plugins/nouislider/nouislider.css',
   ['depends' => [AppAsset::className()]]
