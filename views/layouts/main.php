@@ -35,6 +35,16 @@ AppAsset::register($this);
     <script>
         var baseUrl = "<?=Yii::$app->urlManager->createAbsoluteUrl ( [''] )?>";
     </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116139902-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116139902-1');
+</script>
     <?php $this->head() ?>
 </head>
 <body class="bkgd-gral">
