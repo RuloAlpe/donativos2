@@ -326,7 +326,7 @@ class Pagos
 	}
 
 	public function generarFactura($datosFacturar, $transaccion){
-		
+
 		$parametros = [
 			"sandbox"=>true,
 			"transaccion"=>$transaccion->txt_transaccion,
@@ -336,7 +336,7 @@ class Pagos
 			"total"=>$transaccion->txt_monto_pago,
 			"rfcReceptor"=>$datosFacturar->txt_rfc,
 			"nombreReceptor"=>$datosFacturar->txt_nombre,
-			"usoCFDIReceptor"=>"D04",
+			//"usoCFDIReceptor"=>"D04",
 			"claveProdServ"=>"84101600",
 			"cantidad"=>"1",
 			"claveUnidad"=>"C62",
@@ -345,6 +345,14 @@ class Pagos
 			"valorUnitario"=>$transaccion->txt_monto_pago,
 			"importe"=>$transaccion->txt_monto_pago
 		];
+
+		$logFactura = strlen($datosFacturar->txt_rfc);
+		if($logFactura == 12){
+			$parametros["usoCFDIReceptor"] = "G03";
+		}
+		if($logFactura == 13){
+			$parametros["usoCFDIReceptor"] = "D04";			
+		}
 
 		$respuesta = $this->callGenerarFactura($parametros);
 		
