@@ -10,6 +10,7 @@ class Pagos
 	const PAY_PAL = 2;
 	const OPEN_PAY = 12;
 	const URL_FACTURACION = "https://dev.2geeksonemonkey.com/cfdi/web/services/add-cfdi?uddi=FAAA750615";
+	//const URL_FACTURACION = "http://2geeksonemonkey.com/facturacion.2gom.com.mx/web/services/add-cfdi?uddi=FIG161202AN9";
 	const FACTURACION_SANDBOX = true;
 	
 
@@ -326,7 +327,7 @@ class Pagos
 	}
 
 	public function generarFactura($datosFacturar, $transaccion){
-		
+
 		$parametros = [
 			"sandbox"=>true,
 			"transaccion"=>$transaccion->txt_transaccion,
@@ -336,7 +337,7 @@ class Pagos
 			"total"=>$transaccion->txt_monto_pago,
 			"rfcReceptor"=>$datosFacturar->txt_rfc,
 			"nombreReceptor"=>$datosFacturar->txt_nombre,
-			"usoCFDIReceptor"=>"D04",
+			//"usoCFDIReceptor"=>"D04",
 			"claveProdServ"=>"84101600",
 			"cantidad"=>"1",
 			"claveUnidad"=>"C62",
@@ -345,6 +346,14 @@ class Pagos
 			"valorUnitario"=>$transaccion->txt_monto_pago,
 			"importe"=>$transaccion->txt_monto_pago
 		];
+
+		$logFactura = strlen($datosFacturar->txt_rfc);
+		if($logFactura == 12){
+			$parametros["usoCFDIReceptor"] = "G03";
+		}
+		if($logFactura == 13){
+			$parametros["usoCFDIReceptor"] = "D04";			
+		}
 
 		$respuesta = $this->callGenerarFactura($parametros);
 		
