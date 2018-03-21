@@ -10,6 +10,7 @@ class Pagos
 	const PAY_PAL = 2;
 	const OPEN_PAY = 12;
 	const URL_FACTURACION = "https://dev.2geeksonemonkey.com/cfdi/web/services/add-cfdi?uddi=FAAA750615";
+	//const URL_FACTURACION = "http://2geeksonemonkey.com/facturacion.2gom.com.mx/web/services/add-cfdi?uddi=FIG161202AN9";
 	const FACTURACION_SANDBOX = true;
 	
 
