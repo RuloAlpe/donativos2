@@ -28,8 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
 				
 					<?= $form->field($model, 'password')->passwordInput(['placeholder'=>'Contraseña'])->label(false)?>
 
-					<?=Html::a("Olvidé mi contraseña", ["peticion-pass"])?>
-				
+				<div class="form-group text-right">
+					<?=Html::a("Olvidé mi contraseña", ["peticion-pass"], ['class' => 'login-link link'])?>
+				</div>
 				<div class="form-group">
 					<?= Html::submitButton('<span class="ladda-label">Ingresar</span>', ["data-style"=>"zoom-in", 'class' => 'btn btn-primary btn-block btn-lg mt-40 ladda-button', 'name' => 'login-button'])
 					?>

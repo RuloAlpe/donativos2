@@ -11,7 +11,7 @@
 
 .bkgd-gral-mask
 	bottom: 0
-	background-color: black
+	background-color: rgba($maroon,.7)
 	left: 0
 	height: 100vh
 	position: fixed
@@ -34,24 +34,24 @@
 	+respond-to(xs)
 		margin-top: 10px
 	.panel
-		// @extend .bg-trans
-		background-color: #F9C6C1
+		@extend .bg-trans
+		// background-color: $pink-second
 		+respond-to(sl)
 			margin: 0 20px 24px
 		h2
 			color: $white
 			@extend .block
-			font-size: 3.8rem
-			font-weight: $light
+			font-size: 2.2rem
+			font-weight: $regular
 			margin-bottom: 24px
 			+respond-to(md)
-				font-size: 3.5rem
+				font-size: 2.1rem
 			+respond-to(tl)
-				font-size: 3.1rem
-			+respond-to(xs)
-				font-size: 2.7rem
-			+respond-to(sl)
 				font-size: 2rem
+			+respond-to(xs)
+				font-size: 2rem
+			+respond-to(sl)
+				font-size: 1.9rem
 		
 		.panel-body
 			+respond-to(xs)
@@ -64,7 +64,6 @@
 				z-index: -2
 
 		.panel-bg
-			background-image: url(../images/bkgd.jpg)
 			@extend .bkgd-image
 			height: 250px
 			width: 100%
@@ -74,19 +73,23 @@
 				height: 150px
 			+respond-to(sl)
 				height: 130px
+			&.pabel-bg-unico
+				background-image: url(../images/bkgd-unico.jpg)
+			&.pabel-bg-apadrinar
+				background-image: url(../images/bkgd-apadrinar.jpg)
 	
 	.title-gral
 		.donar-costo
-			color: #D9262C
+			color: $red
 		small
-			color: #D9262C
+			color: $red
 	
 	.donativo-slider
 		margin-bottom: 40px
 		position: relative
 		.ui-slider-handle,
 		.ui-state-default
-			background-color: #D9262C
+			background-color: $red
 
 
 /*  Login y Registro
@@ -113,7 +116,7 @@
     
 
 .ent-usuarios-form
-	background-color: #F9C6C1
+	background-color: $pink-second
 	border-radius: 8px
 	margin: 0 auto
 	width: 340px
@@ -130,7 +133,7 @@
 		width: 100%
 
 		.help-block
-			color: #D9262C
+			color: $red
 			font-size: 1.1rem
 			margin-top: 4px
 			padding-left: 16px
@@ -155,8 +158,8 @@
 	.form-group
 		.btn-primary, 
 		.btn-success
-			background-color: #D9262C
-			border-color: #D9262C
+			background-color: $red
+			border-color: $red
 			font-family: "Source Sans Pro",sans-serif
 			font-weight: 300
 			font-size: 1.45rem
@@ -166,12 +169,18 @@
 			&:active:focus,
 			&:focus,
 			&:hover
-				background-color: #F1E8C9
-				border-color: #F1E8C9
-				color: #D9262C
+				background-color: $yellow-second
+				border-color: $yellow-second
+				color: $red
 				margin-top: 30px
+				outline: none
 				width: 100%
 
+	.login-link
+		color: $red
+		font-size: 1.3rem
+		text-align: right
+		text-decoration: underline
 
 /*  Forma de pago
 	======================================= */
@@ -195,7 +204,7 @@
 
 			.pagocard
 				.btn-tipo-de-pago
-    				background-color: #F1E8C9
+    				background-color: $yellow-second
 
 				.caption
 					font-size: 1rem
@@ -240,8 +249,9 @@
 		&:active:focus,
 		&:hover,
 		&:focus
-			background-color: #F1E8C9
+			background-color: $yellow-second
 			color: #E26666
+			outline: none
 
 
 	.donativos-content
@@ -280,7 +290,7 @@
 				width: 31.31%
 
 				.tarjeta-int
-					background-color: #F9C6C1
+					background-color: $pink-second
 					border-radius: 4px
 					width: 100%
 
@@ -360,12 +370,12 @@
 		.tarjetas-wrapper
 			.tarjeta
 				.btn-donativo
-					background-color: #D9262C
+					background-color: $red
 		.custom-amount-wrapper
 			.custom-bar
-				background-color: #F1E8C9
+				background-color: $yellow-second
 				.btn_nuevo_monto
-    				background-color: #D9262C
+    				background-color: $red
 
 
 /*  Gracias
@@ -410,7 +420,7 @@
 			margin-bottom: 32px
 
 		.boletos-int-btn
-			background-color: #D9262C
+			background-color: $red
 			color: #FFF
 			text-transform: uppercase
 
@@ -418,7 +428,7 @@
 			&:active:focus,
 			&:hover,
 			&:focus
-				background-color: #F1E8C9
+				background-color: $yellow-second
 				color: #E26666
 
 
@@ -462,7 +472,7 @@
 			width: 100%
 
 		.donaciones-head
-			background-color: #F9C6C1
+			background-color: $pink-second
 			color: #fff
 
 
@@ -539,7 +549,7 @@
 
 		.header 
 			align-content: center
-			background-color: #F9C6C1
+			background-color: $pink-second
 			font-size: 0.85em
 			font-weight: 700
 			display: flex
@@ -718,14 +728,14 @@
 
 		.donaciones-facturar-pdf,
 		.donaciones-facturar-xml
-			background-color: #F1E8C9
+			background-color: $yellow-second
 			color: #E26666
 
 			&:active,
 			&:focus,
 			&:hover
 				background-color: #E26666
-				color: #F1E8C9
+				color: $yellow-second
 
 
 		.link__title 
