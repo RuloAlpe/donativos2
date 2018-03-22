@@ -525,10 +525,26 @@ class PagosController extends Controller
 			$pago = new Pagos();
 			if($pago->borrarSubscripcion($usuario->txt_usuario_open_pay, $ids)){
 				$subscripcionHabilitada->b_subscrito = 0;
+				$subscripcionHabilitada->fch_suspencion = Utils::getFechaActual();
+				$subscripcionHabilitada->txt_motivo = $_POST["EntSubscripciones"]["txt_motivo"];
+
+				$parametrosEmail = [
+					'nombre' => $usuario->nombreCompleto,
+					'contacto'=>$usuario->txt_email,
+					'motivo'=>$subscripcionHabilitada->txt_motivo,
+				];
+
 				if($subscripcionHabilitada->save()){
+
+					$utils = new \app\modules\ModUsuarios\models\Utils();
+					$utils->sendNotificacionSuspencion($usuario->txt_email, $parametrosEmail);
+
 					$respuesta["status"] = "success";
 					return $respuesta;
 				}
+			}else{
+				$respuesta["status"] = "error";
+					return $respuesta;
 			}
 		}
 		

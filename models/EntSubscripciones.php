@@ -26,6 +26,7 @@ class EntSubscripciones extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            ["txt_motivo", "required", "on"=>"cancelar"],
             [['id_usuario', 'txt_subscipcion_open_pay'], 'required'],
             [['id_usuario'], 'integer'],
             [['txt_subscipcion_open_pay'], 'string', 'max' => 200],
@@ -41,6 +42,7 @@ class EntSubscripciones extends \yii\db\ActiveRecord
         return [
             'id_usuario' => 'Id Usuario',
             'txt_subscipcion_open_pay' => 'Txt Subscipcion Open Pay',
+            'txt_motivo'=>"Motivo"
         ];
     }
 }

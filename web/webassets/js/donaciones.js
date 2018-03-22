@@ -86,22 +86,69 @@ $(document).ready(function(){
 		});
 	});
 
+	// $(".js-cancelar-subscripcion").on("click", function(e){
+	// 	e.preventDefault();
+	// 	var elemento = $(".js-cancelar-subscripcion")
+	// 	var s = $(this).data("token");
+
+	// 	$.ajax({
+	// 		url:baseUrl+"pagos/borrar-subscripcion-cliente?ids="+s,
+	// 		success:function(r){
+	// 			if(r.status="success"){
+	// 				elemento.replaceWith("Suspendido");
+	// 			}
+	// 		}
+	// 	});
+	// });
+
+
 	$(".js-cancelar-subscripcion").on("click", function(e){
 		e.preventDefault();
-		var elemento = $(".js-cancelar-subscripcion")
+		
 		var s = $(this).data("token");
 
-		$.ajax({
-			url:baseUrl+"pagos/borrar-subscripcion-cliente?ids="+s,
-			success:function(r){
-				if(r.status="success"){
-					elemento.replaceWith("Suspendido");
-				}
-			}
-		});
+		$("#modal-cancelar-donativo").modal("show");
+		$("#modal-cancelar-donativo #s").val(s);
+
+		
 	});
 
+	$("#js-btn-suspender-subscripcion").on("click", function(e){
+		e.preventDefault();
+		
+		$("#modal-cancelar-donativo form").submit();
+	});
 
+	$("#modal-cancelar-donativo form").on("beforeSubmit", function(e){
+
+		
+		var s = $("#modal-cancelar-donativo #s").val();
+		var boton = $("#js-btn-suspender-subscripcion").get(0);
+		var data = $(this).serialize();
+		var l = Ladda.create(boton);
+		l.start();
+		
+		$.ajax({
+			url:baseUrl+"pagos/borrar-subscripcion-cliente?ids="+s,
+			method:"POST",
+			data:data,
+			success:function(r){
+				if(r.status="success"){
+					$("#cancelar-"+s).replaceWith("<span class='donaciones-recurrencia-cancelada'>Suspendido</span>");
+					l.stop();
+					$("#modal-cancelar-donativo").modal("hide");
+				}
+			},error:function(){
+				l.stop();
+				$("#modal-cancelar-donativo").modal("hide");
+				swal("Espera", "Ocurrió un problema. Si el problema persiste envia un email a comunicacion@figma.org.mx", "warning");
+			}
+			});
+		
+		return false;
+	});
+
+	$()
 
 	$(".js-modal-close").on("click", function(e){
 		e.preventDefault();

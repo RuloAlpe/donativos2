@@ -307,9 +307,19 @@ class Pagos
 
 		$customer = $openpay->customers->get($idCustomer);
 		$subscription = $customer->subscriptions->get($idSubscripcion);
-		if(!$subscription->delete()){
-			return true;
+		try{
+			if(!$subscription->delete()){
+				return true;
+			}
+		}catch(\Exception $e){
+			
+			if($e->getCode()==1005){
+				return true;
+			}
+			return false;
 		}
+
+		
 
 		return false;
 	}

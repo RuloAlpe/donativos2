@@ -139,6 +139,10 @@ if(!$facturacion){
 
 $this->params['modales'] = $this->render("_facturacion", ['facturacion'=>$facturacion]);
 
+$subscripcion = new EntSubscripciones();
+$subscripcion->scenario = "cancelar";
+$this->params['modales'] .= $this->render("_cancelar-recurrencia", ['subscripcion'=>$subscripcion]);
+
 
 
 

@@ -3,6 +3,7 @@
 namespace app\modules\ModUsuarios\models;
 
 use Yii;
+use app\config\Config;
 
 class Utils {
 	
@@ -103,6 +104,12 @@ class Utils {
 	public function sendPagoNotificacion($email, $parametrosEmail) {
 		// Envia el correo electronico
 		return $this->sendEmail ( '@app/mail/layouts/notificacion-compra.php', '@app/mail/layouts/notificacion-compra-text.php', 'pagos@figma.org.mx', $email, 'Notificación de donativo.', $parametrosEmail );
+	}
+
+	public function sendNotificacionSuspencion($email, $parametrosEmail) {
+		 $this->sendEmail ( '@app/mail/layouts/notificacion-suspencion-donativo-contacto.php', '@app/mail/layouts/notificacion-suspencion-donativo-contacto-text.php', 'comunicacion@figma.org.mx', Config::EMAIL_CLIENTE, 'Notificación de suspención de donativo.', $parametrosEmail );
+		// Envia el correo electronico
+		 $this->sendEmail ( '@app/mail/layouts/notificacion-suspencion-donativo.php', '@app/mail/layouts/notificacion-suspencion-donativo-text.php', 'comunicacion@figma.org.mx', $email, 'Notificación de suspención de donativo.', $parametrosEmail );
 	}
 
 	public static function generateBoleto($id="0"){
