@@ -1,27 +1,30 @@
 <?php 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+
+$this->title = "";
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="container container-full">
+
+    <div class="registro-int">
+        <h1><?= Html::encode($this->title) ?></h1>
 
 
-    <?php $form = ActiveForm::begin([
-        'id' => 'login-form',
-        'options' => ['class' => 'form-horizontal'],
-        'fieldConfig' => [
-            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            'labelOptions' => ['class' => 'col-lg-1 control-label'],
-        ],
-    ]); ?>
+        <div>
+            <div class="ent-usuarios-form">
+                <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                    <?= $form->field($model, 'username')->textInput(['autofocus' => true, "placeholder"=>"Correo eléctronico"])->label(false) ?>
 
-        <div class="form-group">
-            <div class="col-lg-offset-1 col-lg-11">
-                <?= Html::submitButton('Recuperar password', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    <div class="form-group">
+                       
+                            <?= Html::submitButton('Recuperar contraseña', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                        
+                    </div>
+
+                <?php ActiveForm::end(); ?>
             </div>
         </div>
 
-    <?php ActiveForm::end(); ?>
+    </div>
 </div>

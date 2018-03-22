@@ -28,7 +28,7 @@ class ManagerController extends Controller {
 
 		$idPlan = null;
 		$isSubscripcion = 0;
-		//$monto = 0;
+		$monto = 0;
 		if(isset($_POST["plan"])){
 			$idPlan = $_POST["plan"];
 			$plan = CatPlanes::find()->where(["num_cantidad"=>$idPlan])->one();
@@ -41,6 +41,10 @@ class ManagerController extends Controller {
 			$isSubscripcion = isset($_POST["susbcripcion"])?$_POST["susbcripcion"]:0;
 			$monto = $plan->num_cantidad;
 
+		}
+
+		if($monto==0){
+			return $this->goHome();
 		}
 
 		$model = new EntUsuarios ( [ 

@@ -72,6 +72,11 @@ function mostrarSlider(){
     if(degradado<0){
         degradado = degradado * -1;
     }
+
+    if(degradado>0.7){
+        degradado = 0.7;
+    }
+
     $('.bkgd-gral-mask').css('background-color', 'rgba(0,0,0,' + degradado + ')');
 }
 
