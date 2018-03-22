@@ -37,7 +37,7 @@ $this->registerJsFile(
             <p class="donaciones-monto">Monto</p>
             <p class="donaciones-fecha">Fecha</p>
             <p class="donaciones-facturar">Recibo Deducible</p>
-            <p class="donaciones-recurrencia">Cancelar recurrencia</p>
+            <p class="donaciones-recurrencia">Estatus</p>
           </div>
         </div>
       </div>
@@ -57,10 +57,10 @@ $this->registerJsFile(
             $subscripcion = EntSubscripciones::find()->where(["txt_subscipcion_open_pay"=>$json->transaction->subscription_id])->one();
 
             if($subscripcion->b_subscrito){
-              $cancelarRecurrencia = '<button id="cancelar-'.$json->transaction->subscription_id.'" class="btn donaciones-btn-cancelar-donativo js-cancelar-subscripcion" data-token="'.$json->transaction->subscription_id.'">Cancelar</button>';
+              $cancelarRecurrencia = '<button id="cancelar-'.$json->transaction->subscription_id.'" class="btn donaciones-btn-cancelar-donativo js-cancelar-subscripcion" data-token="'.$json->transaction->subscription_id.'">Suspender</button>';
             }else{
 
-              $cancelarRecurrencia = "<span class='donaciones-recurrencia-cancelada'>Cancelada</span>";
+              $cancelarRecurrencia = "<span class='donaciones-recurrencia-cancelada'>Suspendido</span>";
             }
 
             
@@ -104,7 +104,7 @@ $this->registerJsFile(
                 <span>Recibo deducible:</span> <p class="botones-<?=$donacion->txt_transaccion?>"><?=$btnGenerarFactura?></p>
               </div>
               <div class="donaciones-submenu-panel-col">
-                <span>Cancelar recurrencia:</span> <p><?=$cancelarRecurrencia?></p>
+                <span>Suspender:</span> <p><?=$cancelarRecurrencia?></p>
               </div>
             </div>
           </div>

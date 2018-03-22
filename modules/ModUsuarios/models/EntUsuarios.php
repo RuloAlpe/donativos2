@@ -62,6 +62,12 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 					'on' => 'registerInput' 
 				],
 				[ 
+					'repeatPassword',
+					'compare',
+					'compareAttribute' => 'password',
+					'on' => 'cambiarPass' 
+					],
+				[ 
 					'repeatEmail',
 					'compare',
 					'compareAttribute' => 'email',
@@ -209,7 +215,9 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 				'fch_creacion' => 'Fch Creacion',
 				'fch_actualizacion' => 'Fch Actualizacion',
 				'id_status' => 'Id Status' ,
-				'repeatEmail'=>"Repetir email"
+				'repeatEmail'=>"Repetir email",
+				"password"=>"Contraseña",
+				"repeatPassword"=>"Repetir contraseña",
 		];
 	}
 	

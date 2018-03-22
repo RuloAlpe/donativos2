@@ -95,7 +95,7 @@ $(document).ready(function(){
 			url:baseUrl+"pagos/borrar-subscripcion-cliente?ids="+s,
 			success:function(r){
 				if(r.status="success"){
-					elemento.replaceWith("Donativo recurrente cancelado");
+					elemento.replaceWith("Suspendido");
 				}
 			}
 		});

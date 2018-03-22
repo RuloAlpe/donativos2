@@ -106,7 +106,7 @@ class EntUsuariosCambioPass extends \yii\db\ActiveRecord
      * @param string $t
      * @return NULL | EntUsuariosCambioPass
      */
-    public function getPeticionByToken($t){
+    public static function getPeticionByToken($t){
     	
     	$params = [':t'=>$t];
     	$where = 'txt_token=:t AND b_usado=1';

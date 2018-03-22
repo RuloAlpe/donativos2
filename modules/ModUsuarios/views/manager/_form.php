@@ -26,8 +26,6 @@ use yii\widgets\ActiveForm;
                 <input type="hidden" value="<?=$idPlan?>" name="plan" />
                 <input type="hidden" name="susbcripcion" value="<?=$subscripcion?>"/>
                 <input type="hidden" value="<?=$monto?>" name="monto"/>
-                
-                <?=Html::a("Olvidé mi contraseña", ["peticion-pass"])?>
 
             <div class="form-group">
                 <?= Html::submitButton('<span class="ladda-label">Continuar</span>', ['class' =>'btn btn-success ladda-button', "data-style"=>"zoom-in" ]) ?>

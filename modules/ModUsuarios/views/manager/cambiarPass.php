@@ -13,9 +13,9 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true, "placeholder"=>"Contraseña"])->label(false) ?>
     
-    <?= $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true, "placeholder"=>"Repetir contraseña"])->label(false) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Cambiar password' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
