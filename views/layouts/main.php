@@ -79,7 +79,7 @@ AppAsset::register($this);
                         <li><a href="<?=Url::base()?>/site/logout" class="btn btn-logout"><span class="glyphicon glyphicon-log-out"></span>Salir</a></li>
                     <?php }else{
                     ?>
-                        <li><a href="<?=Url::base()?>/login" class="btn btn-gral"><span class="glyphicon glyphicon-log-in"></span>Iniciar sesión</a></li>
+                        <li><a href="<?=Url::base()?>/login" class="btn btn-gral">Ingresar</a></li>
                     <?php
                     } ?>
                    

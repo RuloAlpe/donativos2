@@ -77,9 +77,8 @@ function mostrarSlider(){
         degradado = 0.7;
     }
 
-    $('.bkgd-gral-mask').css('background-color', 'rgba(0,0,0,' + degradado + ')');
+    $('.bkgd-gral-mask').css('background-color', 'rgba(69,21,24,' + degradado + ')');
 }
-
 
 function addCommas(nStr) {
     nStr += '';
