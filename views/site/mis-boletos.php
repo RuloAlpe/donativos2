@@ -36,7 +36,7 @@ $this->registerJsFile(
             <p class="donaciones-tipo">Tipo</p>
             <p class="donaciones-monto">Monto</p>
             <p class="donaciones-fecha">Fecha</p>
-            <p class="donaciones-facturar">Facturar</p>
+            <p class="donaciones-facturar">Recibo Deducible</p>
             <p class="donaciones-recurrencia">Cancelar recurrencia</p>
           </div>
         </div>
@@ -101,7 +101,7 @@ $this->registerJsFile(
             </div>
             <div class="donaciones-submenu-panel-row">
               <div class="donaciones-submenu-panel-col">
-                <span>Facturar:</span> <p class="botones-<?=$donacion->txt_transaccion?>"><?=$btnGenerarFactura?></p>
+                <span>Recibo deducible:</span> <p class="botones-<?=$donacion->txt_transaccion?>"><?=$btnGenerarFactura?></p>
               </div>
               <div class="donaciones-submenu-panel-col">
                 <span>Cancelar recurrencia:</span> <p><?=$cancelarRecurrencia?></p>
@@ -115,9 +115,12 @@ $this->registerJsFile(
        
       </ul>
 
-    </div>
+    </div>    
 
   </div>
+  <a class="btn btn-success" href="<?=Url::base()?>">
+				Haz tu donativo
+		</a>
 </div>
 
 

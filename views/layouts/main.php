@@ -94,7 +94,7 @@ AppAsset::register($this);
     
     
     <footer class="site-footer">
-      <a class="sponsor" target="_blank" href="https://www.figma.org.mx/aviso-privacidad.html">Aviso de privacidad</a>
+      <a class="sponsor" target="_blank" href="https://www.figma.org.mx/site/aviso-privacidad">Aviso de privacidad</a>
     </footer>
    
 <?php $this->endBody() ?>

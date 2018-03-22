@@ -3,7 +3,7 @@
 use yii\helpers\Url;
 use app\models\Calendario;
 $this->registerJsFile(
-    '@web/webassets/js/open-pay.js',
+    '@web/webAssets/js/open-pay.js',
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 
@@ -46,10 +46,10 @@ $date = date("Y-m-d",$date);
     </div>
     <span class="caption">Para cualquier duda sobre como cobrar, por favor llamar al teléfono +52 (55) 5351 7371 en un horario de 8am a 9pm de lunes a domingo</span>
     <div class="tiendas-participantes">
-      <img src="<?=Url::base()?>/webassets/images/tiendas.jpg" alt="Tiendas participantes">
+      <img src="<?=Url::base()?>/webAssets/images/tiendas.jpg" alt="Tiendas participantes">
     </div>
     <div class="powered">
-      <span>powered by</span><img src="<?=Url::base()?>/webassets/images/logo-openpay.png" alt="powered by openpay">
+      <span>powered by</span><img src="<?=Url::base()?>/webAssets/images/logo-openpay.png" alt="powered by openpay">
     </div>
     </div> 
     <div class="text-center">

@@ -235,7 +235,7 @@ a[x-apple-data-detectors=true] {
                   
                     <div align="center" class="img-container center  autowidth  fullwidth " style="padding-right: 0px;  padding-left: 0px;">
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px;line-height:0px;"><td style="padding-right: 0px; padding-left: 0px;" align="center"><![endif]-->
-  <img class="center  autowidth  fullwidth" align="center" border="0" src="http://www.figma.org.mx/donativos/web/webassets/images/email.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;width: 100%;max-width: 600px" width="600">
+  <img class="center  autowidth  fullwidth" align="center" border="0" src="http://www.figma.org.mx/donativos/web/webAssets/images/email.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;width: 100%;max-width: 600px" width="600">
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
 
@@ -313,7 +313,7 @@ a[x-apple-data-detectors=true] {
                     <div class="">
 	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 20px; padding-top: 20px; padding-bottom: 20px;"><![endif]-->
 	<div style="color:#555555;line-height:120%;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif; padding-right: 20px; padding-left: 20px; padding-top: 20px; padding-bottom: 20px;">	
-		<div style="font-size:12px;line-height:14px;color:#555555;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif;text-align:left;"><p style="margin: 0;font-size: 14px;line-height: 17px;text-align: justify">Este correo electrónico fue generado de manera automática por el</p><p style="margin: 0;font-size: 14px;line-height: 17px;text-align: justify">sistema y no es necesario contestes a el, si necesitas asistencia o</p><p style="margin: 0;font-size: 14px;line-height: 17px;text-align: justify">soporte favor de escribirme a: <span style="color: rgb(0, 0, 255); font-size: 14px; line-height: 16px;">contacto@figma.com</span></p></div>	
+		<div style="font-size:12px;line-height:14px;color:#555555;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif;text-align:left;"><p style="margin: 0;font-size: 14px;line-height: 17px;text-align: justify">Este correo electrónico fue generado de manera automática por el</p><p style="margin: 0;font-size: 14px;line-height: 17px;text-align: justify">sistema y no es necesario contestes a el, si necesitas asistencia o</p><p style="margin: 0;font-size: 14px;line-height: 17px;text-align: justify">soporte favor de escribirme a: <span style="color: rgb(0, 0, 255); font-size: 14px; line-height: 16px;">comunicacion@figma.org.mx</span></p></div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
 </div>
