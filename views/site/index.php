@@ -51,17 +51,17 @@ if (Yii::$app->user->isGuest) {
       <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="panel card" for="test">
           <div class="panel-body text-center">
-            <h2>Donativo único </h2>
-            <div class="panel-bg"></div>
+            <div class="panel-bg pabel-bg-unico"></div>
+            <h2>Hacer un donativo único</h2>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6">
         <label class="panel card">
           <div class="panel-body text-center">
-            <h2>Apadrinar una mamá soltera</h2>
             <input id="js_susbcripcion" type="checkbox" name="susbcripcion" class="checkbox" value="1"/>
-            <div class="panel-bg"></div>
+            <div class="panel-bg pabel-bg-apadrinar"></div>
+            <h2>Apadrinar a una madre soltera</h2>
           </div>
         </label>
       </div>

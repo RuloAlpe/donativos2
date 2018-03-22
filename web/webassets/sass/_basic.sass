@@ -111,28 +111,31 @@ body
 
 .navbar-default
 	.navbar-nav>.active>a
-		background-color: #E26666
+		background-color: $pink
+		border-radius: 24px
 		color: $white
+		padding-left: 24px
+		padding-right: 24px
 		&:active,
 		&:hover,
 		&:focus
-			background-color: #F1E8C9
-			border-color: #F1E8C9
+			background-color: $yellow-second
+			border-color: $yellow-second
 			box-shadow: none
 			color: #E26666
 			outline: none
 
 .navbar-toggle.collapsed
-	background-color: rgba(#D9262C,.25)
-	border-color: #D9262C
+	background-color: rgba($red,.25)
+	border-color: $red
 
 .navbar-default
 
 	.navbar-toggle
 		&:focus,
 		&:hover
-			background-color: rgba(#D9262C,.65)
-			border-color: #D9262C
+			background-color: rgba($red,.65)
+			border-color: $red
 		.icon-bar
 			background-color: $white
 
@@ -153,7 +156,7 @@ p
 	.modal-content
 		background-color: $white
 		.modal-header
-			background-color: #F9C6C1
+			background-color: $pink-second
 			h4
 				color: $white
 		.modal-body
@@ -212,8 +215,9 @@ p
 	@extend .bkgd-image
 
 .btn-gral
-	background-color: #E26666
-	border: 1px solid #E26666
+	background-color: $pink
+	border: 1px solid $pink
+	border-radius: 24px
 	// color: $white
 	font-size: 1rem
 	font-weight: $regular
@@ -228,8 +232,8 @@ p
 	&[disabled]:focus,
 	&:hover,
 	&:focus
-		background-color: #F1E8C9
-		border-color: #F1E8C9
+		background-color: $yellow-second
+		border-color: $yellow-second
 		box-shadow: none
 		color: #E26666
 		outline: none
@@ -246,9 +250,9 @@ p
 		margin-bottom: 20px
 
 .btn-warning
-	background-color: #F1E8C9
-	border-color: #F1E8C9
-	color: #D9262C
+	background-color: $yellow-second
+	border-color: $yellow-second
+	color: $red
 	&:active,
 	&:active:focus,
 	&:active:hover,
@@ -259,22 +263,22 @@ p
 	&:focus
 		background-color: #e3d193
 		border-color: #e3d193
-		color: #D9262C
+		color: $red
 		outline: none
 	+respond-to(tp)
 		margin-top: 20px
 
 .btn-outline
 	@extend .btn-warning
-	background-color: rgba(#F1E8C9,.85)
-	color: #D9262C
+	background-color: rgba($yellow-second,.85)
+	color: $red
 	+respond-to(tp)
 		display: block
 		margin: 0 auto
 
 .btn-success
-	background-color: #D9262C
-	border-color: #D9262C
+	background-color: $red
+	border-color: $red
 	color: $white
 	&:active,
 	&:active:focus,
