@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Ent Usuarios', 'url' => ['index']]
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerJsFile(
-    '@web/webassets/js/signup.js',
+    '@web/webAssets/js/signup.js',
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 ?>

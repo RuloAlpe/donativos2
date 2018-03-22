@@ -17,7 +17,8 @@ $(document).ready(function(){
 
 
 $(document).on({
-    'click': function(){	
+    'click': function(e){
+        e.preventDefault();	
         $(".print-area").printArea();
 
         

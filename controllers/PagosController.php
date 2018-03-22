@@ -612,7 +612,7 @@ class PagosController extends Controller
 				file_put_contents("facturas/".$usuario->txt_token."/".$transaccion."/factura.xml", $xml);
 				//EICA821101RM6
 				$respuesta["status"] = "success";
-				$respuesta["message"] = "Facturas guardadas";
+				$respuesta["message"] = "Recibo generado";
 				$respuesta["botones"] =  $botones;
 
 				$ordenPagada->b_facturado = 1;

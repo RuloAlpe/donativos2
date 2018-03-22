@@ -3,7 +3,7 @@
 namespace app\modules\ModUsuarios\models;
 
 use Yii;
-use app\modules\modUsuarios\models\Utils;
+use app\modules\ModUsuarios\models\Utils;
 
 /**
  * This is the model class for table "ent_usuarios_cambio_pass".
