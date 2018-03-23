@@ -116,11 +116,13 @@ $this->registerJsFile(
       </ul>
 
     </div>    
+  
+    <a class="btn btn-success btn-haz-donativo" href="<?=Url::base()?>">
+      Haz tu donativo
+    </a>
 
   </div>
-  <a class="btn btn-success" href="<?=Url::base()?>">
-				Haz tu donativo
-		</a>
+
 </div>
 
 
