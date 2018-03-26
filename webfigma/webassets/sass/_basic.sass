@@ -193,6 +193,35 @@ hr
 	padding: 0 40px
 	width: 100%
 
+input[type="text"]:focus,
+textarea:focus
+	-webkit-text-size-adjust: 100%
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+    input[type="email"]:hover,
+    input[type="number"]:hover,
+    input[type="search"]:hover,
+    input[type="text"]:hover,
+    input[type="tel"]:hover,
+    input[type="url"]:hover,
+    input[type="password"]:hover,
+    textarea:hover,
+    select:hover
+		font-size: initial
+
+@media (min-width: 768px)
+    input[type="email"]:hover,
+    input[type="number"]:hover,
+    input[type="search"]:hover,
+    input[type="text"]:hover,
+    input[type="tel"]:hover,
+    input[type="url"]:hover,
+    input[type="password"]:hover,
+    textarea:hover,
+    select:hover
+		font-size: inherit
+
 // Pop-up Video
 // .mfp-fade.mfp-bg
 // 	opacity: 0
