@@ -45,10 +45,10 @@ use app\models\Pagos;
 				method:"POST",
 				success: function(response){
 					if(response=="success"){
-						swal("Pago correcto","", "success");
+						swal("Contribución correcta","", "success");
 						window.location.replace(baseUrl+'site/gracias');
 					}else{
-						swal("Espera","Hubo un problema con el pago "+ response, "warning");
+						swal("Espera","Hubo un problema con la contribución "+ response, "warning");
 						l.stop();
 					}
 
@@ -70,7 +70,7 @@ use app\models\Pagos;
 
                 var desc = response.data.description != undefined ? response.data.description : response.message;
 
-                swal("Espera","Hubo un problemo con el pago: ERROR [" + response.status + "] " + desc, "warning");
+                swal("Espera","Hubo un problemo con la contribución: ERROR [" + response.status + "] " + desc, "warning");
 
                 l.stop();
 
@@ -189,7 +189,7 @@ use app\models\Pagos;
 				<div class="col-sm-6 col-md-6">
 					<div class="shield">
 						<span>
-							Tus pagos se realizan de forma segura con encriptación de 256 bits
+							Tus contribución se realizan de forma segura con encriptación de 256 bits
 						</span>
 						<img src="<?= Url::base() ?>/webAssets/images/openpay/security.png" alt="">
 					</div>

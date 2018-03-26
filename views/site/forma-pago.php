@@ -45,7 +45,7 @@ $this->registerJsFile(
           </div>
           <div class="panel-body">
                 <a data-value="2" data-tarjeta="0" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
-                  <img class="img-responsive" src="<?=Url::base()?>/webAssets/images/shop.png" alt="Pago en establecimiento">
+                  <img class="img-responsive" src="<?=Url::base()?>/webAssets/images/shop.png" alt="Contribución en establecimiento">
                 </a>
           </div>
         </div>
@@ -57,12 +57,12 @@ $this->registerJsFile(
       <div class="panel">
         <div class="panel-heading">
           <h3 class="panel-title">
-            Pago con tarjeta
+            Contribución con tarjeta
           </h3>
         </div>
         <div class="panel-body">
           <a data-value="2" data-tarjeta="1" data-tokenoc="<?=$tokenOc?>" data-token="tp_3922b05cccd499fb9d2c415038ab9c08571112b938d1d" class="btn-tipo-de-pago js-btn-pago">
-                <img class="img-responsive" src="<?=Url::base()?>/webAssets/images/creditCard.png" alt="Pago con tarjeta">
+                <img class="img-responsive" src="<?=Url::base()?>/webAssets/images/creditCard.png" alt="Contribución con tarjeta">
             </a>
         </div>
       </div>
@@ -105,7 +105,7 @@ $this->params['modales'] = '
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Pago con tarjeta</h4>
+        <h4 class="modal-title">Contribución con tarjeta</h4>
       </div>
       <div class="modal-body">
         
