@@ -487,3 +487,47 @@ p
 				@extend .bold
 
 
+/**/
+.form-control,
+input,
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select
+	+respond-to(tl)
+		font-size: 16px!important
+	+respond-to(tp)
+		font-size: 16px!important
+	+respond-to(sl)
+		font-size: 16px!important
+	+respond-to(sp)
+		font-size: 16px!important
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+	input[type="email"]:hover,
+	input[type="number"]:hover,
+	input[type="search"]:hover,
+	input[type="text"]:hover,
+	input[type="tel"]:hover,
+	input[type="url"]:hover,
+	input[type="password"]:hover,
+	textarea:hover,
+	select:hover
+		font-size: initial
+
+@media (min-width: 768px)
+	input[type="email"]:hover,
+	input[type="number"]:hover,
+	input[type="search"]:hover,
+	input[type="text"]:hover,
+	input[type="tel"]:hover,
+	input[type="url"]:hover,
+	input[type="password"]:hover,
+	textarea:hover,
+	select:hover
+		font-size: inherit
