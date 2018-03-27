@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Url;
+use app\config\Config;
 
 
 $this->registerJsFile(
@@ -18,7 +19,7 @@ $this->registerJsFile(
 			<h5>
 			“Gracias por su donativo, en unos días recibirá en su correo electrónico el comprobante deducible”
 			</h5>
-			<a class="btn btn-success" href="https://www.figma.org.mx/">
+			<a class="btn btn-success" href="<?=Config::LIGA_INICIAL?>">
 				Ir al inicio
 			</a>
 		</div>

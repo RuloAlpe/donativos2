@@ -8,6 +8,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use yii\helpers\Url;
+use app\config\Config;
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -71,7 +72,7 @@ AppAsset::register($this);
                     <a class="navbar-brand" href="#">WebSiteName</a>
                 </div> -->
                 <ul class="nav navbar-nav">
-                    <li class="active"><a class="btn btn-gral" href="https://www.figma.org.mx/donativos/">Home</a></li>
+                    <li class="active"><a class="btn btn-gral" href="<?=Config::LIGA_INDEX?>">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if(!Yii::$app->user->isGuest){ ?>
@@ -94,7 +95,7 @@ AppAsset::register($this);
     
     
     <footer class="site-footer">
-      <a class="sponsor" target="_blank" href="https://www.figma.org.mx/site/aviso-privacidad">Aviso de privacidad</a>
+      <a class="sponsor" target="_blank" href="<?=Config::LIGA_INICIAL?>/site/aviso-privacidad">Aviso de privacidad</a>
     </footer>
    
 <?php $this->endBody() ?>
