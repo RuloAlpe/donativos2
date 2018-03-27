@@ -1,0 +1,867 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	2.0 - Usuarios
+			# Listado
+			# Crear
+			# Actualizar
+
+	-----------------------------------------------------------------------------
+	*/
+
+.bkgd-gral-mask
+	bottom: 0
+	background-color: rgba($maroon,.7)
+	left: 0
+	height: 100vh
+	position: fixed
+	right: 0
+	top: 0
+	width: 100%
+	z-index: 1
+
+.navbar-default,
+.container,
+.site-footer
+	position: relative
+	z-index: 2
+
+/*  Listado
+	======================================= */
+.page-donativo
+	// background-color: red
+	margin-top: 40px
+	+respond-to(xs)
+		margin-top: 10px
+	.panel
+		@extend .bg-trans
+		// background-color: $pink-second
+		+respond-to(sl)
+			margin: 0 20px 24px
+		h2
+			color: $white
+			@extend .block
+			font-size: 2.2rem
+			font-weight: $regular
+			margin-bottom: 24px
+			+respond-to(md)
+				font-size: 2.1rem
+			+respond-to(tl)
+				font-size: 2rem
+			+respond-to(xs)
+				font-size: 2rem
+			+respond-to(sl)
+				font-size: 1.9rem
+		
+		.panel-body
+			+respond-to(xs)
+				padding: 12px 10px
+			+respond-to(sl)
+				padding: 12px 8px
+			input[type="checkbox"]
+				background-color: red
+				position: absolute
+				z-index: -2
+
+		.panel-bg
+			@extend .bkgd-image
+			border-radius: 4px
+			height: 250px
+			width: 100%
+			+respond-to(xs)
+				height: 170px
+			+respond-to(tp)
+				height: 150px
+			+respond-to(sl)
+				height: 130px
+			&.pabel-bg-unico
+				background-image: url(../images/bkgd-unico.jpg)
+			&.pabel-bg-apadrinar
+				background-image: url(../images/bkgd-apadrinar.jpg)
+	
+	.title-gral
+		.donar-costo
+			color: $red
+		small
+			color: $red
+	
+	.donativo-slider
+		margin-bottom: 40px
+		position: relative
+		.ui-slider-handle,
+		.ui-state-default
+			background-color: $red
+
+
+/*  Login y Registro
+	======================================= */
+.registro-int
+	padding: 20px 0 60px
+	+respond-to(sl)
+		margin: 0 auto
+        width: 90%
+	h2
+		color: $white
+		font-size: 1.8rem
+		font-weight: $bold
+		text-align: center
+		margin: 0 auto 40px
+		max-width: 90%
+		width: 440px
+		+respond-to(xs)
+			font-size: 1.75rem
+			width: 80%
+		+respond-to(sl)
+			font-size: 1.7rem
+        	width: 90%
+    
+
+.ent-usuarios-form
+	background-color: $pink-second
+	border-radius: 8px
+	margin: 0 auto
+	width: 340px
+	padding: 40px 34px
+	+respond-to(xs)
+        width: 80%
+	+respond-to(sl)
+        padding: 40px 20px
+        min-width: 90%
+        width: 90%
+    
+
+	.form-group
+		width: 100%
+
+		.help-block
+			color: $red
+			font-size: 1.1rem
+			margin-top: 4px
+			padding-left: 16px
+
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"]
+		color: #8D2326
+		border-color: #fff
+		font-size: 1.4rem
+		font-weight: 400
+		padding: 4px 12px
+		text-align: left
+		width: 100%
+		+placeholder
+			color: #AAA
+		+respond-to(sl)
+			+placeholder
+				opacity: 1
+
+	.form-group
+		.btn-primary, 
+		.btn-success
+			background-color: $red
+			border-color: $red
+			font-family: "Source Sans Pro",sans-serif
+			font-weight: 300
+			font-size: 1.45rem
+			margin-top: 30px
+			width: 100%
+			&:active,
+			&:active:focus,
+			&:focus,
+			&:hover
+				background-color: $yellow-second
+				border-color: $yellow-second
+				color: $red
+				margin-top: 30px
+				outline: none
+				width: 100%
+
+	.login-link
+		color: $red
+		font-size: 1.3rem
+		text-align: right
+		text-decoration: underline
+
+/*  Forma de pago
+	======================================= */
+.donativos-wrapper
+	+respond-to(sl)
+		padding: 0 32px
+
+	.tipos-de-pago-content
+		height: auto
+		padding-bottom: 80px
+
+		h3
+			font-weight: 600
+			width: 400px
+
+		.tipos-de-pago
+			background-color: rgba(69,21,24,.8)
+			max-width: 90%
+			padding: 30px 40px
+			width: auto
+
+			.pagocard
+				.btn-tipo-de-pago
+    				background-color: $yellow-second
+
+				.caption
+					font-size: 1rem
+					font-style: normal
+					font-weight: 300
+
+
+			.pagocard
+				display: flex
+				justify-content: center
+				margin: 0
+				width: 100%
+
+				div
+					&:hover
+    					cursor: pointer
+
+					&:nth-child(2)
+    					margin-left: 20px
+
+
+		.open-pay
+			margin-top: 80px
+
+			span
+				color: #fff
+				display: block
+				margin-bottom: 20px
+				text-align: center
+
+			img
+    			width: 350px
+
+
+
+	.btn-boletos
+		background-color: #E26666
+		font-size: .9rem
+		text-transform: uppercase
+
+		&:active,
+		&:active:focus,
+		&:hover,
+		&:focus
+			background-color: $yellow-second
+			color: #E26666
+			outline: none
+
+
+	.donativos-content
+		height: auto
+		padding-bottom: 80px
+
+
+		.title
+			margin: 0 0 60px
+
+			.title-lg
+				display: block
+				font-size: 2rem
+				font-weight: 700
+				margin: 0 auto
+				text-transform: uppercase
+
+			.title-xs
+				display: block
+				font-size: 1.3rem
+				font-weight: 600
+				margin: 0 auto
+
+
+		.tarjetas-wrapper
+			flex-wrap: wrap
+			justify-content: flex-start
+			margin: 0 auto
+			max-width: 1024px
+			width: 90%
+
+			.tarjeta
+				background-color: transparent
+				margin: 0
+				margin-right: 3%
+				width: 31.31%
+
+				.tarjeta-int
+					background-color: $pink-second
+					border-radius: 4px
+					width: 100%
+
+				&:nth-child(3n + 3)
+    				margin-right: 0
+
+				.header
+   					color: #fff
+
+				.monto
+					color: #8D2326
+
+					.currency
+						font-size: 1.6rem
+						margin-top: -2px
+
+					.cantidad
+    					font-size: 5rem
+
+					.moneda
+    					font-size: .95rem
+
+
+				form
+    				width: 100%
+
+/**/
+.donativos-wrapper
+
+	.panel
+		.panel-body
+			a
+				img
+					margin: auto
+
+	.donativos-content
+		.custom-amount-wrapper
+			background-color: rgba(69,21,24,.8)
+			height: auto
+			margin-top: 80px
+			padding: 30px 0 60px
+
+			.custom-bar
+				max-width: 90%
+				padding: 10px 20px
+				width: 740px
+
+				.header
+    				color: #8D2326
+
+				.monto
+					margin: 0
+					width: auto
+
+				.monto
+					.currency
+						font-size: 1.4rem
+						margin: 12px 8px 16px 0
+
+					.currency,
+					.moneda
+    					color: #8D2326
+
+					.input-monto,
+					input[type="text"]
+						color: #8D2326
+						border-color: #fff
+						font-size: 1.85rem
+						font-family: "Source Sans Pro",sans-serif
+						font-weight: 400
+						max-width: 100%
+						padding: 4px 12px
+						text-align: right
+						width: 280px
+
+
+		.tarjetas-wrapper
+			.tarjeta
+				.btn-donativo
+					background-color: $red
+		.custom-amount-wrapper
+			.custom-bar
+				background-color: $yellow-second
+				.btn_nuevo_monto
+    				background-color: $red
+
+
+/*  Gracias
+	======================================= */
+.container-gracias
+	// background-color: red
+	.boletos-content
+		display: flex
+		margin: 80px auto 60px
+		justify-content: center
+		padding: 0 0 80px 0
+		margin-top: 0px
+
+	.boletos-int
+		align-items: center
+		background-color: rgba(69,21,24,.8)
+		display: flex
+		flex-direction: column
+		justify-content: center
+		max-width: 90%
+		padding: 40px
+		width: 510px
+
+		i
+			color: $white
+			font-size: 8rem
+			margin-bottom: 20px
+
+		h2
+			color: $white
+			font-size: 2.4rem
+			font-weight: 300
+			text-align: center
+			span
+				font-size: 2.45rem
+				font-weight: 700
+
+		h5
+			color: $white
+			font-size: 1.65rem
+			font-weight: 300
+			margin-bottom: 32px
+
+		.boletos-int-btn
+			background-color: $red
+			color: #FFF
+			text-transform: uppercase
+
+			&:active,
+			&:active:focus,
+			&:hover,
+			&:focus
+				background-color: $yellow-second
+				color: #E26666
+
+
+
+/*  Mis donaciones
+	======================================= */
+.donativos-wrapper
+	.btn-inicio
+		right: 180px
+		right: 24px
+
+.mis-donaciones-content
+	align-items: center
+	padding-bottom: 80px
+	display: flex
+	flex-direction: column
+	width: 100%
+
+	h3
+		margin: 80px 0 60px
+		text-align: center
+
+
+
+	.donaciones-table
+		background-color: white
+		background-color: red
+		border-radius: 4px
+		display: flex
+		flex-direction: column
+		justify-content: flex-start
+		margin: 0 auto
+		max-width: 90%
+		overflow: hidden
+		width: 1024px
+
+
+		.donaciones-head,
+		.donaciones-row
+			display: flex
+			justify-content: flex-start
+			width: 100%
+
+		.donaciones-head
+			background-color: $pink-second
+			color: #fff
+
+
+		.donaciones-row
+			background-color: #fff
+			border-bottom: 1px solid #eee
+
+		.donaciones-row:nth-child(odd)
+    		background-color: #f7f7f7
+
+
+		.donaciones-head
+			p
+				font-weight: 500
+
+		.donaciones-head,
+		.donaciones-row
+			p
+    			padding: 10px 12px
+
+			.donaciones-monto
+				width: 24%
+				text-overflow: ellipsis
+				white-space: nowrap
+				overflow: hidden
+
+	.btn.btn-haz-donativo
+		margin-top: 40px
+
+.donativos-wrapper
+		.btn-boletos.boton-salir
+			left: 24px
+			right: auto !important
+
+
+.mis-donaciones-content
+	.donaciones-table
+		.donaciones-head,
+		.donaciones-row
+			.donaciones-transaccion
+				width: 44%
+				text-overflow: ellipsis
+				white-space: nowrap
+				overflow: hidden
+
+			.donaciones-fecha
+				width: 32%
+				text-overflow: ellipsis
+				white-space: nowrap
+				overflow: hidden
+
+/** ==========================
+	* Conentendor Principal
+	=============================
+	**/
+.donaciones-accordion 
+	padding-left: 0
+
+.donaciones-accordion-head,
+.donaciones-accordion 
+	width: 100%
+	margin: 0 auto
+	border-radius: 4px
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 5px 0 rgba(0, 0, 0, 0.12)
+	display: flex
+	flex-wrap: wrap
+
+	.donaciones-accordion__list 
+		background-color: #FFF
+		list-style: none
+		width: 100%
+
+		&:nth-child(odd)
+			background-color: #f7f7f7
+
+		.header 
+			align-content: center
+			background-color: $pink-second
+			font-size: 0.85em
+			font-weight: 700
+			display: flex
+			justify-content: flex-start
+			width: 100%
+			position: relative
+
+		.link 
+			align-items: center
+			font-size: 0.85em
+			font-weight: 700
+			cursor: pointer
+			border-bottom: 1px solid #e7e7e6
+			display: flex
+			justify-content: flex-start
+			width: 100%
+			position: relative
+			-webkit-transition: all 0.4s ease
+			-moz-transition: all 0.4s ease
+			-moz-transition: all 0.4s ease
+			-o-transition: all 0.4s ease
+			transition: all 0.4s ease
+
+		.header,
+		.link
+			.donaciones-datos,
+			.donaciones-monto,
+			.donaciones-fecha,
+			.donaciones-tipo,
+			.donaciones-facturar,
+			.donaciones-recurrencia
+				font-size: 1.2rem
+				padding: 10px 12px
+				font-weight: 500
+
+			.donaciones-datos,
+			.donaciones-monto,
+			.donaciones-fecha,
+			.donaciones-tipo,
+			.donaciones-facturar,
+			.donaciones-recurrencia
+				white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
+
+
+			.donaciones-monto,
+			.donaciones-monto
+				width: 22%
+				+respond-to(xs)
+					width: 40%
+				+respond-to(tp)
+					width: 40%
+
+			.donaciones-fecha,
+			.donaciones-fecha
+				width: 16%
+				+respond-to(xs)
+					width: 40%
+				+respond-to(tp)
+					width: 40%
+
+			.donaciones-tipo,
+			.donaciones-tipo
+				width: 25%
+
+			// XS
+			.donaciones-tipo,
+			.donaciones-facturar,
+			.donaciones-recurrencia,
+			.donaciones-tipo,
+			.donaciones-facturar,
+			.donaciones-recurrencia
+				+respond-to(xs)
+					display: none
+				+respond-to(tp)
+					display: none
+
+			.donaciones-datos,
+			.donaciones-datos
+				+respond-to(xs)
+					width: 20%
+				+respond-to(tp)
+					width: 20%
+
+			.donaciones-facturar,
+			.donaciones-facturar
+				+respond-to(tp)
+					width: 15%
+
+			.donaciones-recurrencia,
+			.donaciones-recurrencia
+				width: 18%
+				+respond-to(tp)
+					text-align: center
+					width: 18%
+				.donaciones-btn-cancelar-donativo
+					margin-left: 0
+					width: 90%
+
+
+			.donaciones-facturar
+				// background-color: red
+				display: flex
+				justify-content: space-between
+				width: 18%
+				+respond-to(xs)
+					display: none
+				+respond-to(tp)
+					display: none
+				.donaciones-btn-facturar
+					margin-left: 0
+					width: 100%
+
+
+			.donaciones-recurrencia .donaciones-recurrencia-cancelada
+				color: #E26666
+
+		.header
+			.donaciones-datos,
+			.donaciones-monto,
+			.donaciones-fecha,
+			.donaciones-tipo,
+			.donaciones-facturar,
+			.donaciones-recurrencia
+				color: $white
+
+		.link
+			.donaciones-datos,
+			.donaciones-monto,
+			.donaciones-fecha,
+			.donaciones-tipo,
+			.donaciones-facturar,
+			.donaciones-recurrencia
+				color: #595959
+				
+
+		.donaciones-btn-facturar,
+		.donaciones-btn-cancelar-donativo,
+		.donaciones-facturar-pdf,
+		.donaciones-facturar-xml
+			font-size: .9rem
+			min-width: 40px
+			padding: .6rem .4rem
+			white-space: pre-wrap
+			word-wrap: break-word
+			overflow-wrap: break-word
+			width: 100%
+
+		.btn
+			&:last-child
+				margin-left: 10px
+
+
+		.donaciones-btn-facturar
+			background-color: #18ba1a
+			color: white
+
+			&:active,
+			&:focus,
+			&:hover
+				background-color: #128d14
+				color: white
+
+
+		.donaciones-btn-cancelar-donativo
+			background-color: #ff6
+			color: #555
+
+			&:active,
+			&:focus,
+			&:hover
+				background-color: #ff9
+				color: #555
+
+
+		.donaciones-facturar-pdf,
+		.donaciones-facturar-xml
+			background-color: $yellow-second
+			color: #E26666
+
+			&:active,
+			&:focus,
+			&:hover
+				background-color: #E26666
+				color: $yellow-second
+
+
+		.link__title 
+			padding: 1.5em
+			padding-left: 3em
+			position: relative
+			box-sizing: border-box
+			width: 10%
+			display: none
+			background-color: transparent
+			color: #37474F
+
+.donaciones-accordion
+	li
+		&:last-child
+			.link 
+				border-bottom: 0
+
+  
+// Dise: No iconos font-awesome
+.donaciones-accordion 
+	li
+		span.glyphicon 
+			position: absolute
+			top: 20px
+			font-size: .85em
+			color: #595959
+			transition: all 0.4s ease
+			right: 8px
+  
+
+		&.open
+			span.glyphicon
+				color: #ff5252
+				transform: rotate(180deg)
+  
+  
+// Submenu
+.donaciones-submenu 
+	display: none
+	background-color: #8D2326
+	padding: 20px
+
+
+	.donaciones-submenu-small
+		display: flex
+		justify-content: space-between
+		+respond-to(xs)
+			display: none
+		+respond-to(tp)
+			display: none
+		+respond-to(sl)
+			display: none
+
+	.donaciones-submenu-panel,
+	.donaciones-submenu-panel-row
+		display: none
+		justify-content: space-between
+		+respond-to(xs)
+			display: flex
+		+respond-to(tp)
+			display: flex
+		+respond-to(sl)
+			display: flex
+
+	.donaciones-submenu-panel
+		margin-bottom: 16px
+
+	.donaciones-submenu-panel-row
+		margin-top: 26px
+
+
+	.donaciones-submenu-small,
+	.donaciones-submenu-panel,
+	.donaciones-submenu-panel-col
+		p,
+		span
+			color: white
+			font-weight: 400
+
+	
+
+	.donaciones-submenu-panel
+		span
+			width: 140px
+
+		p
+			width: calc(100% - 140px)
+
+
+	.donaciones-submenu-panel-row
+		flex-wrap: wrap
+
+	.donaciones-submenu-panel-col
+		align-items: center
+		display: flex
+		flex-wrap: wrap
+		width: 50%
+		+respond-to(sl)
+			width: 100%
+
+		&:first-child
+			padding-right: 10px
+			+respond-to(sl)
+				margin-bottom: 20px
+				padding-right: 0
+
+		&:last-child
+			padding-left: 10px
+			+respond-to(sl)
+				padding-left: 0
+
+		p
+			display: flex
+			width: 60%
+			+respond-to(sl)
+				text-align: center
+				width: 100%
+
+		span
+			display: flex
+			width: 40%
+			+respond-to(sl)
+				margin-bottom: 12px
+				text-align: center
+				width: 100%
