@@ -1,3 +1,8 @@
+<?php
+$ligaDonativos = "https://dev.2geeksonemonkey.com/figma/donativos2/web/";
+$ligaFigma = "https://dev.2geeksonemonkey.com/figma/gestor/web";
+
+?>
 <!doctype html>
 
 <html lang="en">
@@ -41,13 +46,13 @@
   <header>
     <div class="container-1024">
 
-      <a class="logo" href="index.html">
+      <a class="logo" href="index.php">
         <img src="webassets/images/fundacion.png" alt="">
         <h1>Fundación Inés Gómez Mont Arena <span></span></h1>
       </a>
 
       <div class="menu">
-        <a href="https://www.figma.org.mx/#calendario-actividades">Programa de trabajo</a>
+        <a href="<?=$ligaFigma?>#calendario-actividades">Programa de trabajo</a>
       </div>
         
     </div>
@@ -57,7 +62,7 @@
     
     <div class="banner-texts">
       <h2>Tu puedes hacer la <span>Diferencia</span></h2>
-      <a href="https://www.figma.org.mx/donativos/web" target="_blank">Haz tu donativo</a>
+      <a href="<?=$ligaDonativos?>" target="_blank">Haz tu donativo</a>
     </div>
 
   </div>
@@ -152,7 +157,7 @@
   </div>
 
   <div class="dona">
-    <a href="https://www.figma.org.mx/donativos/web" target="_blank">Dona</a>
+    <a href="<?=$ligaDonativos?>" target="_blank">Dona</a>
   </div>
 
   <footer>
