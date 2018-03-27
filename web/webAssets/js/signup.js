@@ -4,7 +4,7 @@ $(document).ready(function(){
         
         var form = $("form");
         l = Ladda.create(this);
-        l.start();
+       // l.start();
         form.yiiActiveForm('validate', true);
         
     });
