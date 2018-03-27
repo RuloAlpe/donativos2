@@ -28,7 +28,7 @@ use yii\helpers\Url;
       
       
       <div class="form-group">
-        <?= Html::submitButton('<span class="ladda-label">Generar factura</span>', ['class' => 'btn btn-primary ladda-button', 'id' => 'js-btn-suspender-subscripcion', "data-style"=>"zoom-in"]) ?>
+        <?= Html::submitButton('<span class="ladda-label">Suspender recurrencia</span>', ['class' => 'btn btn-primary ladda-button', 'id' => 'js-btn-suspender-subscripcion', "data-style"=>"zoom-in"]) ?>
       </div>
 
     <?php ActiveForm::end(); ?>

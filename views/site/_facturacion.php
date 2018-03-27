@@ -26,7 +26,7 @@ use yii\helpers\Url;
       <?= $form->field($facturacion, 'txt_nombre')->textInput(['maxlength' => true, "placeholder"=>"Nombre"])->label("Ingresar nombre") ?>
       
       <div class="form-group">
-        <?= Html::submitButton('<span class="ladda-label">Generar factura</span>', ['class' => 'btn btn-primary ladda-button', 'id' => 'js-generar-factura', "data-style"=>"zoom-in"]) ?>
+        <?= Html::submitButton('<span class="ladda-label">Generar recibo deducible</span>', ['class' => 'btn btn-primary ladda-button', 'id' => 'js-generar-factura', "data-style"=>"zoom-in"]) ?>
       </div>
 
     <?php ActiveForm::end(); ?>
