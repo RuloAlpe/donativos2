@@ -1,6 +1,9 @@
 <?php
 $ligaDonativos = "https://dev.2geeksonemonkey.com/figma/donativos2/web/";
 $ligaFigma = "https://dev.2geeksonemonkey.com/figma/gestor/web";
+// producccion
+//$ligaDonativos = "https://www.figma.org.mx/donativos/web/";
+//$ligaFigma = "https://www.figma.org.mx/";
 
 ?>
 <!doctype html>
