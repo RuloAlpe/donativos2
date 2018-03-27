@@ -187,8 +187,8 @@ $ligaFigma = "https://dev.2geeksonemonkey.com/figma/gestor/web";
 
       <div class="footer-col">
         <h3>Escríbenos</h3>
-        <a href="mailto:contacto@figma.org.mx">
-            contacto@figma.org.mx
+        <a href="mailto:comunicacion@figma.org.mx">
+            comunicacion@figma.org.mx
           </a>
       </div>
 
@@ -199,7 +199,8 @@ $ligaFigma = "https://dev.2geeksonemonkey.com/figma/gestor/web";
       <div class="footer-aviso-privacidad">
         <h3>Aviso de Privacidad</h3>
         <p>
-          En términos de lo previsto en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares,"Fundación Inés Gómez Mont Arena, A.C.", con domicilio en Avenida Santa Fe #443 Piso 37 Oficina 101, Colonia Cruz Manca, C.P. 05349 en la Ciudad de México, es el responsable del uso y protección de sus datos personales, y al respecto le informa lo siguiente: Los datos personales recabados se utilizarán para las siguiente finalidades que son necesarias para el servicio que solicita: cumplir con aquellas obligaciones que deriven de la relación jurídica existente entre usted como titular de los datos personales y la Fundación; utilizar y/o tratar sus datos personales con fines estadísticos; utilizar y/o tratar sus datos personales con fines publicitarios y de fomento, promoción y difusión de acciones sociales; difundir, comunicar y/o publicar sus datos personales en cualquier medio de comunicación electrónico; utilizar sus datos personales como base de referencia; enviarle a su domicilio invitaciones a eventos organizados por la Fundación y evaluar la calidad de nuestro servicio, así como atender a sus opiniones, quejas y/o sugerencias. Para mayor información acerca del tratamiento y de los derechos que puede hacer valer, usted puede acceder al aviso de privacidad integral en la siguiente página web: <a href="https://www.figma.org.mx/site/aviso-privacidad" target="_blank">www.figma.org.mx/aviso-privacidad</a>
+          En términos de lo previsto en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares,"Fundación Inés Gómez Mont Arena, A.C.", con domicilio en Avenida Santa Fe #443 Piso 37 Oficina 101, Colonia Cruz Manca, C.P. 05349 en la Ciudad de México, es el responsable del uso y protección de sus datos personales, y al respecto le informa lo siguiente: Los datos personales recabados se utilizarán para las siguiente finalidades que son necesarias para el servicio que solicita: cumplir con aquellas obligaciones que deriven de la relación jurídica existente entre usted como titular de los datos personales y la Fundación; utilizar y/o tratar sus datos personales con fines estadísticos; utilizar y/o tratar sus datos personales con fines publicitarios y de fomento, promoción y difusión de acciones sociales; difundir, comunicar y/o publicar sus datos personales en cualquier medio de comunicación electrónico; utilizar sus datos personales como base de referencia; enviarle a su domicilio invitaciones a eventos organizados por la Fundación y evaluar la calidad de nuestro servicio, así como atender a sus opiniones, quejas y/o sugerencias. Para mayor información acerca del tratamiento y de los derechos que puede hacer valer, usted puede acceder al aviso de privacidad integral en la siguiente página web: 
+            <a href="<?=$ligaFigma?>/site/aviso-privacidad" target="_blank">www.figma.org.mx/aviso-privacidad</a>
         </p>
         <p>Términos y condiciones</p>
         <p>
@@ -208,7 +209,7 @@ $ligaFigma = "https://dev.2geeksonemonkey.com/figma/gestor/web";
 
         </div>
 
-      <a class="footer-author" href="index.html">
+      <a class="footer-author" href="index.php">
         <img src="webassets/images/flor.png" alt="">
         <p>Fundación Inés Gómez Mont Arena <span></span></p>
       </a>
