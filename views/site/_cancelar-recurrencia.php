@@ -21,7 +21,7 @@ use yii\helpers\Url;
     'action'=>Url::base().'/pagos/borrar-subscripcion-cliente'
     ]); ?>
 
-        <p>Es una pena que tengas que suspender este donativo. Eres un pilar muy importante para nosotros y nos gustaría saber el motivo por el cúal tomas esta desición </p>
+        <p>Es una pena que tengas que suspender este donativo. Eres un pilar muy importante para nosotros y nos gustaría saber el motivo por el cúal tomas esta decisión </p>
         <br>
       <?=Html::hiddenInput("s", "", ["id"=>"s"])?>
       <?= $form->field($subscripcion, 'txt_motivo')->textarea(['maxlength' => true, "style"=>"resize:none"])->label(false)?>

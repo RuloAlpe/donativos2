@@ -75,7 +75,7 @@ $(document).ready(function(){
 				if(r.status=="success"){
 					$(".botones-"+tr).html(r.botones);
 					$("#modal-facturacion").modal("hide");
-					swal("Recibo generado", "Se ha generado su recibo deducible ya puede descargarlo: "+r.message, "success");
+					swal("Recibo generado", "Ya puede descargarlo.", "success");
 					l.stop();
 				}else{
 					swal("Espera", "Ocurrio un problema al generar el recibo deducible: "+r.message, "warning");

@@ -17,7 +17,7 @@ $this->registerJsFile(
 			<i class="ion ion-ios-heart"></i>
 			<h2>Gracias por tu <span>donación</span></h2>
 			<h5>
-			“Gracias por su donativo, en unos días recibirá en su correo electrónico el comprobante deducible”
+			“Gracias por su donación, para poder generar tu recibo deducible da clic en ver mis donativos y posteriormente en el botón generar recibo. Cualquier duda escribenos a comunicacion@figma.org.mx”
 			</h5>
 			<a class="btn btn-success" href="<?=Config::LIGA_INICIAL?>">
 				Ir al inicio
