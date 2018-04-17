@@ -55,7 +55,7 @@ $ligaFigma = "https://dev.2geeksonemonkey.com/figma/gestor/web";
       </a>
 
       <div class="menu">
-        <a href="<?=$ligaFigma?>#calendario-actividades">Programa de trabajo</a>
+        <a href="<?=$ligaFigma?>site/calendario-actividades">Programa de trabajo</a>
       </div>
         
     </div>
