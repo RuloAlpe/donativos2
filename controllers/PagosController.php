@@ -667,5 +667,12 @@ class PagosController extends Controller
 
 			return Yii::$app->response->sendFile($file);
 		}
+
+		
+	}
+
+	public function actionTestB($idCustomer, $idSubscripcion){
+		$pago = new Pagos();
+		$pago->borrarSubscripcion($usuario->txt_usuario_open_pay, $ids);
 	}
 }
