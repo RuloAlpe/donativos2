@@ -18,10 +18,9 @@ $(document).ready(function(){
 
 $(document).on({
     'click': function(e){
-        e.preventDefault();	
-        $(".print-area").printArea();
+        e.preventDefault();
 
-        
+        $(".print-area").printArea();
         
     }
 }, ".print-btn");

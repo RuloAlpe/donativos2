@@ -7,7 +7,7 @@
 		"uuidString": "E8CCF067-D5B5-4601-8DD3-199AE0766E54"
 		}
 	],
-"creatorBuild": "26330",
+"creatorBuild": "26680",
 "files": {
 	"\/_basic.sass": {
 		"aP": 0,
@@ -291,7 +291,8 @@
 	"creationDate": 542218432,
 	"displayValue": "figma portal - sass",
 	"displayValueWasSetByUser": 1,
-	"iconImageName": "brackets_purple"
+	"iconImageName": "brackets_purple",
+	"iconImageWasSetByUser": 0
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2094,6 +2095,7 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
+		"outputFormat": 0,
 		"quality": 100
 		},
 	"languageDefaultsJS": {
