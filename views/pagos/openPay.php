@@ -16,6 +16,9 @@ $date = date("Y-m-d",$date);
 <div class="modal-ticket-op-cont">
   <div class="print-area">
     
+    <div class="modal-paynet">
+      <img src="<?=Url::base()?>/webAssets/images/logo-paynet.png" alt="Paynet">
+    </div>
     <div class="cargo-total">
       <p>Total a Donar</p>
       <span class="monto-total">$  <?=number_format($charger->amount)?></span>
