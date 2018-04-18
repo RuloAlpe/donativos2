@@ -53,13 +53,13 @@ class Pagos
 		// para producción hay que cambiar el valor de la variable $sandboxMode a false en el archivo OpenpayApi.php
 		
 		//$openpay = \Openpay::getInstance ( 'mxmzxkxphmwhz8hnbzu8', 'sk_a9c337fd308f4838854f422c802f4645' );
-
+		$usuario = Yii::$app->user->identity->txt_username . ' ' . Yii::$app->user->identity->txt_apellido_paterno;
+		$correo = Yii::$app->user->identity->txt_email;
 		$custom = array(
-
-			"name" => "-",
-
-			"email" => "correo@dominio.com"
+			"name" => $usuario,
+			"email" => $correo
 		);
+		
 
 		$chargeData = array(
 
