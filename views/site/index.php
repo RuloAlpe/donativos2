@@ -52,7 +52,7 @@ if (Yii::$app->user->isGuest) {
         <div class="panel card" for="test">
           <div class="panel-body text-center">
             <div class="panel-bg pabel-bg-unico"></div>
-            <h2>Hacer un donativo únicooo</h2>
+            <h2>Hacer un donativo único</h2>
           </div>
         </div>
       </div>
