@@ -288,7 +288,12 @@ a[x-apple-data-detectors=true] {
                     <div class="">
 	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 50px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
 	<div style="line-height:200%;color:#555555;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif; padding-right: 10px; padding-left: 50px; padding-top: 10px; padding-bottom: 10px;">	
-		<div style="line-height:24px;font-size:12px;color:#555555;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif;text-align:left;"><p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px"><span style="font-size: 16px; line-height: 32px;">Hiciste un <?=$tipo?> por MX $<?=$totalPagado?> pesos.</span></p><p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px"><span style="font-size: 16px; line-height: 32px;">En unos días recibiras en tu correo electrónico las instrucciones para generar tu recibo deducible.</span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left">&#160;<br></p></div>	
+		<div style="line-height:24px;font-size:12px;color:#555555;font-family:'Droid Serif', Georgia, Times, 'Times New Roman', serif;text-align:left;"><p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px"><span style="font-size: 16px; line-height: 32px;">
+    Muchas gracias por su donativo <?=$tipo?> de MX $<?=$totalPagado?> pesos.</span></p><p style="margin: 0;line-height: 24px;text-align: left;font-size: 12px">
+    <span style="font-size: 16px; line-height: 32px;">
+    En FIGMA valoramos su aportación. Es importante que sepa que como donador cuenta con un periodo de diez días para solicitar su recibo deducible de impuestos. 
+Si requiere un recibo deducible entre al portal de donativos y en la sección de "ver mis donativos" seleccione “Generar recibo deducible”.
+    </span></p><p style="margin: 0;font-size: 12px;line-height: 24px;text-align: left">&#160;<br></p></div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
 </div>
