@@ -671,8 +671,10 @@ class PagosController extends Controller
 		
 	}
 
-	public function actionTestB($idCustomer, $idSubscripcion){
+	public function actionTestB($idCustomer = null, $idSubscripcion = null){
 		$pago = new Pagos();
+		$idCustomer = ""; 
+		$idSubscripcion = "";
 		$pago->borrarSubscripcion($usuario->txt_usuario_open_pay, $ids);
 	}
 }

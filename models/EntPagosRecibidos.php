@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use app\modules\ModUsuarios\models\EntUsuarios;
+use app\modules\ModUsuarios\models\Utils;
 /**
  * This is the model class for table "ent_pagos_recibidos".
  *
@@ -31,6 +32,7 @@ use app\modules\ModUsuarios\models\EntUsuarios;
  */
 class EntPagosRecibidos extends \yii\db\ActiveRecord
 {
+    const NUM_DIAS_PUEDE_FACTURAR = 10;
     /**
      * @inheritdoc
      */
@@ -82,6 +84,19 @@ class EntPagosRecibidos extends \yii\db\ActiveRecord
             'verify_sign' => 'Verify Sign',
             'fch_pago' => 'Fch Pago',
         ];
+    }
+
+    public function getPuedeFacturar(){
+        $fechaPago = date_create($this->fch_pago);
+        $fechaActual = date_create(Utils::getFechaActual());
+        $diferencia=date_diff($fechaPago,$fechaActual);
+        $numDias =  $diferencia->format("%a");
+        if($numDias>self::NUM_DIAS_PUEDE_FACTURAR){
+            return false;
+        }else{
+            return true;
+        }
+        
     }
 
     /**
