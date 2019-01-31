@@ -67,9 +67,12 @@ $this->registerJsFile(
           }
 
           // Se revisa si el pago ya ha sido facturado
-          if(!$donacion->b_facturado && $donacion->puedeFacturar){
-            $btnGenerarFactura = '<button class="btn donaciones-btn-facturar js-generar-factura" id="facturar-'.$donacion->txt_transaccion.'" data-token="'.$donacion->txt_transaccion.'">Generar recibo deducible</button>';
+          if(!$donacion->b_facturado){
+            if($donacion->puedeFacturar){
+              $btnGenerarFactura = '<button class="btn donaciones-btn-facturar js-generar-factura" id="facturar-'.$donacion->txt_transaccion.'" data-token="'.$donacion->txt_transaccion.'">Generar recibo deducible</button>';
             // $btnGenerarFactura = '<a class="btn donaciones-facturar-pdf">PDF</a> <a class="btn donaciones-facturar-xml">XML</a>';
+            }
+            
           }else{
             $btnGenerarFactura = '<a class="btn donaciones-facturar-pdf js-descargar-pdf" target="_blank" href='.Url::base().'/pagos/descargar-factura-pdf?token='.$donacion->txt_transaccion.'>PDF</a> 
             <a href='.Url::base().'/pagos/descargar-factura-xml?token='.$donacion->txt_transaccion.' target="_blank" class="btn donaciones-facturar-xml js-descargar-xml">XML</a>';
